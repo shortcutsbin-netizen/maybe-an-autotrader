@@ -1,0 +1,1 @@
+{"name": "trades-002", "script": "kalshi_trades_pull.py", "tickers_file": "research/collect/requests/lists_crypto_sample_days.txt", "historical": false, "pause": 0.12, "max_pages": 12}
