@@ -1,0 +1,38 @@
+rows fit=264014 thr=71844 eval[val]=106340  days fit=2026-09-13..2026-10-11 thr=2026-10-12..2026-10-19 eval=2026-10-20..2026-10-31
+
+== forecast skill on eval (lower is better)
+model       brier  logloss   by minutes_left brier: 1-2 | 3-7 | 8-14
+mid       0.13562  0.41363   0.06418 | 0.11911 | 0.18140
+p_base    0.13900  0.42406   0.07572 | 0.12241 | 0.18201
+lr_ext    0.13839  0.42134   0.07475 | 0.12137 | 0.18205
+lr_mkt    0.13562  0.41380   0.06425 | 0.11905 | 0.18144
+lr_all    0.13509  0.41188   0.06380 | 0.11849 | 0.18091
+gb_ext    0.13931  0.42408   0.07465 | 0.12201 | 0.18367
+gb_all    0.13615  0.41527   0.06428 | 0.11950 | 0.18224
+per-series brier (mid / gb_all / gb_ext):
+  KXBNB15M   0.13455 / 0.13344 / 0.14253
+  KXBTC15M   0.14181 / 0.14271 / 0.14475
+  KXDOGE15M  0.13419 / 0.13374 / 0.13694
+  KXETH15M   0.13507 / 0.13592 / 0.13809
+  KXHYPE15M  0.13231 / 0.13225 / 0.13624
+  KXNEAR15M  0.13938 / 0.14095 / 0.14444
+  KXSOL15M   0.13290 / 0.13296 / 0.13465
+  KXXRP15M   0.13540 / 0.13726 / 0.13927
+  KXZEC15M   0.13493 / 0.13603 / 0.13683
+
+== trading the disagreement (cents per contract; threshold chosen on held-back train days, cons. fill)
+p_base  thr=0.08 (thr-days cons EV -0.91c) | eval: disp n=16455 ev=+2.72c [+1.28,+4.18] win=30% | cons n=16455 ev=+1.87c [+0.43,+3.34] win=30% | delay n=14816 ev=-0.21c [-1.58,+1.24] win=31% | 
+lr_ext  thr=0.08 (thr-days cons EV +0.17c) | eval: disp n=12126 ev=+3.03c [+1.52,+4.56] win=41% | cons n=12126 ev=+2.10c [+0.59,+3.62] win=41% | delay n=10787 ev=-0.90c [-2.10,+0.43] win=43% | 
+gb_ext  thr=0.08 (thr-days cons EV -0.27c) | eval: disp n=14719 ev=+1.71c [+0.60,+2.96] win=41% | cons n=14719 ev=+0.77c [-0.34,+2.02] win=41% | delay n=13365 ev=-1.66c [-2.59,-0.62] win=42% | 
+lr_all  thr=0.08 (thr-days cons EV +7.49c) | eval: disp n=679 ev=+11.73c [+6.22,+17.45] win=56% | cons n=679 ev=+10.64c [+5.11,+16.34] win=56% | delay n=417 ev=+1.79c [-1.88,+6.49] win=61% | 
+gb_all  thr=0.08 (thr-days cons EV +0.81c) | eval: disp n=2757 ev=-0.59c [-3.41,+2.31] win=41% | cons n=2757 ev=-1.61c [-4.42,+1.27] win=41% | delay n=2533 ev=-4.12c [-6.38,-1.96] win=41% | 
+   gb_all cons by series: {'KXBNB15M': (629, np.float64(3.14)), 'KXBTC15M': (232, np.float64(-6.18)), 'KXDOGE15M': (380, np.float64(2.42)), 'KXETH15M': (212, np.float64(-3.0)), 'KXHYPE15M': (424, np.float64(2.69)), 'KXNEAR15M': (252, np.float64(-11.91)), 'KXSOL15M': (213, np.float64(0.46)), 'KXXRP15M': (225, np.float64(-14.04)), 'KXZEC15M': (190, np.float64(-1.75))}
+   gb_all cons by minutes_left: {1: (218, np.float64(4.11)), 2: (209, np.float64(4.51)), 3: (229, np.float64(1.82)), 4: (256, np.float64(-0.62)), 5: (247, np.float64(-5.38)), 6: (226, np.float64(-0.85)), 7: (288, np.float64(-5.32)), 8: (252, np.float64(-6.65)), 9: (260, np.float64(-2.79)), 10: (271, np.float64(-0.9)), 11: (301, np.float64(-2.76))}
+
+== gb_all, every threshold, eval split (shown for transparency; selection used thr-days only)
+  thr=0.00 n=72613 cons=-0.64c [-1.31,-0.04] delay=-1.26c
+  thr=0.01 n=41489 cons=-0.81c [-1.78,+0.06] delay=-1.57c
+  thr=0.02 n=26953 cons=-0.94c [-2.08,+0.08] delay=-1.87c
+  thr=0.03 n=17652 cons=-0.81c [-2.02,+0.25] delay=-1.91c
+  thr=0.05 n=8040 cons=-0.83c [-2.81,+0.88] delay=-2.59c
+  thr=0.08 n=2757 cons=-1.61c [-4.42,+1.27] delay=-4.12c

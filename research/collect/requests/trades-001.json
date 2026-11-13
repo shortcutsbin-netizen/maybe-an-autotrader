@@ -1,0 +1,1 @@
+{"name": "trades-001", "script": "kalshi_trades_pull.py", "tickers_file": "research/collect/requests/lists_e003_signal_markets.txt", "pause": 0.15}

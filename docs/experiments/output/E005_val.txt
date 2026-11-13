@@ -1,0 +1,40 @@
+kalshi events=1988 espn games=1592 matched markets=2654 (games=1325)
+  unmatched mlb: 4 e.g. ['BAL/NYY', 'BAL/TOR', 'BOS/CHC', 'CLE/TB']
+  unmatched nba: 1 e.g. ['LIO/POR']
+  unmatched ncaaf: 656 e.g. ['AAMU/ALST', 'AAMU/COOK', 'AAMU/FAMU', 'AAMU/GRAM', 'AAMU/JKST', 'AAMU/PV', 'AAMU/TNST', 'AC/CARK', 'AC/IDHO', 'AC/MER', 'AC/SFA', 'AC/TARL', 'AC/UNA', 'AC/UWFL', 'AC/UWGA', 'AKR/KENT', 'AKR/MOH', 'ALA/SCAR', 'ALA/TXAM', 'ALBY/BRY', 'ALBY/CAMP', 'ALBY/DSU', 'ALBY/LIU', 'ALBY/MONM', 'ALBY/PRIN']
+
+== A. pre-game (5 min before start), split=val: markets=418 games=209 days=12
+   mean spread 1.00c; book vig 4.27%; volume/market median 1,368,169
+   Brier: kalshi mid 0.21882 | book close (de-vigged) 0.21901 | book open 0.22491
+   mean |kalshi mid - book close| = 0.77 pts; corr 0.9980
+   mlb    n=   12 brier kalshi 0.21309 book 0.21124 spread 1.00c |diff| 0.39
+   nba    n=  162 brier kalshi 0.19543 book 0.19450 spread 1.00c |diff| 0.84
+   ncaaf  n=   52 brier kalshi 0.24219 book 0.24488 spread 1.00c |diff| 1.04
+   nfl    n=   32 brier kalshi 0.21039 book 0.21159 spread 1.00c |diff| 0.91
+   nhl    n=  160 brier kalshi 0.23701 book 0.23749 spread 1.01c |diff| 0.62
+   calibration by Kalshi price:
+     (0.0, 0.2]   n=   18 mid= 15.5 win= 22.2 err=+6.72 [-5.14,+27.83]  take-YES EV=+5.29c [-6.52,+26.35]
+     (0.2, 0.35]  n=   52 mid= 29.2 win= 28.8 err=-0.38 [-9.44,+10.40]  take-YES EV=-2.33c [-11.42,+8.43]
+     (0.35, 0.5]  n=  139 mid= 43.2 win= 38.1 err=-5.05 [-11.87,+1.72]  take-YES EV=-7.26c [-14.08,-0.50]
+     (0.5, 0.65]  n=  139 mid= 56.9 win= 61.9 err=+4.97 [-1.82,+11.94]  take-YES EV=+2.78c [-4.03,+9.75]
+     (0.65, 0.8]  n=   52 mid= 70.8 win= 71.2 err=+0.38 [-10.39,+9.73]  take-YES EV=-1.54c [-12.32,+7.76]
+     (0.8, 1.0]   n=   18 mid= 84.6 win= 77.8 err=-6.83 [-27.89,+5.01]  take-YES EV=-8.21c [-29.29,+3.73]
+   logistic on train: coef kalshi=-0.682 book=1.929 (does the book add information beyond the Kalshi price?)
+   combined-model Brier on val: 0.21847
+   B. rule: buy YES when (book prob - ask - fee) > threshold
+
+== D. in-game trend, split=val: quote-minutes=50854 markets=418
+   mean (outcome - mid) by size of the last 5-minute move; negative after up-moves = overreaction
+     d5 (-1.0, -0.15]    n=   1827 resid=-2.57 [-5.12,-0.44] | take YES -4.60c [-7.12,-2.43] | take NO +0.57c [-1.56,+3.16]
+     d5 (-0.15, -0.08]   n=   3375 resid=-0.05 [-1.63,+1.26] | take YES -2.00c [-3.56,-0.69] | take NO -1.88c [-3.20,-0.30]
+     d5 (-0.08, -0.03]   n=   7244 resid=-0.49 [-2.07,+1.07] | take YES -2.37c [-3.96,-0.82] | take NO -1.38c [-2.96,+0.18]
+     d5 (-0.03, 0.03]    n=  26196 resid=+0.06 [-0.13,+0.23] | take YES -1.78c [-1.98,-1.59] | take NO -1.89c [-2.05,-1.71]
+     d5 (0.03, 0.08]     n=   7019 resid=+0.36 [-0.94,+1.94] | take YES -1.52c [-2.85,+0.06] | take NO -2.24c [-3.81,-0.95]
+     d5 (0.08, 0.15]     n=   3392 resid=+0.34 [-0.99,+1.79] | take YES -1.60c [-2.93,-0.13] | take NO -2.29c [-3.74,-0.97]
+     d5 (0.15, 1.0]      n=   1801 resid=+2.29 [+0.19,+5.14] | take YES +0.27c [-1.81,+3.16] | take NO -4.34c [-7.12,-2.24]
+   by league, |d5| > 0.08: fade (take the side that just fell)
+     mlb    n=   301 fade -3.16c [-13.76,+1.41] | follow -0.57c [-5.35,+10.75]
+     nba    n=  4485 fade -1.78c [-3.31,-0.53] | follow -2.06c [-3.30,-0.49]
+     ncaaf  n=  1616 fade -2.85c [-7.08,-0.08] | follow -1.03c [-3.89,+3.25]
+     nfl    n=   885 fade -6.22c [-8.41,+2.55] | follow +2.45c [-5.87,+4.76]
+     nhl    n=  3107 fade -3.76c [-6.06,-2.14] | follow -0.44c [-2.17,+2.00]
