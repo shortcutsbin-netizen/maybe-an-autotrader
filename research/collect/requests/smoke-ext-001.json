@@ -1,0 +1,4 @@
+{"name": "smoke-ext-001", "script": "ext_pull.py", "start": "2026-11-06", "end": "2026-11-09",
+ "weather": {"stations": {"NY": {"iem": "NYC", "lat": 40.779, "lon": -73.969}}, "models": ["gfs_seamless", "ecmwf_ifs025", "icon_seamless", "gem_seamless", "ncep_nbm_conus"], "one_minute": true},
+ "sports": {"leagues": {"nfl": "football/nfl", "nba": "basketball/nba"}},
+ "news": {"queries": {"btc": "bitcoin"}}}
