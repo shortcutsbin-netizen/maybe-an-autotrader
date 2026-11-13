@@ -1,0 +1,5 @@
+[     4.6s] weather NY: {'metar_rows': 128, 'asos1min_rows': 5760, 'fcst_rows': 120}
+[     9.6s] sports nfl: {'games': 14, 'with_odds': 14}
+[    17.9s] sports nba: {'games': 31, 'with_odds': 31}
+[   928.4s] news btc: 71 buckets
+[   928.4s] done requests=75 errors=2

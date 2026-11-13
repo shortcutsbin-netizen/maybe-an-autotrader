@@ -1,0 +1,7 @@
+[     0.6s] KXNFLGAME: 28 markets (0 hist)
+[     1.0s] KXNFLGAME candles: event 1/14 rows=1080 errors=0
+[     6.3s] KXNFLGAME: done {'markets': 28, 'candle_rows': 15029, 'markets_without_candles': 0}
+[     6.7s] KXNBAGAME: 50 markets (0 hist)
+[     7.0s] KXNBAGAME candles: event 1/25 rows=1080 errors=0
+[    17.5s] KXNBAGAME: done {'markets': 50, 'candle_rows': 25809, 'markets_without_candles': 0}
+[    17.5s] done requests=42 errors=0

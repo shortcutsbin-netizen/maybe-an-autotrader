@@ -1,0 +1,72 @@
+{
+ "request": {
+  "name": "smoke-ext-001",
+  "script": "ext_pull.py",
+  "start": "2026-11-06",
+  "end": "2026-11-09",
+  "weather": {
+   "stations": {
+    "NY": {
+     "iem": "NYC",
+     "lat": 40.779,
+     "lon": -73.969
+    }
+   },
+   "models": [
+    "gfs_seamless",
+    "ecmwf_ifs025",
+    "icon_seamless",
+    "gem_seamless",
+    "ncep_nbm_conus"
+   ],
+   "one_minute": true
+  },
+  "sports": {
+   "leagues": {
+    "nfl": "football/nfl",
+    "nba": "basketball/nba"
+   }
+  },
+  "news": {
+   "queries": {
+    "btc": "bitcoin"
+   }
+  }
+ },
+ "started_utc": "2026-11-13T17:48:39.452071+00:00",
+ "weather": {
+  "NY": {
+   "metar_rows": 128,
+   "asos1min_rows": 5760,
+   "fcst_rows": 120
+  }
+ },
+ "sports": {
+  "nfl": {
+   "games": 14,
+   "with_odds": 14
+  },
+  "nba": {
+   "games": 31,
+   "with_odds": 31
+  }
+ },
+ "news": {
+  "btc": 71
+ },
+ "finished_utc": "2026-11-13T18:04:07.833074+00:00",
+ "http_requests": 75,
+ "error_count": 2,
+ "errors_first_50": [
+  "gdelt btc timelinevolraw 2026-11-06: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt btc timelinevolraw 2026-11-09: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the"
+ ],
+ "sha256": {
+  "news/btc.csv.gz": "59bb507597b699eea7781b469d84f30137f94faa4f7c98729facc0a2026310b7",
+  "weather/fcst_NY.csv.gz": "d102fc96912b24de6b44e1328cb3e219c2aa2e4a05337c6100e42e181e5f0cd2",
+  "weather/metar_NY.csv.gz": "058a2bdc13efe68733273a2a8abb82b8bb9c6c8a43a1f44cbfec76a005592ed2",
+  "weather/asos1min_NY.csv.gz": "1b274b3b5c2b07c1691ac6fd39284a8651b376299a28b1f800ff0ad98c364a60",
+  "sports/games_nba.csv.gz": "de4075752f76c3394edb1dc7123c6ecab351682c266fb374a429c1e6e7eb8240",
+  "sports/games_nfl.csv.gz": "c6b2cbd37b62b1ebca8cd1779205ba7b224b539f6cfc5f5d24cb5ce23db5fc67"
+ }
+}

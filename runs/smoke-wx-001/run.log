@@ -1,0 +1,4 @@
+[     1.3s] KXHIGHNY: 42 markets (0 hist)
+[     2.4s] KXHIGHNY candles: event 1/7 rows=1191 errors=0
+[     9.0s] KXHIGHNY: done {'markets': 42, 'candle_rows': 8369, 'markets_without_candles': 0}
+[     9.0s] done requests=17 errors=0

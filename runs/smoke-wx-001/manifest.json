@@ -1,0 +1,42 @@
+{
+ "request": {
+  "name": "smoke-wx-001",
+  "script": "kalshi_events_pull.py",
+  "series": [
+   "KXHIGHNY"
+  ],
+  "start": "2026-09-09T00:00:00Z",
+  "end": "2026-09-16T00:00:00Z",
+  "historical": true,
+  "lookback_hours": 40,
+  "resample_min": 10,
+  "pause": 0.2
+ },
+ "started_utc": "2026-11-13T18:04:25Z",
+ "source": "https://api.elections.kalshi.com/trade-api/v2",
+ "series": {
+  "KXHIGHNY": {
+   "markets": 42,
+   "candle_rows": 8369,
+   "markets_without_candles": 0
+  }
+ },
+ "historical_cutoff": {
+  "market_positions_last_updated_ts": "2026-09-13T00:00:00Z",
+  "market_settled_ts": "2026-09-13T00:00:00Z",
+  "orders_updated_ts": "2026-10-29T00:00:00Z",
+  "trades_created_ts": "2026-09-13T00:00:00Z"
+ },
+ "finished_utc": "2026-11-13T18:04:34Z",
+ "http_requests": 17,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/markets_hist_KXHIGHNY.json": "7a4aa4f56c032817c8482ddba81623a0dfa4b54292b0403bd4ba796ddadb6ffe",
+  "samples/candles_batch_KXHIGHNY.json": "857d49da591b39399c911ef23b550b9e602caa7182781456af07d111081ee621",
+  "samples/markets_live_KXHIGHNY.json": "2d425dcaf89991e9be21ac7edf6a94bbb05fadeba9615de829b191367917da52",
+  "candles/KXHIGHNY.csv.gz": "fd54a884a638d95b59d421f5b0336d6a0e47b91ec3ef73803c5e20b710cb1399",
+  "markets/KXHIGHNY.csv.gz": "9c7c815dc848ceb494c233b63d8b912b0d0ce5a420fe03da08161998b0b37977"
+ }
+}
