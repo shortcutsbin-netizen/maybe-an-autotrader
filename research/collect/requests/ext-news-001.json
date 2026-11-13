@@ -1,0 +1,2 @@
+{"name": "ext-news-001", "script": "ext_pull.py", "start": "2026-09-12", "end": "2026-11-13",
+ "news": {"queries": {"btc": "bitcoin", "crypto": "(crypto OR cryptocurrency OR ethereum)", "macro": "(\"federal reserve\" OR inflation OR tariff)"}}}
