@@ -7,7 +7,7 @@
 | **Period** | Markets closing 2026-09-13 00:00Z → 2026-11-13 00:00Z (61 days) |
 | **Series with data** | BTC, ETH, SOL, XRP, DOGE, BNB, HYPE, NEAR, ZEC (5,785 markets each); `KXCRYPTOLEAD15M` (28,825 markets, 5 outcomes per window). **ADA, BCH, TON returned 0 markets** — listed in the catalog but not trading in this period |
 | **Rows** | 80,890 settled markets; 1,191,417 one-minute candles |
-| **Split (fixed in advance)** | train 2026-09-13→10-18 (36 days), validation 10-19→10-31 (13 days), **test 11-01→11-12 — NOT OPENED** |
+| **Split (fixed in advance)** | train 2026-09-13→10-19 (37 days), validation 10-20→10-31 (12 days), **test 11-01→11-13 00:00Z — NOT OPENED** |
 | **Code** | `research/analysis/e001_calibration.py`, `e002_favorite_side.py` |
 | **Raw output** | `docs/experiments/output/E001_trainval.txt`, `E002_train.txt`, `E002_val.txt` |
 | **Status** | Complete. **Negative result.** |
