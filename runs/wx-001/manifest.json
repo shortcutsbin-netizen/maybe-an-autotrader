@@ -1,0 +1,108 @@
+{
+ "request": {
+  "name": "wx-001",
+  "script": "kalshi_events_pull.py",
+  "series": [
+   "KXHIGHNY",
+   "KXHIGHLAX",
+   "KXHIGHCHI",
+   "KXHIGHMIA",
+   "KXHIGHAUS",
+   "KXHIGHDEN",
+   "KXHIGHPHIL"
+  ],
+  "start": "2026-05-01T00:00:00Z",
+  "end": "2026-11-13T12:00:00Z",
+  "historical": true,
+  "lookback_hours": 40,
+  "resample_min": 10,
+  "pause": 0.2
+ },
+ "started_utc": "2026-11-13T18:05:34Z",
+ "source": "https://api.elections.kalshi.com/trade-api/v2",
+ "series": {
+  "KXHIGHNY": {
+   "markets": 1182,
+   "candle_rows": 233420,
+   "markets_without_candles": 0
+  },
+  "KXHIGHLAX": {
+   "markets": 1182,
+   "candle_rows": 244934,
+   "markets_without_candles": 0
+  },
+  "KXHIGHCHI": {
+   "markets": 1182,
+   "candle_rows": 242087,
+   "markets_without_candles": 0
+  },
+  "KXHIGHMIA": {
+   "markets": 1182,
+   "candle_rows": 229449,
+   "markets_without_candles": 0
+  },
+  "KXHIGHAUS": {
+   "markets": 1182,
+   "candle_rows": 223802,
+   "markets_without_candles": 0
+  },
+  "KXHIGHDEN": {
+   "markets": 1182,
+   "candle_rows": 220900,
+   "markets_without_candles": 0
+  },
+  "KXHIGHPHIL": {
+   "markets": 1182,
+   "candle_rows": 207734,
+   "markets_without_candles": 0
+  }
+ },
+ "historical_cutoff": {
+  "market_positions_last_updated_ts": "2026-09-13T00:00:00Z",
+  "market_settled_ts": "2026-09-13T00:00:00Z",
+  "orders_updated_ts": "2026-10-29T00:00:00Z",
+  "trades_created_ts": "2026-09-13T00:00:00Z"
+ },
+ "finished_utc": "2026-11-13T18:46:56Z",
+ "http_requests": 6385,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/markets_hist_KXHIGHCHI.json": "14762f6b717098cebd4dcf6c0b22bfc4fb955bb870fbd9e1862043ef75399017",
+  "samples/markets_live_KXHIGHDEN.json": "45fb4388d5dca517f533b4637f02a38325cae0e4ca7a9bba86da6045325ae2ba",
+  "samples/candles_batch_KXHIGHAUS.json": "0a675992832a1f900e3a29151b6778712cce30e3c0e3abac8407b949107bee02",
+  "samples/markets_hist_KXHIGHNY.json": "7a4aa4f56c032817c8482ddba81623a0dfa4b54292b0403bd4ba796ddadb6ffe",
+  "samples/candles_batch_KXHIGHDEN.json": "81feabb4965af115586994e0a146323e6fc3194bb578c7585a5e2ad28375e633",
+  "samples/candles_batch_KXHIGHMIA.json": "98a14448c545373b5bb2b561a456a640bd549e27e9edb968f4ab95e6be5d2b9d",
+  "samples/markets_live_KXHIGHAUS.json": "d8815e0e6f5c714cd8077e9ccd5e0dadd581fce789659f64434fd3c5b5f58ebb",
+  "samples/markets_hist_KXHIGHLAX.json": "196ce520aaabab6abbb09f50d95b0ebcc803e359efed034ff1aeb7314bff8fe8",
+  "samples/candles_batch_KXHIGHPHIL.json": "9f5c6e0050db266e86ed0a86e71b822e6959816d40f969f19e891d37778e783f",
+  "samples/candles_batch_KXHIGHCHI.json": "d73d21aeda5b48d006e5c5184cfcb33bb643e4d873f4af37b990e04aff0de3cd",
+  "samples/markets_hist_KXHIGHPHIL.json": "7ca81c2af0a18d1ed34124f4226594cddb7da1515df39d9110071ef9264d4ba8",
+  "samples/markets_hist_KXHIGHAUS.json": "f7a84622e4fa471017b3991c19e8108a53af14cb579a42ae33fed06ad4a1b0bc",
+  "samples/markets_hist_KXHIGHDEN.json": "30a1709f69c842b8948d241dd846c9c7b8379f2029bfbbaca29a61dd62b516b2",
+  "samples/candles_batch_KXHIGHNY.json": "d52df3eff3b48fe10a80214716b4e7133d02b16d13d0b8dd40f27b9a80bda63e",
+  "samples/markets_live_KXHIGHPHIL.json": "73055d06fc607bd4b4a19fb568b9bca47966ec39051f943f9eae1f3bde40c695",
+  "samples/markets_live_KXHIGHCHI.json": "04cd73294dbfe02aef5d9f7543af373a672e31762b71f50e35bf9f19ba4a6596",
+  "samples/markets_live_KXHIGHLAX.json": "35a913fba06824911e872536852a07f0fe258c592f9a240a5c4a0999f17bfccf",
+  "samples/markets_live_KXHIGHMIA.json": "90c2c6f9b7e9f102665d1c9ba91d8f68226c425fb9caaa0f87d6753908a5ab39",
+  "samples/candles_batch_KXHIGHLAX.json": "f55b7e29038c5edede537a94bf8ff3e80379600f0fe96d03ed88249d1f5c4c60",
+  "samples/markets_live_KXHIGHNY.json": "3e32b3fce2bbf6c5280946a1c3012e406ac84ead92f7a7bc688b22d1b565be49",
+  "samples/markets_hist_KXHIGHMIA.json": "7b129e7c95612605d8ebfd7a6bfbf89a2f6ee91397214579bd8b11e3155e334f",
+  "candles/KXHIGHLAX.csv.gz": "cb0698ed3b8592dec1afa3d27696f9bdb7681996f4ab2f33cfc133922c12ffca",
+  "candles/KXHIGHCHI.csv.gz": "d5bbce8d6dbf8c623c33bc84239dd86efd61d7127f08b7e0e14bef8339c95d72",
+  "candles/KXHIGHDEN.csv.gz": "f193a12eebadf91ff56876db93d660589fffb975d2481720f2870fa120b23c24",
+  "candles/KXHIGHAUS.csv.gz": "17ac3e031a5f20bdf29af8513cbea4c4c4b91b7025d87323470b3347068ade73",
+  "candles/KXHIGHPHIL.csv.gz": "fb47f6e4cad4bf92b935abfa7016d76619a57ec72d910b0074274b6153068548",
+  "candles/KXHIGHMIA.csv.gz": "72c640fe0116a12f1546fc8f21e37648279e2de9ff5846ca23862f58d779e767",
+  "candles/KXHIGHNY.csv.gz": "83462c78fd9fb7072285b9ca18f935da0508689f15c1ff6a6a19556dce80e599",
+  "markets/KXHIGHLAX.csv.gz": "3a213c8c24f17acd98e759eb19fca0313602a9a75d449b8debdcfdee238a16a4",
+  "markets/KXHIGHCHI.csv.gz": "eeef6490a1b6a6d84fa7cdc0de1829da6b89d8647c422c1acc7d18a189c0bc75",
+  "markets/KXHIGHDEN.csv.gz": "37c6962a4083e331a60d87d0ef91050e6739ab39360f5d0e60a1a8a8442a857a",
+  "markets/KXHIGHAUS.csv.gz": "ddb014072a40f3caa7cc3f092703d2d0b435e51c4bd366c993927aacbb92f5aa",
+  "markets/KXHIGHPHIL.csv.gz": "18692de20cfd9a5beaef4d470cb30fb27ae187da74bf5f719cbe6311122d4104",
+  "markets/KXHIGHMIA.csv.gz": "b0a95ca330d0adf313bc0aaa115b9c388e6abe98bf4b899136a56e28ca089815",
+  "markets/KXHIGHNY.csv.gz": "249d2e638be504ef5610c916fa6b9883b21aacbb3f9e1f4b872cf6e8d766f126"
+ }
+}
