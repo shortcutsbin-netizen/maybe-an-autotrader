@@ -1,0 +1,29 @@
+[     1.3s] KXHIGHNY: 816 markets (774 hist)
+[     3.6s] KXHIGHNY candles: event 1/136 rows=1206 errors=0
+[   222.6s] KXHIGHNY candles: event 101/136 rows=118854 errors=0
+[   291.3s] KXHIGHNY: done {'markets': 816, 'candle_rows': 161359, 'markets_without_candles': 0}
+[   292.0s] KXHIGHLAX: 816 markets (774 hist)
+[   294.3s] KXHIGHLAX candles: event 1/136 rows=1311 errors=0
+[   522.9s] KXHIGHLAX candles: event 101/136 rows=124901 errors=0
+[   599.9s] KXHIGHLAX: done {'markets': 816, 'candle_rows': 168965, 'markets_without_candles': 0}
+[   600.8s] KXHIGHCHI: 816 markets (774 hist)
+[   603.1s] KXHIGHCHI candles: event 1/136 rows=1301 errors=0
+[   828.1s] KXHIGHCHI candles: event 101/136 rows=123273 errors=0
+[   903.5s] KXHIGHCHI: done {'markets': 816, 'candle_rows': 167934, 'markets_without_candles': 0}
+[   905.4s] KXHIGHMIA: 816 markets (774 hist)
+[   907.6s] KXHIGHMIA candles: event 1/136 rows=1222 errors=0
+[  1128.6s] KXHIGHMIA candles: event 101/136 rows=116457 errors=0
+[  1202.3s] KXHIGHMIA: done {'markets': 816, 'candle_rows': 157664, 'markets_without_candles': 0}
+[  1203.0s] KXHIGHAUS: 816 markets (774 hist)
+[  1205.9s] KXHIGHAUS candles: event 1/136 rows=1041 errors=0
+[  1425.1s] KXHIGHAUS candles: event 101/136 rows=113380 errors=0
+[  1495.1s] KXHIGHAUS: done {'markets': 816, 'candle_rows': 153685, 'markets_without_candles': 0}
+[  1496.0s] KXHIGHDEN: 816 markets (774 hist)
+[  1498.6s] KXHIGHDEN candles: event 1/136 rows=1200 errors=0
+[  1722.5s] KXHIGHDEN candles: event 101/136 rows=112730 errors=0
+[  1790.6s] KXHIGHDEN: done {'markets': 816, 'candle_rows': 150425, 'markets_without_candles': 0}
+[  1791.5s] KXHIGHPHIL: 816 markets (774 hist)
+[  1793.6s] KXHIGHPHIL candles: event 1/136 rows=987 errors=0
+[  2011.2s] KXHIGHPHIL candles: event 101/136 rows=108245 errors=0
+[  2075.6s] KXHIGHPHIL: done {'markets': 816, 'candle_rows': 142744, 'markets_without_candles': 0}
+[  2075.6s] done requests=5531 errors=0
