@@ -1,0 +1,57 @@
+[     0.3s] cutoff: {'market_positions_last_updated_ts': '2026-09-13T00:00:00Z', 'market_settled_ts': '2026-09-13T00:00:00Z', 'orders_updated_ts': '2026-10-29T00:00:00Z', 'trades_created_ts': '2026-09-13T00:00:00Z'}
+[     2.0s] series catalog: 16341
+[     4.6s] KXBTC15M: 5785 markets
+[     7.0s] KXETH15M: 5785 markets
+[     9.5s] KXSOL15M: 5785 markets
+[    12.0s] KXXRP15M: 5785 markets
+[    14.4s] KXDOGE15M: 5785 markets
+[    16.8s] KXBNB15M: 5785 markets
+[    17.0s] KXADA15M: 0 markets
+[    17.3s] KXBCH15M: 0 markets
+[    19.7s] KXHYPE15M: 5785 markets
+[    22.0s] KXNEAR15M: 5785 markets
+[    22.2s] KXTON15M: 0 markets
+[    24.7s] KXZEC15M: 5785 markets
+[    36.5s] KXCRYPTOLEAD15M: 28825 markets
+[    36.9s] candles: window 1/5785 rows=209 errors=0
+[   100.5s] candles: window 201/5785 rows=39815 errors=0
+[   164.6s] candles: window 401/5785 rows=80746 errors=0
+[   227.2s] candles: window 601/5785 rows=121450 errors=0
+[   290.4s] candles: window 801/5785 rows=162412 errors=0
+[   352.3s] candles: window 1001/5785 rows=203362 errors=0
+[   417.1s] candles: window 1201/5785 rows=244159 errors=0
+[   480.4s] candles: window 1401/5785 rows=284842 errors=0
+[   544.2s] candles: window 1601/5785 rows=325933 errors=0
+[   607.2s] candles: window 1801/5785 rows=366831 errors=0
+[   672.1s] candles: window 2001/5785 rows=407963 errors=0
+[   736.4s] candles: window 2201/5785 rows=449385 errors=0
+[   800.2s] candles: window 2401/5785 rows=490881 errors=0
+[   864.3s] candles: window 2601/5785 rows=532539 errors=0
+[   927.1s] candles: window 2801/5785 rows=574254 errors=0
+[   990.0s] candles: window 3001/5785 rows=615899 errors=0
+[  1054.0s] candles: window 3201/5785 rows=657468 errors=0
+[  1117.0s] candles: window 3401/5785 rows=699111 errors=0
+[  1181.1s] candles: window 3601/5785 rows=740593 errors=0
+[  1243.4s] candles: window 3801/5785 rows=782126 errors=0
+[  1306.2s] candles: window 4001/5785 rows=823510 errors=0
+[  1370.1s] candles: window 4201/5785 rows=865003 errors=0
+[  1432.9s] candles: window 4401/5785 rows=906446 errors=0
+[  1495.3s] candles: window 4601/5785 rows=947887 errors=0
+[  1558.8s] candles: window 4801/5785 rows=989371 errors=0
+[  1621.6s] candles: window 5001/5785 rows=1030758 errors=0
+[  1685.3s] candles: window 5201/5785 rows=1071753 errors=0
+[  1747.4s] candles: window 5401/5785 rows=1112572 errors=0
+[  1809.5s] candles: window 5601/5785 rows=1153562 errors=0
+[  1998.1s] spot BTC-USD: 87898 candles
+[  2094.0s] spot ETH-USD: 87897 candles
+[  2190.9s] spot SOL-USD: 87896 candles
+[  2288.9s] spot XRP-USD: 87894 candles
+[  2384.6s] spot DOGE-USD: 81278 candles
+[  2478.3s] spot BNB-USD: 65094 candles
+[  2574.2s] spot ADA-USD: 86759 candles
+[  2670.0s] spot BCH-USD: 77382 candles
+[  2764.9s] spot HYPE-USD: 81828 candles
+[  2861.0s] spot NEAR-USD: 87018 candles
+[  2984.9s] spot TON-USD: 42948 candles
+[  3080.8s] spot ZEC-USD: 87691 candles
+[  3080.9s] done: requests=9391 errors=0
