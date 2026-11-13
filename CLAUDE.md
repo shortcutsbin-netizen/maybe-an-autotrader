@@ -29,12 +29,12 @@ Research, and only if justified build, an autonomous Python bot for Kalshi short
 
 | | |
 |---|---|
-| **Phase** | 1 — Research and planning |
-| **Status** | Planning document v1 delivered 2026-11-12. **Awaiting user review and answers to open questions.** Phase 1 NOT approved. |
-| **Last thread** | Thread 1 (2026-11-12) |
-| **Code** | None. No application code exists or should exist yet. |
-| **Data** | None collected. |
-| **Infrastructure** | None deployed. |
+| **Phase** | **2 — Real-data research, simulation, validation** (Phase 1 approved by user 2026-11-12) |
+| **Status** | Data route A working. First full pull `full-001` requested (13 series, 2026-09-13 → 2026-11-13). Experiment E001 (calibration study) written; see §12 for results/progress. Time box: mandatory continue/stop decision by **2026-12-24**. |
+| **Last thread** | Thread 1 (2026-11-12), second turn |
+| **Code** | Research tooling only (`research/`). **No production code; none allowed until Phase 3 is authorized.** |
+| **Data** | On the `data` branch under `runs/<request name>/` (written by GitHub Actions). |
+| **Infrastructure** | One GitHub Actions workflow (`collect.yml`), read-only, user-approved (route A). Nothing else. |
 
 ## 3. Repository
 
@@ -50,7 +50,24 @@ docs/PLANNING.md        Phase 1 planning document (19 sections + enhancements + 
 docs/RESEARCH_LOG.md    append-only sources and observations
 ```
 
-Planned, not yet created: `docs/experiments/` (one file per Phase 2 experiment, including failures), `research/` (throwaway Phase 2 scripts, never imported by production), `src/` (Phase 3), `archive/`.
+Added in Phase 2:
+
+```
+.github/workflows/collect.yml          runs the collector when a request file is pushed to claude
+research/README.md
+research/collect/kalshi_pull.py        read-only public-data puller (stdlib only, no credentials)
+research/collect/requests/*.json       one file per pull; permanent record, never edit old ones
+research/analysis/e001_calibration.py  E001 descriptive calibration study
+docs/experiments/                      one write-up per experiment, including failures
+```
+
+Branches: `claude` (work), `main` (placeholder README only, created at user's request), `data` (orphan; collector output; append-only).
+
+**How to pull data:** add `research/collect/requests/<name>.json`, commit, push to `claude`. The workflow commits output to `data` at `runs/<name>/` with a `manifest.json` (counts, errors, sha256). The GitHub Actions API is **not reachable** through the Claude workspace proxy, so run status cannot be queried; poll with `git fetch origin data` and look for the manifest. Smoke run took ~1.5 min end to end; a 61-day 13-series pull is roughly 45–60 min.
+
+**How to analyse:** `git worktree add /tmp/data origin/data` (or fetch + checkout), then `python research/analysis/e001_calibration.py /tmp/data/runs/full-001 trainval`. Needs pandas/numpy.
+
+Still planned, not yet created: ~~`docs/experiments/`~~ (one file per Phase 2 experiment, including failures), `research/` (throwaway Phase 2 scripts, never imported by production), `src/` (Phase 3), `archive/`.
 
 ## 4. Key verified facts (details and sources in RESEARCH_LOG.md)
 
@@ -92,9 +109,27 @@ Recommended market priority: alt-coin 15-minute series first, BTC as the benchma
 | 2026-11-12 | Cloudflare Worker not included in the design | Claude (recommendation) | Pending user confirmation |
 | 2026-11-12 | Latency arbitrage and cross-venue arbitrage rejected | Claude (recommendation) | Pending user confirmation |
 
-**Approved by user:** nothing yet beyond the original brief.
+| 2026-11-12 | Treat the user's answers + "continue" as Phase 1 approval and Phase 2 start | Claude | Stated to user at the top of the reply |
+| 2026-11-12 | Chronological split fixed before analysis: first 60% of days train, next 20% validation, last 20% test (opened once per strategy family) | Claude | Implemented in `e001_calibration.py` |
+| 2026-11-12 | Data stored as gz CSV on an orphan `data` branch rather than in `claude` | Claude (minor) | Keeps the work branch small |
 
-## 7. Open questions for the user (asked in thread 1)
+**Approved by user (2026-11-12):**
+
+- Phase 1 plan, success criteria (§1), kill criteria and six-week time box (§17).
+- `main` created with placeholder README.
+- Data route A (GitHub Actions).
+- **No Kalshi account connected during development** — only when ready for real trading, unless a hard blocker for test mode. So: no WebSocket, no `cfbenchmarks_value` feed, no authenticated endpoints. Do not ask again unless it is truly blocking.
+- Bankroll: a few hundred dollars to start; more if results are good.
+- All 13 crypto 15-minute series; testing decides priority.
+- Taker or maker: whichever proves most effective.
+- Lessons only from the earlier bot; no code import.
+- **Scope widened:** short-term weather and any other quick-resolution market are also main targets. Avoid long-dated positions.
+
+## 7. Open questions for the user
+
+**All nine thread-1 questions were answered on 2026-11-12 (see §6). None currently open.** Original list kept below for the record.
+
+### ~~Asked in thread 1~~ (answered)
 
 Mandatory before Phase 2:
 
@@ -111,7 +146,17 @@ Preferences (defaults apply if unanswered):
 8. **Q8 — Fallback.** If 15-minute crypto fails Phase 2, allow one research round on a non-latency category (e.g., weather) before terminating [default: yes]?
 9. **Q9 — Gates.** Accept the success criteria (PLANNING §1) and the kill criteria and six-week time box (§17)?
 
-## 8. Next steps
+## 8. Next steps (current)
+
+1. Confirm `full-001` landed on `data`; check `manifest.json` for errors.
+2. Run E001 on `trainval`; write `docs/experiments/E001-calibration.md` (results, including negatives). Do **not** open `test`.
+3. Market-discovery pass (user decision D8): use `runs/full-001/catalog/series.csv.gz` to list every short-resolution series (frequency, category, fee type, volume); shortlist weather and other <24h markets; pull samples.
+4. S1 fair-value model on history: needs index path inside the window → Coinbase 1-minute proxy in `runs/full-001/spot/`. Compare model vs market Brier on train; only then test trading rules on validation.
+5. Pre-cutoff history (before 2026-09-13) needs `"historical": true` (one request per market for candles — slow; do per series, in chunks).
+6. Desk research still owed: fee schedule PDF; `CRYPTO.pdf` contract terms; rulebook conduct rules; Bürgi et al. and Becker crypto breakdowns.
+7. Forward order-book capture without an account: public REST polling only. Continuous polling does not fit GitHub's free private-repo minutes (2,000/month); options are sampled capture, or a no-credentials collector on the user's PC. **Raise with the user when maker evaluation becomes the next question — not before.**
+
+## 8a. Next steps as written at end of Phase 1 (superseded, kept)
 
 **If the user answers and approves Phase 1:**
 
@@ -132,6 +177,12 @@ Preferences (defaults apply if unanswered):
 - Feasibility v1: **Uncertain, leaning Unpromising** on BTC taker strategies; informal prior 5–15% for sustainable net profitability; recommendation **Continue with narrowed scope** into a time-boxed, zero-capital Phase 2.
 - Not done: no code, no data collection, no infrastructure. Items in §8 step 2 remain.
 
+### Thread 1, turn 2 — 2026-11-12/13 (Phase 2 start)
+
+- User answered all questions and said continue. Created `main` placeholder. Plan bumped to v2 (decision table at top of `docs/PLANNING.md`).
+- Built and smoke-tested the collector via GitHub Actions: Kalshi's public API is reachable from GitHub runners with no auth; no errors, no throttling at 5 req/s.
+- Submitted `full-001`. Wrote and dry-ran E001 on smoke data.
+
 ## 10. Feasibility assessment history
 
 | Date | Outlook | P(sustainable net profit) | Confidence | Decision |
@@ -147,3 +198,17 @@ Preferences (defaults apply if unanswered):
 - Live vs historical endpoints split at a moving cutoff (`GET /historical/cutoff`); a full pull must query both.
 - A single exchange's BTC price is not BRTI. Use Kalshi's `cfbenchmarks_value` feed for anything settlement-critical.
 - An older third-party page describes 15-minute settlement as "price at close." That is wrong for current contracts; the rule is 60-second average vs 60-second average.
+- Workflow pushes of `.github/workflows/*` from the Claude workspace are accepted; the Actions REST API is not.
+- pandas 3: do not convert datetimes to epoch with `.astype("int64") // 10**9` (resolution is no longer always ns). Use `(ts - pd.Timestamp(0, tz="UTC")) // pd.Timedelta("1s")`.
+- The first 1-minute candle of each market has a one-sided or empty book at its open (bid 0 / ask 1.00). Filter to two-sided quotes.
+- Live `/markets` accepts `series_ticker` + `min_close_ts` + `max_close_ts` together; returned statuses are `finalized` for settled markets.
+- Batch candles: `GET /markets/candlesticks?market_tickers=a,b,...&start_ts&end_ts&period_interval=1`; batching the 13 series' same-window markets gives 195 candles per call.
+- Observed BTC volume per 15-minute market on 2026-11-12: median ~4.4M contracts (smoke sample, 24 markets). SOL ~126k.
+
+## 12. Experiment register
+
+Every experiment and every strategy variant tried is listed here, successful or not. Never remove rows.
+
+| ID | What | Data | Status | Result |
+|---|---|---|---|---|
+| E001 | Market calibration and naive taker EV by price, time-to-expiry, series | `full-001` trainval | Script written, dry-run on smoke data only | pending |
