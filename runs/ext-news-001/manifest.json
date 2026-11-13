@@ -1,0 +1,83 @@
+{
+ "request": {
+  "name": "ext-news-001",
+  "script": "ext_pull.py",
+  "start": "2026-09-12",
+  "end": "2026-11-13",
+  "news": {
+   "queries": {
+    "btc": "bitcoin",
+    "crypto": "(crypto OR cryptocurrency OR ethereum)",
+    "macro": "(\"federal reserve\" OR inflation OR tariff)"
+   }
+  }
+ },
+ "started_utc": "2026-11-13T18:05:40.298427+00:00",
+ "weather": {},
+ "sports": {},
+ "news": {
+  "btc": 1589,
+  "crypto": 1589,
+  "macro": 1309
+ },
+ "finished_utc": "2026-11-13T23:46:12.016790+00:00",
+ "http_requests": 474,
+ "error_count": 55,
+ "errors_first_50": [
+  "gdelt btc timelinevolraw 2026-09-12: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse btc timelinevolraw 2026-09-15: 'timeline' {}",
+  "gdelt btc timelinevolraw 2026-09-30: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt btc timelinevolraw 2026-10-03: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse btc timelinevolraw 2026-10-09: 'timeline' {}",
+  "gdelt btc timelinevolraw 2026-10-12: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse btc timelinevolraw 2026-10-27: 'timeline' {}",
+  "gdelt parse btc timelinevolraw 2026-10-30: 'timeline' {}",
+  "gdelt btc timelinevolraw 2026-11-11: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse btc timelinetone 2026-09-15: 'timeline' {}",
+  "gdelt btc timelinetone 2026-09-18: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse btc timelinetone 2026-10-03: 'timeline' {}",
+  "gdelt btc timelinetone 2026-10-06: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt btc timelinetone 2026-10-09: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt btc timelinetone 2026-10-12: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt btc timelinetone 2026-10-24: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse btc timelinetone 2026-10-27: 'timeline' {}",
+  "gdelt btc timelinetone 2026-10-30: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse crypto timelinevolraw 2026-09-15: 'timeline' {}",
+  "gdelt crypto timelinevolraw 2026-09-21: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse crypto timelinevolraw 2026-10-03: 'timeline' {}",
+  "gdelt crypto timelinevolraw 2026-10-06: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt crypto timelinevolraw 2026-10-12: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt crypto timelinevolraw 2026-10-30: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt crypto timelinetone 2026-09-12: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse crypto timelinetone 2026-09-15: 'timeline' {}",
+  "gdelt crypto timelinetone 2026-09-27: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt crypto timelinetone 2026-10-03: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt crypto timelinetone 2026-10-06: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse crypto timelinetone 2026-10-12: 'timeline' {}",
+  "gdelt crypto timelinetone 2026-10-15: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt crypto timelinetone 2026-10-24: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse crypto timelinetone 2026-10-30: 'timeline' {}",
+  "gdelt crypto timelinetone 2026-11-08: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt macro timelinevolraw 2026-09-12: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt macro timelinevolraw 2026-09-15: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt macro timelinevolraw 2026-10-03: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt macro timelinevolraw 2026-10-09: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt macro timelinevolraw 2026-10-12: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt macro timelinevolraw 2026-10-21: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt macro timelinevolraw 2026-10-27: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse macro timelinevolraw 2026-10-30: 'timeline' {}",
+  "gdelt macro timelinevolraw 2026-11-08: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt macro timelinetone 2026-09-12: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse macro timelinetone 2026-09-15: 'timeline' {}",
+  "gdelt macro timelinetone 2026-09-18: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt macro timelinetone 2026-09-30: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the",
+  "gdelt parse macro timelinetone 2026-10-03: 'timeline' {}",
+  "gdelt parse macro timelinetone 2026-10-12: 'timeline' {}",
+  "gdelt macro timelinetone 2026-10-15: HTTP 429: Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the"
+ ],
+ "sha256": {
+  "news/macro.csv.gz": "c8d46038b28b61d679e21aa9de0d4b94ec1f0afbad4e358aac2a4c885dc7aa13",
+  "news/btc.csv.gz": "e6f3694d40e3e01ed62f1dfc760bf2b4f6474fed5f9767349d6f304eb29ad6de",
+  "news/crypto.csv.gz": "8919598c43a8568b043a6cb45a59d486316d19633a9020fa2dc7eeff9d8e2dfe"
+ }
+}

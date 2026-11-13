@@ -1,0 +1,4 @@
+[  6803.5s] news btc: 1589 buckets
+[ 12638.5s] news crypto: 1589 buckets
+[ 20431.7s] news macro: 1309 buckets
+[ 20431.7s] done requests=474 errors=55
