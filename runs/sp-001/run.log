@@ -1,0 +1,33 @@
+[     0.7s] KXNFLGAME: 268 markets (0 hist)
+[     1.1s] KXNFLGAME candles: event 1/134 rows=1079 errors=0
+[    43.4s] KXNFLGAME candles: event 101/134 rows=108645 errors=0
+[    58.4s] KXNFLGAME: done {'markets': 268, 'candle_rows': 144106, 'markets_without_candles': 0}
+[    58.9s] KXNBAGAME: 482 markets (0 hist)
+[    59.2s] KXNBAGAME candles: event 1/241 rows=953 errors=0
+[   101.8s] KXNBAGAME candles: event 101/241 rows=104127 errors=0
+[   142.3s] KXNBAGAME candles: event 201/241 rows=199370 errors=0
+[   158.6s] KXNBAGAME: done {'markets': 482, 'candle_rows': 240747, 'markets_without_candles': 0}
+[   159.0s] KXNHLGAME: 736 markets (0 hist)
+[   159.4s] KXNHLGAME candles: event 1/368 rows=909 errors=0
+[   199.4s] KXNHLGAME candles: event 101/368 rows=90506 errors=0
+[   239.5s] KXNHLGAME candles: event 201/368 rows=180755 errors=0
+[   278.8s] KXNHLGAME candles: event 301/368 rows=262988 errors=0
+[   304.1s] KXNHLGAME: done {'markets': 736, 'candle_rows': 304033, 'markets_without_candles': 0}
+[   305.3s] KXNCAAFGAME: 2000 markets (0 hist)
+[   305.7s] KXNCAAFGAME candles: event 1/1000 rows=1030 errors=0
+[   346.6s] KXNCAAFGAME candles: event 101/1000 rows=80729 errors=0
+[   386.9s] KXNCAAFGAME candles: event 201/1000 rows=163696 errors=0
+[   428.0s] KXNCAAFGAME candles: event 301/1000 rows=249575 errors=0
+[   469.3s] KXNCAAFGAME candles: event 401/1000 rows=334350 errors=0
+[   509.4s] KXNCAAFGAME candles: event 501/1000 rows=414480 errors=0
+[   550.9s] KXNCAAFGAME candles: event 601/1000 rows=491887 errors=0
+[   592.6s] KXNCAAFGAME candles: event 701/1000 rows=565850 errors=0
+[   633.7s] KXNCAAFGAME candles: event 801/1000 rows=644517 errors=0
+[   674.8s] KXNCAAFGAME candles: event 901/1000 rows=723368 errors=0
+[   714.6s] KXNCAAFGAME: done {'markets': 2000, 'candle_rows': 801083, 'markets_without_candles': 0}
+[   715.2s] KXMLBGAME: 490 markets (0 hist)
+[   715.9s] KXMLBGAME candles: event 1/245 rows=1080 errors=0
+[   759.7s] KXMLBGAME candles: event 101/245 rows=103238 errors=0
+[   801.3s] KXMLBGAME candles: event 201/245 rows=201995 errors=0
+[   819.6s] KXMLBGAME: done {'markets': 490, 'candle_rows': 244804, 'markets_without_candles': 0}
+[   819.6s] done requests=1996 errors=0

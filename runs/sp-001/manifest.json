@@ -1,0 +1,81 @@
+{
+ "request": {
+  "name": "sp-001",
+  "script": "kalshi_events_pull.py",
+  "series": [
+   "KXNFLGAME",
+   "KXNBAGAME",
+   "KXNHLGAME",
+   "KXNCAAFGAME",
+   "KXMLBGAME"
+  ],
+  "start": "2026-09-13T00:00:00Z",
+  "end": "2026-11-13T12:00:00Z",
+  "historical": false,
+  "lookback_hours": 9,
+  "resample_min": 1,
+  "pause": 0.2
+ },
+ "started_utc": "2026-11-13T18:05:35Z",
+ "source": "https://api.elections.kalshi.com/trade-api/v2",
+ "series": {
+  "KXNFLGAME": {
+   "markets": 268,
+   "candle_rows": 144106,
+   "markets_without_candles": 0
+  },
+  "KXNBAGAME": {
+   "markets": 482,
+   "candle_rows": 240747,
+   "markets_without_candles": 0
+  },
+  "KXNHLGAME": {
+   "markets": 736,
+   "candle_rows": 304033,
+   "markets_without_candles": 0
+  },
+  "KXNCAAFGAME": {
+   "markets": 2000,
+   "candle_rows": 801083,
+   "markets_without_candles": 0
+  },
+  "KXMLBGAME": {
+   "markets": 490,
+   "candle_rows": 244804,
+   "markets_without_candles": 0
+  }
+ },
+ "historical_cutoff": {
+  "market_positions_last_updated_ts": "2026-09-13T00:00:00Z",
+  "market_settled_ts": "2026-09-13T00:00:00Z",
+  "orders_updated_ts": "2026-10-29T00:00:00Z",
+  "trades_created_ts": "2026-09-13T00:00:00Z"
+ },
+ "finished_utc": "2026-11-13T18:19:14Z",
+ "http_requests": 1996,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/markets_live_KXNFLGAME.json": "4f9acaae854181e24c352d66608c08f4dd490058a100387a5ba91b8b9c31f08a",
+  "samples/markets_live_KXMLBGAME.json": "ba89fa5d98456fee9c062a849e68556488972b69bf86c8cef7213796c5cc8628",
+  "samples/markets_live_KXNHLGAME.json": "a4e9693d95c6f45e2cde0a441ef118ee4ef6930fc8e4e2c31c7a609b7aaded09",
+  "samples/candles_batch_KXNFLGAME.json": "8983f1d68e6ab95c7c72bf6f56d72aae4f2360d23bd733d31ccb6f25abed3ef9",
+  "samples/markets_live_KXNCAAFGAME.json": "b086891cfa5f0c32385a1cb6e7c7fd7efabdf99f05949af277aad94c7e5c61f7",
+  "samples/markets_live_KXNBAGAME.json": "094bfb534388533e7406e79811310bfc20ec919f681110e0b688af815214d03a",
+  "samples/candles_batch_KXNCAAFGAME.json": "b7e1dbc14ccbe60cb6ac5ac01b9c80c7972220592a9d04a193f8d81d2acef740",
+  "samples/candles_batch_KXNHLGAME.json": "0a4f23ee53dda27793cea8ffd9dde7b98012416f380de77a9d2ccc1066f7815f",
+  "samples/candles_batch_KXMLBGAME.json": "d1f38dd05fd87ff27938fb7cb91c982d059969caaee13872d76079ea01ee6c55",
+  "samples/candles_batch_KXNBAGAME.json": "197d8c7af6da7ba40c45afd60451a1b17181cb626fd549ba91c20542b355f8f5",
+  "candles/KXNCAAFGAME.csv.gz": "30036ac3e6c14d5107ee4796824a9a7ca456f22a3deec9023d85fdd5406553ad",
+  "candles/KXNFLGAME.csv.gz": "8fd3f7bbfb707e59c2207567f39f0a97b1160d1e3cb5a303c51ea30643397f1a",
+  "candles/KXMLBGAME.csv.gz": "d36b3e78f8d2ee66e5351d1aa8b128637b6fa07f5453ab2b61b5c08413285405",
+  "candles/KXNHLGAME.csv.gz": "dc491fb83ae88d0ff7b318f684536c7bd95702db59a278d3cfeebfc4cc351a59",
+  "candles/KXNBAGAME.csv.gz": "ae701743d57ea90daa59bc4d80775f8696b225e96b4d22dd024a52b2f0ccd0ae",
+  "markets/KXNCAAFGAME.csv.gz": "a329782a65dd9b1ac79cec872802081c04465085659158a1490610c9dbd5e549",
+  "markets/KXNFLGAME.csv.gz": "f2a06caeaf24912490b27de3016eae73bf246cc5f40df6c7e48e3637472df815",
+  "markets/KXMLBGAME.csv.gz": "2e442d902fa40f81bd058738c64d66470f29db5d428c9b3e2ea04ef6fd418bee",
+  "markets/KXNHLGAME.csv.gz": "3068097c6c72b17020dab6d52c251597a03f21521024e11b137ec99bde9ef279",
+  "markets/KXNBAGAME.csv.gz": "cb26e44f2400a062b597bac24f3ee79d6d437982bc0475545820e14b88868d9c"
+ }
+}
