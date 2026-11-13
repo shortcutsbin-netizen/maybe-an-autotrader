@@ -1,0 +1,6 @@
+{"name": "ext-wx-001", "script": "ext_pull.py", "start": "2026-04-29", "end": "2026-11-13",
+ "weather": {"stations": {"NY": {"iem": "NYC", "lat": 40.779, "lon": -73.969}, "LAX": {"iem": "LAX", "lat": 33.938, "lon": -118.389},
+   "CHI": {"iem": "MDW", "lat": 41.786, "lon": -87.752}, "MIA": {"iem": "MIA", "lat": 25.788, "lon": -80.317},
+   "AUS": {"iem": "AUS", "lat": 30.183, "lon": -97.680}, "DEN": {"iem": "DEN", "lat": 39.847, "lon": -104.656},
+   "PHIL": {"iem": "PHL", "lat": 39.873, "lon": -75.227}},
+  "models": ["gfs_seamless", "ecmwf_ifs025", "icon_seamless", "gem_seamless", "ncep_nbm_conus"], "one_minute": true}}
