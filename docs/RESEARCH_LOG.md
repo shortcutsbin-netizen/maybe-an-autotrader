@@ -110,3 +110,46 @@ Workers Free: 100,000 requests/day, 10 ms CPU per invocation, 50 external subreq
 - 5-minute crypto contracts (one source, oddsreference.pages.dev; not in today's series list).
 - Kalshi interest on cash/collateral (~3.25% APY per a forum comment).
 - Request-signing clock tolerance (~5 s per pm.wiki).
+
+---
+
+## Session 2 — 2026-11-13 (thread 1, turns 2–3, Phase 2)
+
+### Environment notes
+
+- GitHub Actions runners reach Kalshi's public API, Coinbase, Kraken, Iowa Environmental Mesonet, Open-Meteo and ESPN without credentials. GDELT answers 429 to most requests from runner IPs (shared-IP rate limit of one request per 5 s).
+- WebFetch from the Claude workspace needs user approval for any URL not already seen in the conversation; when the user is away those calls fail. Kalshi API URLs and URLs returned by WebSearch are fine. External source formats were therefore learned with `research/collect/probe.py` on a runner (`runs/probe-002/`).
+- The Actions REST API is not reachable from the workspace; run status is inferred from the `data` branch.
+
+### Verified this session [V]
+
+- **Fee schedule PDF read directly** (kalshi.com/docs/kalshi-fee-schedule.pdf, effective 2026-07-07): taker `round up(M × 0.07 × C × P × (1−P))`; maker `round up(M × 0.0175 × C × P × (1−P))` with M = 0 unless listed; rounding such that fee + position cost is rounded to a centicent; no settlement or membership fee. Listed with maker fees (multiplier 1/1): KXMLBGAME, KXNCAAFGAME, KXNFLGAME, KXUCLGAME, KXWCGAME, KXWNBAGAME, KXATPMATCH, KXWTAMATCH, KXLALIGA (the API additionally flags KXNBAGAME, KXNHLGAME and others as `quadratic_with_maker_fees`). **No crypto 15-minute or weather series is listed → makers pay nothing there.** Combos (KXMVE) maker 2 / taker 1. This closes the Phase 1 to-do "read the fee PDF".
+- **Series catalog** (16,341 series): `fee_type` counts — quadratic 16,178; quadratic_with_maker_fees 160; quadratic_with_combo_maker_fees 3. Lifetime volume by category: Sports 1.5e11 contracts, Crypto 5.0e10, Elections 4.7e9, Commodities 3.4e9, Politics 1.4e9, Economics 1.3e9, Climate and Weather 1.3e9.
+- **Weather daily-high markets** (`KXHIGHNY`, `LAX`, `CHI`, `MIA`, `AUS`, `DEN`, `PHIL`): six brackets per city-day (four 2°F "between" brackets, one "less", one "greater"); open 14:00–15:00Z the day before; close at 1:00 am local clock time after the day; `expiration_value` holds the settled high. Rules text: maximum temperature at the named climate station (CLINYC, CLILAX, CLIMDW, CLIMIA, CLIAUS, CLIDEN, CLIPHL) "according to The Weather Company". Bracket mapping checked on 8,267 markets with 0 mismatches: between → [floor, cap]; greater → ≥ floor+1; less → ≤ cap−1.
+- **Sports game markets**: two markets per game (one per team), ticker `SERIES-YYMONDD[HHMM]AWAYHOME-TEAM`; close when the game ends; ties resolve each side at $0.50 (NFL rule text); median volume above 1M contracts per market pre-game spread 1c.
+- **Historical endpoints use different field names**: `/historical/markets/{t}/candlesticks` returns `yes_bid: {open, high, low, close}`, `volume`, `open_interest` (no `_dollars` / `_fp` suffixes). The first weather pull (`wx-001`) therefore has empty quotes before 2026-09-13; `wx-002` re-pulled that period correctly. Both are kept.
+- **Public order book**: `GET /markets/{ticker}/orderbook?depth=10` needs no auth and returns `orderbook_fp: {yes_dollars: [[price, size], ...], no_dollars: [...]}` sorted ascending (best bid last). ~90 ms round trip from a runner.
+- **Observed touch sizes** (2-minute smoke sample, 2026-11-13 17:50Z): BTC ~8,000 contracts each side; DOGE 100–200; BNB 50–100.
+- **Settlement high vs station observations** (1,378 city-days): the settled high exceeds the maximum hourly METAR temperature by ≥1°F on 63% of days (≥2°F on 11%); it differs from the IEM 1-minute ASOS maximum by ≥1°F on 55% of days. Station feeds available to us do not pin the settlement value to the degree.
+
+### Secondary sources [S]
+
+- Crosier, "Prediction Markets Beat the Weather Forecast on Tomorrow's High Temperature", arXiv 2609.23969 (7,590 city-days, 2022 → Aug 2026): market-implied forecast RMSE 2.44 / 2.21 / 1.88°F at open / evening / morning-of vs NBM 2.70 / 2.45 / 2.12 (market ~10% better); no single public forecast beats the market at any horizon; the best out-of-sample forecast combination still trails by ~3%; advantage largest Nov–Jun and smallest in Miami. Does not test trading or fees.
+- Kalshi changed the daily temperature settlement source from the NWS climate report to The Weather Company on 2026-08-14 (partnership announced 2026-08-27); several trackers report the underlying number is still the NWS climate report value.
+
+### Free data sources confirmed usable (formats in `runs/probe-002/`)
+
+| Source | What | Notes |
+|---|---|---|
+| IEM `asos.py` | METAR temperature, hourly + specials | whole °F in this feed |
+| IEM `asos1min.py` | 1-minute ASOS temperature | available within days; real-time availability not verified |
+| Open-Meteo previous-runs API | hourly forecasts as issued 1 and 2 days earlier, per model (GFS, ECMWF IFS 0.25, ICON, GEM, NBM) | `gfs_hrrr` returned values identical to `gfs_seamless` — dropped |
+| ESPN site scoreboard + core odds | results; DraftKings open/close moneylines, spread, total | odds present for ~95% of completed games |
+| Coinbase / Kraken public tickers | spot | Kraken multi-pair call fails if any pair is unknown |
+| GDELT DOC timelines | news volume / tone | rate-limited from runners; partial |
+
+### Negative findings added (details in `docs/experiments/`)
+
+- 15-minute crypto: external-information-only models are worse forecasters than the market price (E003).
+- Sports: Kalshi tracks the sportsbook closing line to under one point; no pre-game or in-game momentum edge after fees (E005).
+- Weather: forecast + observation model is a much worse forecaster than the market; no taker edge (E004, E004b).
