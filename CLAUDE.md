@@ -146,6 +146,23 @@ Preferences (defaults apply if unanswered):
 8. **Q8 — Fallback.** If 15-minute crypto fails Phase 2, allow one research round on a non-latency category (e.g., weather) before terminating [default: yes]?
 9. **Q9 — Gates.** Accept the success criteria (PLANNING §1) and the kill criteria and six-week time box (§17)?
 
+## 7a. In-flight work (thread 1, turn 3 — started 2026-11-13 17:40Z) — READ THIS ON RESUME
+
+User instruction for this turn: bring in weather and sports markets; build multi-signal strategies (news, market price, trends, every available source), not price-level analysis; no usage cap this turn; **auto-resume chaining**: schedule a resume message 5h15m ahead (`send_later`, 315 min), cancel it (`delete_trigger`) if the work finishes, re-schedule each time a resume fires until complete. First trigger id: `trig_014eYxPvZJcBGebrVv6qwMXc` (fires 22:56Z).
+
+Data requests submitted 2026-11-13 ~18:10Z (each lands on `data` at `runs/<name>/manifest.json`; check with `/home/claude/poll.sh <name>` or `git fetch origin data`):
+
+| Request | What | Expected |
+|---|---|---|
+| `live-001` | 4h45m capture of public Kalshi order books (depth 10) for the 9 active 15-min coins + Coinbase/Kraken tickers, every 2 s | lands ~23:00Z |
+| `wx-001` | Kalshi daily-high markets, 7 cities, 2026-05-01→11-13, 10-min candles over each market's 40 h life | ~40 min |
+| `sp-001` | Kalshi game-winner markets NFL/NBA/NHL/NCAAF/MLB, 2026-09-13→11-13, 1-min candles for the last 9 h | ~30 min |
+| `ext-wx-001` | IEM METAR + 1-minute ASOS temps; Open-Meteo archived forecasts (as issued 1 and 2 days earlier), 5 models, 7 stations | ~20 min |
+| `ext-sp-001` | ESPN results + DraftKings open/close moneylines, 5 leagues | ~15 min |
+| `ext-news-001` | GDELT news volume/tone timelines (rate-limited source; may be partial) | ~30 min |
+
+Analyses: E003 (crypto multi-signal model) done on validation — see §12. E004 weather, E005 sports, E006 live lead-lag: to do when data lands.
+
 ## 8. Next steps (current)
 
 1. ~~Confirm `full-001` landed~~ done (0 errors).
@@ -215,6 +232,8 @@ Every experiment and every strategy variant tried is listed here, successful or 
 |---|---|---|---|---|
 | E001 | Market calibration and naive taker EV by price, time-to-expiry, series | `full-001` trainval (49 days, 64,936 markets) | **Done 2026-11-13** | **Negative.** Calibrated within ±1.3 pts on every up/down coin; taking either side loses 1.3–4.0¢/contract after fees on every series. See `docs/experiments/E001-E002-calibration.md` |
 | E002 | Favorite/underdog symmetric view, nine up/down coins | `full-001` train, then val | **Done 2026-11-13** | **Negative.** Favorites at 90–99¢: +0.07…+0.23¢ on train (CIs include 0), **reversed to −0.02…−0.88¢ on validation**. Underdogs negative everywhere. Test set NOT opened |
+
+| E003 | Multi-signal fair-value model for 15-min crypto: spot path vs strike, realized vol (15m/60m/24h), momentum, BTC cross-signal, time of day, Kalshi price and its drift. Logistic + gradient boosting; ext-only / market-only / combined. Fit on first 80% of train days, threshold chosen on last 20% of train days, reported on validation. `research/analysis/e003_s1_model.py` | `full-001` | **Done on val 2026-11-13; test NOT opened** | **Mixed — first lead.** (1) Forecast skill: market mid Brier 0.13562 beats every external-only model (0.1384–0.1393); combined logistic is marginally better than the market (0.13509). (2) Trading the combined model's large disagreements (>8c after fee): +7.5c/contract on threshold days and +10.6c on validation with conservative fills (CIs exclude 0), concentrated in thin alt-coins (BNB, DOGE, HYPE, ZEC, SOL), mean spread 2.5c. (3) **With a one-minute execution delay it disappears** (−1.5c thr-days, +1.8c val, CIs include 0). Interpretation: spot leads stale Kalshi quotes on thin coins; edge lifetime is under a minute. Whether a 2-second-latency bot can capture it is unknown → `live-001` capture + E006. Displayed size at those quotes also unknown. |
 
 ### Findings that change the plan
 
