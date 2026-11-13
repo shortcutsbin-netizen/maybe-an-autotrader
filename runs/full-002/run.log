@@ -1,0 +1,21 @@
+[     0.4s] cutoff: {'market_positions_last_updated_ts': '2026-09-13T00:00:00Z', 'market_settled_ts': '2026-09-13T00:00:00Z', 'orders_updated_ts': '2026-10-29T00:00:00Z', 'trades_created_ts': '2026-09-13T00:00:00Z'}
+[     0.7s] KXBTC15M: 21 markets
+[     1.0s] KXETH15M: 21 markets
+[     1.4s] KXSOL15M: 21 markets
+[     1.7s] KXXRP15M: 21 markets
+[     2.0s] KXDOGE15M: 21 markets
+[     2.4s] KXBNB15M: 21 markets
+[     2.7s] KXHYPE15M: 21 markets
+[     3.1s] KXNEAR15M: 21 markets
+[     3.4s] KXZEC15M: 21 markets
+[     3.7s] candles: window 1/21 rows=135 errors=0
+[    11.0s] spot BTC-USD: 362 candles
+[    11.8s] spot ETH-USD: 362 candles
+[    12.5s] spot SOL-USD: 362 candles
+[    13.2s] spot XRP-USD: 362 candles
+[    13.9s] spot DOGE-USD: 353 candles
+[    15.1s] spot BNB-USD: 291 candles
+[    15.8s] spot HYPE-USD: 362 candles
+[    16.5s] spot NEAR-USD: 359 candles
+[    17.2s] spot ZEC-USD: 362 candles
+[    17.2s] done: requests=49 errors=0
