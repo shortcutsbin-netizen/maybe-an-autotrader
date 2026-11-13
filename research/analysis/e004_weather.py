@@ -22,6 +22,9 @@ candle (10 min) later plus one tick.
 """
 import glob
 import sys
+import warnings
+
+warnings.simplefilter("ignore", RuntimeWarning)
 
 import numpy as np
 import pandas as pd
@@ -45,8 +48,8 @@ def ts(s, fmt=None):
 
 
 def load_markets(krun):
-    mk = pd.concat([pd.read_csv(f) for f in glob.glob(f"{krun}/markets/KXHIGH*.csv.gz")], ignore_index=True)
-    mk = mk[mk["series"].isin(CITY) & mk["result"].isin(["yes", "no"])].copy()
+    mk = pd.concat([pd.read_csv(f) for r in krun.split(",") for f in glob.glob(f"{r}/markets/KXHIGH*.csv.gz")], ignore_index=True)
+    mk = mk[mk["series"].isin(CITY) & mk["result"].isin(["yes", "no"])].drop_duplicates("ticker").copy()
     d = mk["event_ticker"].str.split("-").str[1]
     mk["day"] = d.map(lambda s: f"20{s[0:2]}-{MON[s[2:5]]:02d}-{s[5:7]}")
     mk["city"] = mk["series"].map(lambda s: CITY[s][0])
@@ -119,7 +122,8 @@ def event_features(ev_times, d0, d1, obs, fc, lag):
 def build(krun, erun, kind):
     mk = load_markets(krun)
     lag = 300 if kind == "asos1min" else 600
-    cd = pd.concat([pd.read_csv(f) for f in glob.glob(f"{krun}/candles/KXHIGH*.csv.gz")], ignore_index=True)
+    cd = pd.concat([pd.read_csv(f) for r in krun.split(",") for f in glob.glob(f"{r}/candles/KXHIGH*.csv.gz")], ignore_index=True)
+    cd = cd.dropna(subset=["bid_c", "ask_c"])      # rows without quotes are unusable (wx-001 history has none)
     cd = cd.drop_duplicates(["ticker", "end_period_ts"]).sort_values(["ticker", "end_period_ts"])
     cd["t"] = ((cd["end_period_ts"] + 599) // 600) * 600           # snap to the 10-minute grid
     cd = cd.drop_duplicates(["ticker", "t"], keep="last")
@@ -250,14 +254,14 @@ def main():
     print("settlement high minus max of observations (deg F): METAR mean %.2f, P(=0) %.2f, P(>=1) %.2f, P(>=2) %.2f | 1-min ASOS mean %.2f, P(=0) %.2f, P(|d|>=1) %.2f" % (
         chk["dm"].mean(), (chk["dm"].round() == 0).mean(), (chk["dm"] >= 1).mean(), (chk["dm"] >= 2).mean(),
         chk["d1"].mean(), (chk["d1"].round() == 0).mean(), (chk["d1"].abs() >= 1).mean()))
+    d = d[(d["t"] % 1800 == 0)]                               # one decision per 30 minutes
+    d = d[(d["bid_c"] > 0) & (d["ask_c"] < 1) & (d["ask_c"] >= d["bid_c"])]
     days = sorted(d["day"].unique())
     a, b = int(len(days) * 0.6), int(len(days) * 0.8)
     sp = {"train": days[:a], "val": days[a:b], "test": days[b:]}
     cut = int(len(sp["train"]) * 0.8)
     fit_days, thr_days, ev_days = sp["train"][:cut], sp["train"][cut:], sp[eval_split]
     print(f"days fit={fit_days[0]}..{fit_days[-1]} thr={thr_days[0]}..{thr_days[-1]} eval[{eval_split}]={ev_days[0]}..{ev_days[-1]}")
-    d = d[(d["t"] % 1800 == 0)]                               # one decision per 30 minutes
-    d = d[(d["bid_c"] > 0) & (d["ask_c"] < 1) & (d["ask_c"] >= d["bid_c"])]
     # choose nowcast weight on fit days (MAE of mu vs H, one row per city-day-time)
     best = None
     for lam in (0.0, 0.5, 1.0):

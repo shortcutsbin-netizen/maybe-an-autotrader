@@ -13,22 +13,33 @@ def main():
     a = ap.parse_args(); req = json.load(open(a.request)); os.makedirs(a.out, exist_ok=True)
     tickers = [x.strip() for x in open(req["tickers_file"]) if x.strip()]
     pause = float(req.get("pause", 0.15)); n = 0
+    endpoints = ["/markets/trades"] + (["/historical/trades"] if req.get("historical") else [])
+    max_pages = int(req.get("max_pages", 200))
+
+    def f_(x, *keys):          # live endpoints use *_dollars / *_fp, historical ones bare names
+        for k in keys:
+            if x.get(k) is not None:
+                return x.get(k)
+        return ""
     with gzip.open(os.path.join(a.out, "trades.csv.gz"), "wt", newline="") as f:
-        w = csv.writer(f); w.writerow(["ticker", "created_time", "yes_price", "no_price", "count", "taker_side"])
+        w = csv.writer(f); w.writerow(["ticker", "created_time", "yes_price", "no_price", "count", "taker_side", "trade_id", "src"])
         for i, t in enumerate(tickers):
-            cursor = ""
-            for _ in range(200):
-                q = {"ticker": t, "limit": 1000}
-                if cursor: q["cursor"] = cursor
-                obj, err = get_json(f"{KALSHI}/markets/trades?{urllib.parse.urlencode(q)}", pause)
-                if err:
-                    STATE["errors"].append(f"{t}: {err}"); break
-                tr = obj.get("trades", [])
-                save_sample(a.out, "trades", {"trades": tr[:2]})
-                for x in tr:
-                    w.writerow([t, x.get("created_time"), x.get("yes_price_dollars"), x.get("no_price_dollars"), x.get("count_fp"), x.get("taker_side")]); n += 1
-                cursor = obj.get("cursor") or ""
-                if not cursor or not tr: break
+            for ep in endpoints:
+                cursor = ""
+                for _ in range(max_pages):
+                    q = {"ticker": t, "limit": 1000}
+                    if cursor: q["cursor"] = cursor
+                    obj, err = get_json(f"{KALSHI}{ep}?{urllib.parse.urlencode(q)}", pause)
+                    if err:
+                        STATE["errors"].append(f"{t} {ep}: {err}"); break
+                    tr = obj.get("trades", [])
+                    if tr:
+                        save_sample(a.out, "trades_" + ep.strip("/").replace("/", "_"), {"trades": tr[:2]})
+                    for x in tr:
+                        w.writerow([t, x.get("created_time"), f_(x, "yes_price_dollars", "yes_price"), f_(x, "no_price_dollars", "no_price"),
+                                    f_(x, "count_fp", "count"), x.get("taker_side"), x.get("trade_id", ""), ep[1:5]]); n += 1
+                    cursor = obj.get("cursor") or ""
+                    if not cursor or not tr: break
             if i % 200 == 0: log(f"{i}/{len(tickers)} trades={n} errors={len(STATE['errors'])}")
     json.dump({"request": req, "tickers": len(tickers), "trades": n, "http_requests": STATE["requests"], "error_count": len(STATE["errors"]),
                "errors_first_50": STATE["errors"][:50]}, open(os.path.join(a.out, "manifest.json"), "w"), indent=1)

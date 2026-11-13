@@ -1,0 +1,42 @@
+markets=8267 city-days=1378 rows=1599277 obs=metar
+bracket-rule check: 0 of 8267 markets disagree with (lo<=H<=hi)
+settlement high minus max of observations (deg F): METAR mean 0.75, P(=0) 0.37, P(>=1) 0.63, P(>=2) 0.11 | 1-min ASOS mean 0.45, P(=0) 0.39, P(|d|>=1) 0.55
+days fit=2026-04-30..2026-08-01 thr=2026-08-02..2026-08-25 eval[val]=2026-08-26..2026-10-03
+nowcast weight lambda=0.5 (fit MAE 1.94F). MAE of point forecast by hours left in day (all days): {0: 0.77, 1: 0.79, 2: 0.69, 3: 0.97, 4: 1.35, 5: 1.68, 6: 1.98, 7: 2.2, 8: 2.06, 9: 2.06}
+rows fit=180692 thr=43118 eval=75425; eval city-days=273 spread mean=1.63c
+lr_all coefficients [model logit, market logit] (standardised): [0.326 1.611]
+
+== forecast skill on eval (Brier, lower is better): all | day before (>24h left) | morning (12-24h) | afternoon (5-12h) | evening (<5h)
+  mid     0.12282 | 0.12059 | 0.12797 | 0.11489 | 0.01869
+  p_res   0.15149 | 0.14125 | 0.15747 | 0.19525 | 0.32230
+  gb_ext  0.14754 | 0.13684 | 0.15538 | 0.18610 | 0.26589
+  lr_all  0.12321 | 0.12046 | 0.12866 | 0.11769 | 0.01930
+  gb_all  0.12391 | 0.12131 | 0.12898 | 0.11837 | 0.06772
+
+== trading the disagreement (cents/contract; threshold chosen on held-back train days using the delayed fill)
+  p_res   thr=0.15 (thr-days delayed EV -1.79c) | eval displayed n=19779 EV=-1.77c [-4.71,+1.00] | delayed 10min n=19533 EV=-2.86c [-5.84,-0.05] win=34% days=39
+           one trade per market-side: n=1500 EV=-3.46c [-4.95,-2.14] | by city: AUS:200/-5.7, CHI:213/+0.2, DEN:237/-5.9, LAX:217/-2.0, MIA:250/-2.4, NY:185/-5.2, PHIL:198/-3.5
+           by time: evening:1/-3.2, afternoon:168/-4.7, morning:294/-2.6, day-before:1037/-3.5 | by side: NO:652/-3.5, YES:848/-3.4
+  gb_ext  thr=0.15 (thr-days delayed EV -1.29c) | eval displayed n=17399 EV=-2.01c [-4.97,+1.13] | delayed 10min n=17179 EV=-3.09c [-6.07,+0.10] win=31% days=39
+           one trade per market-side: n=1390 EV=-3.15c [-4.64,-1.70] | by city: AUS:187/-4.6, CHI:204/+0.9, DEN:205/-6.0, LAX:218/-3.3, MIA:219/-2.7, NY:172/-6.4, PHIL:185/-0.3
+           by time: evening:1/-3.2, afternoon:196/-7.5, morning:351/-0.5, day-before:842/-3.3 | by side: NO:588/-3.2, YES:802/-3.1
+  lr_all  thr=0.10 (thr-days delayed EV +18.30c) | eval displayed n=488 EV=+12.01c [-0.17,+20.92] | delayed 10min n=488 EV=+10.49c [-1.64,+19.33] win=75% days=38
+           one trade per market-side: n=101 EV=-3.33c [-12.80,+7.76] | by city: AUS:13/-26.5, CHI:7/-18.3, DEN:17/-12.5, LAX:12/+13.3, MIA:29/-11.6, NY:17/+20.4, PHIL:6/+29.7
+           by time: afternoon:17/-17.2, morning:27/+0.2, day-before:57/-0.9 | by side: NO:65/-3.6, YES:36/-2.9
+  gb_all  thr=0.15 (thr-days delayed EV +6.59c) | eval displayed n=464 EV=+5.63c [-2.60,+12.86] | delayed 10min n=462 EV=+4.26c [-3.88,+11.47] win=61% days=38
+           one trade per market-side: n=110 EV=-0.23c [-7.88,+8.73] | by city: AUS:15/-16.7, CHI:9/+1.4, DEN:13/-11.6, LAX:21/+17.2, MIA:24/-14.9, NY:18/+13.4, PHIL:10/+12.0
+           by time: afternoon:13/-2.2, morning:42/+1.7, day-before:55/-1.3 | by side: NO:61/+3.6, YES:49/-5.0
+
+== every threshold on eval, gb_all and p_res (transparency only)
+  p_res   thr=0.00 n= 66361 delayed EV=-2.59c [-3.86,-1.33]
+  p_res   thr=0.02 n= 53295 delayed EV=-2.86c [-4.40,-1.31]
+  p_res   thr=0.04 n= 45489 delayed EV=-2.89c [-4.64,-1.10]
+  p_res   thr=0.06 n= 39047 delayed EV=-3.02c [-4.97,-1.08]
+  p_res   thr=0.10 n= 29009 delayed EV=-3.13c [-5.40,-0.90]
+  p_res   thr=0.15 n= 19533 delayed EV=-2.86c [-5.84,-0.05]
+  gb_all  thr=0.00 n= 53706 delayed EV=-0.86c [-2.22,+0.50]
+  gb_all  thr=0.02 n= 21439 delayed EV=-1.48c [-3.97,+1.06]
+  gb_all  thr=0.04 n= 10360 delayed EV=-1.71c [-5.16,+1.95]
+  gb_all  thr=0.06 n=  5670 delayed EV=-1.46c [-5.99,+3.10]
+  gb_all  thr=0.10 n=  1789 delayed EV=+2.18c [-4.29,+9.47]
+  gb_all  thr=0.15 n=   462 delayed EV=+4.26c [-3.88,+11.47]
