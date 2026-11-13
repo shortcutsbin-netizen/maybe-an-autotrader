@@ -1,0 +1,7 @@
+[     0.3s] cutoff: {'market_positions_last_updated_ts': '2026-09-13T00:00:00Z', 'market_settled_ts': '2026-09-13T00:00:00Z', 'orders_updated_ts': '2026-10-29T00:00:00Z', 'trades_created_ts': '2026-09-13T00:00:00Z'}
+[     0.6s] KXBTC15M: 24 markets
+[     0.9s] KXSOL15M: 24 markets
+[     1.1s] candles: window 1/24 rows=30 errors=0
+[     7.9s] spot BTC-USD: 420 candles
+[     8.6s] spot SOL-USD: 420 candles
+[     8.6s] done: requests=31 errors=0

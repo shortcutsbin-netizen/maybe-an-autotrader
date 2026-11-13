@@ -1,0 +1,50 @@
+{
+ "request": {
+  "name": "smoke-001",
+  "series": [
+   "KXBTC15M",
+   "KXSOL15M"
+  ],
+  "days": 0.25,
+  "candles": true,
+  "spot": true,
+  "historical": false,
+  "pause": 0.2
+ },
+ "t_min": "2026-11-12T20:24:56Z",
+ "t_max": "2026-11-13T02:24:56Z",
+ "started_utc": "2026-11-13T02:34:56Z",
+ "source": "https://api.elections.kalshi.com/trade-api/v2",
+ "counts": {
+  "KXBTC15M": 24,
+  "KXSOL15M": 24
+ },
+ "historical_cutoff": {
+  "market_positions_last_updated_ts": "2026-09-13T00:00:00Z",
+  "market_settled_ts": "2026-09-13T00:00:00Z",
+  "orders_updated_ts": "2026-10-29T00:00:00Z",
+  "trades_created_ts": "2026-09-13T00:00:00Z"
+ },
+ "candle_rows": 720,
+ "markets_without_candles": 0,
+ "spot": {
+  "BTC-USD": 420,
+  "SOL-USD": 420
+ },
+ "finished_utc": "2026-11-13T02:35:05Z",
+ "http_requests": 31,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/markets_live.json": "5e1737be82be0ad9d7d326b4a3f24ace987157c145a27a551b6f614c5a5b82c4",
+  "samples/candles_batch.json": "2f26970e55588b2f80dabfd3141b6f4a231593064c02e9d09a7f356e2401e76f",
+  "samples/spot.json": "9ea01be2ae0144e3ec048d20a1ee2864ec7c8676f7f89d675132a3160a3f2f42",
+  "candles/2026-11-13.csv.gz": "a2d559a0e927224271d5ec52693d07ec7a28cc5729d485c24c4461913993e177",
+  "candles/2026-11-12.csv.gz": "33e3eda6e2e0b7a7bf26cb96af5152dcf86753656c41ef40c54b8da42c3d829d",
+  "spot/BTC-USD.csv.gz": "886791083017f246ab63cebb4b6f23b06f7505833b2b51865ec504d1195e8d03",
+  "spot/SOL-USD.csv.gz": "c5d992ec1a55513f3ef7dba614b782b8190bcaf085203d68f3d38b0bdd55360c",
+  "markets/KXSOL15M.csv.gz": "6554eb720debea13eaaa25013bb7820108f59cb1f1e7b84ed5d427c585d2762b",
+  "markets/KXBTC15M.csv.gz": "689f0c5c7ad8384654eae41b8797b452706fef428ce78fc5bccf757709807c8d"
+ }
+}
