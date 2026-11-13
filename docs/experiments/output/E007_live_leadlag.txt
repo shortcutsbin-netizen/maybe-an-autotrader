@@ -1,0 +1,27 @@
+book polls=76815 spot polls=76815 markets seen=180 span=4.75h median request latency=93ms median poll gap=2.00s
+
+== A. size at the touch (contracts), two-sided books only
+  KXBNB15M   spread median 1.0c mean 1.14c | best bid size median       62 | best ask size median       50 | 10th pct ask size      3 | depth within 2c: bid      441 ask      381
+  KXBTC15M   spread median 1.0c mean 0.67c | best bid size median     4722 | best ask size median     4672 | 10th pct ask size    628 | depth within 2c: bid    16506 ask    18259
+  KXDOGE15M  spread median 1.0c mean 1.17c | best bid size median       47 | best ask size median       50 | 10th pct ask size      5 | depth within 2c: bid     1126 ask      890
+  KXETH15M   spread median 1.0c mean 0.76c | best bid size median      514 | best ask size median      449 | 10th pct ask size     16 | depth within 2c: bid     2486 ask     2267
+  KXHYPE15M  spread median 1.4c mean 1.69c | best bid size median       70 | best ask size median       57 | 10th pct ask size      5 | depth within 2c: bid      607 ask      583
+  KXNEAR15M  spread median 1.0c mean 1.13c | best bid size median       30 | best ask size median       28 | 10th pct ask size      6 | depth within 2c: bid      261 ask      238
+  KXSOL15M   spread median 1.0c mean 0.93c | best bid size median      188 | best ask size median      184 | 10th pct ask size     12 | depth within 2c: bid     1825 ask     1735
+  KXXRP15M   spread median 1.0c mean 1.03c | best bid size median      251 | best ask size median      250 | 10th pct ask size      3 | depth within 2c: bid     1459 ask     1644
+  KXZEC15M   spread median 1.0c mean 1.05c | best bid size median       58 | best ask size median       42 | 10th pct ask size      6 | depth within 2c: bid      490 ask      441
+
+== B. lead-lag: response of the Kalshi mid to a spot move (regression of 2 s Kalshi mid change on lagged 2 s spot returns, in the middle of the window, prices 20-80c)
+  KXBTC15M   n=  2456 share of total response arriving: same 2s 142.9% | by +2s 115.1% | +4s 102.2% | +8s  97.2% | +16s 100%  (total 0.90c per 1-sd 2s spot move)
+  KXDOGE15M  n=  2244 share of total response arriving: same 2s  91.0% | by +2s  88.1% | +4s  94.1% | +8s  94.0% | +16s 100%  (total 1.59c per 1-sd 2s spot move)
+  KXETH15M   n=  2030 share of total response arriving: same 2s 107.0% | by +2s  95.9% | +4s  93.4% | +8s  96.6% | +16s 100%  (total 1.59c per 1-sd 2s spot move)
+  KXHYPE15M  n=  2282 share of total response arriving: same 2s  80.7% | by +2s  87.5% | +4s  85.3% | +8s  95.8% | +16s 100%  (total 1.60c per 1-sd 2s spot move)
+  KXNEAR15M  n=  2342 share of total response arriving: same 2s 101.2% | by +2s  99.5% | +4s  97.9% | +8s  99.5% | +16s 100%  (total 1.84c per 1-sd 2s spot move)
+
+== C. model-vs-quote edge and its decay with execution delay
+  model rows=38476 markets=153  Brier: model 0.1425 vs Kalshi mid 0.1422
+  thr=0.03 signals=8178 in 143 markets | +0s: -0.1c(se 3.5, sz 135) +2s: -0.4c(se 3.4, sz 130) +4s: -0.3c(se 3.4, sz 131) +6s: -0.3c(se 3.4, sz 133) +10s: -0.3c(se 3.3, sz 132) +20s: -0.3c(se 3.3, sz 136) +30s: -0.2c(se 3.2, sz 133) +60s: -0.0c(se 3.0, sz 148) 
+  thr=0.05 signals=3896 in 123 markets | +0s: -0.7c(se 4.7, sz 142) +2s: -1.1c(se 4.5, sz 138) +4s: -1.0c(se 4.5, sz 140) +6s: -1.1c(se 4.5, sz 140) +10s: -1.0c(se 4.4, sz 138) +20s: -1.1c(se 4.3, sz 140) +30s: -0.8c(se 4.3, sz 137) +60s: -0.4c(se 3.9, sz 154) 
+     by series (delay +4s): BNB:682/+nan, BTC:647/+nan, DOGE:598/+nan, ETH:530/+nan, HYPE:342/+nan, NEAR:176/+nan, SOL:481/+nan, XRP:221/+nan, ZEC:219/+nan
+  thr=0.08 signals=1042 in 90 markets | +0s: -0.5c(se 6.0, sz 127) +2s: -1.0c(se 5.8, sz 116) +4s: -0.9c(se 5.8, sz 135) +6s: -1.0c(se 5.7, sz 132) +10s: -0.9c(se 5.6, sz 129) +20s: -1.2c(se 5.3, sz 118) +30s: -0.4c(se 5.4, sz 122) +60s: +0.7c(se 4.8, sz 154) 
+  thr=0.12 signals=155 in 46 markets | +0s: -0.8c(se 6.1, sz 60) +2s: -0.0c(se 5.8, sz 60) +4s: +0.2c(se 5.6, sz 70) +6s: +0.4c(se 5.6, sz 72) +10s: +0.3c(se 5.3, sz 82) +20s: -0.2c(se 4.5, sz 91) +30s: +1.3c(se 4.2, sz 71) +60s: +2.2c(se 3.2, sz 259) 

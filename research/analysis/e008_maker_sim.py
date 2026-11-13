@@ -33,7 +33,7 @@ sys.path.insert(0, __file__.rsplit("/", 1)[0])
 
 
 def load_trades(run, tickers):
-    tr = pd.read_csv(f"{run}/trades.csv.gz", usecols=["ticker", "created_time", "yes_price", "count", "taker_side"])
+    tr = pd.concat([pd.read_csv(f, usecols=["ticker", "created_time", "yes_price", "count", "taker_side"]) for f in sorted(glob.glob(f"{run}/trades*.csv.gz"))], ignore_index=True)
     tr = tr[tr["ticker"].isin(tickers)].dropna(subset=["yes_price", "taker_side"])
     tr["ts"] = (pd.to_datetime(tr["created_time"], utc=True, format="ISO8601") - pd.Timestamp(0, tz="UTC")) / pd.Timedelta("1s")
     tr = tr.drop_duplicates(["ticker", "created_time", "yes_price", "count", "taker_side"]).sort_values(["ticker", "ts"])

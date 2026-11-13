@@ -1,0 +1,30 @@
+signals with model edge > 0.08: 638 in 493 markets, 12 days; markets with trade data: 100%
+displayed-quote P&L (what E003 measured): +12.05c  win rate 55%  mean quoted ask 41.6c
+signals followed by a same-side taker print within 60 s: 100%; median time to first print 0.2s
+median contracts printed within 60 s at or below the quoted ask: 795 (mean 8811); share of signals with zero: 5%
+
+fill at the first same-side taker print at or after t+delay (within 15 s of it):
+ delay      n  share   price  slip vs quote      P&L             95% CI  P&L same signals at quote
+   0.5    636   100%   41.6c         +0.01c  +11.97c [+5.21,+18.54]                    +11.97c
+   1.0    637   100%   42.3c         +0.68c  +11.35c [+4.90,+17.40]                    +12.01c
+   2.0    636   100%   43.3c         +1.65c  +10.49c [+3.99,+16.51]                    +12.10c
+   3.0    636   100%   44.0c         +2.36c   +9.80c [+3.79,+15.47]                    +12.10c
+   5.0    635   100%   45.0c         +3.41c   +8.73c [+2.58,+14.45]                    +12.03c
+  10.0    635   100%   47.4c         +5.74c   +6.58c [+0.47,+12.09]                    +12.13c
+  20.0    635   100%   50.2c         +8.60c   +3.82c [-1.65,+9.05]                    +12.07c
+  30.0    630    99%   50.8c         +9.37c   +2.98c [-2.07,+7.80]                    +11.86c
+  45.0    595    93%   47.9c         +7.04c   +3.68c [-1.11,+7.83]                    +10.10c
+
+by series, delay 2 s:
+  KXBNB15M   n=  234 P&L +19.79c  slip +0.83c
+  KXBTC15M   n=   24 P&L +17.73c  slip +1.42c
+  KXDOGE15M  n=   87 P&L +10.65c  slip +3.10c
+  KXETH15M   n=   23 P&L  +0.30c  slip +2.87c
+  KXHYPE15M  n=   70 P&L  +5.14c  slip +0.84c
+  KXNEAR15M  n=   72 P&L +12.29c  slip +1.63c
+  KXSOL15M   n=   28 P&L  -3.49c  slip +2.36c
+  KXXRP15M   n=   53 P&L  -3.01c  slip +4.70c
+  KXZEC15M   n=   45 P&L  -6.74c  slip -0.08c
+
+signals with NO same-side print within 60 s (availability unknown):
+  n=0 (0%), displayed-quote P&L on these +nanc vs +12.05c on signals with prints

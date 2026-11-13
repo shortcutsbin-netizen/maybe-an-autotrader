@@ -1,0 +1,24 @@
+candles=2392 markets=180
+book sampled at (minute end + lag): n, mean |candle mid - book mid| (c), exact bid&ask match %, mean |ask diff| (c)
+  lag  -60s  n= 1272  |mid diff|= 9.24c  exact=  1.7%  |ask diff|= 9.25c
+  lag  -30s  n= 1444  |mid diff|= 5.86c  exact=  2.6%  |ask diff|= 5.88c
+  lag  -20s  n= 1440  |mid diff|= 4.57c  exact=  3.5%  |ask diff|= 4.58c
+  lag  -10s  n= 1440  |mid diff|= 3.19c  exact=  6.7%  |ask diff|= 3.19c
+  lag   -6s  n= 1432  |mid diff|= 2.46c  exact= 10.3%  |ask diff|= 2.45c
+  lag   -4s  n= 1443  |mid diff|= 1.85c  exact= 14.3%  |ask diff|= 1.85c
+  lag   -2s  n= 1443  |mid diff|= 1.12c  exact= 28.2%  |ask diff|= 1.12c
+  lag   +0s  n= 1440  |mid diff|= 0.65c  exact= 50.6%  |ask diff|= 0.66c
+  lag   +2s  n= 1423  |mid diff|= 1.97c  exact= 15.2%  |ask diff|= 1.98c
+  lag   +4s  n= 1299  |mid diff|= 2.69c  exact=  8.0%  |ask diff|= 2.71c
+  lag  +10s  n= 1566  |mid diff|= 3.80c  exact=  5.5%  |ask diff|= 3.80c
+
+by series at lag 0: n, mean |mid diff| c, share with |diff| >= 3c, candle spread c, book spread c
+  KXBNB15M   n=  151  0.56c    6.0%  candle spread 1.13  book spread 1.15
+  KXBTC15M   n=  168  0.55c    4.2%  candle spread 0.67  book spread 0.66
+  KXDOGE15M  n=  161  0.71c    7.5%  candle spread 1.15  book spread 1.17
+  KXETH15M   n=  156  0.76c    7.7%  candle spread 0.72  book spread 0.73
+  KXHYPE15M  n=  160  0.62c    3.8%  candle spread 1.69  book spread 1.70
+  KXNEAR15M  n=  167  0.61c    6.0%  candle spread 1.10  book spread 1.13
+  KXSOL15M   n=  157  0.74c    5.1%  candle spread 0.91  book spread 0.91
+  KXXRP15M   n=  160  0.70c    6.2%  candle spread 1.07  book spread 1.05
+  KXZEC15M   n=  160  0.65c    5.0%  candle spread 1.05  book spread 1.07

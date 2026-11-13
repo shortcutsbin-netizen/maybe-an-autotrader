@@ -1,0 +1,38 @@
+domain=weather split=val days=2026-10-16..2026-10-29 (14) markets=554 posted order-pairs=24487 order life=1800s mean spread=1.45c
+fill rates buy: touch 52.0%  through 22.5%  improve 15.6% (spread>=2 ticks on 24% of rows)
+fill rates sell: touch 56.2%  through 29.4%  improve 17.3% (spread>=2 ticks on 24% of rows)
+
+== by price of YES (B = buy YES at bid, S = sell YES at ask)  [cents per filled contract; n = filled orders; fill% = share of posted orders filled]
+  (Interval(0.0, 0.05, closed='right'),) posted=  8556 | B-tou n= 3345 -0.53 [-1.8,+1.1] | B-thr n=  595 -1.27 [-2.8,+0.9] | B-imp n=  462 -0.56 [-2.5,+2.3] | S-tou n= 2777 +1.22 [-1.1,+3.1] | S-thr n= 1044 +0.25 [-3.5,+3.1] | S-imp n=  445 +0.77 [-2.0,+2.8] 
+  (Interval(0.05, 0.1, closed='right'),) posted=  2568 | B-tou n= 1293 -2.36 [-5.2,+2.3] | B-thr n=  572 -1.96 [-5.4,+3.1] | B-imp n=  367 -2.11 [-5.0,+2.0] | S-tou n= 1352 +2.84 [-2.4,+6.3] | S-thr n=  647 +3.10 [-0.5,+6.1] | S-imp n=  396 +1.72 [-2.6,+5.0] 
+  (Interval(0.1, 0.2, closed='right'),) posted=  3204 | B-tou n= 1930 -4.20 [-8.7,+0.3] | B-thr n=  906 -4.22 [-9.1,+0.0] | B-imp n=  545 -3.52 [-9.7,+1.9] | S-tou n= 1974 +5.51 [+1.6,+10.1] | S-thr n= 1037 +5.16 [+0.3,+10.4] | S-imp n=  581 +5.01 [-0.5,+10.8] 
+  (Interval(0.2, 0.35, closed='right'),) posted=  3320 | B-tou n= 1971 -3.21 [-9.9,+2.3] | B-thr n= 1065 -4.18 [-10.4,+1.1] | B-imp n=  730 -5.87 [-12.1,-0.4] | S-tou n= 2127 +0.66 [-6.3,+8.3] | S-thr n= 1211 +0.99 [-5.4,+8.5] | S-imp n=  799 +3.03 [-3.6,+10.4] 
+  (Interval(0.35, 0.5, closed='right'),) posted=  2478 | B-tou n= 1416 +2.70 [-3.1,+8.1] | B-thr n=  753 -0.96 [-7.2,+5.2] | B-imp n=  560 -0.26 [-7.6,+6.6] | S-tou n= 1788 -4.14 [-10.0,+2.7] | S-thr n= 1035 -5.86 [-12.0,+1.1] | S-imp n=  654 -2.80 [-8.5,+3.7] 
+  (Interval(0.5, 0.65, closed='right'),) posted=  2639 | B-tou n= 1534 +5.64 [-3.6,+15.6] | B-thr n=  801 +4.43 [-4.5,+14.2] | B-imp n=  501 +4.21 [-5.4,+14.0] | S-tou n= 2200 -4.50 [-13.5,+3.9] | S-thr n= 1187 -5.86 [-14.9,+2.7] | S-imp n=  622 -4.89 [-13.6,+3.5] 
+  (Interval(0.65, 0.8, closed='right'),) posted=   940 | B-tou n=  623 +2.38 [-11.0,+14.5] | B-thr n=  409 +1.09 [-10.7,+12.1] | B-imp n=  304 -2.52 [-13.6,+8.7] | S-tou n=  818 -1.35 [-13.9,+12.3] | S-thr n=  548 -1.06 [-14.0,+12.3] | S-imp n=  376 +2.28 [-9.8,+14.8] 
+  (Interval(0.8, 0.9, closed='right'),) posted=   419 | B-tou n=  323 +3.17 [-6.2,+10.2] | B-thr n=  221 +3.50 [-4.1,+9.6] | B-imp n=  172 +5.10 [-1.3,+9.6] | S-tou n=  381 -2.55 [-9.8,+7.2] | S-thr n=  277 -3.73 [-9.1,+3.0] | S-imp n=  196 -3.97 [-8.3,+1.5] 
+  (Interval(0.9, 0.95, closed='right'),) posted=   173 | B-tou n=  144 +7.80 [+5.7,+8.7] | B-thr n=   94 +7.44 [+4.7,+8.8] | B-imp n=   94 +6.69 [+4.0,+8.1] | S-tou n=  166 -5.67 [-6.6,-3.4] | S-thr n=  128 -5.21 [-6.2,-2.9] | S-imp n=  101 -5.66 [-6.8,-3.0] 
+  (Interval(0.95, 1.0, closed='right'),) posted=   190 | B-tou n=  153 +2.40 [-1.1,+4.1] | B-thr n=   85 +1.66 [-3.3,+4.3] | B-imp n=   73 +2.32 [-1.0,+3.9] | S-tou n=  182 -0.97 [-2.2,+2.0] | S-thr n=   89 -2.63 [-2.8,-2.5] | S-imp n=   78 -1.72 [-3.1,+1.6] 
+
+== by time  [cents per filled contract; n = filled orders; fill% = share of posted orders filled]
+  ('evening',)               posted=    22 | B-tou n=   18            | B-thr n=    8            | B-imp n=   14            | S-tou n=   19            | S-thr n=   11            | S-imp n=   14            
+  ('afternoon',)             posted=  1670 | B-tou n= 1480 -0.04 [-0.8,+0.5] | B-thr n= 1100 -0.86 [-1.9,-0.0] | B-imp n= 1009 -0.29 [-1.3,+0.5] | S-tou n= 1418 -0.09 [-0.5,+0.3] | S-thr n= 1138 -1.58 [-2.5,-0.5] | S-imp n= 1002 -0.02 [-1.1,+1.1] 
+  ('morning',)               posted=  8886 | B-tou n= 5511 -0.02 [-0.5,+0.5] | B-thr n= 2719 -0.84 [-2.0,+0.3] | B-imp n= 1757 -0.55 [-2.7,+1.5] | S-tou n= 6142 +0.16 [-0.5,+0.9] | S-thr n= 3660 -0.95 [-2.0,+0.1] | S-imp n= 1996 -0.17 [-2.1,+1.8] 
+  ('day-before',)            posted= 13909 | B-tou n= 5723 -0.46 [-1.7,+0.6] | B-thr n= 1674 -1.25 [-3.4,+0.7] | B-imp n= 1028 -3.04 [-6.6,+0.6] | S-tou n= 6186 -0.30 [-1.5,+0.8] | S-thr n= 2394 -0.61 [-2.7,+1.3] | S-imp n= 1236 +0.99 [-2.7,+4.2] 
+
+== by series/city  [cents per filled contract; n = filled orders; fill% = share of posted orders filled]
+  ('AUS',)                   posted=  3530 | B-tou n= 1637 +0.24 [-1.2,+1.7] | B-thr n=  717 -3.09 [-7.3,+0.3] | B-imp n=  586 -4.80 [-8.4,-0.4] | S-tou n= 1705 -0.26 [-3.5,+3.6] | S-thr n=  909 -0.67 [-4.5,+3.5] | S-imp n=  649 +3.37 [-1.1,+8.3] 
+  ('CHI',)                   posted=  3662 | B-tou n= 1805 -0.62 [-1.8,+0.6] | B-thr n=  771 +1.01 [-1.0,+3.3] | B-imp n=  514 +2.50 [-0.8,+6.0] | S-tou n= 2007 -0.71 [-2.0,+0.8] | S-thr n=  982 -2.25 [-4.5,-0.1] | S-imp n=  563 -3.12 [-7.6,+0.9] 
+  ('DEN',)                   posted=  4060 | B-tou n= 1970 -0.26 [-2.4,+1.8] | B-thr n=  712 +0.06 [-3.6,+3.5] | B-imp n=  595 -1.41 [-4.4,+1.2] | S-tou n= 1814 +0.25 [-2.4,+3.2] | S-thr n=  898 -1.63 [-4.9,+2.0] | S-imp n=  656 +0.50 [-1.1,+2.3] 
+  ('LAX',)                   posted=  3010 | B-tou n= 1783 -0.21 [-1.3,+0.8] | B-thr n=  741 -0.93 [-3.0,+1.4] | B-imp n=  348 +0.07 [-5.0,+4.1] | S-tou n= 2103 -0.27 [-1.1,+0.5] | S-thr n= 1038 -1.17 [-2.4,-0.1] | S-imp n=  400 +0.27 [-4.1,+6.0] 
+  ('MIA',)                   posted=  3431 | B-tou n= 1812 -0.50 [-1.8,+0.7] | B-thr n=  866 -3.21 [-5.8,-1.1] | B-imp n=  473 -0.93 [-3.9,+2.0] | S-tou n= 2079 -0.16 [-2.1,+2.6] | S-thr n= 1144 -0.49 [-2.9,+2.9] | S-imp n=  531 +0.52 [-4.1,+5.5] 
+  ('NY',)                    posted=  3339 | B-tou n= 2016 -0.08 [-0.8,+0.9] | B-thr n=  893 +0.14 [-1.3,+1.9] | B-imp n=  546 -2.11 [-6.2,+0.9] | S-tou n= 2275 +0.99 [-0.4,+2.7] | S-thr n= 1274 +0.67 [-1.7,+3.8] | S-imp n=  615 +2.64 [-1.1,+7.2] 
+  ('PHIL',)                  posted=  3455 | B-tou n= 1709 -0.05 [-1.9,+1.9] | B-thr n=  801 -0.65 [-3.6,+2.0] | B-imp n=  746 -0.58 [-4.3,+2.6] | S-tou n= 1782 -0.53 [-3.2,+2.6] | S-thr n=  958 -1.59 [-5.3,+2.6] | S-imp n=  834 -2.30 [-5.3,+0.4] 
+
+== focus: sell longshots (YES priced <= 10c) and buy favorites (YES >= 90c) as a maker
+  sell YES<=10c  touch    fills=  4129 (295/day) P&L/fill +1.75c [-1.12,+3.77] win 96.9%
+  sell YES<=10c  through  fills=  1691 (121/day) P&L/fill +1.34c [-2.06,+3.74] win 96.0%
+  sell YES<=10c  improve  fills=   841 (60/day) P&L/fill +1.22c [-1.55,+3.46] win 95.6%
+  buy YES>=90c   touch    fills=   312 (22/day) P&L/fill +4.38c [+1.55,+6.26] win 98.1%
+  buy YES>=90c   through  fills=   189 (14/day) P&L/fill +4.01c [+0.22,+6.63] win 97.4%
+  buy YES>=90c   improve  fills=   182 (13/day) P&L/fill +3.62c [+0.34,+6.23] win 97.3%

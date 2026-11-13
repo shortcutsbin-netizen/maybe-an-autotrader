@@ -29,7 +29,8 @@ def fee(p):
 
 def main():
     sig = pd.read_csv(sys.argv[1])
-    tr = pd.read_csv(f"{sys.argv[2]}/trades.csv.gz")
+    import glob
+    tr = pd.concat([pd.read_csv(f) for f in sorted(glob.glob(f"{sys.argv[2]}/trades*.csv.gz"))], ignore_index=True)
     thr = float(sys.argv[3]) if len(sys.argv) > 3 else 0.08
     tr["ts"] = (pd.to_datetime(tr["created_time"], utc=True, format="ISO8601") - pd.Timestamp(0, tz="UTC")) / pd.Timedelta("1s")
     tr = tr.sort_values(["ticker", "ts"])

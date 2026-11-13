@@ -1,0 +1,30 @@
+== thr
+signals=413 in 327 markets over 8 days (52/day)
+filled=305 (74%)  P&L per contract +9.74c  95% CI [+7.41,+12.68]  win rate 51.5%  avg fill 40.3c  avg quoted ask 43.1c
+volume others took in the fill window: median 106, 25th pct 30; fills with >=20 contracts: 81%
+one trade per market: n=253 P&L +10.57c [+8.54,+12.57]
+by series: {'BNB': (97, np.float64(14.7)), 'BTC': (6, np.float64(8.7)), 'DOGE': (51, np.float64(9.1)), 'ETH': (15, np.float64(-6.3)), 'HYPE': (62, np.float64(4.1)), 'NEAR': (24, np.float64(0.8)), 'SOL': (13, np.float64(32.0)), 'XRP': (14, np.float64(-14.6)), 'ZEC': (23, np.float64(27.6))}
+by day: {'10-12': (42, np.float64(12.4)), '10-13': (28, np.float64(17.0)), '10-14': (25, np.float64(10.2)), '10-15': (36, np.float64(8.5)), '10-16': (47, np.float64(6.8)), '10-17': (44, np.float64(8.9)), '10-18': (49, np.float64(4.2)), '10-19': (34, np.float64(14.6))}
+by minutes left: {1: (130, np.float64(7.3)), 2: (61, np.float64(8.1)), 3: (37, np.float64(0.0)), 4: (22, np.float64(9.4)), 5: (17, np.float64(27.8)), 6: (10, np.float64(8.7)), 7: (9, np.float64(17.3)), 8: (7, np.float64(40.9)), 9: (5, np.float64(25.9)), 10: (5, np.float64(18.9)), 11: (2, np.float64(48.6))}
+days with positive mean P&L: 8 of 8
+illustration at 10 contracts per fill: mean $37.14/day, worst day $20.52, best $52.00, capital per trade ~$4.03
+== val
+signals=679 in 523 markets over 12 days (57/day)
+filled=513 (76%)  P&L per contract +11.34c  95% CI [+6.62,+16.34]  win rate 50.9%  avg fill 38.2c  avg quoted ask 41.7c
+volume others took in the fill window: median 126, 25th pct 31; fills with >=20 contracts: 82%
+one trade per market: n=413 P&L +13.11c [+8.59,+17.74]
+by series: {'BNB': (178, np.float64(10.0)), 'BTC': (11, np.float64(-13.6)), 'DOGE': (72, np.float64(19.5)), 'ETH': (9, np.float64(34.5)), 'HYPE': (90, np.float64(14.9)), 'NEAR': (50, np.float64(-4.1)), 'SOL': (21, np.float64(26.1)), 'XRP': (42, np.float64(2.9)), 'ZEC': (40, np.float64(16.6))}
+by day: {'10-20': (26, np.float64(21.8)), '10-21': (45, np.float64(11.2)), '10-22': (39, np.float64(2.4)), '10-23': (23, np.float64(5.9)), '10-24': (48, np.float64(-1.6)), '10-25': (72, np.float64(14.5)), '10-26': (34, np.float64(26.5)), '10-27': (50, np.float64(3.5)), '10-28': (40, np.float64(29.9)), '10-29': (28, np.float64(10.6)), '10-30': (34, np.float64(9.3)), '10-31': (74, np.float64(9.1))}
+by minutes left: {1: (200, np.float64(5.5)), 2: (91, np.float64(17.5)), 3: (44, np.float64(18.1)), 4: (45, np.float64(15.9)), 5: (33, np.float64(8.9)), 6: (23, np.float64(5.8)), 7: (22, np.float64(2.3)), 8: (13, np.float64(23.0)), 9: (14, np.float64(8.5)), 10: (20, np.float64(26.6)), 11: (8, np.float64(22.9))}
+days with positive mean P&L: 11 of 12
+illustration at 10 contracts per fill: mean $48.47/day, worst day $-7.51, best $119.64, capital per trade ~$3.82
+== TEST (opened once, frozen rule)
+signals=638 in 493 markets over 12 days (53/day)
+filled=497 (78%)  P&L per contract +11.01c  95% CI [+3.97,+18.37]  win rate 50.7%  avg fill 38.3c  avg quoted ask 41.1c
+volume others took in the fill window: median 188, 25th pct 52; fills with >=20 contracts: 88%
+one trade per market: n=401 P&L +10.26c [+4.45,+16.12]
+by series: {'BNB': (174, np.float64(22.1)), 'BTC': (19, np.float64(18.7)), 'DOGE': (71, np.float64(12.6)), 'ETH': (17, np.float64(-10.1)), 'HYPE': (54, np.float64(4.6)), 'NEAR': (57, np.float64(13.6)), 'SOL': (24, np.float64(0.5)), 'XRP': (41, np.float64(-5.4)), 'ZEC': (40, np.float64(-6.7))}
+by day: {'11-01': (66, np.float64(-6.8)), '11-02': (23, np.float64(-11.0)), '11-03': (39, np.float64(6.5)), '11-04': (21, np.float64(1.9)), '11-05': (32, np.float64(15.2)), '11-06': (40, np.float64(30.9)), '11-07': (60, np.float64(17.3)), '11-08': (82, np.float64(7.7)), '11-09': (33, np.float64(21.4)), '11-10': (44, np.float64(27.9)), '11-11': (25, np.float64(16.0)), '11-12': (32, np.float64(4.8))}
+by minutes left: {1: (188, np.float64(3.6)), 2: (94, np.float64(14.8)), 3: (60, np.float64(18.2)), 4: (35, np.float64(0.3)), 5: (14, np.float64(28.3)), 6: (20, np.float64(14.5)), 7: (21, np.float64(9.6)), 8: (18, np.float64(24.6)), 9: (15, np.float64(29.0)), 10: (16, np.float64(19.5)), 11: (16, np.float64(13.6))}
+days with positive mean P&L: 10 of 12
+illustration at 10 contracts per fill: mean $45.61/day, worst day $-44.94, best $123.74, capital per trade ~$3.83
