@@ -92,10 +92,11 @@ def resample(cs, n):
         if last_bucket is not None and b != last_bucket:
             last = dict(last)
             last["volume_fp"] = f"{vol:.2f}"
+            last.pop("volume", None)
             out.append(last)
             vol = 0.0
         try:
-            vol += float(c.get("volume_fp") or 0)
+            vol += float(c.get("volume_fp") or c.get("volume") or 0)
         except ValueError:
             pass
         last_bucket, last = b, c
@@ -151,6 +152,7 @@ def pull_candles(series, markets, out, pause, lookback_h, resample_min):
                     if e1:
                         STATE["errors"].append(f"hist candles {m['ticker']}: {e1}")
                     else:
+                        save_sample(out, f"candles_hist_{series}", {"candlesticks": (o1.get("candlesticks") or [])[:2]})
                         results.append((m["ticker"], o1.get("candlesticks") or []))
             for ticker, cs in results:
                 cs = resample(cs, resample_min)

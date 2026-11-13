@@ -155,13 +155,18 @@ CANDLE_COLS = ["ticker", "end_period_ts",
 
 
 def candle_row(ticker, c):
+    # live endpoints use "<k>_dollars"/"volume_fp"; /historical/ endpoints use bare "<k>"/"volume"
     def g(group, k):
-        return (c.get(group) or {}).get(k + "_dollars", "")
+        o = c.get(group) or {}
+        v = o.get(k + "_dollars")
+        return v if v is not None else o.get(k, "")
+    vol = c.get("volume_fp", c.get("volume", ""))
+    oi = c.get("open_interest_fp", c.get("open_interest", ""))
     return ([ticker, c.get("end_period_ts", "")]
             + [g("yes_bid", k) for k in ("open", "high", "low", "close")]
             + [g("yes_ask", k) for k in ("open", "high", "low", "close")]
             + [g("price", k) for k in ("open", "high", "low", "close", "mean")]
-            + [c.get("volume_fp", ""), c.get("open_interest_fp", "")])
+            + [vol, oi])
 
 
 def pull_candles(markets, out, pause):
