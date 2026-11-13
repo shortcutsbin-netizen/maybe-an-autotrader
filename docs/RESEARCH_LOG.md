@@ -153,3 +153,21 @@ Workers Free: 100,000 requests/day, 10 ms CPU per invocation, 50 external subreq
 - 15-minute crypto: external-information-only models are worse forecasters than the market price (E003).
 - Sports: Kalshi tracks the sportsbook closing line to under one point; no pre-game or in-game momentum edge after fees (E005).
 - Weather: forecast + observation model is a much worse forecaster than the market; no taker edge (E004, E004b).
+
+### Session 2 addendum (2026-11-13 late) — microstructure facts from the live capture [V]
+
+- `live-001` (2026-11-13 18:00–22:45Z): 76,815 public order-book polls, 0 errors, 93 ms median round trip from a GitHub runner.
+- Median contracts at the best bid/ask: BTC 4,722/4,672; ETH 514/449; XRP 251/250; SOL 188/184; HYPE 70/57; BNB 62/50; ZEC 58/42; DOGE 47/50; NEAR 30/28. Tenth-percentile ask size on the thin coins: 3–6 contracts.
+- Kalshi mids incorporate a Coinbase move within the same 2-second poll (80–100% of the total response).
+- One-minute candle close quotes equal the captured book at the minute end to 0.65c on average; Coinbase candle closes equal the captured last price at the candle's end to 0.4 bps (BTC).
+- A 15-minute BTC market trades roughly 60,000 prints; mids can swing 30–40c within a minute when spot sits near the strike.
+- Trades-per-market sizes made three pulls exceed GitHub's 100 MB file limit; they never published.
+
+### Negative findings added
+
+- Naive passive quoting on 15-minute crypto loses about 1c per filled contract to adverse selection (E009).
+- Passive quoting in weather markets is roughly break-even to slightly negative overall; only favorite-side orders are positive (E008).
+
+### Positive finding (unconfirmed on own fills)
+
+- Frozen dislocation rule: +11.0c per contract on the untouched test split, 95% CI [+4.0, +18.4], 497 modelled fills over 12 days (E010).

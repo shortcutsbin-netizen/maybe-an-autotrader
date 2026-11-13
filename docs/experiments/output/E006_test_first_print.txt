@@ -28,3 +28,4 @@ by series, delay 2 s:
 
 signals with NO same-side print within 60 s (availability unknown):
   n=0 (0%), displayed-quote P&L on these +nanc vs +12.05c on signals with prints
+PLACEBO random side, non-signal minutes, same markets, first print at +1s: n=3931 P&L -1.24c CI [-2.61,+0.02] slip -0.60c

@@ -30,11 +30,11 @@ Research, and only if justified build, an autonomous Python bot for Kalshi short
 | | |
 |---|---|
 | **Phase** | **2 — Real-data research, simulation, validation** (Phase 1 approved by user 2026-11-12) |
-| **Status** | Data route A working. First full pull `full-001` requested (13 series, 2026-09-13 → 2026-11-13). Experiment E001 (calibration study) written; see §12 for results/progress. Time box: mandatory continue/stop decision by **2026-12-24**. |
-| **Last thread** | Thread 1 (2026-11-12), second turn |
+| **Status** | **Testing round 2 complete (2026-11-13). Awaiting user decision** on a forward paper test of the one surviving lead (dislocation rule, E010) — see §7 open questions. Eleven experiments done (§12): sports negative, weather taker negative, crypto forecasting negative, naive market making negative; dislocation rule +11c/contract on the untouched test split with modelled fills; weather favorite-side making a weak secondary lead. Time box: mandatory continue/stop decision by **2026-12-24**. |
+| **Last thread** | Thread 1, turn 3 (2026-11-13 17:40Z → 2026-11-14 ~00:10Z, resumed once by auto-resume) |
 | **Code** | Research tooling only (`research/`). **No production code; none allowed until Phase 3 is authorized.** |
 | **Data** | On the `data` branch under `runs/<request name>/` (written by GitHub Actions). |
-| **Infrastructure** | One GitHub Actions workflow (`collect.yml`), read-only, user-approved (route A). Nothing else. |
+| **Infrastructure** | One GitHub Actions workflow (`collect.yml`), read-only, user-approved (route A). Nothing else. **Actions minutes are probably nearly used up for the month** (see §11) — do not launch long jobs without checking with the user. |
 
 ## 3. Repository
 
@@ -97,7 +97,23 @@ Still planned, not yet created: ~~`docs/experiments/`~~ (one file per Phase 2 ex
 | S11 | News-driven | Used only as a no-trade filter |
 | S12 | Regime / no-trade selection | Required component |
 
-Recommended market priority: alt-coin 15-minute series first, BTC as the benchmark, hourly ladders third, weather as the fallback pivot.
+~~Recommended market priority: alt-coin 15-minute series first, BTC as the benchmark, hourly ladders third, weather as the fallback pivot.~~ (superseded)
+
+**Status after testing round 2 (2026-11-13) — authoritative:**
+
+| ID | Strategy | Status |
+|---|---|---|
+| S1 | Fair-value model trading all disagreements | Rejected as a general strategy (E003, E007) |
+| **S1-D** | **Dislocation rule** — frozen logistic stack (market + spot/vol/momentum/BTC features), trade only when edge > 8c, enter within seconds, hold to settlement | **LEAD.** E010 test split +11.0c/contract [+4.0, +18.4]; decays over 10–20 s; fills modelled from others' prints. Needs forward paper test on the real book |
+| S3 | Passive quoting, 15-min crypto | **Rejected** (E009: −1.1c markout per fill on the real book) |
+| S4 | Favorite/longshot as taker | Rejected (E002, E004b) |
+| **S4-M** | Favorite-side resting orders in weather (buy YES ≥ 90c, sell YES ≤ 20c) | Secondary lead (E008); thin evidence |
+| S5 | Flow fade | Subsumed by S1-D |
+| S6, S7 | Momentum; spot book imbalance | No evidence / untested; quotes follow spot within 2 s |
+| S8, S9 | Latency, cross-venue arbitrage | Rejected |
+| S11 | Text news | Feed (GDELT) rate-limited; untested |
+| — | **Sports** | **Dropped** (E005) |
+| — | Weather as taker | Rejected (E004) |
 
 ## 6. Decisions log
 
@@ -113,6 +129,12 @@ Recommended market priority: alt-coin 15-minute series first, BTC as the benchma
 | 2026-11-12 | Chronological split fixed before analysis: first 60% of days train, next 20% validation, last 20% test (opened once per strategy family) | Claude | Implemented in `e001_calibration.py` |
 | 2026-11-12 | Data stored as gz CSV on an orphan `data` branch rather than in `claude` | Claude (minor) | Keeps the work branch small |
 
+| 2026-11-13 | Test split for the E003/E010 strategy family opened exactly once, on a rule frozen and committed beforehand (commit `9ac0a11`) | Claude | Result recorded in §12; do not re-tune that rule on test |
+| 2026-11-13 | Sports dropped; weather taker strategies dropped; naive crypto market making dropped | Claude (recommendation, evidence in §12) | Pending user confirmation |
+| 2026-11-13 | Trade puller now splits output files (<100 MB) and is time-boxed (`max_minutes`) | Claude (minor) | After three jobs failed to publish |
+
+**User direction 2026-11-13 (turn 3):** bring in weather and sports; strategies must fuse all available information (market price, outside data, trends, news), not price level alone; no usage cap for that turn; **auto-resume chaining** — at the start of a long turn schedule `send_later` 315 minutes ahead with a resume prompt, cancel it (`delete_trigger`) when the work completes, and re-schedule each time a resume fires. If unsure how this works, ask before working.
+
 **Approved by user (2026-11-12):**
 
 - Phase 1 plan, success criteria (§1), kill criteria and six-week time box (§17).
@@ -127,7 +149,14 @@ Recommended market priority: alt-coin 15-minute series first, BTC as the benchma
 
 ## 7. Open questions for the user
 
-**All nine thread-1 questions were answered on 2026-11-12 (see §6). None currently open.** Original list kept below for the record.
+**Open as of 2026-11-13 (asked at the end of turn 3):**
+
+1. **Forward paper test (mandatory to progress).** Approve building a read-only observer/paper trader for the dislocation rule to run on the always-on PC for 2–4 weeks (no account, no orders)? This pulls a slice of Phases 3–4 forward for one strategy (enhancement E6). Default if declined: keep doing bounded captures on GitHub Actions, which is slow and limited by minutes.
+2. **GitHub Actions minutes (mandatory).** This round likely used most of the month's free private-repo minutes. Options: (a) wait for the reset and stay frugal [default], (b) make the repo public (unlimited minutes; research becomes visible), (c) move collection to the PC (fits question 1).
+3. **Weather maker lead (optional).** Spend ~90 Actions minutes re-pulling pre-September weather trades to triple the sample? Default: yes once minutes allow.
+4. **Confirm drops (optional).** Sports, weather-as-taker and naive crypto market making removed from scope. Default: yes.
+
+Thread-1 questions (all answered 2026-11-12) are kept below for the record.
 
 ### ~~Asked in thread 1~~ (answered)
 
@@ -146,7 +175,11 @@ Preferences (defaults apply if unanswered):
 8. **Q8 — Fallback.** If 15-minute crypto fails Phase 2, allow one research round on a non-latency category (e.g., weather) before terminating [default: yes]?
 9. **Q9 — Gates.** Accept the success criteria (PLANNING §1) and the kill criteria and six-week time box (§17)?
 
-## 7a. In-flight work (thread 1, turn 3 — started 2026-11-13 17:40Z) — READ THIS ON RESUME
+## 7a. ~~In-flight work~~ (thread 1, turn 3) — COMPLETED 2026-11-14 ~00:10Z; kept for the record
+
+**Nothing is in flight.** Jobs `trades-001`, `trades-002`, `wx-trades-001` and `ext-news-001` never published (first three: output file over GitHub's 100 MB limit; news: source rate-limited) and may still have been burning Actions minutes until their 350-minute timeouts (~01:20Z on 2026-11-14 at the latest). Their request files stay in the repo as a record. Do not wait for them.
+
+### Original note
 
 User instruction for this turn: bring in weather and sports markets; build multi-signal strategies (news, market price, trends, every available source), not price-level analysis; no usage cap this turn; **auto-resume chaining**: schedule a resume message 5h15m ahead (`send_later`, 315 min), cancel it (`delete_trigger`) if the work finishes, re-schedule each time a resume fires until complete. First trigger id: `trig_014eYxPvZJcBGebrVv6qwMXc` (fires 22:56Z).
 
@@ -163,7 +196,17 @@ Data requests submitted 2026-11-13 ~18:10Z (each lands on `data` at `runs/<name>
 
 Analyses: E003 (crypto multi-signal model) done on validation — see §12. E004 weather, E005 sports, E006 live lead-lag: to do when data lands.
 
-## 8. Next steps (current)
+## 8. Next steps (current, as of 2026-11-13 end of turn 3)
+
+**Blocked on the user's answers to §7 questions 1–2.** Then:
+
+1. If the forward test is approved: write `observer/` (separate from `research/`, still no order code): poll public order books for the nine 15-min coins and Coinbase tickers at ~1 s; compute E003 features continuously (spot vs strike proxy, rolling vol from 1-minute closes, momentum, BTC z, Kalshi mid/spread/drift/volume from polled books and trades); apply the **frozen** logistic model (persist coefficients and scaler from `e010_dislocation_frozen.py` fit on `full-001`, 2026-09-13→10-11); on edge > 8c log the displayed ask and size at 0/1/2/3/5/10 s and the settlement outcome; SQLite + JSONL; Windows Task Scheduler. Success test: ≥ 500 signals, mean P&L at the +2 s displayed ask > 0 with CI lower bound above 0, and median displayed size ≥ 20 contracts.
+2. Do not re-tune the rule on the test split. Any new variant needs fresh data (the forward test supplies it).
+3. Weather maker (S4-M): re-pull pre-September trades in split files (`kalshi_trades_pull.py` handles `/historical/trades`; field names differ there) when minutes allow; re-run `e008_maker_sim.py weather` on a longer train/val; test split still unopened for weather.
+4. Still owed from Phase 1: `CRYPTO.pdf` contract terms; rulebook conduct rules (relevant only if making); Bürgi/Becker crypto breakdowns. Fee PDF is done.
+5. Untested ideas, low priority: 15-minute gold/WTI/silver and hourly index markets (same dislocation idea, needs a spot proxy); text-news feed.
+
+## 8-old. Next steps as of the start of turn 3 (superseded, kept)
 
 1. ~~Confirm `full-001` landed~~ done (0 errors).
 2. ~~Run E001~~ done, plus E002. Negative. Test split still unopened.
@@ -201,12 +244,22 @@ Analyses: E003 (crypto multi-signal model) done on validation — see §12. E004
 - Submitted `full-001` (51 min on the runner, 0 errors). Ran E001 and E002: negative (see §12). Did the catalog discovery pass.
 - **Stopped here to protect the user's usage budget.** Next action is §8 item 4 (S1 model vs market Brier using `runs/full-001/spot/`), then item 3 shortlist pulls.
 
+### Thread 1, turn 3 — 2026-11-13 17:40Z → 2026-11-14 ~00:10Z (testing round 2)
+
+- User: add weather and sports, fuse all information sources, no usage cap, auto-resume chaining. Session was interrupted once (~19:55Z) and resumed by the scheduled trigger at 22:56Z; a second trigger was scheduled and cancelled at completion.
+- Built collectors: `kalshi_events_pull.py` (ladders/games, live + historical), `ext_pull.py` (IEM obs, Open-Meteo archived forecasts, ESPN odds, GDELT), `live_capture.py` (public books + spot every 2 s), `kalshi_trades_pull.py`, `probe.py`.
+- Ran E003–E011 (§12). Opened the crypto test split once for the frozen dislocation rule.
+- Verified the fee schedule PDF directly; found the weather settlement-source change; verified candle and spot timestamps against the live capture.
+- Mistakes worth remembering: three long trade pulls could never publish (file > 100 MB) and wasted Actions minutes; the first weather pull lost its history because historical endpoints use different field names.
+- Wrote plan v3, six experiment reports, research-log session 2.
+
 ## 10. Feasibility assessment history
 
 | Date | Outlook | P(sustainable net profit) | Confidence | Decision |
 |---|---|---|---|---|
 | 2026-11-12 | Uncertain, leaning Unpromising (BTC taker); Uncertain (alts, maker) | Informal 5–15%; not reliably quantifiable | Low–medium | Continue, narrowed scope |
 | 2026-11-13 | **Unpromising** for price-only taker strategies on all 15-min crypto (own data); Uncertain for information-based (S1/S2/S5), maker, and non-crypto short-resolution markets | Informal 5–10% | Medium for the negative finding; low for the rest | Continue inside the time box: S1 model test next, then weather/financials calibration |
+| 2026-11-13 (round 2) | **Uncertain — one narrow strategy Promising** (dislocation rule, +11c/contract on the test split with modelled fills); sports, weather-taker, general crypto forecasting and naive market making Unpromising/Not viable | Informal 20–30%, resting almost entirely on the forward test | Medium on the negatives; low–medium on the lead | Continue, narrowed: forward paper test of the dislocation rule; weather favorite-side making secondary |
 
 ## 11. Technical gotchas carried forward
 
@@ -239,6 +292,16 @@ Every experiment and every strategy variant tried is listed here, successful or 
 | E004 | Daily-high weather markets, 7 cities, 2026-05-01→11-12 (1,378 city-days): model fusing archived multi-model forecasts (issued ≥24 h earlier), METAR running max + nowcast error, empirical residual distributions, and gradient boosting / logistic stacking with the market price. `e004_weather.py` | `wx-002`+`wx-001`, `ext-wx-001` | **Done on val 2026-11-13; test NOT opened** | **Negative.** Market Brier 0.1228 vs external-info models 0.1475–0.1515 at every horizon; stacked models do not beat the market (0.1232–0.1239). Trading the external model loses ~3c/contract; stacked-model trades are indistinguishable from zero once counted once per market. Agrees with Crosier (arXiv 2609.23969): Kalshi beats NBM by ~10% RMSE and the best forecast combination by ~3%. Caveats: my forecast inputs are deliberately stale and obs are hourly; a fresher feed would narrow but, per the paper, not close the gap. |
 | E004b | Weather price-level calibration (E001-style), fills delayed 10 min + 1 tick. `e004b_weather_calibration.py` | same | **Done train+val** | **Negative for takers; maker lead.** Favorite–longshot bias is visible in both splits: YES priced <10c wins 1.0–1.8 pts less often than priced; YES ≥90c wins 2–3.6 pts more often. Taker EV after fee is ≤0 or not robust (YES 90–95c: +1.1c train, +0.6c val, CIs include 0). A zero-fee maker selling longshots would keep that 1–2 pts if fills are not adversely selected → E008. |
 
+| E006 | E003's large-disagreement signals checked against real trade prints: what did takers on the same side actually pay 0.5–45 s after each signal? `e006_signal_trades.py` | `trades-003` (thr+val signal markets), `trades-005` (test) | **Done** | **Positive.** Thr+val (1,092 signals): first same-side print at +1 s → +9.95c/contract, +2 s +9.07c, +5 s +7.62c, +10 s +6.36c, +30 s +3.45c. Test (636): +11.35c at 1 s [+4.9, +17.4], +8.73c at 5 s, +2.98c at 30 s. Median first print 0.2–0.5 s after the minute mark. Placebo (random side, non-signal minutes, same markets, same machinery): −1.24c. |
+| E007 | Live order book, 4h45m, nine coins, 2 s cadence: touch size, quote speed, closed-form model on the real book. `e007_live_leadlag.py` | `live-001` | **Done** | Descriptive. Touch size: BTC ~4,700; ETH ~500; XRP ~250; SOL ~190; HYPE/BNB/ZEC/DOGE/NEAR 30–70 contracts. Quotes absorb a spot move within the same 2-second poll (80–100%). Φ(z) on the live book: no edge (−0.1…−1.0c, se 3–6c). |
+| E007b | Candle close quotes vs the captured book. `e007b_candle_vs_book.py` | `full-002` + `live-001` | **Done** | Candle closes are the true book at the minute end (0.65c mean difference; 9c if compared 60 s earlier). |
+| E008 | Maker simulation from trade prints, weather (touch / through / improve fill rules, 30-minute orders). `e008_maker_sim.py` | `wx-001` + `wx-trades-002` (post-cutoff only: train 09-06→10-15, val 10-16→10-29) | **Done train+val; test NOT opened** | **Secondary lead.** Passive quoting overall ≈ 0 to −1c. Favorite-side orders positive in both periods under all three rules: buy YES ≥ 90c +1.8…+3.1c train, +3.6…+4.4c val (val CIs exclude 0; 10–22 fills/day; win 96–98%); sell YES ≤ 10c +0.2…+1.7c train, +1.2…+1.8c val (CIs include 0); sell YES 10–20c +3.3c train, +5.5c val. Longshot-side orders lose. |
+| E009 | Maker simulation on the live capture with real queue sizes (10-contract orders every 10 s, 30 s life). `e009_live_maker.py` | `live-001` + `trades-004` | **Done** | **Negative.** 81% of orders fill; mid 10 s after fill is 1.11c against us (se 0.06) vs 0.52c half-spread earned; every coin and price bucket negative. |
+| E010 | **Frozen dislocation rule** (definition committed in `9ac0a11` before opening test): logistic stack fit 09-13→10-11; edge > 8c; IOC at quote + 2c; fill = same-side taker VWAP in (t+1 s, t+6 s]; hold to settlement. `e010_dislocation_frozen.py` | signals from `full-001`; prints `trades-003`, `trades-005` | **Done — TEST SPLIT OPENED ONCE (2026-11-13). Do not tune on it again.** | **Positive.** Threshold days +9.74c [+7.41, +12.68] (305 fills); validation +11.34c [+6.62, +16.34] (513); **test +11.01c [+3.97, +18.37] (497 fills, 10 of 12 days positive)**; one trade per market on test +10.26c [+4.45, +16.12]. ~53 signals/day; BNB and DOGE positive in all three periods. Fills are modelled from others' prints. |
+| E011 | Frozen rule applied to the live-capture window, read against the real displayed book. `e011_frozen_on_live_book.py` | `full-003` + `live-001` | **Done** | 9 signals in 4h45m; buying the displayed ask 0–10 s later averaged +7.5…+10c with se ~19c (uninformative statistically); displayed size 13–390 contracts, occasionally 0–1. |
+
+**Not run / failed:** `trades-001`, `trades-002`, `wx-trades-001` (never published — file-size limit), `ext-news-001` (GDELT rate limit). The crypto variant of E008 was therefore not run; E009 answers the same question with better data.
+
 ### Findings that change the plan
 
 - "Alt-coins are less efficient" (S-priority hypothesis): **not supported** by price calibration. Do not prioritise alts on that basis.
@@ -251,3 +314,13 @@ Every experiment and every strategy variant tried is listed here, successful or 
 Series by frequency: fifteen_min 38 (Crypto 14, Financials 14, Commodities 9), hourly 80 (Financials 33, Crypto 25, Weather 14, Commodities 6), daily 401 (Weather 145, Economics 89, Financials 61, Crypto 22, ...).
 Largest by lifetime volume — 15-min: BTC 3.4e10, ETH 2.0e9, **Gold 1.9e9**, XRP 8.9e8, SOL 7.8e8, **WTI 5.3e8**, DOGE 4.8e8, HYPE 4.5e8, **Silver 3.4e8**. Hourly: `KXBTCD` 9.4e9, `KXBTC` 4.9e8, `KXETHD` 3.9e8, `KXINXU` (S&P) 3.8e8, `KXNASDAQ100U` 2.0e8, `KXTEMPMIAH` (hourly Miami temp) 2.8e7. Daily: `KXHIGHLAX` 1.9e8, `KXHIGHNY` 1.5e8, `KXINX` 1.4e8, `KXHIGHCHI` 1.2e8, `KXWTI` 1.1e8, `KXNASDAQ100` 1.1e8, `KXHIGHMIA` 1.1e8, `KXRAIN` 8.7e7. All `quadratic`, multiplier 1 (no maker fee) among those listed.
 **Next:** pull markets + candles for a shortlist (daily city highs, hourly S&P/Nasdaq, 15-min gold/WTI) and run E001-style calibration on each. The collector needs generalising: these are multi-strike ladders, not single up/down markets, and their windows are not 15 minutes (`pull_candles` groups by identical open/close, which still works; E001's `k`/`minutes_left` logic does not).
+- **GitHub rejects any file over 100 MB**, and the workflow's publish step then fails without leaving a trace on `data`. Trade pulls must split output (done: `trades_partNN.csv.gz`, ~1.5M rows each) and be time-boxed (`max_minutes`). Rough sizes: ~24 bytes per trade gzipped; a BTC 15-minute market has ~60,000 trades, an alt-coin one ~1,700, a weather bracket ~1,000.
+- **Actions minutes:** free private repos get 2,000 per month. Round 2 used roughly 700 on jobs that published plus up to ~1,400 on jobs that did not. The meter and job cancellation are not reachable from the workspace; the user can see and cancel runs in the repository's Actions tab.
+- Jobs in the same push run sequentially in one runner; separate pushes run in parallel on separate runners. A push with several commits triggers one run that only sees request files changed in the last commit.
+- `/historical/...` endpoints return bare field names (`yes_bid.close`, `volume`, `open_interest`, `yes_price`, `count`) where live endpoints return `*_dollars` / `*_fp`. `candle_row` and the trade puller handle both.
+- Order book: `orderbook_fp.yes_dollars` / `no_dollars`, ascending; best YES bid is the last YES entry; best YES ask = 1 − last NO entry; its size is that NO entry's size.
+- Each 15-minute strike equals the previous window's settlement value, so outcomes can be derived live from consecutive `floor_strike` values without waiting for results.
+- 1-minute candle close quotes equal the real book at the minute end (checked against `live-001`); Coinbase candle `time` is the bucket start and `close` is the price at `time + 60`.
+- Kalshi quotes on 15-minute markets move 1–2c every 2 seconds on average. Any fill assumption looser than a few seconds is fiction.
+- WebFetch on new domains needs user approval and fails while the user is away; use `probe.py` on a runner to learn a source's format.
+- pandas: read mixed ISO timestamps with `format="ISO8601"`.

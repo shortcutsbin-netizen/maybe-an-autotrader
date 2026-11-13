@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | **v2 — Phase 1 APPROVED by user 2026-11-12.** Phase 2 (data-only research) in progress. |
+| **Status** | **v3 (2026-11-13) — Phase 2 testing round 2 complete; awaiting user decision on a forward paper test.** Phase 1 approved 2026-11-12. |
 | **Date** | 2026-11-12 |
 | **Phase** | 2 — Real-data research, simulation and validation |
 | **Author** | Claude (thread 1) |
@@ -14,6 +14,62 @@ Labels used throughout:
 - **[S]** Reported by a secondary source (blog, vendor, news). Treated as a lead, not a fact.
 - **[E]** My estimate or calculation.
 - **[H]** Hypothesis. Untested.
+
+---
+
+## v3 — testing round 2 (2026-11-13): user direction, what was tested, where it leaves the plan
+
+### User direction (2026-11-13)
+
+| # | Direction | How it was applied |
+|---|---|---|
+| D10 | Bring in weather and sports markets for testing | Daily-high weather (7 cities) and game-winner markets (5 leagues) pulled and tested |
+| D11 | Strategies must use every available source — market price, outside fundamentals, trends, news — not price level alone | Every domain now runs the same three-layer design (below) |
+| D12 | No usage cap this round; auto-resume chaining every 5h15m until done | Followed |
+
+### The information-fusion design used in every domain
+
+| Layer | Crypto 15-minute | Weather daily high | Sports game winner |
+|---|---|---|---|
+| 1. Outside-information model | Spot vs strike in volatility units (settlement-average aware), momentum, volatility regime, Bitcoin cross-signal, time of day | Multi-model forecast of the remaining maximum, running observed maximum, nowcast error, empirical error distribution | De-vigged sportsbook closing line; opening line |
+| 2. Market model | Kalshi mid, spread, recent drift, volume | Mid, spread, one-hour drift, volume | Mid, spread, in-game 5-minute moves |
+| 3. Combiner and decision | Logistic / gradient-boosting stack; trade only when stacked probability beats ask + fee by a threshold; fills stressed by delay | Same | Same |
+
+"News" enters as structured feeds a deterministic bot can use: forecast revisions, sportsbook lines, spot prices. A text-news volume/tone feed (GDELT) was wired in but the source rate-limited the collector; it is unpopulated and remains a to-do. No LLM is involved anywhere.
+
+### What the round found
+
+| Domain | Does outside information beat the market price as a forecast? | Taker result after fees | Maker result |
+|---|---|---|---|
+| Sports | No — Kalshi and the sportsbook agree to under one point | Negative | Not tested (these series charge maker fees) |
+| Weather | No — market Brier 0.123 vs 0.148–0.152 for the model; matches a published study | Negative | Favorite-side resting orders +2 to +4c per fill in simulation; evidence thin (E008) |
+| Crypto 15-min, in general | No — market 0.1356 vs 0.138–0.139; the stack is better by 0.0005 | Negative on average | Naive quoting loses ~1c per fill to adverse selection on the real book (E009) |
+| **Crypto 15-min, large model-vs-quote gaps on thin coins** | n/a — a rare-event rule, ~53 signals a day | **+11.0c per contract on the untouched test split, 95% CI [+4.0, +18.4], if filled within a few seconds (E010)** | — |
+
+### Strategy status after round 2
+
+| ID | Strategy | Status |
+|---|---|---|
+| S1 | Fair-value model, taker, trading all disagreements | Rejected as a general strategy (E003, E007) |
+| **S1-D** | **Dislocation rule: trade only gaps > 8c between the stacked model and the quote; fill within seconds** | **Lead. Passed the frozen out-of-sample test with modelled fills. Needs forward paper test on the real book** |
+| S2 | Volatility-regime mispricing | Folded into S1 features; no separate edge seen |
+| S3 | Passive quoting on 15-min crypto | **Rejected** (E009) |
+| S4 | Favorite/longshot, taker | Rejected (E002, E004b) |
+| **S4-M** | **Favorite-side resting orders in weather** | **Secondary lead** (E008); needs longer history and, eventually, real orders |
+| S5 | Flow-overreaction fade | Subsumed by S1-D (the signals are dip-and-rebound events) |
+| S6 | Momentum | No evidence (E003 features, E005 in-game) |
+| S7 | Spot order-book imbalance | Not tested; quotes follow spot within 2 s (E007) |
+| S8, S9 | Latency and cross-venue arbitrage | Rejected (Phase 1) |
+| S11 | Text news | Feed unavailable; untested |
+| — | Sports of any kind | **Dropped** (E005) |
+
+### Proposed next step (needs your approval — it is a phase step)
+
+**A read-only observer and paper trader for S1-D on the always-on PC.** It polls Kalshi's public order books and Coinbase about once a second, evaluates the frozen model continuously, and records for every signal the displayed ask and size at decision time and 1, 2, 3, 5 seconds later, plus the outcome. No Kalshi account, no orders. Two to four weeks of this either confirms or kills the lead with real quotes. It is a small slice of Phases 3–4 pulled forward for one strategy, so it is listed as enhancement E6 below and not started.
+
+### Infrastructure note: GitHub Actions minutes
+
+Three large trade pulls ran for hours and then failed to publish (single output file over GitHub's 100 MB limit — since fixed by splitting files and time-boxing jobs). Together with the 4h45m live capture, this round probably used most of a free private repository's 2,000 monthly Actions minutes. I cannot read the meter or cancel jobs from here. Options are in the open questions.
 
 ---
 
@@ -357,6 +413,9 @@ See the numbered list in the chat message accompanying this version, mirrored in
 | E3 | Small-size live pilot ("execution probe") before full Phase 5 | Only way to measure real maker fills | Paper fills are estimates | Capital at risk, small | Violates "no live orders to test" unless separately approved | Not now; flag for Phase 4 discussion |
 | E4 | US-East VPS | Cuts latency from ~50–100 ms to single digits | Latency matters for S3/S7 | $10–40/mo | Cost; still not co-located | No |
 | E5 | Machine-learned probability model | May capture nonlinearities | None on this market | Moderate | Overfitting | Only if closed-form model shows promise |
+| E6 | **Read-only observer / paper trader for the dislocation rule (S1-D)** on the user's PC: ~1 s polling of public order books and spot, frozen model, logs displayed price and size at 0–5 s after each signal | The only way to learn whether the E010 edge is fillable | E006/E010/E011: +11c per contract out of sample with modelled fills; decays over 10–20 s | A few hundred lines of Python; runs unattended; no account | Pulls a slice of Phases 3–4 forward; result may be negative | **Yes — awaiting approval** |
+| E7 | Longer weather history for the maker test (re-pull pre-September trades in split files) | Triples the sample behind S4-M | E008 | ~60–90 Actions minutes | Minutes budget | Yes, after the minutes question is settled |
+| E8 | Text-news feed with a rate-limit-friendly source (GDELT from the PC, or RSS headline counts) | Completes the "use everything" brief for crypto | None yet | Small | Likely no incremental value at this horizon | Low priority |
 
 ---
 
@@ -381,3 +440,26 @@ Distinctions the brief asks for:
 | Occasionally profitable | Yes — and meaningless |
 | Statistically credible, repeatable edge | **Unproven; evidence to date is against it on BTC** |
 | Meaningful returns after costs and risk | Unproven, and bounded by account size even if an edge exists |
+
+
+---
+
+## 21. Feasibility assessment (v3, 2026-11-13)
+
+| | |
+|---|---|
+| **Current outlook** | **Uncertain — one narrow strategy is now Promising; everything else tested is Unpromising or Not viable** |
+| **Probability of sustainable net profitability** | Still not reliably quantifiable. Informal estimate moves from 5–10% to roughly **20–30%**, almost all of it resting on the dislocation rule surviving a forward test |
+| **Confidence** | **Medium** that broad forecasting edges do not exist in sports, weather or 15-minute crypto (three domains, consistent, agrees with published work). **Low–medium** on the dislocation rule: it passed an untouched test split, but with fills inferred from other traders' prints |
+| **Supporting continued development** | E010: +11.0c per contract on the test split (CI lower bound +4.0c), positive on 29 of 32 out-of-fit days, survives a 1–5 s delay, placebo trades through the same machinery lose the fee as they should; candle and spot timestamps verified against a live capture; position sizes fit a few-hundred-dollar account |
+| **Against** | Fills are not our own; a visible race (other takers act within half a second); tiny capacity; 32 days of one regime; BNB carries most of it; naive market making loses; outside information does not beat the market as a forecaster anywhere |
+| **Biggest unresolved risk** | That our own order, arriving 1–3 s after a dislocation, finds the cheap quote gone or filled only when the trade is wrong |
+| **Recommended decision** | **Continue, narrowed further:** forward paper-test the dislocation rule on the real book (E6). Keep weather favorite-side making as a secondary line. Drop sports. Do not build anything else yet |
+
+| Claim | Assessment |
+|---|---|
+| Technically buildable | Yes |
+| Operationally reliable | Yes; the rule needs ~1 s polling of nine books, well inside public rate limits |
+| Occasionally profitable | Yes — meaningless |
+| Statistically credible, repeatable edge | **One candidate with out-of-sample support; unconfirmed on real fills** |
+| Meaningful returns after costs and risk | Unknown. The backtest's dollar figures (tens of dollars a day at 10 contracts per trade) should not be believed until a forward test reproduces them; capacity caps the upside regardless |
