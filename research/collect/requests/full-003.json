@@ -1,0 +1,1 @@
+{"name": "full-003", "series": ["KXBTC15M","KXETH15M","KXSOL15M","KXXRP15M","KXDOGE15M","KXBNB15M","KXHYPE15M","KXNEAR15M","KXZEC15M"], "days": 1.4, "end": "2026-11-13T22:45:00Z", "candles": true, "spot": true, "historical": false, "discover": false, "pause": 0.2}
