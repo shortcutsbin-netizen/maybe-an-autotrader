@@ -1,0 +1,46 @@
+markets with book=180 with trades=180; trades=1390357
+orders posted=22586 in 162 markets; order size 10, life 30s, every 10s
+
+== JOIN the best quote
+  ALL           posted= 16102 fills=13069 (81.2%) | markout 10s -1.11c (se 0.06) | 60s -1.02c (se 0.08) | to settlement -0.87c (se 0.15) | half-spread earned vs mid +0.52c
+  KXBNB15M      posted=  1724 fills= 1293 (75.0%) | markout 10s -1.49c (se 0.22) | 60s -1.33c (se 0.39) | to settlement -1.95c (se 0.47) | half-spread earned vs mid +0.55c
+  KXBTC15M      posted=  1896 fills= 1614 (85.1%) | markout 10s -0.83c (se 0.13) | 60s -0.75c (se 0.18) | to settlement -0.81c (se 0.35) | half-spread earned vs mid +0.35c
+  KXDOGE15M     posted=  1796 fills= 1445 (80.5%) | markout 10s -1.33c (se 0.23) | 60s -1.21c (se 0.24) | to settlement -1.50c (se 0.61) | half-spread earned vs mid +0.57c
+  KXETH15M      posted=  1770 fills= 1470 (83.1%) | markout 10s -0.99c (se 0.19) | 60s -0.63c (se 0.12) | to settlement -0.94c (se 0.36) | half-spread earned vs mid +0.37c
+  KXHYPE15M     posted=  1754 fills= 1403 (80.0%) | markout 10s -1.12c (se 0.18) | 60s -1.03c (se 0.24) | to settlement -0.02c (se 0.60) | half-spread earned vs mid +0.80c
+  KXNEAR15M     posted=  1822 fills= 1451 (79.6%) | markout 10s -1.71c (se 0.23) | 60s -1.54c (se 0.21) | to settlement -1.08c (se 0.40) | half-spread earned vs mid +0.56c
+  KXSOL15M      posted=  1774 fills= 1470 (82.9%) | markout 10s -0.79c (se 0.14) | 60s -1.00c (se 0.20) | to settlement -1.07c (se 0.42) | half-spread earned vs mid +0.47c
+  KXXRP15M      posted=  1764 fills= 1499 (85.0%) | markout 10s -0.85c (se 0.14) | 60s -0.71c (se 0.18) | to settlement -0.07c (se 0.31) | half-spread earned vs mid +0.51c
+  KXZEC15M      posted=  1802 fills= 1424 (79.0%) | markout 10s -0.95c (se 0.15) | 60s -1.09c (se 0.22) | to settlement -0.48c (se 0.35) | half-spread earned vs mid +0.52c
+  price (0.0, 0.1]  posted=  3224 fills= 2685 (83.3%) | markout 10s -0.24c (se 0.04) | 60s -0.24c (se 0.07) | to settlement -0.21c (se 0.12) | half-spread earned vs mid +0.16c
+  price (0.1, 0.3]  posted=  2418 fills= 1918 (79.3%) | markout 10s -1.32c (se 0.11) | 60s -1.10c (se 0.22) | to settlement -1.25c (se 0.59) | half-spread earned vs mid +0.68c
+  price (0.3, 0.7]  posted=  4474 fills= 3665 (81.9%) | markout 10s -1.86c (se 0.12) | 60s -1.81c (se 0.17) | to settlement -1.18c (se 0.41) | half-spread earned vs mid +0.77c
+  price (0.7, 0.9]  posted=  3496 fills= 2800 (80.1%) | markout 10s -1.32c (se 0.11) | 60s -0.91c (se 0.14) | to settlement -1.05c (se 0.33) | half-spread earned vs mid +0.69c
+  price (0.9, 1.0]  posted=  2490 fills= 2001 (80.4%) | markout 10s -0.35c (se 0.05) | 60s -0.46c (se 0.11) | to settlement -0.57c (se 0.23) | half-spread earned vs mid +0.15c
+  <4 min left   posted=  4220 fills= 3432 (81.3%) | markout 10s -0.90c (se 0.11) | 60s -1.19c (se 0.19) | to settlement -1.23c (se 0.26) | half-spread earned vs mid +0.42c
+  4-8           posted=  7770 fills= 6396 (82.3%) | markout 10s -1.05c (se 0.08) | 60s -0.90c (se 0.10) | to settlement -1.16c (se 0.30) | half-spread earned vs mid +0.53c
+  >8            posted=  4112 fills= 3241 (78.8%) | markout 10s -1.43c (se 0.08) | 60s -1.13c (se 0.11) | to settlement +0.09c (se 0.43) | half-spread earned vs mid +0.59c
+  buy           posted=  8051 fills= 6437 (80.0%) | markout 10s -1.05c (se 0.09) | 60s -0.74c (se 0.38) | to settlement -3.28c (se 2.88) | half-spread earned vs mid +0.52c
+  sell          posted=  8051 fills= 6632 (82.4%) | markout 10s -1.17c (se 0.09) | 60s -1.30c (se 0.40) | to settlement +1.47c (se 2.84) | half-spread earned vs mid +0.52c
+
+== IMPROVE the best quote
+  ALL           posted=  6484 fills= 5788 (89.3%) | markout 10s -0.91c (se 0.07) | 60s -0.83c (se 0.09) | to settlement -0.45c (se 0.16) | half-spread earned vs mid +0.16c
+  KXBNB15M      posted=   910 fills=  780 (85.7%) | markout 10s -1.13c (se 0.23) | 60s -0.87c (se 0.25) | to settlement -0.47c (se 0.35) | half-spread earned vs mid +0.14c
+  KXBTC15M      posted=     6 fills=    6
+  KXDOGE15M     posted=   938 fills=  859 (91.6%) | markout 10s -0.76c (se 0.15) | 60s -0.71c (se 0.22) | to settlement -0.30c (se 0.36) | half-spread earned vs mid +0.14c
+  KXETH15M      posted=   282 fills=  259 (91.8%) | markout 10s -0.54c (se 0.21) | 60s -0.20c (se 0.18) | to settlement +0.33c (se 0.69) | half-spread earned vs mid +0.04c
+  KXHYPE15M     posted=  1280 fills= 1135 (88.7%) | markout 10s -0.95c (se 0.17) | 60s -0.83c (se 0.28) | to settlement -0.66c (se 0.49) | half-spread earned vs mid +0.31c
+  KXNEAR15M     posted=   790 fills=  687 (87.0%) | markout 10s -1.46c (se 0.24) | 60s -1.42c (se 0.24) | to settlement -0.91c (se 0.42) | half-spread earned vs mid +0.15c
+  KXSOL15M      posted=   696 fills=  637 (91.5%) | markout 10s -0.57c (se 0.13) | 60s -0.52c (se 0.15) | to settlement -0.15c (se 0.54) | half-spread earned vs mid +0.08c
+  KXXRP15M      posted=   694 fills=  640 (92.2%) | markout 10s -0.71c (se 0.17) | 60s -0.75c (se 0.29) | to settlement -0.40c (se 0.41) | half-spread earned vs mid +0.14c
+  KXZEC15M      posted=   888 fills=  785 (88.4%) | markout 10s -0.88c (se 0.14) | 60s -0.93c (se 0.21) | to settlement -0.45c (se 0.32) | half-spread earned vs mid +0.13c
+  price (0.0, 0.1]  posted=  1600 fills= 1459 (91.2%) | markout 10s -0.17c (se 0.06) | 60s -0.14c (se 0.11) | to settlement -0.09c (se 0.13) | half-spread earned vs mid +0.16c
+  price (0.1, 0.3]  posted=   746 fills=  666 (89.3%) | markout 10s -1.10c (se 0.20) | 60s -0.77c (se 0.25) | to settlement -1.13c (se 0.38) | half-spread earned vs mid +0.17c
+  price (0.3, 0.7]  posted=  1848 fills= 1630 (88.2%) | markout 10s -1.66c (se 0.13) | 60s -1.66c (se 0.21) | to settlement -0.61c (se 0.43) | half-spread earned vs mid +0.17c
+  price (0.7, 0.9]  posted=  1152 fills= 1031 (89.5%) | markout 10s -1.17c (se 0.11) | 60s -0.71c (se 0.20) | to settlement -0.08c (se 0.35) | half-spread earned vs mid +0.15c
+  price (0.9, 1.0]  posted=  1138 fills= 1002 (88.0%) | markout 10s -0.37c (se 0.08) | 60s -0.50c (se 0.18) | to settlement -0.66c (se 0.39) | half-spread earned vs mid +0.16c
+  <4 min left   posted=  1870 fills= 1688 (90.3%) | markout 10s -0.84c (se 0.12) | 60s -0.92c (se 0.23) | to settlement -1.23c (se 0.36) | half-spread earned vs mid +0.21c
+  4-8           posted=  3112 fills= 2783 (89.4%) | markout 10s -0.85c (se 0.08) | 60s -0.79c (se 0.11) | to settlement -0.49c (se 0.27) | half-spread earned vs mid +0.15c
+  >8            posted=  1502 fills= 1317 (87.7%) | markout 10s -1.13c (se 0.11) | 60s -0.85c (se 0.15) | to settlement +0.62c (se 0.51) | half-spread earned vs mid +0.12c
+  buy           posted=  3242 fills= 2887 (89.0%) | markout 10s -0.87c (se 0.13) | 60s -0.85c (se 0.51) | to settlement -4.67c (se 3.14) | half-spread earned vs mid +0.16c
+  sell          posted=  3242 fills= 2901 (89.5%) | markout 10s -0.95c (se 0.13) | 60s -0.81c (se 0.54) | to settlement +3.74c (se 3.15) | half-spread earned vs mid +0.16c
