@@ -1,0 +1,6 @@
+[     0.7s] 0/850 trades=2426 errors=0
+[   115.3s] 200/850 trades=364889 errors=0
+[   486.3s] 400/850 trades=1754086 errors=0
+[   682.1s] 600/850 trades=2432231 errors=0
+[   903.4s] 800/850 trades=3215615 errors=0
+[   942.9s] done trades=3346496

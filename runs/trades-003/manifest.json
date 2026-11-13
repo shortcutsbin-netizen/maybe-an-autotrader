@@ -1,0 +1,17 @@
+{
+ "request": {
+  "name": "trades-003",
+  "script": "kalshi_trades_pull.py",
+  "tickers_file": "research/collect/requests/lists_e003_signal_markets_thr08.txt",
+  "historical": false,
+  "pause": 0.15,
+  "max_pages": 80,
+  "max_minutes": 40
+ },
+ "tickers": 850,
+ "tickers_done": 850,
+ "trades": 3346496,
+ "http_requests": 3809,
+ "error_count": 0,
+ "errors_first_50": []
+}
