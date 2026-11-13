@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/runner/work/maybe-an-autotrader/maybe-an-autotrader/research/collect/kalshi_pull.py", line 330, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/runner/work/maybe-an-autotrader/maybe-an-autotrader/research/collect/kalshi_pull.py", line 286, in main
+    series = req["series"]
+             ~~~^^^^^^^^^^
+KeyError: 'series'
