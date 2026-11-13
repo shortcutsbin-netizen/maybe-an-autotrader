@@ -1,0 +1,29 @@
+iem_asos_nyc 200 667
+iem_asos1min_nyc 200 13717
+iem_cli_nyc 200 60000
+om_prev_gfs 200 3283
+om_prev_best 200 2853
+om_prev_multi 200 4995
+om_prev_old 200 2416
+om_histfc 200 1417
+gdelt_vol 429 444
+gdelt_tone 429 444
+gdelt_vol_long 429 444
+espn_nba_sb 200 60000
+kalshi_nfl_event 200 5169
+kalshi_nba_mk 200 8838
+kalshi_nhl_mk 200 7884
+kalshi_ncaaf_mk 200 8821
+kalshi_mlb_mk 200 9201
+kalshi_hist_highny 200 8863
+kalshi_highlax 200 6125
+kalshi_highchi 200 6107
+kalshi_highmia 200 6102
+kalshi_highaus 200 6103
+kalshi_highden 200 6100
+kalshi_highphil 200 6130
+kalshi_hi_candles 200 17688
+nfl {'scoreboard': 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20261108', 'events': 13, 'odds_url': 'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/odds', 'odds_status': 200}
+nba {'scoreboard': 'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=20261108', 'events': 7, 'odds_url': 'https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909945/competitions/401909945/odds', 'odds_status': 200}
+nhl {'scoreboard': 'https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20261108', 'events': 6, 'odds_url': 'https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401892674/competitions/401892674/odds', 'odds_status': 200}
+ncaaf {'scoreboard': 'https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20261107&groups=80&limit=200', 'events': 51, 'odds_url': 'https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858291/competitions/401858291/odds', 'odds_status': 200}

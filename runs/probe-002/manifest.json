@@ -1,0 +1,151 @@
+{
+ "iem_asos_nyc": {
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?station=NYC&data=tmpf&year1=2026&month1=11&day1=10&year2=2026&month2=11&day2=11&tz=Etc/UTC&format=onlycomma&latlon=no&missing=M&trace=T&direct=no&report_type=3&report_type=4",
+  "status": 200,
+  "bytes": 667
+ },
+ "iem_asos1min_nyc": {
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos1min.py?station=NYC&vars=tmpf&sts=2026-11-10T00:00Z&ets=2026-11-10T06:00Z&sample=1min&what=download&delim=comma",
+  "status": 200,
+  "bytes": 13717
+ },
+ "iem_cli_nyc": {
+  "url": "https://mesonet.agron.iastate.edu/json/cli.py?station=KNYC&year=2026",
+  "status": 200,
+  "bytes": 60000
+ },
+ "om_prev_gfs": {
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=40.779&longitude=-73.969&hourly=temperature_2m,temperature_2m_previous_day1,temperature_2m_previous_day2,temperature_2m_previous_day3&temperature_unit=fahrenheit&timezone=GMT&start_date=2026-11-08&end_date=2026-11-10&models=gfs_seamless",
+  "status": 200,
+  "bytes": 3283
+ },
+ "om_prev_best": {
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=40.779&longitude=-73.969&hourly=temperature_2m,temperature_2m_previous_day1,temperature_2m_previous_day2&temperature_unit=fahrenheit&timezone=GMT&start_date=2026-11-08&end_date=2026-11-10",
+  "status": 200,
+  "bytes": 2853
+ },
+ "om_prev_multi": {
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=40.779&longitude=-73.969&hourly=temperature_2m,temperature_2m_previous_day1&temperature_unit=fahrenheit&timezone=GMT&start_date=2026-11-08&end_date=2026-11-09&models=gfs_seamless,ecmwf_ifs025,icon_seamless,gem_seamless,ncep_nbm_conus,gfs_hrrr",
+  "status": 200,
+  "bytes": 4995
+ },
+ "om_prev_old": {
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=40.779&longitude=-73.969&hourly=temperature_2m,temperature_2m_previous_day1&temperature_unit=fahrenheit&timezone=GMT&start_date=2026-03-01&end_date=2026-03-02&models=gfs_seamless,ecmwf_ifs025",
+  "status": 200,
+  "bytes": 2416
+ },
+ "om_histfc": {
+  "url": "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=40.779&longitude=-73.969&hourly=temperature_2m&temperature_unit=fahrenheit&timezone=GMT&start_date=2026-11-08&end_date=2026-11-09",
+  "status": 200,
+  "bytes": 1417
+ },
+ "gdelt_vol": {
+  "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=bitcoin&mode=timelinevolraw&startdatetime=20261101000000&enddatetime=20261103000000&format=json",
+  "status": 429,
+  "bytes": 444
+ },
+ "gdelt_tone": {
+  "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=bitcoin&mode=timelinetone&startdatetime=20261101000000&enddatetime=20261103000000&format=json",
+  "status": 429,
+  "bytes": 444
+ },
+ "gdelt_vol_long": {
+  "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=(bitcoin%20OR%20crypto)&mode=timelinevolraw&startdatetime=20260913000000&enddatetime=20261113000000&format=json",
+  "status": 429,
+  "bytes": 444
+ },
+ "espn_nba_sb": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=20261108",
+  "status": 200,
+  "bytes": 60000
+ },
+ "kalshi_nfl_event": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/events/KXNFLGAME-26OCT01PITCLE",
+  "status": 200,
+  "bytes": 5169
+ },
+ "kalshi_nba_mk": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNBAGAME&status=settled&limit=4",
+  "status": 200,
+  "bytes": 8838
+ },
+ "kalshi_nhl_mk": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNHLGAME&status=settled&limit=4",
+  "status": 200,
+  "bytes": 7884
+ },
+ "kalshi_ncaaf_mk": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXNCAAFGAME&status=settled&limit=4",
+  "status": 200,
+  "bytes": 8821
+ },
+ "kalshi_mlb_mk": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXMLBGAME&status=settled&limit=4",
+  "status": 200,
+  "bytes": 9201
+ },
+ "kalshi_hist_highny": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/historical/markets?series_ticker=KXHIGHNY&limit=3",
+  "status": 200,
+  "bytes": 8863
+ },
+ "kalshi_highlax": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXHIGHLAX&status=settled&limit=2",
+  "status": 200,
+  "bytes": 6125
+ },
+ "kalshi_highchi": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXHIGHCHI&status=settled&limit=2",
+  "status": 200,
+  "bytes": 6107
+ },
+ "kalshi_highmia": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXHIGHMIA&status=settled&limit=2",
+  "status": 200,
+  "bytes": 6102
+ },
+ "kalshi_highaus": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXHIGHAUS&status=settled&limit=2",
+  "status": 200,
+  "bytes": 6103
+ },
+ "kalshi_highden": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXHIGHDEN&status=settled&limit=2",
+  "status": 200,
+  "bytes": 6100
+ },
+ "kalshi_highphil": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXHIGHPHIL&status=settled&limit=2",
+  "status": 200,
+  "bytes": 6130
+ },
+ "kalshi_hi_candles": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXHIGHNY/markets/KXHIGHNY-26OCT10-B68.5/candlesticks?start_ts=1791554400&end_ts=1791694800&period_interval=60",
+  "status": 200,
+  "bytes": 17688
+ },
+ "nfl": {
+  "scoreboard": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20261108",
+  "events": 13,
+  "odds_url": "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/odds",
+  "odds_status": 200
+ },
+ "nba": {
+  "scoreboard": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=20261108",
+  "events": 7,
+  "odds_url": "https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909945/competitions/401909945/odds",
+  "odds_status": 200
+ },
+ "nhl": {
+  "scoreboard": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20261108",
+  "events": 6,
+  "odds_url": "https://sports.core.api.espn.com/v2/sports/hockey/leagues/nhl/events/401892674/competitions/401892674/odds",
+  "odds_status": 200
+ },
+ "ncaaf": {
+  "scoreboard": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20261107&groups=80&limit=200",
+  "events": 51,
+  "odds_url": "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/401858291/competitions/401858291/odds",
+  "odds_status": 200
+ }
+}
