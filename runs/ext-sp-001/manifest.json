@@ -1,0 +1,54 @@
+{
+ "request": {
+  "name": "ext-sp-001",
+  "script": "ext_pull.py",
+  "start": "2026-09-12",
+  "end": "2026-11-13",
+  "sports": {
+   "leagues": {
+    "nfl": "football/nfl",
+    "nba": "basketball/nba",
+    "nhl": "hockey/nhl",
+    "ncaaf": "football/college-football",
+    "mlb": "baseball/mlb"
+   },
+   "ncaaf_groups": "80"
+  }
+ },
+ "started_utc": "2026-11-13T18:05:50.590022+00:00",
+ "weather": {},
+ "sports": {
+  "nfl": {
+   "games": 135,
+   "with_odds": 135
+  },
+  "nba": {
+   "games": 250,
+   "with_odds": 238
+  },
+  "nhl": {
+   "games": 376,
+   "with_odds": 309
+  },
+  "ncaaf": {
+   "games": 591,
+   "with_odds": 588
+  },
+  "mlb": {
+   "games": 257,
+   "with_odds": 254
+  }
+ },
+ "news": {},
+ "finished_utc": "2026-11-13T18:12:29.548198+00:00",
+ "http_requests": 1907,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "sports/games_nfl.csv.gz": "d7a027aee0f1e9cd74c9856eade583151de1bd3f6e1b9be71a2915210fe3f30b",
+  "sports/games_mlb.csv.gz": "b53bbdff32577585d4060ebffffa9511eeb01c47cf0060c57b6c5fe52d8191ae",
+  "sports/games_nba.csv.gz": "391d87e1fe8d8def9cd929a15ac66514cebf03611f2cc77ffa839d2144c9c0cc",
+  "sports/games_nhl.csv.gz": "cd675db1cd1d04ba5342de3481e3dafb2f0b9088692d9e74d4c5397f487de3ab",
+  "sports/games_ncaaf.csv.gz": "dcf58d4f655873fd36697ffe712b09a738bf76b1ac240f9c647f41cc865ab175"
+ }
+}

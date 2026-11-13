@@ -1,0 +1,6 @@
+[    47.3s] sports nfl: {'games': 135, 'with_odds': 135}
+[   112.3s] sports nba: {'games': 250, 'with_odds': 238}
+[   198.2s] sports nhl: {'games': 376, 'with_odds': 309}
+[   331.4s] sports ncaaf: {'games': 591, 'with_odds': 588}
+[   399.0s] sports mlb: {'games': 257, 'with_odds': 254}
+[   399.0s] done requests=1907 errors=0
