@@ -1,0 +1,1 @@
+{"name": "wx-trades-002", "script": "kalshi_trades_pull.py", "tickers_file": "research/collect/requests/lists_weather_markets_live.txt", "historical": false, "pause": 0.12, "max_pages": 20, "max_minutes": 60}
