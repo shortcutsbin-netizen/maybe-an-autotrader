@@ -247,6 +247,30 @@ def pull_spot(product, t_min, t_max, out, pause):
     return len(rows)
 
 
+def pull_series_catalog(out, pause):
+    """Market-discovery pass: every series with frequency, category, fees and (if offered) volume."""
+    obj, err = get_json(f"{KALSHI}/series?include_volume=true", pause)
+    if err:
+        STATE["errors"].append(f"series catalog (with volume): {err}")
+        obj, err = get_json(f"{KALSHI}/series", pause)
+        if err:
+            STATE["errors"].append(f"series catalog: {err}")
+            return 0
+    ss = obj.get("series") or []
+    save_sample(out, "series_catalog", {"series": ss[:3]})
+    os.makedirs(os.path.join(out, "catalog"), exist_ok=True)
+    with gzip.open(os.path.join(out, "catalog", "series_raw.json.gz"), "wt") as f:
+        json.dump(obj, f)
+    cols = ["ticker", "title", "category", "frequency", "fee_type", "fee_multiplier", "volume_fp", "volume", "tags"]
+    with gzip.open(os.path.join(out, "catalog", "series.csv.gz"), "wt", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(cols)
+        for x in ss:
+            w.writerow([json.dumps(x.get(k)) if isinstance(x.get(k), (list, dict)) else x.get(k, "") for k in cols])
+    log(f"series catalog: {len(ss)}")
+    return len(ss)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--request", required=True)
@@ -266,6 +290,9 @@ def main():
     cutoff, err = get_json(f"{KALSHI}/historical/cutoff", pause)
     manifest["historical_cutoff"] = cutoff if not err else err
     log(f"cutoff: {manifest['historical_cutoff']}")
+
+    if req.get("discover", False):
+        manifest["series_catalog"] = pull_series_catalog(out, pause)
 
     all_markets = []
     for s in series:

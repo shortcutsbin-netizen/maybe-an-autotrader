@@ -2,9 +2,9 @@
 
 | | |
 |---|---|
-| **Status** | DRAFT v1 — awaiting user review. Phase 1 is **not** approved. |
+| **Status** | **v2 — Phase 1 APPROVED by user 2026-11-12.** Phase 2 (data-only research) in progress. |
 | **Date** | 2026-11-12 |
-| **Phase** | 1 — Research and planning |
+| **Phase** | 2 — Real-data research, simulation and validation |
 | **Author** | Claude (thread 1) |
 | **Companion files** | `CLAUDE.md` (continuity), `docs/RESEARCH_LOG.md` (sources and raw findings) |
 
@@ -14,6 +14,26 @@ Labels used throughout:
 - **[S]** Reported by a secondary source (blog, vendor, news). Treated as a lead, not a fact.
 - **[E]** My estimate or calculation.
 - **[H]** Hypothesis. Untested.
+
+---
+
+## v2 changes — user decisions of 2026-11-12 (authoritative where they differ from v1 text below)
+
+| # | Decision | Effect on the plan |
+|---|---|---|
+| D1 | Empty `main` created with a placeholder README | Done. `claude` remains the working branch |
+| D2 | Data route **A** (GitHub Actions) to start | Collector and workflow added under `research/collect/` and `.github/workflows/` |
+| D3 | **No Kalshi account will be connected during development.** Only when ready for real trading, unless it is a hard blocker for test mode | No WebSocket access (it requires auth). Therefore: no `cfbenchmarks_value` settlement feed, no order-book delta stream, no CF Benchmarks history. Substitutes: public REST polling for books and trades; Coinbase/Kraken as index proxy; settlement values every 15 minutes from market records. **Not a hard blocker for Phase 2 or for taker paper trading.** It does weaken final-minute strategies (the true running average is unobservable) and maker evaluation (no delta stream). Will be raised again only if it becomes blocking |
+| D4 | Starting bankroll: a few hundred dollars, more if results are good | Capacity is irrelevant. Absolute returns are small even with a real edge — see §20 |
+| D5 | All 13 fifteen-minute crypto series in scope; testing decides priority | Supersedes the v1 recommendation to rank alt-coins first *a priori* |
+| D6 | Taker vs maker: whichever is most effective | Both researched; taker first because it can be tested on history |
+| D7 | Reuse applicable lessons from the earlier bot; no code import | As planned |
+| D8 | **Short-term weather and any other quick-resolution market are also main targets.** Avoid long-dated positions; prefer contracts with a soon-measurable outcome | Scope widened: a market-discovery pass over all short-resolution series is added to Phase 2 (§3a) |
+| D9 | Success criteria (§1), kill criteria and six-week time box (§17) accepted | Time box started 2026-11-12; mandatory continue/stop decision by 2026-12-24 |
+
+### 3a. Scope rule (v2)
+
+Eligible: any Kalshi market whose outcome is known within roughly 24 hours of entry, has a public, rules-defined settlement source, and has enough liquidity to enter at a few hundred dollars. Priority order is **not** fixed in advance; it is an output of Phase 2. Known candidates: 15-minute crypto (13 series), hourly/daily crypto ladders, daily weather highs/lows and hourly weather, short-dated index/commodity/FX ranges. A discovery pass will enumerate every series by `frequency` and rank by volume, spread and settlement transparency before any are modelled.
 
 ---
 
