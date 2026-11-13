@@ -31,7 +31,7 @@ Research, and only if justified build, an autonomous Python bot for Kalshi short
 |---|---|
 | **Phase** | **2 — Real-data research, simulation, validation** (Phase 1 approved by user 2026-11-12) |
 | **Status** | **Testing round 2 complete (2026-11-13). Awaiting user decision** on a forward paper test of the one surviving lead (dislocation rule, E010) — see §7 open questions. Eleven experiments done (§12): sports negative, weather taker negative, crypto forecasting negative, naive market making negative; dislocation rule +11c/contract on the untouched test split with modelled fills; weather favorite-side making a weak secondary lead. Time box: mandatory continue/stop decision by **2026-12-24**. |
-| **Last thread** | Thread 1, turn 3 (2026-11-13 17:40Z → 2026-11-14 ~00:10Z, resumed once by auto-resume) |
+| **Last thread** | Thread 1, turn 3 (2026-11-13 17:40Z → 2026-11-13 ~23:45Z, resumed once by auto-resume) |
 | **Code** | Research tooling only (`research/`). **No production code; none allowed until Phase 3 is authorized.** |
 | **Data** | On the `data` branch under `runs/<request name>/` (written by GitHub Actions). |
 | **Infrastructure** | One GitHub Actions workflow (`collect.yml`), read-only, user-approved (route A). Nothing else. **Actions minutes are probably nearly used up for the month** (see §11) — do not launch long jobs without checking with the user. |
@@ -60,6 +60,22 @@ research/collect/requests/*.json       one file per pull; permanent record, neve
 research/analysis/e001_calibration.py  E001 descriptive calibration study
 docs/experiments/                      one write-up per experiment, including failures
 ```
+
+Added in testing round 2 (2026-11-13):
+
+```
+research/collect/kalshi_events_pull.py   ladders and game markets: settled markets + candles (live and /historical), resampling, lookback window
+research/collect/ext_pull.py             IEM METAR / 1-min ASOS, Open-Meteo archived forecasts, ESPN results + sportsbook odds, GDELT timelines
+research/collect/live_capture.py         public order books + Coinbase/Kraken tickers every ~2 s (no account)
+research/collect/kalshi_trades_pull.py   public trade prints for a ticker list; split output; time-boxed
+research/collect/probe.py                fetch arbitrary public URLs on a runner to learn response formats
+research/collect/requests/lists_*.txt    ticker lists used by trade pulls
+research/analysis/e002 … e011_*.py       one script per experiment (see §12)
+docs/experiments/*.md                    E001-E002, E003, E004, E005, E006-E011 (dislocation), E007-E009 (microstructure), E008 (weather maker)
+docs/experiments/output/                 raw text output of every run, frozen-rule signal lists
+```
+
+Data runs on the `data` branch (`runs/<name>/`): `full-001` (crypto candles+spot+catalog, 61 days), `full-002`/`full-003` (candles for the live window), `live-001` (order books), `wx-001`/`wx-002` (weather markets), `ext-wx-001` (obs+forecasts), `sp-001`, `ext-sp-001` (sports), `trades-003`/`-004`/`-005` (crypto prints), `wx-trades-002` (weather prints), `probe-002`, smoke runs. Local helper used in this workspace: `/home/claude/poll.sh <run>` waits for a run's manifest and checks out the data branch at `/home/claude/data/wt`.
 
 Branches: `claude` (work), `main` (placeholder README only, created at user's request), `data` (orphan; collector output; append-only).
 
@@ -175,7 +191,7 @@ Preferences (defaults apply if unanswered):
 8. **Q8 — Fallback.** If 15-minute crypto fails Phase 2, allow one research round on a non-latency category (e.g., weather) before terminating [default: yes]?
 9. **Q9 — Gates.** Accept the success criteria (PLANNING §1) and the kill criteria and six-week time box (§17)?
 
-## 7a. ~~In-flight work~~ (thread 1, turn 3) — COMPLETED 2026-11-14 ~00:10Z; kept for the record
+## 7a. ~~In-flight work~~ (thread 1, turn 3) — COMPLETED 2026-11-13 ~23:45Z; kept for the record
 
 **Nothing is in flight.** Jobs `trades-001`, `trades-002`, `wx-trades-001` and `ext-news-001` never published (first three: output file over GitHub's 100 MB limit; news: source rate-limited) and may still have been burning Actions minutes until their 350-minute timeouts (~01:20Z on 2026-11-14 at the latest). Their request files stay in the repo as a record. Do not wait for them.
 
@@ -244,7 +260,7 @@ Analyses: E003 (crypto multi-signal model) done on validation — see §12. E004
 - Submitted `full-001` (51 min on the runner, 0 errors). Ran E001 and E002: negative (see §12). Did the catalog discovery pass.
 - **Stopped here to protect the user's usage budget.** Next action is §8 item 4 (S1 model vs market Brier using `runs/full-001/spot/`), then item 3 shortlist pulls.
 
-### Thread 1, turn 3 — 2026-11-13 17:40Z → 2026-11-14 ~00:10Z (testing round 2)
+### Thread 1, turn 3 — 2026-11-13 17:40Z → 2026-11-13 ~23:45Z (testing round 2)
 
 - User: add weather and sports, fuse all information sources, no usage cap, auto-resume chaining. Session was interrupted once (~19:55Z) and resumed by the scheduled trigger at 22:56Z; a second trigger was scheduled and cancelled at completion.
 - Built collectors: `kalshi_events_pull.py` (ladders/games, live + historical), `ext_pull.py` (IEM obs, Open-Meteo archived forecasts, ESPN odds, GDELT), `live_capture.py` (public books + spot every 2 s), `kalshi_trades_pull.py`, `probe.py`.
@@ -315,7 +331,7 @@ Series by frequency: fifteen_min 38 (Crypto 14, Financials 14, Commodities 9), h
 Largest by lifetime volume — 15-min: BTC 3.4e10, ETH 2.0e9, **Gold 1.9e9**, XRP 8.9e8, SOL 7.8e8, **WTI 5.3e8**, DOGE 4.8e8, HYPE 4.5e8, **Silver 3.4e8**. Hourly: `KXBTCD` 9.4e9, `KXBTC` 4.9e8, `KXETHD` 3.9e8, `KXINXU` (S&P) 3.8e8, `KXNASDAQ100U` 2.0e8, `KXTEMPMIAH` (hourly Miami temp) 2.8e7. Daily: `KXHIGHLAX` 1.9e8, `KXHIGHNY` 1.5e8, `KXINX` 1.4e8, `KXHIGHCHI` 1.2e8, `KXWTI` 1.1e8, `KXNASDAQ100` 1.1e8, `KXHIGHMIA` 1.1e8, `KXRAIN` 8.7e7. All `quadratic`, multiplier 1 (no maker fee) among those listed.
 **Next:** pull markets + candles for a shortlist (daily city highs, hourly S&P/Nasdaq, 15-min gold/WTI) and run E001-style calibration on each. The collector needs generalising: these are multi-strike ladders, not single up/down markets, and their windows are not 15 minutes (`pull_candles` groups by identical open/close, which still works; E001's `k`/`minutes_left` logic does not).
 - **GitHub rejects any file over 100 MB**, and the workflow's publish step then fails without leaving a trace on `data`. Trade pulls must split output (done: `trades_partNN.csv.gz`, ~1.5M rows each) and be time-boxed (`max_minutes`). Rough sizes: ~24 bytes per trade gzipped; a BTC 15-minute market has ~60,000 trades, an alt-coin one ~1,700, a weather bracket ~1,000.
-- **Actions minutes:** free private repos get 2,000 per month. Round 2 used roughly 700 on jobs that published plus up to ~1,400 on jobs that did not. The meter and job cancellation are not reachable from the workspace; the user can see and cancel runs in the repository's Actions tab.
+- **Actions minutes:** free private repos get 2,000 per month. Round 2 used roughly 550 on jobs that published plus up to ~1,400 on jobs that did not. The meter and job cancellation are not reachable from the workspace; the user can see and cancel runs in the repository's Actions tab.
 - Jobs in the same push run sequentially in one runner; separate pushes run in parallel on separate runners. A push with several commits triggers one run that only sees request files changed in the last commit.
 - `/historical/...` endpoints return bare field names (`yes_bid.close`, `volume`, `open_interest`, `yes_price`, `count`) where live endpoints return `*_dollars` / `*_fp`. `candle_row` and the trade puller handle both.
 - Order book: `orderbook_fp.yes_dollars` / `no_dollars`, ascending; best YES bid is the last YES entry; best YES ask = 1 − last NO entry; its size is that NO entry's size.
