@@ -1,0 +1,6 @@
+{"name": "live-001", "script": "live_capture.py", "minutes": 285, "cycle_s": 2.0,
+ "series": {"KXBTC15M": {"coinbase": "BTC-USD", "kraken": "XBTUSD"}, "KXETH15M": {"coinbase": "ETH-USD", "kraken": "ETHUSD"},
+            "KXSOL15M": {"coinbase": "SOL-USD", "kraken": "SOLUSD"}, "KXXRP15M": {"coinbase": "XRP-USD", "kraken": "XRPUSD"},
+            "KXDOGE15M": {"coinbase": "DOGE-USD", "kraken": "XDGUSD"}, "KXBNB15M": {"coinbase": "BNB-USD", "kraken": "BNBUSD"},
+            "KXHYPE15M": {"coinbase": "HYPE-USD"}, "KXNEAR15M": {"coinbase": "NEAR-USD", "kraken": "NEARUSD"},
+            "KXZEC15M": {"coinbase": "ZEC-USD", "kraken": "ZECUSD"}}}
