@@ -1,0 +1,1 @@
+{"name": "wx-001", "script": "kalshi_events_pull.py", "series": ["KXHIGHNY", "KXHIGHLAX", "KXHIGHCHI", "KXHIGHMIA", "KXHIGHAUS", "KXHIGHDEN", "KXHIGHPHIL"], "start": "2026-05-01T00:00:00Z", "end": "2026-11-13T12:00:00Z", "historical": true, "lookback_hours": 40, "resample_min": 10, "pause": 0.2}
