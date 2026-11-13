@@ -1,0 +1,38 @@
+# Secrets — never commit
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+kalshi_private_key*
+
+# Data and logs (large; provenance recorded in docs instead)
+data/
+logs/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.db
+*.parquet
+*.jsonl
+*.jsonl.gz
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
