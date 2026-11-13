@@ -1,0 +1,1 @@
+{"name": "sp-001", "script": "kalshi_events_pull.py", "series": ["KXNFLGAME", "KXNBAGAME", "KXNHLGAME", "KXNCAAFGAME", "KXMLBGAME"], "start": "2026-09-13T00:00:00Z", "end": "2026-11-13T12:00:00Z", "historical": false, "lookback_hours": 9, "resample_min": 1, "pause": 0.2}
