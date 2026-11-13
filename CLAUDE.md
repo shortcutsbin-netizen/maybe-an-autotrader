@@ -148,8 +148,8 @@ Preferences (defaults apply if unanswered):
 
 ## 8. Next steps (current)
 
-1. Confirm `full-001` landed on `data`; check `manifest.json` for errors.
-2. Run E001 on `trainval`; write `docs/experiments/E001-calibration.md` (results, including negatives). Do **not** open `test`.
+1. ~~Confirm `full-001` landed~~ done (0 errors).
+2. ~~Run E001~~ done, plus E002. Negative. Test split still unopened.
 3. Market-discovery pass (user decision D8): use `runs/full-001/catalog/series.csv.gz` to list every short-resolution series (frequency, category, fee type, volume); shortlist weather and other <24h markets; pull samples.
 4. S1 fair-value model on history: needs index path inside the window → Coinbase 1-minute proxy in `runs/full-001/spot/`. Compare model vs market Brier on train; only then test trading rules on validation.
 5. Pre-cutoff history (before 2026-09-13) needs `"historical": true` (one request per market for candles — slow; do per series, in chunks).
@@ -181,13 +181,15 @@ Preferences (defaults apply if unanswered):
 
 - User answered all questions and said continue. Created `main` placeholder. Plan bumped to v2 (decision table at top of `docs/PLANNING.md`).
 - Built and smoke-tested the collector via GitHub Actions: Kalshi's public API is reachable from GitHub runners with no auth; no errors, no throttling at 5 req/s.
-- Submitted `full-001`. Wrote and dry-ran E001 on smoke data.
+- Submitted `full-001` (51 min on the runner, 0 errors). Ran E001 and E002: negative (see §12). Did the catalog discovery pass.
+- **Stopped here to protect the user's usage budget.** Next action is §8 item 4 (S1 model vs market Brier using `runs/full-001/spot/`), then item 3 shortlist pulls.
 
 ## 10. Feasibility assessment history
 
 | Date | Outlook | P(sustainable net profit) | Confidence | Decision |
 |---|---|---|---|---|
 | 2026-11-12 | Uncertain, leaning Unpromising (BTC taker); Uncertain (alts, maker) | Informal 5–15%; not reliably quantifiable | Low–medium | Continue, narrowed scope |
+| 2026-11-13 | **Unpromising** for price-only taker strategies on all 15-min crypto (own data); Uncertain for information-based (S1/S2/S5), maker, and non-crypto short-resolution markets | Informal 5–10% | Medium for the negative finding; low for the rest | Continue inside the time box: S1 model test next, then weather/financials calibration |
 
 ## 11. Technical gotchas carried forward
 
@@ -211,4 +213,18 @@ Every experiment and every strategy variant tried is listed here, successful or 
 
 | ID | What | Data | Status | Result |
 |---|---|---|---|---|
-| E001 | Market calibration and naive taker EV by price, time-to-expiry, series | `full-001` trainval | Script written, dry-run on smoke data only | pending |
+| E001 | Market calibration and naive taker EV by price, time-to-expiry, series | `full-001` trainval (49 days, 64,936 markets) | **Done 2026-11-13** | **Negative.** Calibrated within ±1.3 pts on every up/down coin; taking either side loses 1.3–4.0¢/contract after fees on every series. See `docs/experiments/E001-E002-calibration.md` |
+| E002 | Favorite/underdog symmetric view, nine up/down coins | `full-001` train, then val | **Done 2026-11-13** | **Negative.** Favorites at 90–99¢: +0.07…+0.23¢ on train (CIs include 0), **reversed to −0.02…−0.88¢ on validation**. Underdogs negative everywhere. Test set NOT opened |
+
+### Findings that change the plan
+
+- "Alt-coins are less efficient" (S-priority hypothesis): **not supported** by price calibration. Do not prioritise alts on that basis.
+- `KXCRYPTOLEAD15M`: 282 contracts median volume, 8¢ spread → **dropped**. `KXADA15M`, `KXBCH15M`, `KXTON15M`: zero markets in Sep–Nov 2026 → inactive.
+- S4 (taker favorite/longshot): **rejected** on our own data. Maker version remains untested.
+- Liquidity (median contracts per market): BTC 2.84M; ETH 163k; XRP 76k; SOL 61k; DOGE 37k; HYPE 24k; ZEC 21k; NEAR 18k; BNB 16k.
+
+### Discovery pass (D8) — raw facts from `runs/full-001/catalog/` (16,341 series)
+
+Series by frequency: fifteen_min 38 (Crypto 14, Financials 14, Commodities 9), hourly 80 (Financials 33, Crypto 25, Weather 14, Commodities 6), daily 401 (Weather 145, Economics 89, Financials 61, Crypto 22, ...).
+Largest by lifetime volume — 15-min: BTC 3.4e10, ETH 2.0e9, **Gold 1.9e9**, XRP 8.9e8, SOL 7.8e8, **WTI 5.3e8**, DOGE 4.8e8, HYPE 4.5e8, **Silver 3.4e8**. Hourly: `KXBTCD` 9.4e9, `KXBTC` 4.9e8, `KXETHD` 3.9e8, `KXINXU` (S&P) 3.8e8, `KXNASDAQ100U` 2.0e8, `KXTEMPMIAH` (hourly Miami temp) 2.8e7. Daily: `KXHIGHLAX` 1.9e8, `KXHIGHNY` 1.5e8, `KXINX` 1.4e8, `KXHIGHCHI` 1.2e8, `KXWTI` 1.1e8, `KXNASDAQ100` 1.1e8, `KXHIGHMIA` 1.1e8, `KXRAIN` 8.7e7. All `quadratic`, multiplier 1 (no maker fee) among those listed.
+**Next:** pull markets + candles for a shortlist (daily city highs, hourly S&P/Nasdaq, 15-min gold/WTI) and run E001-style calibration on each. The collector needs generalising: these are multi-strike ladders, not single up/down markets, and their windows are not 15 minutes (`pull_candles` groups by identical open/close, which still works; E001's `k`/`minutes_left` logic does not).
