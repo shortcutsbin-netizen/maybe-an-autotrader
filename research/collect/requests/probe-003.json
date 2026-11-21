@@ -1,0 +1,11 @@
+{"name": "probe-003", "script": "probe.py", "max_bytes": 400000,
+ "urls": {
+  "nfl_summary": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401872925",
+  "nfl_probs": "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401872925/competitions/401872925/probabilities?limit=1000",
+  "nba_summary": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401902644",
+  "nba_probs": "https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401902644/competitions/401902644/probabilities?limit=1000",
+  "ncaaf_summary": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856682",
+  "nhl_summary": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/summary?event=401881922",
+  "mlb_summary": "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary?event=401816905",
+  "nba_plays_core": "https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401902644/competitions/401902644/plays?limit=5"
+ }}
