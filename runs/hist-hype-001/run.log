@@ -1,0 +1,54 @@
+[     0.3s] cutoff: {'market_positions_last_updated_ts': '2026-09-21T00:00:00Z', 'market_settled_ts': '2026-09-21T00:00:00Z', 'orders_updated_ts': '2026-11-06T00:00:00Z', 'trades_created_ts': '2026-09-21T00:00:00Z'}
+[     4.3s] KXHYPE15M: 9844 markets
+[     4.5s] candles: window 1/9844 rows=15 errors=0
+[    52.1s] candles: window 201/9844 rows=3015 errors=0
+[   102.6s] candles: window 401/9844 rows=6014 errors=0
+[   152.4s] candles: window 601/9844 rows=9002 errors=0
+[   202.1s] candles: window 801/9844 rows=12002 errors=0
+[   252.3s] candles: window 1001/9844 rows=14973 errors=0
+[   301.9s] candles: window 1201/9844 rows=17973 errors=0
+[   352.9s] candles: window 1401/9844 rows=20966 errors=0
+[   402.8s] candles: window 1601/9844 rows=23958 errors=0
+[   452.2s] candles: window 1801/9844 rows=26957 errors=0
+[   502.5s] candles: window 2001/9844 rows=29955 errors=0
+[   552.4s] candles: window 2201/9844 rows=32955 errors=0
+[   602.2s] candles: window 2401/9844 rows=35954 errors=0
+[   652.7s] candles: window 2601/9844 rows=38954 errors=0
+[   702.5s] candles: window 2801/9844 rows=41954 errors=0
+[   752.4s] candles: window 3001/9844 rows=44954 errors=0
+[   802.4s] candles: window 3201/9844 rows=47953 errors=0
+[   852.1s] candles: window 3401/9844 rows=50952 errors=0
+[   902.6s] candles: window 3601/9844 rows=53949 errors=0
+[   952.1s] candles: window 3801/9844 rows=56949 errors=0
+[  1002.6s] candles: window 4001/9844 rows=59949 errors=0
+[  1052.8s] candles: window 4201/9844 rows=62948 errors=0
+[  1107.2s] candles: window 4401/9844 rows=65944 errors=0
+[  1155.3s] candles: window 4601/9844 rows=68943 errors=0
+[  1206.2s] candles: window 4801/9844 rows=71942 errors=0
+[  1256.2s] candles: window 5001/9844 rows=74940 errors=0
+[  1306.1s] candles: window 5201/9844 rows=77939 errors=0
+[  1355.4s] candles: window 5401/9844 rows=80939 errors=0
+[  1405.8s] candles: window 5601/9844 rows=83939 errors=0
+[  1455.3s] candles: window 5801/9844 rows=86843 errors=0
+[  1505.4s] candles: window 6001/9844 rows=89843 errors=0
+[  1556.1s] candles: window 6201/9844 rows=92843 errors=0
+[  1605.6s] candles: window 6401/9844 rows=95843 errors=0
+[  1656.3s] candles: window 6601/9844 rows=98842 errors=0
+[  1705.4s] candles: window 6801/9844 rows=101842 errors=0
+[  1755.3s] candles: window 7001/9844 rows=104842 errors=0
+[  1806.1s] candles: window 7201/9844 rows=107842 errors=0
+[  1855.7s] candles: window 7401/9844 rows=110842 errors=0
+[  1905.2s] candles: window 7601/9844 rows=113842 errors=0
+[  1956.1s] candles: window 7801/9844 rows=116842 errors=0
+[  2005.6s] candles: window 8001/9844 rows=119841 errors=0
+[  2056.3s] candles: window 8201/9844 rows=122840 errors=0
+[  2106.0s] candles: window 8401/9844 rows=125840 errors=0
+[  2155.4s] candles: window 8601/9844 rows=128840 errors=0
+[  2206.2s] candles: window 8801/9844 rows=131840 errors=0
+[  2255.4s] candles: window 9001/9844 rows=134840 errors=0
+[  2306.3s] candles: window 9201/9844 rows=137840 errors=0
+[  2355.9s] candles: window 9401/9844 rows=140840 errors=0
+[  2405.2s] candles: window 9601/9844 rows=143840 errors=0
+[  2455.6s] candles: window 9801/9844 rows=146840 errors=0
+[  2590.1s] spot HYPE-USD: 143522 candles
+[  2590.1s] done: requests=10707 errors=0
