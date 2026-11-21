@@ -1,0 +1,1 @@
+{"name": "trades-006", "script": "kalshi_trades_pull.py", "tickers_file": "research/collect/requests/lists_e012_Q_markets.txt", "historical": true, "pause": 0.15, "max_pages": 80, "max_minutes": 120}
