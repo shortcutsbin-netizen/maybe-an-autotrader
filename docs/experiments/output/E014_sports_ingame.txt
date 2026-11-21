@@ -1,0 +1,54 @@
+#### split=train lag=30
+ESPN WP rows=249138 games with WP=961; Kalshi markets matched to a game with WP=1430 (games 715, leagues {'ncaaf': 688, 'nba': 474, 'nfl': 268})
+split=train lag=30s quote-minutes=121234 markets=785 days=33  mean spread 1.14c
+  Brier: Kalshi mid 0.15551 | ESPN WP 0.15953 | mean |Kalshi - ESPN| 4.91 pts
+    nba    n= 17169 Kalshi 0.18785 ESPN 0.18777 |diff| 7.72
+    ncaaf  n= 73268 Kalshi 0.13638 ESPN 0.14188 |diff| 4.54
+    nfl    n= 30797 Kalshi 0.18300 ESPN 0.18579 |diff| 4.19
+  logistic (fit on train) coef Kalshi=0.910 ESPN=0.105; combined Brier on train: 0.15543
+  p_espn edge>0.03: n= 45555 P&L -2.67c [-6.99,+1.78] win 49% | first per market n=727 -1.97c [-5.23,+2.22] | by league nba:9965/+3.9, ncaaf:25536/-4.5, nfl:10054/-4.6
+  p_espn edge>0.05: n= 29569 P&L -2.62c [-8.04,+3.08] win 48% | first per market n=684 -0.83c [-4.63,+2.88] | by league nba:7638/+4.3, ncaaf:16060/-5.5, nfl:5871/-3.9
+  p_espn edge>0.08: n= 15983 P&L -2.81c [-9.91,+4.62] win 45% | first per market n=597 -2.17c [-7.32,+2.74] | by league nba:4856/+5.8, ncaaf:8474/-6.2, nfl:2653/-7.8
+  p_espn edge>0.12: n=  7089 P&L -1.84c [-9.34,+4.89] win 41% | first per market n=450 +2.60c [-3.07,+7.37] | by league nba:2591/+2.9, ncaaf:3584/-2.6, nfl:914/-12.2
+  p_espn edge>0.20: n=  1526 P&L +1.97c [-7.75,+11.39] win 38% | first per market n=220 +1.86c [-4.59,+7.90] | by league nba:779/+7.1, ncaaf:619/-3.1, nfl:128/-4.5
+  p_comb edge>0.03: n=    56 P&L +13.24c [-36.94,+46.44] win 70% | first per market n=21 +9.56c [-22.18,+36.76] | by league ncaaf:56/+13.2
+#### split=train lag=60
+ESPN WP rows=249138 games with WP=961; Kalshi markets matched to a game with WP=1430 (games 715, leagues {'ncaaf': 688, 'nba': 474, 'nfl': 268})
+split=train lag=60s quote-minutes=121076 markets=785 days=33  mean spread 1.14c
+  Brier: Kalshi mid 0.15547 | ESPN WP 0.15990 | mean |Kalshi - ESPN| 5.11 pts
+    nba    n= 17119 Kalshi 0.18783 ESPN 0.18781 |diff| 7.92
+    ncaaf  n= 73164 Kalshi 0.13631 ESPN 0.14225 |diff| 4.72
+    nfl    n= 30793 Kalshi 0.18302 ESPN 0.18633 |diff| 4.49
+  logistic (fit on train) coef Kalshi=0.917 ESPN=0.099; combined Brier on train: 0.15540
+  p_espn edge>0.03: n= 47264 P&L -2.57c [-6.65,+1.71] win 48% | first per market n=732 -1.38c [-5.11,+3.09] | by league nba:10025/+4.0, ncaaf:26461/-4.3, nfl:10778/-4.4
+  p_espn edge>0.05: n= 31416 P&L -2.25c [-7.32,+3.26] win 47% | first per market n=692 -0.80c [-4.57,+3.83] | by league nba:7764/+5.2, ncaaf:17056/-5.0, nfl:6596/-3.8
+  p_espn edge>0.08: n= 17468 P&L -2.71c [-9.20,+4.17] win 44% | first per market n=631 -1.78c [-6.62,+2.85] | by league nba:5056/+5.8, ncaaf:9258/-5.9, nfl:3154/-7.1
+  p_espn edge>0.12: n=  8074 P&L -1.31c [-8.62,+5.31] win 42% | first per market n=528 -0.56c [-5.16,+3.89] | by league nba:2818/+3.6, ncaaf:4063/-2.5, nfl:1193/-8.8
+  p_espn edge>0.20: n=  1772 P&L +2.20c [-8.52,+11.43] win 38% | first per market n=283 -3.05c [-9.36,+3.58] | by league nba:850/+7.4, ncaaf:727/-3.4, nfl:195/+0.6
+  p_comb edge>0.03: n=    43 P&L +22.43c [-11.19,+44.83] win 77% | first per market n=18 +16.88c [-13.61,+37.73] | by league ncaaf:43/+22.4
+#### split=val lag=30
+ESPN WP rows=249138 games with WP=961; Kalshi markets matched to a game with WP=1430 (games 715, leagues {'ncaaf': 688, 'nba': 474, 'nfl': 268})
+split=val lag=30s quote-minutes=39647 markets=276 days=11  mean spread 1.07c
+  Brier: Kalshi mid 0.15951 | ESPN WP 0.17212 | mean |Kalshi - ESPN| 5.27 pts
+    nba    n= 21335 Kalshi 0.15864 ESPN 0.17065 |diff| 5.92
+    ncaaf  n= 13375 Kalshi 0.16558 ESPN 0.17359 |diff| 4.26
+    nfl    n=  4937 Kalshi 0.14679 ESPN 0.17453 |diff| 5.16
+  logistic (fit on train) coef Kalshi=0.910 ESPN=0.105; combined Brier on val: 0.16028
+  p_espn edge>0.03: n= 17439 P&L -10.21c [-17.47,-2.94] win 53% | first per market n=265 -9.00c [-14.80,-4.11] | by league nba:10600/-7.6, ncaaf:4808/-9.1, nfl:2031/-26.8
+  p_espn edge>0.05: n= 11540 P&L -11.94c [-20.34,-3.58] win 49% | first per market n=254 -9.24c [-16.34,-2.62] | by league nba:7342/-8.7, ncaaf:2777/-9.7, nfl:1421/-33.2
+  p_espn edge>0.08: n=  5826 P&L -13.07c [-25.37,+1.06] win 46% | first per market n=232 -7.86c [-17.96,-0.59] | by league nba:3983/-10.1, ncaaf:1104/-0.6, nfl:739/-47.7
+  p_espn edge>0.12: n=  2174 P&L -14.55c [-34.09,+5.43] win 43% | first per market n=165 -8.80c [-19.75,+2.45] | by league nba:1513/-12.5, ncaaf:389/+4.7, nfl:272/-53.6
+  p_espn edge>0.20: n=   182 P&L -18.59c [-29.34,-1.99] win 26% | first per market n=62 -12.97c [-26.01,-1.20] | by league nba:129/-21.9, ncaaf:35/+0.3, nfl:18/-31.8
+#### split=val lag=60
+ESPN WP rows=249138 games with WP=961; Kalshi markets matched to a game with WP=1430 (games 715, leagues {'ncaaf': 688, 'nba': 474, 'nfl': 268})
+split=val lag=60s quote-minutes=39543 markets=276 days=11  mean spread 1.07c
+  Brier: Kalshi mid 0.15944 | ESPN WP 0.17249 | mean |Kalshi - ESPN| 5.46 pts
+    nba    n= 21255 Kalshi 0.15858 ESPN 0.17095 |diff| 6.13
+    ncaaf  n= 13351 Kalshi 0.16549 ESPN 0.17388 |diff| 4.41
+    nfl    n=  4937 Kalshi 0.14679 ESPN 0.17534 |diff| 5.38
+  logistic (fit on train) coef Kalshi=0.917 ESPN=0.099; combined Brier on val: 0.16016
+  p_espn edge>0.03: n= 17820 P&L -9.74c [-16.73,-2.81] win 52% | first per market n=274 -8.39c [-14.28,-3.07] | by league nba:10787/-7.3, ncaaf:4924/-8.4, nfl:2109/-25.6
+  p_espn edge>0.05: n= 12054 P&L -11.23c [-19.35,-3.07] win 49% | first per market n=262 -6.02c [-13.45,+0.64] | by league nba:7616/-8.1, ncaaf:2940/-9.2, nfl:1498/-31.0
+  p_espn edge>0.08: n=  6397 P&L -12.65c [-23.52,-0.02] win 46% | first per market n=243 -8.61c [-16.61,-1.57] | by league nba:4296/-9.7, ncaaf:1284/-2.6, nfl:817/-43.7
+  p_espn edge>0.12: n=  2498 P&L -14.66c [-30.90,+3.65] win 41% | first per market n=199 -7.10c [-15.86,+2.63] | by league nba:1722/-11.7, ncaaf:450/-1.1, nfl:326/-48.9
+  p_espn edge>0.20: n=   279 P&L -14.27c [-26.13,+1.87] win 31% | first per market n=94 -8.91c [-23.20,+5.54] | by league nba:202/-14.1, ncaaf:51/-6.7, nfl:26/-30.2
