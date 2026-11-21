@@ -1,0 +1,9 @@
+[     0.5s] 0/1536 trades=75 errors=0
+[    92.9s] 200/1536 trades=107858 errors=0
+[   191.5s] 400/1536 trades=227593 errors=0
+[   290.8s] 600/1536 trades=351252 errors=0
+[   399.9s] 800/1536 trades=495221 errors=0
+[   585.9s] 1000/1536 trades=942223 errors=0
+[   783.4s] 1200/1536 trades=1443475 errors=0
+[   943.2s] 1400/1536 trades=1811344 errors=0
+[  1043.4s] done trades=2017551
