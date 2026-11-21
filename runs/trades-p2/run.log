@@ -1,0 +1,8 @@
+[     0.8s] 0/1243 trades=1200 errors=0
+[   125.5s] 200/1243 trades=229197 errors=0
+[   321.0s] 400/1243 trades=729023 errors=0
+[   482.7s] 600/1243 trades=1093869 errors=0
+[   646.3s] 800/1243 trades=1475724 errors=0
+[   747.5s] 1000/1243 trades=1595653 errors=0
+[   880.8s] 1200/1243 trades=1848650 errors=0
+[   902.3s] done trades=1877064

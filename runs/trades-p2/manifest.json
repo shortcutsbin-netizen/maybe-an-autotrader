@@ -1,0 +1,17 @@
+{
+ "request": {
+  "name": "trades-p2",
+  "script": "kalshi_trades_pull.py",
+  "tickers_file": "research/collect/requests/lists_e012_P_markets_2.txt",
+  "historical": true,
+  "pause": 0.12,
+  "max_pages": 80,
+  "max_minutes": 300
+ },
+ "tickers": 1243,
+ "tickers_done": 1243,
+ "trades": 1877064,
+ "http_requests": 3759,
+ "error_count": 0,
+ "errors_first_50": []
+}
