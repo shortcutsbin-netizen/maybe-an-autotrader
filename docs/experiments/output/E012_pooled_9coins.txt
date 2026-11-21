@@ -1,0 +1,14 @@
+== P (9 coins): signals=5176 days=104
+   f1: fills=3462 P&L +9.83c [+7.92,+11.66] days positive 88/104
+   f2: fills=2603 P&L +6.12c [+3.92,+8.28] days positive 69/104
+   f3: fills=4897 P&L +8.24c [+6.47,+9.91] days positive 82/104
+== PRE-REGISTERED P u Q, 9 coins: signals=5504 days=113
+   f1: fills=3729 P&L +9.63c [+7.84,+11.36] days positive 94/113
+   f2: fills=2838 P&L +5.94c [+3.83,+8.03] days positive 74/113
+   f3: fills=5225 P&L +8.07c [+6.48,+9.68] days positive 88/113
+== ALL 145 OUT-OF-FIT DAYS, 9 coins: signals=7234 days=145
+   f1: fills=5044 P&L +9.95c [+8.35,+11.53] days positive 123/145
+   f2: fills=3943 P&L +6.05c [+4.27,+7.86] days positive 99/145
+   f3: fills=6943 P&L +8.33c [+6.88,+9.74] days positive 116/145
+   months: {'2026-06': (448, np.float64(8.17)), '2026-07': (1033, np.float64(10.89)), '2026-08': (1531, np.float64(8.71)), '2026-09': (450, np.float64(12.85)), '2026-11': (267, np.float64(7.08))}
+   by coin (all out-of-fit): {'BNB': (1548, np.float64(14.6)), 'BTC': (73, np.float64(-0.5)), 'DOGE': (752, np.float64(12.3)), 'ETH': (237, np.float64(9.6)), 'HYPE': (853, np.float64(6.9)), 'NEAR': (506, np.float64(7.7)), 'SOL': (321, np.float64(5.8)), 'XRP': (409, np.float64(4.6)), 'ZEC': (345, np.float64(7.4))}

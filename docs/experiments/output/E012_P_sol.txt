@@ -1,0 +1,10 @@
+signals=312 in 267 markets over 90 days (3/day); signals whose market has trade data: 100.0%
+  F1 primary (VWAP 1-6 s, limit quote+2c): fills=253 (81%) P&L +3.20c 95% CI [-3.03,+9.06] win 40.3% avg price 35.8c (quote 39.5c) days positive 44/87
+  F2 last-in-line (worst price, >=20 printed): fills=206 (66%) P&L -0.66c 95% CI [-7.48,+5.83] win 38.8% avg price 38.1c (quote 38.7c) days positive 34/81
+  F3 slow (first print after 3 s, no limit): fills=311 (100%) P&L +1.33c 95% CI [-4.37,+6.29] win 46.0% avg price 43.3c (quote 40.6c) days positive 46/90
+  F1 by month: {'2026-06': (32, np.float64(-0.27)), '2026-07': (75, np.float64(9.02)), '2026-08': (108, np.float64(-0.18)), '2026-09': (38, np.float64(4.22))}
+  F1 by series: {'SOL': (253, np.float64(3.2))}
+  F1 by minutes left: {1: (165, np.float64(4.6)), 2: (37, np.float64(-12.8)), 3: (23, np.float64(-1.4)), 4: (9, np.float64(24.7)), 5: (7, np.float64(45.8)), 6: (3, np.float64(-11.2)), 7: (5, np.float64(-10.3)), 8: (1, np.float64(42.6)), 9: (1, np.float64(-48.7)), 11: (2, np.float64(53.8))}
+  F1 one trade per market: n=213 P&L +3.13c [-2.28,+8.03]
+  F1 median volume printed in window: 98; 25th pct 28
+  illustration, 10 contracts per F1 fill: mean $0.93/day, median $0.35, worst $-18.31, best $25.05, max drawdown $50.97, capital per trade ~$3.58

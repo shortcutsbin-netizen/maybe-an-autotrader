@@ -33,12 +33,12 @@ Labels used throughout:
 
 | ID | Test | Verdict |
 |---|---|---|
-| E012 | Frozen dislocation rule on 113 never-seen days (Jun 1 → Sep 12, Nov 13 → 21), pre-registered | **PASS.** +10.10c per contract [+8.20, +11.92], 3,476 fills; conservative fill models +6.5c and +8.5c; positive in every month and every coin except BTC |
+| E012 | Frozen dislocation rule on 113 never-seen days (Jun 1 → Sep 12, Nov 13 → 21), pre-registered | **PASS.** +9.63c per contract [+7.84, +11.36], 3,729 fills (nine coins; eight-coin first pass +10.10c); conservative fill models +6.5c and +8.5c; positive in every month and every coin except BTC |
 | E013 | Frozen weather favorite-side maker rule on never-simulated periods, pre-registered | **FAIL.** Summer +0.9c; Oct 30 → Nov 20 −3.1c. S4-M rejected |
 | E014 | In-game sports: Kalshi vs ESPN win probability (exploratory) | **Negative.** Kalshi out-forecasts ESPN; trading the gaps loses. Sports closed |
 | — | News volume (GDELT, partial) vs dislocation P&L (exploratory) | No relationship (n = 255 covered signals) |
 
-Across all 145 days the rule was not fitted on, it made +10.3c per contract on 4,791 modelled fills, positive on 122 days.
+Across all 145 days the rule was not fitted on, it made +9.95c per contract on 5,044 modelled fills (nine coins), positive on 123 days.
 
 ### Where this leaves the strategy set
 
@@ -46,7 +46,7 @@ Exactly one strategy survives: **S1-D, the dislocation rule on 15-minute alt-coi
 
 ### Recommendation: close Phase 2; authorize a narrow Phase 3
 
-Against the Phase 2 → 3 gate in §1: ≥ 1,000 out-of-sample trades with CI lower bound > 0 — **met** (3,476 on the pre-registered test alone); multiple-testing — **met** (frozen rule, pre-registered); +1 tick and 1-second delay — **met** (F2 and F3, and E006 at 1–5 s). The remaining Phase 4 gate (paper results inside the backtest's range) is what Phase 4 is for.
+Against the Phase 2 → 3 gate in §1: ≥ 1,000 out-of-sample trades with CI lower bound > 0 — **met** (3,729 on the pre-registered test alone); multiple-testing — **met** (frozen rule, pre-registered); +1 tick and 1-second delay — **met** (F2 and F3, and E006 at 1–5 s). The remaining Phase 4 gate (paper results inside the backtest's range) is what Phase 4 is for.
 
 **Proposed Phase 3 scope (only this):**
 
@@ -531,8 +531,8 @@ Distinctions the brief asks for:
 |---|---|
 | **Current outlook** | **Promising — for one narrow strategy.** Everything else tested is Unpromising or Not viable |
 | **Probability of sustainable net profitability** | Informal **35–45%**, up from 20–30%. The historical edge is now robust; the probability is held down by the untested step from others' fills to our own, and by the small capacity |
-| **Confidence** | **Medium.** 145 out-of-fit days, a pre-registered test passed on 113 never-seen days, three fill models, placebo as expected. Not yet a single real or paper fill of our own |
-| **Supporting continued development** | E012 pass; consistent across six months and eight coins; survives last-in-line and slow fill models; needs only public data and a home PC; fits a few-hundred-dollar bankroll |
+| **Confidence** | **Medium.** 145 out-of-fit days, a pre-registered test passed on 113 never-seen days across nine coins, three fill models, placebo as expected. Not yet a single real or paper fill of our own |
+| **Supporting continued development** | E012 pass; consistent across six months and eight of nine coins (BTC signals rarely; SOL weakest); survives last-in-line and slow fill models; needs only public data and a home PC; fits a few-hundred-dollar bankroll |
 | **Against** | Competing takers act within half a second; median fillable size is tens of contracts; the edge could decay as more bots find it, especially now that it has been public; returns are small in dollars even if real |
 | **Biggest unresolved risk** | That our own orders, arriving a second or two after the minute mark, fill materially worse than the prints we measured |
 | **Recommended decision** | **Continue, narrowed:** close Phase 2, build Phase 3 for S1-D only, prove it in a short Phase 4 paper run |

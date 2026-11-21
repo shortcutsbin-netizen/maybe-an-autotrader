@@ -30,7 +30,7 @@ Research, and only if justified build, an autonomous Python bot for Kalshi short
 | | |
 |---|---|
 | **Phase** | **2 — Real-data research, simulation, validation** (Phase 1 approved by user 2026-11-12) |
-| **Status** | **Testing round 3 complete (2026-11-21). Recommending Phase 2 close and a narrow Phase 3 build (dislocation rule only); awaiting user authorization** — see §7. E012 (pre-registered, 113 never-seen days) PASSED: +10.1c/contract [+8.2, +11.9]. E013 weather maker FAILED; E014 in-game sports negative. Only S1-D survives. Time box: continue/stop decision by **2026-12-24**. |
+| **Status** | **Testing round 3 complete (2026-11-21). Recommending Phase 2 close and a narrow Phase 3 build (dislocation rule only); awaiting user authorization** — see §7. E012 (pre-registered, 113 never-seen days, nine coins) PASSED: +9.6c/contract [+7.8, +11.4]. E013 weather maker FAILED; E014 in-game sports negative. Only S1-D survives. Time box: continue/stop decision by **2026-12-24**. |
 | **Last thread** | Thread 1, turn 4 (2026-11-21 05:15Z → ~07:30Z), **on Opus 5.5** (moved from Fable 5.2; commit trailer now `Co-Authored-By: Claude Opus 5.5`) |
 | **Code** | Research tooling only (`research/`). **No production code; none allowed until Phase 3 is authorized.** |
 | **Data** | On the `data` branch under `runs/<request name>/` (written by GitHub Actions). |
@@ -238,7 +238,7 @@ Analyses: E003 (crypto multi-signal model) done on validation — see §12. E004
 4. Risk gate, settlement via next strike, SQLite schema, JSONL logs with rotation, CLI, `doctor` (clock, connectivity, rate limits), Task Scheduler instructions, tests.
 5. Then Phase 4 per the agreed bar.
 
-If SOL history (`hist-sol-002`) lands, rerun `e012_frozen_new_periods.py` for SOL in period P and append to E012 (reported as a supplement, not a re-test).
+~~SOL supplement~~ done: SOL added to E012 (nine-coin result in the report).
 
 ## 8-old2. Next steps as of 2026-11-13 end of turn 3 (superseded, kept)
 
@@ -300,7 +300,7 @@ If SOL history (`hist-sol-002`) lands, rerun `e012_frozen_new_periods.py` for SO
 ### Thread 1, turn 4 — 2026-11-21 05:15Z → ~07:30Z (testing round 3, Opus 5.5)
 
 - User declined the forward test, made the repo public, approved the weather re-pull, and asked that drops happen only if absolutely not feasible.
-- Pre-registered E012/E013 (commit `457f237`) before pulling data. Pulled 104 days of crypto history (8 of 9 coins published; SOL resubmitted), 8 new days of crypto, weather trade prints May–Sep and Nov, ESPN win probability for 961 games.
+- Pre-registered E012/E013 (commit `457f237`) before pulling data. Pulled 104 days of crypto history for all nine coins (SOL needed a resubmit), 8 new days of crypto, weather trade prints May–Sep and Nov, ESPN win probability for 961 games.
 - E012 **passed**; E013 **failed**; E014 negative; news-volume check null.
 - Wrote E012, E013, E014 reports and the pre-registration; plan v4; this file; research-log session 3.
 
@@ -352,7 +352,7 @@ Every experiment and every strategy variant tried is listed here, successful or 
 | E010 | **Frozen dislocation rule** (definition committed in `9ac0a11` before opening test): logistic stack fit 09-13→10-11; edge > 8c; IOC at quote + 2c; fill = same-side taker VWAP in (t+1 s, t+6 s]; hold to settlement. `e010_dislocation_frozen.py` | signals from `full-001`; prints `trades-003`, `trades-005` | **Done — TEST SPLIT OPENED ONCE (2026-11-13). Do not tune on it again.** | **Positive.** Threshold days +9.74c [+7.41, +12.68] (305 fills); validation +11.34c [+6.62, +16.34] (513); **test +11.01c [+3.97, +18.37] (497 fills, 10 of 12 days positive)**; one trade per market on test +10.26c [+4.45, +16.12]. ~53 signals/day; BNB and DOGE positive in all three periods. Fills are modelled from others' prints. |
 | E011 | Frozen rule applied to the live-capture window, read against the real displayed book. `e011_frozen_on_live_book.py` | `full-003` + `live-001` | **Done** | 9 signals in 4h45m; buying the displayed ask 0–10 s later averaged +7.5…+10c with se ~19c (uninformative statistically); displayed size 13–390 contracts, occasionally 0–1. |
 
-| E012 | **Frozen dislocation rule on never-seen periods (pre-registered, `457f237`)**: P = 2026-06-01→09-12 via history endpoints (8 coins; SOL job did not publish), Q = 11-13→11-21. Fill models F1 (VWAP 1–6 s ≤ quote+2c), F2 (worst price, ≥ 20 printed), F3 (first print after 3 s). `e012_frozen_new_periods.py`, `e012b_placebo.py` | `hist-*-001`, `trades-p0/p1/p2`, `full-004`, `trades-006` | **Done 2026-11-21 — PASS** | P ∪ Q: F1 **+10.10c [+8.20, +11.92]** (3,476 fills, 93/113 days positive); F2 +6.46c; F3 +8.50c; months 5/5 positive. P alone +10.35c; Q alone +7.08c [−0.08, +13.43]. All 145 out-of-fit days: +10.30c on 4,791 fills. Every coin positive except BTC (−0.5c, 73 fills). Placebo −3.75c (P), +1.63c (Q, CI spans 0). Median fillable size 66 (P) / 247 (Q) |
+| E012 | **Frozen dislocation rule on never-seen periods (pre-registered, `457f237`)**: P = 2026-06-01→09-12 via history endpoints (8 coins; SOL job did not publish), Q = 11-13→11-21. Fill models F1 (VWAP 1–6 s ≤ quote+2c), F2 (worst price, ≥ 20 printed), F3 (first print after 3 s). `e012_frozen_new_periods.py`, `e012b_placebo.py` | `hist-*-001`, `trades-p0/p1/p2`, `full-004`, `trades-006` | **Done 2026-11-21 — PASS** | P ∪ Q, nine coins: F1 **+9.63c [+7.84, +11.36]** (3,729 fills, 94/113 days positive); F2 +5.94c; F3 +8.07c; months 5/5 positive (eight-coin first pass +10.10c). SOL alone in P +3.2c (CI spans 0). P alone +10.35c; Q alone +7.08c [−0.08, +13.43]. All 145 out-of-fit days (nine coins): +9.95c on 5,044 fills. Every coin positive except BTC (−0.5c, 73 fills). Placebo −3.75c (P), +1.63c (Q, CI spans 0). Median fillable size 66 (P) / 247 (Q) |
 | E013 | **Frozen weather maker rule W (pre-registered)**: buy YES at bid when mid ≥ 0.90, sell YES at ask when mid ≤ 0.20, 30-min orders; primary "through" fills. `e013_weather_maker_frozen.py` | `wx-002`/`wx-001`/`wx-003`; prints `wx-trades-hist-a/b/c`, `wx-trades-002`, `wx-trades-005` | **Done — FAIL** | A (May→Sep 5): +0.91c [−0.09, +1.89] (buy-≥90 leg +2.54c); B ∪ C (Oct 30→Nov 20): **−3.11c** [−7.39, +1.07]. S4-M rejected |
 | E014 | Exploratory: in-game sports, Kalshi vs ESPN win probability (30/60 s feed delay), NFL/NCAAF/NBA. `e014_sports_ingame_wp.py` | `sp-001`, `ext-sp-001`, `espn-wp-001` | **Done — negative** | Brier Kalshi 0.1555 vs ESPN 0.1595 (train), 0.1595 vs 0.1721 (val); trading ESPN gaps −2.8c (train), −13.1c (val). Sports closed |
 | — | Exploratory: GDELT news volume in the prior hour vs E010 signal P&L | `ext-news-001` (partial, 27% coverage) | Done | No relationship (255 covered signals; +11.5c below median vs +8.1c above; corr −0.03) |

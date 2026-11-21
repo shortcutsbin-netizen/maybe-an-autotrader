@@ -9,7 +9,16 @@
 | **Raw output** | `output/E012_P8.txt`, `output/E012_Q.txt`, `output/E012_pooled.txt`, `output/E012b_placebo.txt` |
 | **Verdict** | **PASS on every pre-registered criterion.** |
 
-**Deviation from the pre-registration:** SOL is missing from period P because its history job did not publish (resubmitted as `hist-sol-002`). SOL contributed 4% of earlier signals. Eight of the nine coins are evaluated.
+**Nine coins, final (headline).** SOL's first history job did not publish; it was resubmitted (`hist-sol-002`), its signals were computed and committed before its prints were pulled (`trades-psol`), and it is included below. The eight-coin tables further down are what was first computed and are kept.
+
+| Pre-registered test, all nine coins | Fills | F1 | F2 last-in-line | F3 slow | Days positive |
+|---|---|---|---|---|---|
+| **P ∪ Q** (113 days) | 3,729 | **+9.63c [+7.84, +11.36]** | +5.94c [+3.83, +8.03] | +8.07c [+6.48, +9.68] | 94/113 |
+| All 145 out-of-fit days | 5,044 | +9.95c [+8.35, +11.53] | +6.05c [+4.27, +7.86] | +8.33c [+6.88, +9.74] | 123/145 |
+
+Months with ≥ 100 fills: Jun +8.2c, Jul +10.9c, Aug +8.7c, Sep +12.9c, Nov +7.1c — 5 of 5 positive. SOL alone in P: +3.20c [−3.03, +9.06], 253 fills — weakest coin with BTC. All three criteria still hold. Output: `output/E012_P_sol.txt`, `output/E012_pooled_9coins.txt`.
+
+**Eight-coin tables (as first computed):**
 
 ## Results
 
