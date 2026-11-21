@@ -1,0 +1,2 @@
+PLACEBO data/merged/histP: sampled minutes=6000 filled=3184 P&L -3.75c [-5.49,-2.17] mean price vs quote -1.33c
+PLACEBO data/wt/runs/full-004: sampled minutes=3000 filled=2428 P&L +1.63c [-0.30,+3.26] mean price vs quote -1.44c

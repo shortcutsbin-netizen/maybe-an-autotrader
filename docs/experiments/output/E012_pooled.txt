@@ -1,0 +1,16 @@
+== PRE-REGISTERED TEST: P u Q (new periods): signals=5192 days=113
+   f1: fills=3476 P&L +10.10c [+8.20,+11.92] days positive 93/113
+   f2: fills=2632 P&L +6.46c [+4.26,+8.47] days positive 76/113
+   f3: fills=4914 P&L +8.50c [+6.84,+10.15] days positive 90/113
+   F1 months with >=100 fills: {'2026-06': (416, np.float64(8.82)), '2026-07': (958, np.float64(11.04)), '2026-08': (1423, np.float64(9.38)), '2026-09': (412, np.float64(13.64)), '2026-11': (267, np.float64(7.08))} -> positive 5 of 5
+== ALL DATA NOT USED FOR FITTING (thr+val+test+P+Q): signals=6922 days=145
+   f1: fills=4791 P&L +10.30c [+8.66,+11.97] days positive 122/145
+   f2: fills=3737 P&L +6.42c [+4.60,+8.28] days positive 101/145
+   f3: fills=6632 P&L +8.66c [+7.18,+10.09] days positive 118/145
+== NEVER USED FOR ANY CHOICE (test+P+Q): signals=5830 days=125
+   f1: fills=3973 P&L +10.21c [+8.28,+12.07] days positive 103/125
+   f2: fills=3069 P&L +6.65c [+4.52,+8.77] days positive 84/125
+   f3: fills=5550 P&L +8.65c [+6.96,+10.21] days positive 100/125
+
+F1 by coin, all unseen periods: {'BNB': (1548, np.float64(14.6)), 'BTC': (73, np.float64(-0.5)), 'DOGE': (752, np.float64(12.3)), 'ETH': (237, np.float64(9.6)), 'HYPE': (853, np.float64(6.9)), 'NEAR': (506, np.float64(7.7)), 'SOL': (68, np.float64(15.6)), 'XRP': (409, np.float64(4.6)), 'ZEC': (345, np.float64(7.4))}
+F1 by month, all unseen periods: {'2026-06': (416, np.float64(8.8)), '2026-07': (958, np.float64(11.0)), '2026-08': (1423, np.float64(9.4)), '2026-09': (412, np.float64(13.6)), '2026-10': (818, np.float64(10.7)), '2026-11': (764, np.float64(9.6))}

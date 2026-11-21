@@ -1,0 +1,10 @@
+signals=4864 in 3730 markets over 104 days (47/day); signals whose market has trade data: 100.0%
+  F1 primary (VWAP 1-6 s, limit quote+2c): fills=3209 (66%) P&L +10.35c 95% CI [+8.41,+12.22] win 52.8% avg price 41.0c (quote 44.1c) days positive 87/104
+  F2 last-in-line (worst price, >=20 printed): fills=2397 (49%) P&L +6.71c 95% CI [+4.41,+9.02] win 50.6% avg price 42.5c (quote 43.4c) days positive 71/104
+  F3 slow (first print after 3 s, no limit): fills=4586 (94%) P&L +8.70c 95% CI [+6.97,+10.41] win 56.1% avg price 46.0c (quote 44.5c) days positive 84/104
+  F1 by month: {'2026-06': (416, np.float64(8.82)), '2026-07': (958, np.float64(11.04)), '2026-08': (1423, np.float64(9.38)), '2026-09': (412, np.float64(13.64))}
+  F1 by series: {'BNB': (1037, np.float64(14.2)), 'BTC': (37, np.float64(-8.0)), 'DOGE': (516, np.float64(10.9)), 'ETH': (189, np.float64(11.2)), 'HYPE': (609, np.float64(8.1)), 'NEAR': (322, np.float64(9.2)), 'XRP': (289, np.float64(7.0)), 'ZEC': (210, np.float64(5.0))}
+  F1 by minutes left: {1: (1431, np.float64(6.8)), 2: (627, np.float64(11.5)), 3: (365, np.float64(9.4)), 4: (218, np.float64(15.5)), 5: (160, np.float64(15.9)), 6: (90, np.float64(11.8)), 7: (81, np.float64(21.1)), 8: (68, np.float64(14.9)), 9: (56, np.float64(12.2)), 10: (57, np.float64(20.9)), 11: (56, np.float64(23.0))}
+  F1 one trade per market: n=2624 P&L +11.13c [+9.31,+12.93]
+  F1 median volume printed in window: 66; 25th pct 20
+  illustration, 10 contracts per F1 fill: mean $31.94/day, median $24.19, worst $-56.80, best $195.48, max drawdown $56.80, capital per trade ~$4.10
