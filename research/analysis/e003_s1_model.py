@@ -72,7 +72,8 @@ def build(run, news_csv=None):
     df = df[df["series"].isin(SPOT)].copy()
     df = df[(df["k"] >= 1) & (df["k"] <= 14)]
     parts = []
-    grids = {s: spot_grid(run, p) for s, p in SPOT.items()}
+    import os
+    grids = {s: spot_grid(run, p) for s, p in SPOT.items() if os.path.exists(f"{run}/spot/{p}.csv.gz")}   # skip coins with no spot file (e.g. not yet listed)
     btc = grids["KXBTC15M"]
     for s, g in grids.items():
         d = df[df["series"] == s].copy()
