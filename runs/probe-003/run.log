@@ -1,0 +1,8 @@
+nfl_summary 200 400000
+nfl_probs 200 182120
+nba_summary 200 400000
+nba_probs 400 125
+ncaaf_summary 200 400000
+nhl_summary 200 400000
+mlb_summary 200 400000
+nba_plays_core 200 8821

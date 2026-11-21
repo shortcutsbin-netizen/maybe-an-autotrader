@@ -1,0 +1,42 @@
+{
+ "nfl_summary": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401872925",
+  "status": 200,
+  "bytes": 400000
+ },
+ "nfl_probs": {
+  "url": "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401872925/competitions/401872925/probabilities?limit=1000",
+  "status": 200,
+  "bytes": 182120
+ },
+ "nba_summary": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401902644",
+  "status": 200,
+  "bytes": 400000
+ },
+ "nba_probs": {
+  "url": "https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401902644/competitions/401902644/probabilities?limit=1000",
+  "status": 400,
+  "bytes": 125
+ },
+ "ncaaf_summary": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856682",
+  "status": 200,
+  "bytes": 400000
+ },
+ "nhl_summary": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/summary?event=401881922",
+  "status": 200,
+  "bytes": 400000
+ },
+ "mlb_summary": {
+  "url": "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary?event=401816905",
+  "status": 200,
+  "bytes": 400000
+ },
+ "nba_plays_core": {
+  "url": "https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401902644/competitions/401902644/plays?limit=5",
+  "status": 200,
+  "bytes": 8821
+ }
+}
