@@ -33,7 +33,7 @@ Labels used throughout:
 
 | ID | Test | Verdict |
 |---|---|---|
-| E012 | Frozen dislocation rule on 113 never-seen days (Jun 1 → Sep 12, Nov 13 → 21), pre-registered | **PASS.** +9.63c per contract [+7.84, +11.36], 3,729 fills (nine coins; eight-coin first pass +10.10c); conservative fill models +6.5c and +8.5c; positive in every month and every coin except BTC |
+| E012 | Frozen dislocation rule on 113 never-seen days (Jun 1 → Sep 12, Nov 13 → 21), pre-registered | **PASS.** +9.63c per contract [+7.84, +11.36], 3,729 fills (nine coins; eight-coin first pass +10.10c); conservative fill models +5.9c and +8.1c; positive in every month and every coin except BTC (SOL weakest at +3.2c in the pre-period) |
 | E013 | Frozen weather favorite-side maker rule on never-simulated periods, pre-registered | **FAIL.** Summer +0.9c; Oct 30 → Nov 20 −3.1c. S4-M rejected |
 | E014 | In-game sports: Kalshi vs ESPN win probability (exploratory) | **Negative.** Kalshi out-forecasts ESPN; trading the gaps loses. Sports closed |
 | — | News volume (GDELT, partial) vs dislocation P&L (exploratory) | No relationship (n = 255 covered signals) |
