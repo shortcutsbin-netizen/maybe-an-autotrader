@@ -1,0 +1,40 @@
+[     0.4s] cutoff: {'market_positions_last_updated_ts': '2026-09-21T00:00:00Z', 'market_settled_ts': '2026-09-21T00:00:00Z', 'orders_updated_ts': '2026-11-06T00:00:00Z', 'trades_created_ts': '2026-09-21T00:00:00Z'}
+[     4.3s] KXNEAR15M: 7035 markets
+[     4.5s] candles: window 1/7035 rows=7 errors=0
+[    55.1s] candles: window 201/7035 rows=2809 errors=0
+[   104.9s] candles: window 401/7035 rows=5803 errors=0
+[   156.9s] candles: window 601/7035 rows=8795 errors=0
+[   208.2s] candles: window 801/7035 rows=11790 errors=0
+[   258.6s] candles: window 1001/7035 rows=14785 errors=0
+[   308.9s] candles: window 1201/7035 rows=17784 errors=0
+[   358.6s] candles: window 1401/7035 rows=20782 errors=0
+[   408.6s] candles: window 1601/7035 rows=23774 errors=0
+[   458.2s] candles: window 1801/7035 rows=26771 errors=0
+[   521.7s] candles: window 2001/7035 rows=29764 errors=0
+[   578.4s] candles: window 2201/7035 rows=32761 errors=0
+[   628.5s] candles: window 2401/7035 rows=35758 errors=0
+[   678.5s] candles: window 2601/7035 rows=38755 errors=0
+[   728.0s] candles: window 2801/7035 rows=41750 errors=0
+[   778.8s] candles: window 3001/7035 rows=44653 errors=0
+[   829.1s] candles: window 3201/7035 rows=47653 errors=0
+[   879.4s] candles: window 3401/7035 rows=50653 errors=0
+[   930.6s] candles: window 3601/7035 rows=53652 errors=0
+[   982.7s] candles: window 3801/7035 rows=56652 errors=0
+[  1033.2s] candles: window 4001/7035 rows=59652 errors=0
+[  1083.5s] candles: window 4201/7035 rows=62651 errors=0
+[  1133.3s] candles: window 4401/7035 rows=65649 errors=0
+[  1182.8s] candles: window 4601/7035 rows=68649 errors=0
+[  1233.3s] candles: window 4801/7035 rows=71646 errors=0
+[  1284.6s] candles: window 5001/7035 rows=74645 errors=0
+[  1336.0s] candles: window 5201/7035 rows=77643 errors=0
+[  1386.3s] candles: window 5401/7035 rows=80640 errors=0
+[  1436.5s] candles: window 5601/7035 rows=83638 errors=0
+[  1505.6s] candles: window 5801/7035 rows=86636 errors=0
+[  1556.0s] candles: window 6001/7035 rows=89636 errors=0
+[  1605.8s] candles: window 6201/7035 rows=92635 errors=0
+[  1655.7s] candles: window 6401/7035 rows=95635 errors=0
+[  1705.8s] candles: window 6601/7035 rows=98635 errors=0
+[  1756.2s] candles: window 6801/7035 rows=101634 errors=0
+[  1806.7s] candles: window 7001/7035 rows=104634 errors=0
+[  1984.2s] spot NEAR-USD: 132571 candles
+[  1984.3s] done: requests=7545 errors=0
