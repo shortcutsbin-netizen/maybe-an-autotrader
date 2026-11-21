@@ -171,3 +171,30 @@ Workers Free: 100,000 requests/day, 10 ms CPU per invocation, 50 external subreq
 ### Positive finding (unconfirmed on own fills)
 
 - Frozen dislocation rule: +11.0c per contract on the untouched test split, 95% CI [+4.0, +18.4], 497 modelled fills over 12 days (E010).
+
+---
+
+## Session 3 — 2026-11-21 (thread 1, turn 4, Phase 2 round 3, Opus 5.5)
+
+### Environment
+
+- Repository public from ~2026-11-20 (user), so Actions minutes are unlimited. Twenty-one data jobs ran in parallel without errors except `hist-sol-001`, which never published.
+- `/historical/markets` ignores close-time filters; `/historical/trades?ticker=` works.
+
+### Verified [V]
+
+- **CRYPTO contract terms** (assets.kalshi.com/contract_terms/CRYPTO.pdf, read directly): the underlying is the simple average of a CF Benchmarks index over the 60 seconds before the expiration time; if data is missing or incomplete, affected strikes resolve No; Kalshi may open a market outcome review before settlement; position accountability level $25,000 per strike per member; minimum tick $0.001. The document is a generic crypto template and does not mention 15-minute contracts specifically. Closes the Phase 1 to-do.
+- Series history depth: seven 15-minute coins back to at least 2026-06-02; NEAR and ZEC from about 2026-07-01.
+- ESPN win-probability endpoints and timing fields (see CLAUDE.md §11).
+
+### Results (details in docs/experiments/)
+
+- E012 (pre-registered) **pass**: frozen dislocation rule +10.1c per contract over 113 never-seen days.
+- E013 (pre-registered) **fail**: weather favorite-side maker rule negative in Oct 30 → Nov 20.
+- E014 negative: Kalshi in-game prices beat ESPN's win probability.
+- GDELT news volume: no relationship with dislocation P&L (partial coverage).
+
+### Negative findings added
+
+- Weather maker (S4-M) — rejected.
+- Sports in-game vs public win-probability model — rejected; sports closed.

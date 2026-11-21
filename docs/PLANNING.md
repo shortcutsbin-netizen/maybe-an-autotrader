@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | **v3 (2026-11-13) — Phase 2 testing round 2 complete; awaiting user decision on a forward paper test.** Phase 1 approved 2026-11-12. |
+| **Status** | **v4 (2026-11-21) — Phase 2 testing round 3 complete. Recommending Phase 2 close and a narrow Phase 3 build for one strategy; awaiting user authorization.** (v3 2026-11-13; Phase 1 approved 2026-11-12.) |
 | **Date** | 2026-11-12 |
 | **Phase** | 2 — Real-data research, simulation and validation |
 | **Author** | Claude (thread 1) |
@@ -14,6 +14,61 @@ Labels used throughout:
 - **[S]** Reported by a secondary source (blog, vendor, news). Treated as a lead, not a fact.
 - **[E]** My estimate or calculation.
 - **[H]** Hypothesis. Untested.
+
+---
+
+## v4 — testing round 3 (2026-11-21): user decisions, results, recommendation
+
+### User decisions (2026-11-20)
+
+| # | Decision | Effect |
+|---|---|---|
+| D13 | No multi-week forward test before the build; for larger samples, pull recent history | Enhancement E6 (pre-build observer) **declined**. Both leads re-tested on recent history instead, with pre-registered rules |
+| D14 | Repository made public (unlimited Actions minutes); to be made private again once not needed — Claude to recommend when | See the recommendation below |
+| D15 | Weather history re-pull approved if it does not hit limits | Done (no limits on a public repo) |
+| D16 | Drop sports / weather-taker / naive market making only if absolutely not feasible | One more sports test run (E014, in-game vs ESPN win probability); all three are now dropped on evidence |
+| — | Work moved from Fable 5.2 to Opus 5.5 (commit attribution changed accordingly) | none |
+
+### Round 3 results
+
+| ID | Test | Verdict |
+|---|---|---|
+| E012 | Frozen dislocation rule on 113 never-seen days (Jun 1 → Sep 12, Nov 13 → 21), pre-registered | **PASS.** +10.10c per contract [+8.20, +11.92], 3,476 fills; conservative fill models +6.5c and +8.5c; positive in every month and every coin except BTC |
+| E013 | Frozen weather favorite-side maker rule on never-simulated periods, pre-registered | **FAIL.** Summer +0.9c; Oct 30 → Nov 20 −3.1c. S4-M rejected |
+| E014 | In-game sports: Kalshi vs ESPN win probability (exploratory) | **Negative.** Kalshi out-forecasts ESPN; trading the gaps loses. Sports closed |
+| — | News volume (GDELT, partial) vs dislocation P&L (exploratory) | No relationship (n = 255 covered signals) |
+
+Across all 145 days the rule was not fitted on, it made +10.3c per contract on 4,791 modelled fills, positive on 122 days.
+
+### Where this leaves the strategy set
+
+Exactly one strategy survives: **S1-D, the dislocation rule on 15-minute alt-coin markets** (BNB, DOGE, HYPE, NEAR, ZEC, XRP, ETH, SOL; BTC rarely signals). Everything else tested — sports (pre-game and in-game), weather (taker and maker), general crypto forecasting, crypto market making, favorite/longshot — is rejected with evidence recorded in `docs/experiments/`.
+
+### Recommendation: close Phase 2; authorize a narrow Phase 3
+
+Against the Phase 2 → 3 gate in §1: ≥ 1,000 out-of-sample trades with CI lower bound > 0 — **met** (3,476 on the pre-registered test alone); multiple-testing — **met** (frozen rule, pre-registered); +1 tick and 1-second delay — **met** (F2 and F3, and E006 at 1–5 s). The remaining Phase 4 gate (paper results inside the backtest's range) is what Phase 4 is for.
+
+**Proposed Phase 3 scope (only this):**
+
+| Component | Design |
+|---|---|
+| Market discovery | Each quarter hour, list open 15-minute markets for the active coins (public REST) |
+| Kalshi data | Public order book for each active market about once a second; public trades for per-minute volume. No account needed |
+| Spot data | Coinbase public WebSocket ticker (no account), REST fallback; minute bars built locally |
+| Features and model | Re-implements the E003 features from live buffers; the frozen logistic model exported to JSON (no scikit-learn at runtime); a parity test checks live features against features rebuilt later from candles |
+| Decision | At each minute end: edge > 8c → signal |
+| Execution | **Paper executor only.** Simulates an immediate-or-cancel order at quote + 2c against the order book actually displayed when the order would arrive (measured latency added), records displayed size, then cross-checks against later trade prints. No live-order code is written until Phase 5 is separately authorized |
+| Risk gate | Contracts per trade, per market, per coin, total open exposure, daily loss stop, stale-data and clock-skew stops |
+| Settlement | Derived from the next window's strike, confirmed against the market result |
+| Storage | SQLite (signals, decisions incl. no-trade, paper fills, settlements, daily P&L) and rotated JSONL event logs |
+| Ops | CLI (`run --mode observe|paper`, duration or indefinite, coins, contracts, limits, log dir/level, profile; `report`; `doctor`), Windows Task Scheduler, NTP check, graceful shutdown, restart-safe state |
+| Tests | Fee maths, feature parity, settlement derivation, risk gate, replay of a historical day end-to-end |
+
+**Proposed Phase 4 bar** (short, given D13): run paper mode until **≥ 300 signals** (about 7–10 days at the observed rate). Pass if simulated-fill P&L is positive with its CI lower bound above zero, at least half of signals are fillable at 10 contracts on the displayed book, and live features match the later candle rebuild. Fail or stop otherwise.
+
+### Repository visibility
+
+Recommend making the repository **private again now**. The heavy data pulls are finished; Phase 3–4 work is code and local runs. The exact rule is currently public, and its edge is small-capacity and easy to copy. Anything already published may have been cloned, so making it private limits further exposure but cannot undo it.
 
 ---
 
@@ -416,6 +471,9 @@ See the numbered list in the chat message accompanying this version, mirrored in
 | E6 | **Read-only observer / paper trader for the dislocation rule (S1-D)** on the user's PC: ~1 s polling of public order books and spot, frozen model, logs displayed price and size at 0–5 s after each signal | The only way to learn whether the E010 edge is fillable | E006/E010/E011: +11c per contract out of sample with modelled fills; decays over 10–20 s | A few hundred lines of Python; runs unattended; no account | Pulls a slice of Phases 3–4 forward; result may be negative | **Yes — awaiting approval** |
 | E7 | Longer weather history for the maker test (re-pull pre-September trades in split files) | Triples the sample behind S4-M | E008 | ~60–90 Actions minutes | Minutes budget | Yes, after the minutes question is settled |
 | E8 | Text-news feed with a rate-limit-friendly source (GDELT from the PC, or RSS headline counts) | Completes the "use everything" brief for crypto | None yet | Small | Likely no incremental value at this horizon | Low priority |
+| ~~E6~~ | ~~Pre-build observer / paper trader~~ | — | — | — | — | **Declined by user 2026-11-20 (D13)** |
+| E9 | Apply the dislocation idea to 15-minute gold / WTI / silver markets | Same mechanism may exist | None; needs a free 1-minute spot proxy for each, which has not been found | Moderate | Proxy quality | Not now |
+| E10 | Kalshi read-only API key during Phase 4 (WebSocket order books, CF Benchmarks settlement index) | Faster data, exact settlement input | E006: edge decays over 10–20 s, so speed matters | Small | Contradicts "no account until live" unless the user agrees | Optional — user's call |
 
 ---
 
@@ -463,3 +521,26 @@ Distinctions the brief asks for:
 | Occasionally profitable | Yes — meaningless |
 | Statistically credible, repeatable edge | **One candidate with out-of-sample support; unconfirmed on real fills** |
 | Meaningful returns after costs and risk | Unknown. The backtest's dollar figures (tens of dollars a day at 10 contracts per trade) should not be believed until a forward test reproduces them; capacity caps the upside regardless |
+
+
+---
+
+## 22. Feasibility assessment (v4, 2026-11-21)
+
+| | |
+|---|---|
+| **Current outlook** | **Promising — for one narrow strategy.** Everything else tested is Unpromising or Not viable |
+| **Probability of sustainable net profitability** | Informal **35–45%**, up from 20–30%. The historical edge is now robust; the probability is held down by the untested step from others' fills to our own, and by the small capacity |
+| **Confidence** | **Medium.** 145 out-of-fit days, a pre-registered test passed on 113 never-seen days, three fill models, placebo as expected. Not yet a single real or paper fill of our own |
+| **Supporting continued development** | E012 pass; consistent across six months and eight coins; survives last-in-line and slow fill models; needs only public data and a home PC; fits a few-hundred-dollar bankroll |
+| **Against** | Competing takers act within half a second; median fillable size is tens of contracts; the edge could decay as more bots find it, especially now that it has been public; returns are small in dollars even if real |
+| **Biggest unresolved risk** | That our own orders, arriving a second or two after the minute mark, fill materially worse than the prints we measured |
+| **Recommended decision** | **Continue, narrowed:** close Phase 2, build Phase 3 for S1-D only, prove it in a short Phase 4 paper run |
+
+| Claim | Assessment |
+|---|---|
+| Technically buildable | Yes |
+| Operationally reliable | Yes, with ordinary engineering; about 10 public requests per second |
+| Occasionally profitable | Yes — meaningless on its own |
+| Statistically credible, repeatable edge | **Yes in history, on modelled fills** (E010, E012) |
+| Meaningful returns after costs and risk | Unproven. Backtest illustration at 10 contracts per trade: roughly $20–45 a day before any real-fill haircut |

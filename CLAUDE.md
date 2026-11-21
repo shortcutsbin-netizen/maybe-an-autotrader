@@ -30,11 +30,11 @@ Research, and only if justified build, an autonomous Python bot for Kalshi short
 | | |
 |---|---|
 | **Phase** | **2 — Real-data research, simulation, validation** (Phase 1 approved by user 2026-11-12) |
-| **Status** | **Testing round 2 complete (2026-11-13). Awaiting user decision** on a forward paper test of the one surviving lead (dislocation rule, E010) — see §7 open questions. Eleven experiments done (§12): sports negative, weather taker negative, crypto forecasting negative, naive market making negative; dislocation rule +11c/contract on the untouched test split with modelled fills; weather favorite-side making a weak secondary lead. Time box: mandatory continue/stop decision by **2026-12-24**. |
-| **Last thread** | Thread 1, turn 3 (2026-11-13 17:40Z → 2026-11-13 ~23:45Z, resumed once by auto-resume) |
+| **Status** | **Testing round 3 complete (2026-11-21). Recommending Phase 2 close and a narrow Phase 3 build (dislocation rule only); awaiting user authorization** — see §7. E012 (pre-registered, 113 never-seen days) PASSED: +10.1c/contract [+8.2, +11.9]. E013 weather maker FAILED; E014 in-game sports negative. Only S1-D survives. Time box: continue/stop decision by **2026-12-24**. |
+| **Last thread** | Thread 1, turn 4 (2026-11-21 05:15Z → ~07:30Z), **on Opus 5.5** (moved from Fable 5.2; commit trailer now `Co-Authored-By: Claude Opus 5.5`) |
 | **Code** | Research tooling only (`research/`). **No production code; none allowed until Phase 3 is authorized.** |
 | **Data** | On the `data` branch under `runs/<request name>/` (written by GitHub Actions). |
-| **Infrastructure** | One GitHub Actions workflow (`collect.yml`), read-only, user-approved (route A). Nothing else. **Actions minutes are probably nearly used up for the month** (see §11) — do not launch long jobs without checking with the user. |
+| **Infrastructure** | One GitHub Actions workflow (`collect.yml`), read-only. **Repository is PUBLIC since ~2026-11-20 (user's choice, for unlimited Actions minutes).** Claude recommended on 2026-11-21 making it private again now; the user will do it. While public: never commit anything sensitive, and remember the rule details are visible. |
 
 ## 3. Repository
 
@@ -115,7 +115,9 @@ Still planned, not yet created: ~~`docs/experiments/`~~ (one file per Phase 2 ex
 
 ~~Recommended market priority: alt-coin 15-minute series first, BTC as the benchmark, hourly ladders third, weather as the fallback pivot.~~ (superseded)
 
-**Status after testing round 2 (2026-11-13) — authoritative:**
+**Status after testing round 3 (2026-11-21) — authoritative:** only **S1-D** survives (E012 pass). S4-M rejected (E013 fail). Sports closed (E005, E014). The round-2 table below is kept for history; where it says "lead" for S4-M, read "rejected".
+
+**Status after testing round 2 (2026-11-13):**
 
 | ID | Strategy | Status |
 |---|---|---|
@@ -149,6 +151,12 @@ Still planned, not yet created: ~~`docs/experiments/`~~ (one file per Phase 2 ex
 | 2026-11-13 | Sports dropped; weather taker strategies dropped; naive crypto market making dropped | Claude (recommendation, evidence in §12) | Pending user confirmation |
 | 2026-11-13 | Trade puller now splits output files (<100 MB) and is time-boxed (`max_minutes`) | Claude (minor) | After three jobs failed to publish |
 
+| 2026-11-21 | Pre-registered E012/E013 (commit `457f237`) before pulling data; signals committed before their trade prints | Claude | Keeps round 3 honest |
+| 2026-11-21 | E013 failed → weather maker rejected; E014 negative → sports closed; S1-D the only surviving strategy | Claude (on evidence; consistent with user D16) | |
+| 2026-11-21 | Recommend repo be made private again now | Claude (recommendation to user) | User performs it |
+
+**User decisions 2026-11-20 (turn 4):** (1) **no** multi-week forward test before the build — for larger samples, pull recent history; (2) repo made **public** for Actions minutes, to be made private when Claude says it is no longer needed; (3) weather history re-pull approved; (4) drop sports / weather-taker / naive market making only if absolutely not feasible. Also: work moved to Opus 5.5. Auto-resume chaining was **not** requested this turn (it applies only when the user asks for it).
+
 **User direction 2026-11-13 (turn 3):** bring in weather and sports; strategies must fuse all available information (market price, outside data, trends, news), not price level alone; no usage cap for that turn; **auto-resume chaining** — at the start of a long turn schedule `send_later` 315 minutes ahead with a resume prompt, cancel it (`delete_trigger`) when the work completes, and re-schedule each time a resume fires. If unsure how this works, ask before working.
 
 **Approved by user (2026-11-12):**
@@ -165,7 +173,15 @@ Still planned, not yet created: ~~`docs/experiments/`~~ (one file per Phase 2 ex
 
 ## 7. Open questions for the user
 
-**Open as of 2026-11-13 (asked at the end of turn 3):**
+**Open as of 2026-11-21 (asked at the end of turn 4):**
+
+1. **Authorize Phase 3 (mandatory).** Build only the S1-D bot as scoped in `docs/PLANNING.md` v4: public-data feeds, frozen model, paper executor, risk gate, SQLite/JSONL, CLI, Windows Task Scheduler, tests. No live-order code.
+2. **Phase 4 bar (mandatory, shapes Phase 4).** Short paper run: ≥ 300 signals (~7–10 days), pass if simulated-fill P&L > 0 with CI lower bound > 0, ≥ 50% fillable at 10 contracts, live-vs-rebuilt feature parity. Default: this bar.
+3. **Make the repo private (recommendation).** Heavy pulls are done.
+4. **Kalshi read-only key in Phase 4 (optional).** Faster WebSocket data and the real settlement index; contradicts "no account until live" unless the user agrees. Default: no key.
+
+### ~~Open as of 2026-11-13~~ (answered 2026-11-20: 1 no; 2 repo public; 3 yes; 4 drop only if absolutely not feasible)
+
 
 1. **Forward paper test (mandatory to progress).** Approve building a read-only observer/paper trader for the dislocation rule to run on the always-on PC for 2–4 weeks (no account, no orders)? This pulls a slice of Phases 3–4 forward for one strategy (enhancement E6). Default if declined: keep doing bounded captures on GitHub Actions, which is slow and limited by minutes.
 2. **GitHub Actions minutes (mandatory).** This round likely used most of the month's free private-repo minutes. Options: (a) wait for the reset and stay frugal [default], (b) make the repo public (unlimited minutes; research becomes visible), (c) move collection to the PC (fits question 1).
@@ -212,7 +228,19 @@ Data requests submitted 2026-11-13 ~18:10Z (each lands on `data` at `runs/<name>
 
 Analyses: E003 (crypto multi-signal model) done on validation — see §12. E004 weather, E005 sports, E006 live lead-lag: to do when data lands.
 
-## 8. Next steps (current, as of 2026-11-13 end of turn 3)
+## 8. Next steps (current, as of 2026-11-21 end of turn 4)
+
+**Blocked on §7 question 1.** If Phase 3 is authorized:
+
+1. New top-level package `bot/` (production; never imports `research/`). Export the frozen model: refit exactly as `e012_frozen_new_periods.fit_frozen` (full-001, 2026-09-13→10-11), dump scaler means/scales and logistic coefficients to `bot/model/frozen_s1d.json` with a hash; a unit test asserts the JSON model reproduces `predict_proba` on saved rows.
+2. Feature engine must reproduce `e003_s1_model.build` exactly from live buffers (minute-end Kalshi quote, Kalshi per-minute volume, Coinbase minute closes/OHLC/volume, BTC cross-signal). Build a replay harness that feeds historical candles through the live code path and compares features to `build()` output row by row.
+3. Paper executor: IOC at quote+2c against the displayed book at decision time + measured latency; record displayed size; later reconcile against public trade prints (F1/F2/F3 as in E012).
+4. Risk gate, settlement via next strike, SQLite schema, JSONL logs with rotation, CLI, `doctor` (clock, connectivity, rate limits), Task Scheduler instructions, tests.
+5. Then Phase 4 per the agreed bar.
+
+If SOL history (`hist-sol-002`) lands, rerun `e012_frozen_new_periods.py` for SOL in period P and append to E012 (reported as a supplement, not a re-test).
+
+## 8-old2. Next steps as of 2026-11-13 end of turn 3 (superseded, kept)
 
 **Blocked on the user's answers to §7 questions 1–2.** Then:
 
@@ -269,12 +297,20 @@ Analyses: E003 (crypto multi-signal model) done on validation — see §12. E004
 - Mistakes worth remembering: three long trade pulls could never publish (file > 100 MB) and wasted Actions minutes; the first weather pull lost its history because historical endpoints use different field names.
 - Wrote plan v3, six experiment reports, research-log session 2.
 
+### Thread 1, turn 4 — 2026-11-21 05:15Z → ~07:30Z (testing round 3, Opus 5.5)
+
+- User declined the forward test, made the repo public, approved the weather re-pull, and asked that drops happen only if absolutely not feasible.
+- Pre-registered E012/E013 (commit `457f237`) before pulling data. Pulled 104 days of crypto history (8 of 9 coins published; SOL resubmitted), 8 new days of crypto, weather trade prints May–Sep and Nov, ESPN win probability for 961 games.
+- E012 **passed**; E013 **failed**; E014 negative; news-volume check null.
+- Wrote E012, E013, E014 reports and the pre-registration; plan v4; this file; research-log session 3.
+
 ## 10. Feasibility assessment history
 
 | Date | Outlook | P(sustainable net profit) | Confidence | Decision |
 |---|---|---|---|---|
 | 2026-11-12 | Uncertain, leaning Unpromising (BTC taker); Uncertain (alts, maker) | Informal 5–15%; not reliably quantifiable | Low–medium | Continue, narrowed scope |
 | 2026-11-13 | **Unpromising** for price-only taker strategies on all 15-min crypto (own data); Uncertain for information-based (S1/S2/S5), maker, and non-crypto short-resolution markets | Informal 5–10% | Medium for the negative finding; low for the rest | Continue inside the time box: S1 model test next, then weather/financials calibration |
+| 2026-11-21 (round 3) | **Promising — one narrow strategy** (E012 pre-registered pass on 113 unseen days); all else rejected | Informal 35–45% | Medium | Continue, narrowed: close Phase 2, build S1-D only, short Phase 4 paper run |
 | 2026-11-13 (round 2) | **Uncertain — one narrow strategy Promising** (dislocation rule, +11c/contract on the test split with modelled fills); sports, weather-taker, general crypto forecasting and naive market making Unpromising/Not viable | Informal 20–30%, resting almost entirely on the forward test | Medium on the negatives; low–medium on the lead | Continue, narrowed: forward paper test of the dislocation rule; weather favorite-side making secondary |
 
 ## 11. Technical gotchas carried forward
@@ -316,6 +352,11 @@ Every experiment and every strategy variant tried is listed here, successful or 
 | E010 | **Frozen dislocation rule** (definition committed in `9ac0a11` before opening test): logistic stack fit 09-13→10-11; edge > 8c; IOC at quote + 2c; fill = same-side taker VWAP in (t+1 s, t+6 s]; hold to settlement. `e010_dislocation_frozen.py` | signals from `full-001`; prints `trades-003`, `trades-005` | **Done — TEST SPLIT OPENED ONCE (2026-11-13). Do not tune on it again.** | **Positive.** Threshold days +9.74c [+7.41, +12.68] (305 fills); validation +11.34c [+6.62, +16.34] (513); **test +11.01c [+3.97, +18.37] (497 fills, 10 of 12 days positive)**; one trade per market on test +10.26c [+4.45, +16.12]. ~53 signals/day; BNB and DOGE positive in all three periods. Fills are modelled from others' prints. |
 | E011 | Frozen rule applied to the live-capture window, read against the real displayed book. `e011_frozen_on_live_book.py` | `full-003` + `live-001` | **Done** | 9 signals in 4h45m; buying the displayed ask 0–10 s later averaged +7.5…+10c with se ~19c (uninformative statistically); displayed size 13–390 contracts, occasionally 0–1. |
 
+| E012 | **Frozen dislocation rule on never-seen periods (pre-registered, `457f237`)**: P = 2026-06-01→09-12 via history endpoints (8 coins; SOL job did not publish), Q = 11-13→11-21. Fill models F1 (VWAP 1–6 s ≤ quote+2c), F2 (worst price, ≥ 20 printed), F3 (first print after 3 s). `e012_frozen_new_periods.py`, `e012b_placebo.py` | `hist-*-001`, `trades-p0/p1/p2`, `full-004`, `trades-006` | **Done 2026-11-21 — PASS** | P ∪ Q: F1 **+10.10c [+8.20, +11.92]** (3,476 fills, 93/113 days positive); F2 +6.46c; F3 +8.50c; months 5/5 positive. P alone +10.35c; Q alone +7.08c [−0.08, +13.43]. All 145 out-of-fit days: +10.30c on 4,791 fills. Every coin positive except BTC (−0.5c, 73 fills). Placebo −3.75c (P), +1.63c (Q, CI spans 0). Median fillable size 66 (P) / 247 (Q) |
+| E013 | **Frozen weather maker rule W (pre-registered)**: buy YES at bid when mid ≥ 0.90, sell YES at ask when mid ≤ 0.20, 30-min orders; primary "through" fills. `e013_weather_maker_frozen.py` | `wx-002`/`wx-001`/`wx-003`; prints `wx-trades-hist-a/b/c`, `wx-trades-002`, `wx-trades-005` | **Done — FAIL** | A (May→Sep 5): +0.91c [−0.09, +1.89] (buy-≥90 leg +2.54c); B ∪ C (Oct 30→Nov 20): **−3.11c** [−7.39, +1.07]. S4-M rejected |
+| E014 | Exploratory: in-game sports, Kalshi vs ESPN win probability (30/60 s feed delay), NFL/NCAAF/NBA. `e014_sports_ingame_wp.py` | `sp-001`, `ext-sp-001`, `espn-wp-001` | **Done — negative** | Brier Kalshi 0.1555 vs ESPN 0.1595 (train), 0.1595 vs 0.1721 (val); trading ESPN gaps −2.8c (train), −13.1c (val). Sports closed |
+| — | Exploratory: GDELT news volume in the prior hour vs E010 signal P&L | `ext-news-001` (partial, 27% coverage) | Done | No relationship (255 covered signals; +11.5c below median vs +8.1c above; corr −0.03) |
+
 **Not run / failed:** `trades-001`, `trades-002`, `wx-trades-001` (never published — file-size limit), `ext-news-001` (GDELT rate limit). The crypto variant of E008 was therefore not run; E009 answers the same question with better data.
 
 ### Findings that change the plan
@@ -340,3 +381,10 @@ Largest by lifetime volume — 15-min: BTC 3.4e10, ETH 2.0e9, **Gold 1.9e9**, XR
 - Kalshi quotes on 15-minute markets move 1–2c every 2 seconds on average. Any fill assumption looser than a few seconds is fiction.
 - WebFetch on new domains needs user approval and fails while the user is away; use `probe.py` on a runner to learn a source's format.
 - pandas: read mixed ISO timestamps with `format="ISO8601"`.
+- `/historical/markets` **ignores** `min_close_ts`/`max_close_ts`; page newest-first and stop by close time (the pullers do).
+- History candles are one request per market: ~10,000 markets per coin per 104 days ≈ 50–60 minutes per coin on a runner. Run one coin per push so jobs run in parallel. One such job (`hist-sol-001`) silently never published; resubmit rather than wait.
+- `/historical/trades?ticker=` works and returns the same `*_dollars` / `count_fp` names as live.
+- 15-minute NEAR and ZEC markets start around 2026-07-01; the other seven coins go back to at least 2026-06-02.
+- ESPN win probability: football via `sports.core.api.espn.com/v2/sports/football/leagues/<lg>/events/<id>/competitions/<id>/probabilities?limit=1000` (play id in `play.$ref`); basketball via the site `summary` endpoint's `winprobability` array (core API refuses basketball); play wall-clock times from `summary` → `drives.previous[].plays[]` (football) or `plays[]` (basketball). MLB summaries have WP but no wall-clock.
+- GDELT DOC API: one request per 5 s per IP; runner IPs are shared, so most calls 429. Coverage of `ext-news-001` is about 27%.
+- When the repository is public, Actions minutes are unlimited; job time limit is still 6 h (workflow sets 350 min).
