@@ -1,0 +1,36 @@
+{
+ "request": {
+  "name": "espn-wp-001",
+  "script": "espn_wp_pull.py",
+  "leagues": {
+   "nfl": "football/nfl",
+   "ncaaf": "football/college-football",
+   "nba": "basketball/nba"
+  },
+  "pause": 0.2,
+  "max_minutes": 200
+ },
+ "leagues": {
+  "nfl": {
+   "games_requested": 135,
+   "games_fetched": 135,
+   "games_with_wp": 135,
+   "rows": 25161
+  },
+  "ncaaf": {
+   "games_requested": 588,
+   "games_fetched": 588,
+   "games_with_wp": 588,
+   "rows": 104613
+  },
+  "nba": {
+   "games_requested": 241,
+   "games_fetched": 241,
+   "games_with_wp": 238,
+   "rows": 120087
+  }
+ },
+ "http_requests": 964,
+ "error_count": 0,
+ "errors_first_50": []
+}
