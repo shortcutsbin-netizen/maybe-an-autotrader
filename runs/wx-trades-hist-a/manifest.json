@@ -1,0 +1,17 @@
+{
+ "request": {
+  "name": "wx-trades-hist-a",
+  "script": "kalshi_trades_pull.py",
+  "tickers_file": "research/collect/requests/lists_weather_hist_a.txt",
+  "historical": true,
+  "pause": 0.12,
+  "max_pages": 30,
+  "max_minutes": 320
+ },
+ "tickers": 2304,
+ "tickers_done": 2304,
+ "trades": 2319851,
+ "http_requests": 6056,
+ "error_count": 0,
+ "errors_first_50": []
+}

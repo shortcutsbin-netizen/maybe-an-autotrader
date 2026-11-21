@@ -1,0 +1,13 @@
+[     0.5s] 0/2304 trades=179 errors=0
+[   130.6s] 200/2304 trades=199830 errors=0
+[   274.8s] 400/2304 trades=446149 errors=0
+[   397.7s] 600/2304 trades=629781 errors=0
+[   524.9s] 800/2304 trades=833092 errors=0
+[   671.0s] 1000/2304 trades=1076651 errors=0
+[   843.9s] 1200/2304 trades=1438749 errors=0
+[  1008.8s] 1400/2304 trades=1773105 errors=0
+[  1140.0s] 1600/2304 trades=1983112 errors=0
+[  1242.7s] 1800/2304 trades=2095587 errors=0
+[  1344.9s] 2000/2304 trades=2201563 errors=0
+[  1442.7s] 2200/2304 trades=2287032 errors=0
+[  1489.5s] done trades=2319851
