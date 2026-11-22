@@ -215,13 +215,13 @@ Preferences (defaults apply if unanswered):
 
 | Code | Idea | Data | Status |
 |---|---|---|---|
-| E015 | Cross-market: 15-min crypto vs hourly above/below ladders (KXBTCD, KXETHD, KXSOLD, KXXRPD, KXDOGED, KXHYPED, KXBNBD) that settle on the **same** 60-s CF average at the hour → (a) riskless two-leg box arbitrage, (b) relative-value mispricing, (c) within-ladder monotonicity arbitrage | `ladder-<coin>-001` pulls | pending |
-| E016 | Dislocation entry with early exit (sell the rebound instead of holding) | existing prints | pending |
-| E017 | Model-informed deep resting orders on 15-min crypto (zero maker fee) — catch dislocations as a maker | `trades-sample-*` (all markets on sample days) | pending |
-| E018 | 15-min commodities / FX / index / yields (Pyth-settled) — calibration + dislocation analogue with Pyth 1-min history | `fin15-001` + Pyth history | pending |
-| E019 | Hourly weather temperature markets with 1-min ASOS nowcast | TBD | pending |
-| E020 | Polymarket price as an extra signal | probe | pending |
-| — | Literature / public-evidence sweep for further ideas | web | pending |
+| E015 | Cross-market: 15-min crypto vs hourly above/below ladders (KXBTCD, KXETHD, KXSOLD, KXXRPD, KXDOGED, KXHYPED, KXBNBD) that settle on the **same** 60-s CF average at the hour → (a) riskless two-leg box arbitrage, (b) relative-value mispricing, (c) within-ladder monotonicity arbitrage | `ladder-<coin>-002` (001 kept 0 markets: ladder strikes live in `custom_strike`) | **Alts+ETH done 11:30Z: negative.** No after-fee box/monotone arbitrage (≤3 quotes in 2 months per coin); 15-min mid beats ladder-implied; reverse rule noisy. E015b (frozen S1-D on ladder strikes, candle fills): ETH/SOL/XRP/HYPE ≤0; **BNB +12c next-minute fill (52 sig, both halves +), DOGE +13c (16, CI spans 0)**, ~10 contracts/min liquidity. BTC ladder pending |
+| E016 | Dislocation entry with early exit (sell the rebound instead of holding) | existing prints | **Done.** Hold best (+10.0c early / +9.6c late); time exits lower EV, lower variance. **E016b maker entry** (rest 1 tick inside, 5–60 s): fills 67–83%, +7.9c/fill (through), +6.1c/signal, positive in all six sets. E016c (threshold 4c sensitivity): prints `trades-thr04-0..2` pending |
+| E017 | Model-informed deep resting orders on 15-min crypto (zero maker fee) — catch dislocations as a maker | `trades-sample-*` (all markets on sample days); q in `/home/claude/e017_q.csv.gz` | **Val (group 2) negative:** −2…−3c per fill at every delta, model ≈ mid control. Groups 0,1 pending; test not to be opened if val negative |
+| E018 | 15-min commodities / FX / index / yields (Pyth-settled) — calibration + dislocation analogue with Pyth 1-min history | `fin15-001`, `fin15-002` | **Negative / blocked.** Pyth history & Hermes need a paid key ($500/mo) since 2026-08-26; PAXG proxy too thin. Calibrated, taker EV < 0 everywhere; book-only + cross-market models no signals / negative |
+| E019 | Hourly temp markets vs public **Kalshi Weather Index** (`/live_data/weather/{city}`, settles them exactly) | `wxh-001`, `windex-001` | **Negative.** Stack beats mid in-sample only; val trades −2…−9c at lags 1–5 min; ~10 contracts/min. Hypothesis kept: last-5-min nowcast at 1-min lag |
+| E020 | Polymarket price as an extra signal | `poly-<coin>-001` (Jun 1–Nov 21, 9 jobs) | pending (puller works; ~2–3 h) |
+| — | Literature / public-evidence sweep for further ideas | web | Done: Liquidity Incentive Program (public `/incentive_programs`) — 7k programs, none on 15-min crypto/hourly weather (long-dated markets only); Bürgi et al.; Pyth paywall. Also: bucket-sum arbitrage on daily weather brackets is rare (≤1c median); `ranges-001` pending |
 
 ## 7a. ~~In-flight work~~ (thread 1, turn 3) — COMPLETED 2026-11-13 ~23:45Z; kept for the record
 
