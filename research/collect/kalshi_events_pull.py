@@ -182,8 +182,35 @@ def main():
     man = {"request": req, "started_utc": ts_to_iso(int(time.time())), "source": KALSHI, "series": {}}
     cutoff, err = get_json(f"{KALSHI}/historical/cutoff", pause)
     man["historical_cutoff"] = cutoff if not err else err
+    ref = {}
+    if req.get("ref_15m_series"):
+        # strike of the 15-minute market closing at each time (known 15 minutes before that close; no look-ahead)
+        for m in pull_markets(req["ref_15m_series"], t_min, t_max, out, pause, bool(req.get("historical", False))):
+            try:
+                ref[iso_to_ts(m["close_time"])] = float(m["floor_strike"])
+            except Exception:
+                pass
+        man["ref_15m_closes"] = len(ref)
+    band = float(req.get("band", 0.015))
     for s in req["series"]:
         ms = pull_markets(s, t_min, t_max, out, pause, bool(req.get("historical", False)))
+        if ref:
+            keep = []
+            for m in ms:
+                k = ref.get(iso_to_ts(m["close_time"]))
+                try:
+                    st = float(m.get("floor_strike") or m.get("cap_strike"))
+                except Exception:
+                    continue
+                if k and abs(st / k - 1) <= band:
+                    keep.append(m)
+            log(f"{s}: kept {len(keep)} of {len(ms)} markets within {band:.1%} of the 15-min strike")
+            ms = keep
+            with gzip.open(os.path.join(out, "markets", f"{s}_kept.csv.gz"), "wt", newline="") as f:
+                w = csv.writer(f)
+                w.writerow(["series", "source"] + FIELDS)
+                for m in ms:
+                    w.writerow([s, m["_source"]] + [m.get(k, "") for k in FIELDS])
         n = e = 0
         if ms and req.get("candles", True):
             n, e = pull_candles(s, ms, out, pause, float(req.get("lookback_hours", 40)), int(req.get("resample_min", 1)))
