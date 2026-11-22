@@ -1,0 +1,33 @@
+{
+ "request": {
+  "name": "poly-doge-001",
+  "script": "poly_pull.py",
+  "coins": [
+   "doge"
+  ],
+  "start": "2026-06-01T00:00:00Z",
+  "end": "2026-11-21T05:00:00Z",
+  "pause": 0.1,
+  "max_minutes": 335
+ },
+ "started_utc": "2026-11-22T10:33:59Z",
+ "coins": {
+  "doge": {
+   "windows": 16619,
+   "missing": 9,
+   "no_history": 0,
+   "price_points": 346313
+  }
+ },
+ "finished_utc": "2026-11-22T12:43:55Z",
+ "http_requests": 33247,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/gamma_doge.json": "1bb7e1287cfd1ff718d926654ffe4496b46f32121745cb4122b5fba17abba1b3",
+  "samples/hist_doge.json": "1f6938c903369f62391970d2432498c36201aa48b7f2a3892fa15845730a36d7",
+  "poly/doge_prices.csv.gz": "40cff0d3de38a5edeed4a7dc31ff8ed0aef1ef6591e85850036417b355c53e35",
+  "poly/doge_windows.csv.gz": "e392a3d90defa0217f239ac162c4640926c1eca8d1e5d472ff2fd0a6e4e62622"
+ }
+}
