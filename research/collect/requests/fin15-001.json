@@ -1,0 +1,1 @@
+{"name": "fin15-001", "series": ["KXGOLD15M","KXSILVER15M","KXWTI15M","KXNATGAS15M","KXCOPPER15M","KXBRENT15M","KXPLATINUM15M","KXPALLADIUM15M"], "days": 61.4, "end": "2026-11-22T10:00:00Z", "candles": true, "spot": true, "spot_extra": ["PAXG-USD"], "historical": true, "discover": false, "pause": 0.15}
