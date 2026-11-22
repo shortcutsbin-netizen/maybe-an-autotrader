@@ -1,0 +1,1 @@
+{"name": "ladder-xrp-001", "script": "kalshi_events_pull.py", "series": ["KXXRPD"], "ref_15m_series": "KXXRP15M", "band": 0.015, "start": "2026-09-22T00:00:00Z", "end": "2026-11-22T10:00:00Z", "historical": true, "lookback_hours": 0.25, "resample_min": 1, "pause": 0.15}
