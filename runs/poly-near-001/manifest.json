@@ -1,0 +1,31 @@
+{
+ "request": {
+  "name": "poly-near-001",
+  "script": "poly_pull.py",
+  "coins": [
+   "near"
+  ],
+  "start": "2026-06-01T00:00:00Z",
+  "end": "2026-11-21T05:00:00Z",
+  "pause": 0.1,
+  "max_minutes": 335
+ },
+ "started_utc": "2026-11-22T10:34:12Z",
+ "coins": {
+  "near": {
+   "windows": 0,
+   "missing": 16628,
+   "no_history": 0,
+   "price_points": 0
+  }
+ },
+ "finished_utc": "2026-11-22T11:42:18Z",
+ "http_requests": 16628,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "poly/near_windows.csv.gz": "f535c0f291989b1d0217fddcddd5187d9641e130ec8cbf4498ee7ef9768ebf1a",
+  "poly/near_prices.csv.gz": "d4cb3032d652a558f06825d8f931f8b3362a5e27eadff96eeb0689369f47a280"
+ }
+}
