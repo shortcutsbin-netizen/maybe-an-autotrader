@@ -315,6 +315,9 @@ def main():
             p = SPOT_PRODUCTS.get(s)
             if p:
                 manifest["spot"][p] = pull_spot(p, t_min - 3600, t_max, out, max(pause, 0.15))
+        # extra Coinbase products named in the request (e.g. PAXG-USD as a free gold proxy)
+        for p in req.get("spot_extra", []):
+            manifest["spot"][p] = pull_spot(p, t_min - 3600, t_max, out, max(pause, 0.15))
 
     hashes = {}
     for root, _, files in os.walk(out):
