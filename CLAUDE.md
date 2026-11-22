@@ -220,6 +220,14 @@ Preferences (defaults apply if unanswered):
 
 **User instruction (2026-11-22, 04:10 local = UTC−6):** before building, expand and find **all valid strategies**; research extensively and take actions to maximize the strategy surface. Phase 4 test time: **a few days is ideal; longer is fine if the bot runs reliably in the background while the user uses the PC day to day** (→ design requirement: low CPU/RAM, no interference, unattended). **Auto-resume this turn:** first resume at 08:45 local = **14:45Z** (trigger `trig_011oFmtvqGy1NB68BPG4WXnh`); each later resume 5h15m after the previous one's fire time (20:00Z, 01:15Z, ...); cancel the pending one when the work is complete. §7 questions 1–4 remain open (Phase 3 not yet authorized; repo still public on 2026-11-22; no key).
 
+**Resume checklist (status 13:45Z — round 4 report delivered to the user; only these remain):**
+1. When `trades-sample-0` and `trades-sample-1` land (`/home/claude/status.sh trades-sample-0 trades-sample-1`): run
+   `python3 research/analysis/e017_model_maker.py sim /home/claude/e017_q.csv.gz $W/trades-sample-0,$W/trades-sample-1,$W/trades-sample-2,$W/trades-sample-3 > docs/experiments/output/E017_train_val.txt`
+   (no `test` arg — validation was negative, test stays closed); add the train numbers to the E017 section of the round-4 report and §12.
+   If the workspace was reset: `/home/claude/e017_q.csv.gz` must be rebuilt with `e017_model_maker.py build` (needs merged histP; see `/home/claude/merge_runs.sh`).
+2. When `ladder-btc-002` lands: `python3 research/analysis/e015_ladder_cross.py $W/ladder-btc-002 $W/full-001 $W/full-004` and the `reverse` mode, and `e015b_s1d_on_ladders.py` for BTC; append to `output/E015_ladders.txt` / `E015b_s1d_ladders.txt` and the report.
+3. Commit, push, send the user a two-line addendum only if anything changes the conclusions; then cancel the pending resume trigger (do not re-schedule). If the jobs still have not landed at a resume, schedule the next resume 5h15m after that fire time.
+
 **Round 4 plan (strategy surface):**
 
 | Code | Idea | Data | Status |
