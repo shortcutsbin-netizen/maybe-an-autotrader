@@ -1,0 +1,11 @@
+Bucket-sum arbitrage check, hourly crypto range markets, ranges-001 (2026-11-01 -> 11-22, last hour, 1-min candles)
+Only minute snapshots where every bucket of the event had a candle are counted.
+KXBTC  snapshots 251 events 239 buckets/event 188 | buy-all>0 0 | sell-all>0 0 | median sum asks 4.83 bids 0.83
+KXDOGE snapshots 878 events 471 buckets/event 49  | buy-all>0 0 | sell-all>0 0 | median sum asks 2.68 bids 0.98
+KXETH  snapshots 144 events 139 buckets/event 300 | buy-all>0 0 | sell-all>0 0 | median sum asks 4.43 bids 0.79
+KXSOLE snapshots 29  events 29  buckets/event 300 | buy-all>0 0 | sell-all>0 0 | median sum asks 34.17 bids 0.79
+KXXRP  snapshots 119 events 116 buckets/event 75  | buy-all>0 0 | sell-all>0 0 | median sum asks 7.14 bids 0.93
+Most far buckets carry no offer (ask 1.00), so a buy-all box costs several dollars; bids sum below 1. No arbitrage.
+Daily weather brackets (wx-002, May-Sep, 10-min candles): buy-all edge > 0 in 60 of 19,205 snapshots (median 0.9c),
+sell-all edge > 0 in 196 snapshots / 161 events (median 0.3c, p90 1.4c, max 7.2c on 2026-05-03, median 20 h before close).
+wx-003 (Nov): 0 and 0.
