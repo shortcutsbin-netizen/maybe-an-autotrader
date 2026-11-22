@@ -1,0 +1,33 @@
+{
+ "request": {
+  "name": "poly-bnb-001",
+  "script": "poly_pull.py",
+  "coins": [
+   "bnb"
+  ],
+  "start": "2026-06-01T00:00:00Z",
+  "end": "2026-11-21T05:00:00Z",
+  "pause": 0.1,
+  "max_minutes": 335
+ },
+ "started_utc": "2026-11-22T10:34:03Z",
+ "coins": {
+  "bnb": {
+   "windows": 16618,
+   "missing": 10,
+   "no_history": 0,
+   "price_points": 346311
+  }
+ },
+ "finished_utc": "2026-11-22T13:26:50Z",
+ "http_requests": 33246,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/gamma_bnb.json": "1ada79bd2a9d67edccaf040cf476a0b085ff79d9f811fb48da92f4fdd747b9a8",
+  "samples/hist_bnb.json": "a4801fcd0d9c9a8a6c8ef5a2eef909d694e1fe24f31fbfc654b1ed93b65b8701",
+  "poly/bnb_prices.csv.gz": "734c0d92967f283359e9ff5e41374456db0ef410cb7c9181c8bf78e666be9cc0",
+  "poly/bnb_windows.csv.gz": "859a6b33edbee522040b868d95caeabec9db0e2c77814a924b08de805175f580"
+ }
+}
