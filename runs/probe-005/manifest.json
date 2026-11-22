@@ -1,0 +1,102 @@
+{
+ "hermes_upd_ts": {
+  "url": "https://hermes.pyth.network/v2/updates/price/1795273200?ids[]=7fd2c87083dd8fd5af2486a43f40b8e444acd77fda4e96263a53421cd079c387&parsed=true",
+  "status": 401,
+  "bytes": 12
+ },
+ "hermes_latest": {
+  "url": "https://hermes.pyth.network/v2/updates/price/latest?ids[]=7fd2c87083dd8fd5af2486a43f40b8e444acd77fda4e96263a53421cd079c387&parsed=true",
+  "status": 401,
+  "bytes": 12
+ },
+ "bench_upd_ts": {
+  "url": "https://benchmarks.pyth.network/v1/updates/price/1795273200?ids=7fd2c87083dd8fd5af2486a43f40b8e444acd77fda4e96263a53421cd079c387&parsed=true",
+  "status": 401,
+  "bytes": 12
+ },
+ "bench_upd_ts2": {
+  "url": "https://benchmarks.pyth.network/v1/updates/price/1795273200?ids[]=7fd2c87083dd8fd5af2486a43f40b8e444acd77fda4e96263a53421cd079c387",
+  "status": 401,
+  "bytes": 12
+ },
+ "pythpro_hist": {
+  "url": "https://pyth.dourolabs.app/v1/real_time/history?symbol=Metal.Index.1OZGOLD/USD&resolution=1&from=1795273200&to=1795276800",
+  "status": 401,
+  "bytes": 123
+ },
+ "poly_ev_btc15": {
+  "url": "https://gamma-api.polymarket.com/events?slug=btc-updown-15m-1795273200",
+  "status": 200,
+  "bytes": 7073
+ },
+ "poly_ev_btc15b": {
+  "url": "https://gamma-api.polymarket.com/events?slug=btc-updown-15m-1795272300",
+  "status": 200,
+  "bytes": 7055
+ },
+ "poly_ev_eth15": {
+  "url": "https://gamma-api.polymarket.com/events?slug=eth-updown-15m-1795273200",
+  "status": 200,
+  "bytes": 7000
+ },
+ "poly_ev_sol15": {
+  "url": "https://gamma-api.polymarket.com/events?slug=sol-updown-15m-1795273200",
+  "status": 200,
+  "bytes": 7010
+ },
+ "poly_ev_xrp15": {
+  "url": "https://gamma-api.polymarket.com/events?slug=xrp-updown-15m-1795273200",
+  "status": 200,
+  "bytes": 7087
+ },
+ "poly_ev_btc5": {
+  "url": "https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1795273200",
+  "status": 200,
+  "bytes": 6762
+ },
+ "poly_ev_btc1h": {
+  "url": "https://gamma-api.polymarket.com/events?tag_slug=up-or-down&limit=5&closed=true&order=endDate&ascending=false",
+  "status": 200,
+  "bytes": 34487
+ },
+ "poly_ev_old": {
+  "url": "https://gamma-api.polymarket.com/events?slug=btc-updown-15m-1789000200",
+  "status": 200,
+  "bytes": 6634
+ },
+ "coinbase_paxg": {
+  "url": "https://api.exchange.coinbase.com/products/PAXG-USD/candles?granularity=60&start=2026-11-21T15:00:00Z&end=2026-11-21T16:00:00Z",
+  "status": 200,
+  "bytes": 1778
+ },
+ "coinbase_products": {
+  "url": "https://api.exchange.coinbase.com/products",
+  "status": 200,
+  "bytes": 60000
+ },
+ "kraken_paxg": {
+  "url": "https://api.kraken.com/0/public/OHLC?pair=PAXGUSD&interval=1",
+  "status": 200,
+  "bytes": 56298
+ },
+ "kraken_eurusd": {
+  "url": "https://api.kraken.com/0/public/OHLC?pair=EURUSD&interval=1",
+  "status": 200,
+  "bytes": 59051
+ },
+ "kalshi_goldh": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDH&limit=5",
+  "status": 200,
+  "bytes": 10431
+ },
+ "kalshi_temp_rules": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXTEMPNYCH",
+  "status": 200,
+  "bytes": 1219
+ },
+ "synoptic": {
+  "url": "https://api.synopticdata.com/v2/stations/timeseries?stid=KMIA&recent=120",
+  "status": 401,
+  "bytes": 112
+ }
+}

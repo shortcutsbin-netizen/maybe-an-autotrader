@@ -1,0 +1,1 @@
+Unauthorized: this request requires authorization. See https://docs.pyth.network/price-feeds/pro/api/history#authentication
