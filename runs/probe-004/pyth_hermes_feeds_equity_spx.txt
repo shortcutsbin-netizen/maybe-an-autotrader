@@ -1,0 +1,1 @@
+[{"id":"8414cfadf82f6bed644d2e399c11df21ec0131aa574c56030b132113dbbf3a0a","market_hours":{"is_open":true,"next_open":null,"next_close":null},"attributes":{"asset_type":"Crypto","description":"SPX6900 / US DOLLAR","display_symbol":"SPX6900USD","quote_currency":"USD","schedule":"America/New_York;O,O,O,O,O,O,O;","symbol":"Crypto.SPX6900/USD","min_channel":"fixed_rate@200ms"}}]

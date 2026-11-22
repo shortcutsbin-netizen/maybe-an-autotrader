@@ -1,0 +1,142 @@
+{
+ "pyth_hist_gold_idx": {
+  "url": "https://benchmarks.pyth.network/v1/shims/tradingview/history?symbol=Metal.Index.1OZGOLD/USD&resolution=1&from=1795208400&to=1795215600",
+  "status": 404,
+  "bytes": 0
+ },
+ "pyth_hist_xau": {
+  "url": "https://benchmarks.pyth.network/v1/shims/tradingview/history?symbol=Metal.XAU/USD&resolution=1&from=1795208400&to=1795215600",
+  "status": 404,
+  "bytes": 0
+ },
+ "pyth_hist_eurusd": {
+  "url": "https://benchmarks.pyth.network/v1/shims/tradingview/history?symbol=FX.EUR/USD&resolution=1&from=1795208400&to=1795215600",
+  "status": 404,
+  "bytes": 0
+ },
+ "pyth_search_gold": {
+  "url": "https://benchmarks.pyth.network/v1/shims/tradingview/search?query=GOLD&limit=30",
+  "status": 404,
+  "bytes": 0
+ },
+ "pyth_search_wti": {
+  "url": "https://benchmarks.pyth.network/v1/shims/tradingview/search?query=WTI&limit=30",
+  "status": 404,
+  "bytes": 0
+ },
+ "pyth_search_spx": {
+  "url": "https://benchmarks.pyth.network/v1/shims/tradingview/search?query=SPX&limit=30",
+  "status": 404,
+  "bytes": 0
+ },
+ "pyth_hermes_feeds_metal": {
+  "url": "https://hermes.pyth.network/v2/price_feeds?asset_type=metal",
+  "status": 200,
+  "bytes": 6070
+ },
+ "pyth_hermes_feeds_commodities": {
+  "url": "https://hermes.pyth.network/v2/price_feeds?asset_type=commodities",
+  "status": 200,
+  "bytes": 33648
+ },
+ "pyth_hermes_feeds_rates": {
+  "url": "https://hermes.pyth.network/v2/price_feeds?asset_type=rates",
+  "status": 200,
+  "bytes": 2
+ },
+ "pyth_hermes_feeds_equity_spx": {
+  "url": "https://hermes.pyth.network/v2/price_feeds?query=SPX",
+  "status": 200,
+  "bytes": 376
+ },
+ "kalshi_wti15": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXWTI15M",
+  "status": 200,
+  "bytes": 908
+ },
+ "kalshi_eurusd15": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXEURUSD15M",
+  "status": 200,
+  "bytes": 768
+ },
+ "kalshi_inx15": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXINX15M",
+  "status": 200,
+  "bytes": 2145
+ },
+ "kalshi_10y15": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KX10YRRATE15M",
+  "status": 200,
+  "bytes": 829
+ },
+ "kalshi_silver15": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXSILVER15M",
+  "status": 200,
+  "bytes": 911
+ },
+ "kalshi_natgas15": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXNATGAS15M",
+  "status": 200,
+  "bytes": 907
+ },
+ "kalshi_copper15": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXCOPPER15M",
+  "status": 200,
+  "bytes": 1256
+ },
+ "kalshi_inxu": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXINXU",
+  "status": 200,
+  "bytes": 831
+ },
+ "kalshi_inxu_mk": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXINXU&status=settled&limit=3",
+  "status": 200,
+  "bytes": 5720
+ },
+ "kalshi_tempmiah": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/series/KXTEMPMIAH",
+  "status": 200,
+  "bytes": 1138
+ },
+ "kalshi_tempmiah_mk": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXTEMPMIAH&status=settled&limit=4",
+  "status": 200,
+  "bytes": 7730
+ },
+ "kalshi_gold15_mk": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLD15M&status=settled&limit=200",
+  "status": 200,
+  "bytes": 120000
+ },
+ "kalshi_eurusd15_mk": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXEURUSD15M&status=settled&limit=200",
+  "status": 200,
+  "bytes": 120000
+ },
+ "kalshi_btc_range": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXBTC&status=settled&limit=5",
+  "status": 200,
+  "bytes": 10009
+ },
+ "poly_gamma_btc15": {
+  "url": "https://gamma-api.polymarket.com/events?limit=5&closed=true&order=endDate&ascending=false&slug_contains=btc-updown-15m",
+  "status": 200,
+  "bytes": 120000
+ },
+ "poly_gamma_search": {
+  "url": "https://gamma-api.polymarket.com/public-search?q=bitcoin%20up%20or%20down%2015&limit_per_type=5",
+  "status": 200,
+  "bytes": 32929
+ },
+ "poly_gamma_markets": {
+  "url": "https://gamma-api.polymarket.com/markets?limit=5&closed=true&order=endDate&ascending=false",
+  "status": 200,
+  "bytes": 29687
+ },
+ "poly_clob_time": {
+  "url": "https://clob.polymarket.com/time",
+  "status": 200,
+  "bytes": 10
+ }
+}
