@@ -4,13 +4,13 @@ Thread 1, turn 5, started 2026-11-22 10:10Z. User request: before the build, fin
 Everything here is exploratory unless stated; the only pre-registered rule remains S1-D (E010/E012).
 Labels: **verified** = computed here from Kalshi/public data; **secondary** = third-party source; **hypothesis** = untested.
 
-Status: complete except two late jobs (E017 training days, BTC ladder), to be appended by the scheduled resume; neither can change a verdict.
+Status: complete. Two late jobs (E017 training days `trades-sample-0/1`, BTC ladder `ladder-btc-002`) never published within the workflow's 350-minute cap and were not resubmitted; neither could change a verdict.
 
 ## Summary table
 
 | ID | Idea | Result | Verdict |
 |---|---|---|---|
-| E015 | 15-min vs hourly ladder (same settlement number): box arbitrage, ladder monotonicity, relative value | No after-fee arbitrage worth the name (≤3 quotes in two months per coin, tiny size); 15-min mid beats the ladder as a forecaster | **Rejected** (BTC pending) |
+| E015 | 15-min vs hourly ladder (same settlement number): box arbitrage, ladder monotonicity, relative value | No after-fee arbitrage worth the name (≤3 quotes in two months per coin, tiny size); 15-min mid beats the ladder as a forecaster | **Rejected** (BTC ladder pull never published) |
 | E015b | Frozen S1-D model on ladder strikes, last 15 minutes | ETH/SOL/XRP/HYPE ≤ 0; **BNB +12.2c** next-minute fill (52 signals, CI [+2.7,+21.6], both halves +); DOGE +13c (16, CI spans 0); ~10–20 contracts/min of liquidity | **Small add-on candidate** (BNB/DOGE ladders), needs forward evidence |
 | E016 | S1-D early exit | Holding is best (+10.0c / +9.6c); time exits trade EV for lower variance | Hold remains primary |
 | E016b | S1-D **maker entry** (rest 1–3 ticks inside the ask for 5–60 s, zero fee) | Fills 59–87%; +7.4…+10.2c per fill; **+4.6…+8.2c per signal; positive in all six signal sets** | **Valid alternative execution** for S1-D |
@@ -118,7 +118,7 @@ Validation (Sep 2, Oct 14, Oct 28; Sep 16/30 excluded as inside the model's fit 
 
 The model helps only marginally over quoting around the mid; deep orders get filled when the price moves
 against them. Sells (−3.8c) are worse than buys (−1.9c). The test split was not opened.
-*Train (groups 0, 1) pending.* Output: `output/E017_*.txt`.
+Training days (groups 0, 1) never published, so only validation is reported. Output: `output/E017_*.txt`.
 
 ## E018 — 15-minute commodity, FX, yield and index markets
 

@@ -220,7 +220,9 @@ Preferences (defaults apply if unanswered):
 
 **User instruction (2026-11-22, 04:10 local = UTC−6):** before building, expand and find **all valid strategies**; research extensively and take actions to maximize the strategy surface. Phase 4 test time: **a few days is ideal; longer is fine if the bot runs reliably in the background while the user uses the PC day to day** (→ design requirement: low CPU/RAM, no interference, unattended). **Auto-resume this turn:** first resume at 08:45 local = **14:45Z** (trigger `trig_011oFmtvqGy1NB68BPG4WXnh`); each later resume 5h15m after the previous one's fire time (20:00Z, 01:15Z, ...); cancel the pending one when the work is complete. §7 questions 1–4 remain open (Phase 3 not yet authorized; repo still public on 2026-11-22; no key).
 
-**Resume checklist (status 13:45Z — round 4 report delivered to the user; only these remain):**
+**Closed 2026-11-22 16:20Z (resume at 14:45Z):** `trades-sample-0`, `trades-sample-1` and `ladder-btc-002` had not published by 16:20Z, past the workflow's 350-minute cap (no data-branch commit after 13:32Z), so treat them as failed. They were not resubmitted because neither can change a verdict: E017 is rejected on validation, and BTC shows no S1-D edge in any band. If they appear on `data` later, the commands below still apply. Resume chain cancelled; nothing in flight.
+
+~~**Resume checklist (status 13:45Z~~ — round 4 report delivered to the user; only these remain):**
 1. When `trades-sample-0` and `trades-sample-1` land (`/home/claude/status.sh trades-sample-0 trades-sample-1`): run
    `python3 research/analysis/e017_model_maker.py sim /home/claude/e017_q.csv.gz $W/trades-sample-0,$W/trades-sample-1,$W/trades-sample-2,$W/trades-sample-3 > docs/experiments/output/E017_train_val.txt`
    (no `test` arg — validation was negative, test stays closed); add the train numbers to the E017 section of the round-4 report and §12.
@@ -339,7 +341,7 @@ Same as the 2026-11-21 list below, plus: (a) the paper executor runs three varia
 - User: find all valid strategies before the build; Phase 4 a few days, longer if it runs in the background; schedule/resume across usage windows (first resume 14:45Z).
 - Built `poly_pull.py`, `kalshi_windex_pull.py`; fixed ladder strike parsing; `spot_extra`, METAR report types.
 - Ran E015, E015b, E016b, E016c, E017 (val), E018, E019, E020, bucket-sum checks, incentive/literature sweep. Wrote the round-4 report, PLANNING v5, research-log session 4.
-- Pending at write time: `ladder-btc-002` (E015 BTC), `trades-sample-0/1` (E017 train).
+- `ladder-btc-002` and `trades-sample-0/1` never published (past the 350-min cap); not resubmitted. Resume chain cancelled 16:20Z.
 
 ### Thread 1, turn 4 — 2026-11-21 05:15Z → ~07:30Z (testing round 3, Opus 5.5)
 
@@ -404,12 +406,12 @@ Every experiment and every strategy variant tried is listed here, successful or 
 | E014 | Exploratory: in-game sports, Kalshi vs ESPN win probability (30/60 s feed delay), NFL/NCAAF/NBA. `e014_sports_ingame_wp.py` | `sp-001`, `ext-sp-001`, `espn-wp-001` | **Done — negative** | Brier Kalshi 0.1555 vs ESPN 0.1595 (train), 0.1595 vs 0.1721 (val); trading ESPN gaps −2.8c (train), −13.1c (val). Sports closed |
 | — | Exploratory: GDELT news volume in the prior hour vs E010 signal P&L | `ext-news-001` (partial, 27% coverage) | Done | No relationship (255 covered signals; +11.5c below median vs +8.1c above; corr −0.03) |
 
-| E015 | 15-min vs hourly ladder (same settlement value): box arbitrage, within-ladder monotonicity, ladder-implied relative value, reverse rule. `e015_ladder_cross.py` | `ladder-<coin>-002` (6 alts+ETH; BTC pending), `full-001`, `full-004` | Done (BTC pending) | **Negative.** ≤3 after-fee box quotes per coin in 2 months, zero monotonicity violations; 15-min mid out-forecasts the ladder; both relative-value rules ≈ 0 or negative |
+| E015 | 15-min vs hourly ladder (same settlement value): box arbitrage, within-ladder monotonicity, ladder-implied relative value, reverse rule. `e015_ladder_cross.py` | `ladder-<coin>-002` (6 alts+ETH; BTC job never published), `full-001`, `full-004` | Done (no BTC) | **Negative.** ≤3 after-fee box quotes per coin in 2 months, zero monotonicity violations; 15-min mid out-forecasts the ladder; both relative-value rules ≈ 0 or negative |
 | E015b | Frozen S1-D on ladder strikes (last 15 min, candle fills). `e015b_s1d_on_ladders.py` | same | Done | ETH −1.3c, SOL −3.9c, XRP, HYPE ≤ 0; **BNB +12.2c [+2.7, +21.6] (52)**, DOGE +13.0c (16, CI spans 0); ~10–20 contracts/min |
 | E016 | S1-D exit variants. `e016_dislocation_exit.py` | E012/E010 signals + prints | Done | Hold best (+10.0c / +9.6c); time exits lower EV, ~half the variance |
 | E016b | S1-D **maker entry** (rest k ticks inside the ask, W s; touch/through fills; no fee). `e016b_dislocation_maker_entry.py` | 7,234 signals, six sets | Done | **through k=1 W=15 s: 76.5% filled, +7.93c [+6.32, +9.52] per fill, +6.07c per signal; all six sets positive** |
 | E016c | S1-D threshold sensitivity, 4c (post-hoc, P∪Q). `e016c_threshold_sensitivity.py` | `trades-thr04-0..2` + earlier prints | Done | 4–6c +6.28c [+5.03, +7.34] (114/day), 6–8c +6.63c [+4.71, +8.38] (42/day), 8–12c +9.13c, >12c +10.42c; BTC negative in every band |
-| E017 | Model-informed deep resting orders, all minutes, 8 alts, 14 sample days. `e017_model_maker.py` | `trades-sample-0..3` | Val done; train pending (groups 0, 1) | **Negative.** Val −1.7…−3.2c per fill (through), −1.0…−2.2c (touch), every δ; ≈ mid-quoting control. Test not opened |
+| E017 | Model-informed deep resting orders, all minutes, 8 alts, 14 sample days. `e017_model_maker.py` | `trades-sample-0..3` (0, 1 never published) | Val done; train not available | **Negative.** Val −1.7…−3.2c per fill (through), −1.0…−2.2c (touch), every δ; ≈ mid-quoting control. Test not opened |
 | E018 | 15-min commodities/FX/yields/S&P: calibration + book-only/cross-market model; PAXG gold proxy. `e018_fin15.py` | `fin15-001`, `fin15-002` | Done | **Negative / blocked** (Pyth feed paid ≥ $500/mo). Calibrated; taker EV < 0 everywhere |
 | E019 | Hourly temperature vs Kalshi Weather Index nowcast + stack, lags 1/2/5 min. `e019_hourly_temp.py` | `wxh-001`, `windex-001` | Done | **Negative** on validation (−0.3…−9c); index = settlement in 100% of hours |
 | E020 | Polymarket 15-min price added to the S1-D stack. `poly_pull.py`, `e020_polymarket_signal.py` | `poly-<coin>-001` | Done (4 coins) | **Negative.** Poly Brier 0.158 vs Kalshi 0.140; augmented model no better out of fit |
