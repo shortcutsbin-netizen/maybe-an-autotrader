@@ -1,0 +1,33 @@
+{
+ "request": {
+  "name": "poly-zec-001",
+  "script": "poly_pull.py",
+  "coins": [
+   "zec"
+  ],
+  "start": "2026-06-01T00:00:00Z",
+  "end": "2026-11-21T05:00:00Z",
+  "pause": 0.1,
+  "max_minutes": 335
+ },
+ "started_utc": "2026-11-22T10:34:17Z",
+ "coins": {
+  "zec": {
+   "windows": 10361,
+   "missing": 6267,
+   "no_history": 0,
+   "price_points": 215433
+  }
+ },
+ "finished_utc": "2026-11-22T12:54:02Z",
+ "http_requests": 26989,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/gamma_zec.json": "ecc6bd9b677ee3cf8a30f53258c09850ed92715f493010e458187d927152b55a",
+  "samples/hist_zec.json": "804a33a07b377ffc061b01a1ea42ee34188d803336ad8ddd093cc93d3a20e962",
+  "poly/zec_prices.csv.gz": "a76fb34fe83df543e0de3b3bdfd0a673fb518f8146e5e2c7b0df0b716242266e",
+  "poly/zec_windows.csv.gz": "475533db62a6f126e68966ddc352e9e15ccf38da54368cd11c19b1b9ec34bf75"
+ }
+}
