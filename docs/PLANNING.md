@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | **v4 (2026-11-21) — Phase 2 testing round 3 complete. Recommending Phase 2 close and a narrow Phase 3 build for one strategy; awaiting user authorization.** (v3 2026-11-13; Phase 1 approved 2026-11-12.) |
+| **Status** | **v5 (2026-11-22) — Phase 2 testing round 4 (strategy-surface sweep) complete. Recommendation unchanged in kind: close Phase 2, build one strategy family (S1-D) with the execution and threshold options found in round 4; awaiting user authorization.** (v4 2026-11-21; v3 2026-11-13; Phase 1 approved 2026-11-12.) |
 | **Date** | 2026-11-12 |
 | **Phase** | 2 — Real-data research, simulation and validation |
 | **Author** | Claude (thread 1) |
@@ -14,6 +14,62 @@ Labels used throughout:
 - **[S]** Reported by a secondary source (blog, vendor, news). Treated as a lead, not a fact.
 - **[E]** My estimate or calculation.
 - **[H]** Hypothesis. Untested.
+
+---
+
+## v5 — testing round 4 (2026-11-22): the strategy-surface sweep
+
+### User direction (2026-11-22)
+
+| # | Direction | Effect |
+|---|---|---|
+| D17 | Before building, find **all** valid strategies; research extensively and act to maximize the surface | Round 4: E015–E020 plus desk research (below) |
+| D18 | Phase 4 paper test: **a few days is ideal; longer is fine if the bot runs reliably in the background while the PC is in daily use** | New runtime requirement R-BG (below); Phase 4 bar revised |
+| — | Schedule-and-resume across usage windows this turn | Resume chain scheduled from 14:45Z |
+
+### What was tried in round 4 (details: `docs/experiments/E015-E020-round4-strategy-surface.md`)
+
+| Area | Ideas tested | Verdict |
+|---|---|---|
+| Cross-market, same settlement number | 15-min vs hourly ladder box arbitrage; within-ladder monotonicity; ladder-implied relative value (both directions) | Rejected — Kalshi keeps them consistent after fees |
+| S1-D on other books | Frozen model on hourly-ladder strikes (last 15 min) | BNB (+12c, n=52) and DOGE ladders positive with candle fills; others ≤ 0. Small add-on, needs forward evidence |
+| S1-D execution | Early exit (E016); **maker entry** (E016b); **lower thresholds** (E016c) | Hold to settlement; **maker entry +6c/signal, positive in all six sets**; **4–8c signals +6.3…+6.6c per F1 fill (CIs > 0), ~3× the signal count** |
+| Maker strategies | Model-informed deep resting orders everywhere (E017) | Rejected (−2…−3c per fill) |
+| Other 15-min markets | Commodities, FX, yields, S&P (E018) | Rejected / blocked: settlement feed (Pyth) is paid, ≥ $500/month |
+| Weather, hourly | Hourly temperature vs the public Kalshi Weather Index that settles it (E019) | Rejected on validation; one hypothesis kept for forward logging |
+| Other venue as signal | Polymarket 15-min price in the S1-D stack (E020) | see report |
+| Structural | Bucket-sum arbitrage (crypto ranges, weather brackets); Liquidity Incentive Program | Rejected / out of scope (incentives only on long-dated markets) |
+
+Desk research also covered: Kalshi incentive programs (public `/incentive_programs`, `/incentive_schedules`); the
+Kalshi Weather Index endpoint (`/live_data/weather/{city}`); Pyth's August 2026 paywall; third-party bots and
+blogs (no repeatable hourly-book edge reported).
+
+### Revised strategy set (authoritative)
+
+| ID | Strategy | Status |
+|---|---|---|
+| **S1-D** | Dislocation rule, 15-min alt-coin markets, frozen model, edge > 8c, hold to settlement | **Primary** (E010/E012 pass) |
+| S1-D-4 | Same model, edge 4–8c band | **Secondary, pre-register for Phase 4** (E016c post-hoc: +6.3c/+6.6c per fill) |
+| S1-D-M | Maker entry for S1-D signals (bid 1 tick inside the ask, 15 s, else drop) | **Execution option to run in parallel in paper mode** (E016b) |
+| S1-D-L | S1-D on hourly-ladder strikes (BNB, DOGE) | Observe-only in Phase 4 (thin; candle fills only) |
+| — | BTC 15-min signals | Exclude (negative in every band, E012/E016c) |
+| H-WX | Hourly-temperature nowcast in the last 5 minutes (E019) | Hypothesis; log only if cheap |
+| everything else | see round 2–4 tables | Rejected |
+
+### New runtime requirement R-BG (from D18)
+
+The bot must coexist with daily use of the PC: one Python process, < 2% average CPU, < 300 MB RAM, no GPU, no
+disk thrash (SQLite WAL, batched writes), network ~ 1–2 requests/s average (minute-end bursts of ~20 public
+REST calls plus a Coinbase WebSocket), Task Scheduler start at logon with restart on failure, survives sleep /
+network loss by stopping cleanly and resuming at the next quarter hour, and a `status` command. Paper-only.
+
+### Revised Phase 4 bar (replaces v4's)
+
+Run in the background until **both** (a) ≥ 3 calendar days and (b) ≥ 300 primary (8c) signals; longer only if
+R-BG holds. At the observed rates (≈ 49 primary and ≈ 156 secondary signals per day on P∪Q) that is 4–7 days.
+Pre-registered before the run: primary S1-D with taker paper fills against the displayed book; S1-D-4 and
+S1-D-M reported alongside but not used for the pass/fail decision. Pass: primary paper P&L > 0 with CI lower
+bound > 0; ≥ 50% of signals fillable at 10 contracts; live-vs-rebuilt feature parity; R-BG met.
 
 ---
 
@@ -473,6 +529,10 @@ See the numbered list in the chat message accompanying this version, mirrored in
 | E8 | Text-news feed with a rate-limit-friendly source (GDELT from the PC, or RSS headline counts) | Completes the "use everything" brief for crypto | None yet | Small | Likely no incremental value at this horizon | Low priority |
 | ~~E6~~ | ~~Pre-build observer / paper trader~~ | — | — | — | — | **Declined by user 2026-11-20 (D13)** |
 | E9 | Apply the dislocation idea to 15-minute gold / WTI / silver markets | Same mechanism may exist | None; needs a free 1-minute spot proxy for each, which has not been found | Moderate | Proxy quality | Not now |
+| E11 | S1-D-4: also trade the 4–8c edge band | ~3× signals at +6c per fill (E016c, post-hoc) | E016c | none | Post-hoc on the test periods; must be confirmed forward | **Yes, as a pre-registered secondary in Phase 4** |
+| E12 | S1-D-M: maker entry (rest 1 tick inside the ask, 15 s) | No taker fee; far less latency-sensitive | E016b, all six sets positive | small | Lower fill rate; adverse selection | **Yes, in parallel in paper mode** |
+| E13 | S1-D-L: hourly ladder strikes for BNB/DOGE | Extra signals | E015b (n=52, candle fills) | small | Thin books; weak evidence | Observe-only |
+| E14 | Pyth Pro subscription to test the dislocation idea on 15-min gold/WTI | Same mechanism may exist | none (feed unavailable) | ≥ $500/month | Paid dependency, unproven | **No** |
 | E10 | Kalshi read-only API key during Phase 4 (WebSocket order books, CF Benchmarks settlement index) | Faster data, exact settlement input | E006: edge decays over 10–20 s, so speed matters | Small | Contradicts "no account until live" unless the user agrees | Optional — user's call |
 
 ---

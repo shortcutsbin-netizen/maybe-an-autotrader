@@ -14,7 +14,7 @@ Status: DRAFT — sections marked *pending* are filled as data lands.
 | E015b | Frozen S1-D model on ladder strikes, last 15 minutes | ETH/SOL/XRP/HYPE ≤ 0; **BNB +12.2c** next-minute fill (52 signals, CI [+2.7,+21.6], both halves +); DOGE +13c (16, CI spans 0); ~10–20 contracts/min of liquidity | **Small add-on candidate** (BNB/DOGE ladders), needs forward evidence |
 | E016 | S1-D early exit | Holding is best (+10.0c / +9.6c); time exits trade EV for lower variance | Hold remains primary |
 | E016b | S1-D **maker entry** (rest 1–3 ticks inside the ask for 5–60 s, zero fee) | Fills 59–87%; +7.4…+10.2c per fill; **+4.6…+8.2c per signal; positive in all six signal sets** | **Valid alternative execution** for S1-D |
-| E016c | S1-D threshold sensitivity (4c, 6c) | *pending prints* | — |
+| E016c | S1-D threshold sensitivity (post-hoc, same test periods) | 4–6c band +6.28c [+5.03, +7.34] per F1 fill, 6–8c +6.63c [+4.71, +8.38]; ~156 extra signals/day (vs ~49 at ≥ 8c); maker entry +3.0…+3.3c per signal in those bands; BTC negative in every band | **Secondary rule for Phase 4** (must be confirmed forward) |
 | E017 | Model-informed deep resting orders (all minutes, zero fee) | Validation −2…−3c per fill at every distance (4–16c from fair); model barely better than quoting around the mid | **Rejected** (train *pending*) |
 | E018 | 15-min commodities / FX / yields / S&P | Calibrated; taker EV < 0 everywhere; no settlement feed (Pyth now paid, ≥$500/month); book-only and cross-market models produce no edge | **Rejected / blocked** |
 | E019 | Hourly temperature vs the public Kalshi Weather Index (the exact settlement series) | Index matches every settlement; nowcast+market stack beats the mid in-sample only; validation trades −2…−9c; ~10 contracts/min | **Rejected** (one hypothesis kept) |
@@ -86,8 +86,22 @@ hit, and saving the 1.5–1.75c taker fee offsets most of the adverse selection.
 the maker version is far less sensitive to the 1–6 s latency the taker version needs. Output:
 `output/E016b_maker_entry.txt`.
 
-**E016c — threshold sensitivity** *(pending: prints for 8,944 markets with 4–8c signals, `trades-thr04-*`)*.
-At a 4c threshold the frozen model produces 21,712 signals in P (vs ~5,200 at 8c) and 1,472 in Q.
+**E016c — threshold sensitivity (post-hoc).** The frozen model at a 4c threshold on the same periods as the
+pre-registered test (P = Jun 1–Sep 12, Q = Nov 13–21): 23,184 signals on 113 days; prints for 97% of their
+markets (8,944 extra markets pulled in `trades-thr04-0..2`). Split by edge at signal time:
+
+| edge band | signals/day | F1 fill | F1 P&L per fill [CI] | maker entry: fill, per fill [CI], per signal |
+|---|---|---|---|---|
+| 4–6c | 114 | 64% | +6.28c [+5.03, +7.34] | 64%, +4.74c [+3.54, +5.80], +3.05c |
+| 6–8c | 42 | 64% | +6.63c [+4.71, +8.38] | 67%, +4.89c [+2.84, +6.72], +3.28c |
+| 8–12c | 30 | 67% | +9.13c [+6.91, +11.46] | 74%, +7.18c [+5.04, +9.39], +5.32c |
+| > 12c | 18 | 69% | +10.42c [+7.96, +12.90] | 81%, +8.24c [+5.80, +10.97], +6.64c |
+
+P&L rises with the model's edge, as a calibrated model should. Every alt coin is positive in the 4–6c band
+(ETH +2.5c and SOL +3.4c weakest; NEAR +11.2c, ZEC +8.9c, BNB +7.8c strongest); BTC is negative in all four
+bands (−2…−13c) and should be excluded. Q alone, 4–8c: +7.44c. Because these bands were examined on data that
+had already been used to confirm the 8c rule, this is evidence for a pre-registered secondary rule in Phase 4,
+not a re-tuning of the primary. Output: `output/E016c_threshold.txt`.
 
 ## E017 — model-informed deep resting orders
 
