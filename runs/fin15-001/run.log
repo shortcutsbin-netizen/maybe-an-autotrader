@@ -1,0 +1,33 @@
+[     0.3s] cutoff: {'market_positions_last_updated_ts': '2026-09-22T00:00:00Z', 'market_settled_ts': '2026-09-22T00:00:00Z', 'orders_updated_ts': '2026-11-07T00:00:00Z', 'trades_created_ts': '2026-09-22T00:00:00Z'}
+[     3.2s] KXGOLD15M: 3983 markets
+[     5.5s] KXSILVER15M: 3983 markets
+[     8.1s] KXWTI15M: 4359 markets
+[    10.5s] KXNATGAS15M: 4359 markets
+[    12.4s] KXCOPPER15M: 3983 markets
+[    14.0s] KXBRENT15M: 2199 markets
+[    15.7s] KXPLATINUM15M: 3926 markets
+[    17.5s] KXPALLADIUM15M: 3926 markets
+[    17.8s] candles: window 1/4359 rows=105 errors=0
+[    75.0s] candles: window 201/4359 rows=20834 errors=0
+[   134.1s] candles: window 401/4359 rows=39559 errors=0
+[   193.1s] candles: window 601/4359 rows=60253 errors=0
+[   251.8s] candles: window 801/4359 rows=80727 errors=0
+[   307.6s] candles: window 1001/4359 rows=99177 errors=0
+[   363.5s] candles: window 1201/4359 rows=119424 errors=0
+[   419.3s] candles: window 1401/4359 rows=137874 errors=0
+[   475.9s] candles: window 1601/4359 rows=158124 errors=0
+[   531.8s] candles: window 1801/4359 rows=178374 errors=0
+[   586.8s] candles: window 2001/4359 rows=196824 errors=0
+[   643.2s] candles: window 2201/4359 rows=217665 errors=0
+[   699.0s] candles: window 2401/4359 rows=239099 errors=0
+[   757.4s] candles: window 2601/4359 rows=262349 errors=0
+[   814.6s] candles: window 2801/4359 rows=285598 errors=0
+[   872.7s] candles: window 3001/4359 rows=307047 errors=0
+[   930.8s] candles: window 3201/4359 rows=330297 errors=0
+[   987.4s] candles: window 3401/4359 rows=351747 errors=0
+[  1045.4s] candles: window 3601/4359 rows=374997 errors=0
+[  1101.9s] candles: window 3801/4359 rows=398247 errors=0
+[  1157.0s] candles: window 4001/4359 rows=419697 errors=0
+[  1212.4s] candles: window 4201/4359 rows=442947 errors=0
+[  1367.1s] spot PAXG-USD: 37403 candles
+[  1367.1s] done: requests=4696 errors=0
