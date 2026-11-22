@@ -617,8 +617,8 @@ Distinctions the brief asks for:
   the same periods and modelled from public prints.
 - **Evidence for:** E012 pass (+9.6c on 3,729 fills); E016c monotone edge-to-P&L relation; E016b maker entry
   positive in all six signal sets; placebo negative.
-- **Evidence against:** every other idea rejected; edge is small-capacity (tens of contracts, ~$10–40/day at 10
-  contracts); fills are modelled, not experienced; BTC shows no edge; competition can close a stale-quote gap
+- **Evidence against:** every other idea rejected; edge is small-capacity (median fillable size tens of contracts; estimate at 10 contracts
+  per fill: ~$30/day for the primary rule, ~$90/day with the 4–8c band, before overlap and capacity limits); fills are modelled, not experienced; BTC shows no edge; competition can close a stale-quote gap
   at any time.
 - **Biggest risk:** the paper run shows that displayed size at the signal price is far smaller than the prints
   suggest, or that others reach the stale quotes first from a home connection.
