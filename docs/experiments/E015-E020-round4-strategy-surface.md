@@ -156,8 +156,10 @@ CF Benchmarks, so they cannot be an arbitrage leg (S9 stays rejected). Volume pe
 Price paths pulled for Jun 1–Nov 21 (`poly-<coin>-001`, ~21 points per window); aligned as-of each Kalshi minute
 end using only points at least 5 s old; a Polymarket price exists for ~38% of Kalshi minute rows.
 
-Run on the four coins that had landed (BTC, DOGE, HYPE, XRP; ETH/SOL/BNB landed later and were not needed for the
-conclusion). Out-of-fit Brier, 479,231 rows on 145 days:
+First run on the four coins that had landed (BTC, DOGE, HYPE, XRP), table below; re-run on all seven coins
+(838,472 out-of-fit rows) gave the same picture: augmented Brier equal to frozen in P (0.13859 both), slightly worse
+in Oct–Nov and Q; every coin's Polymarket Brier 0.156–0.161 vs Kalshi 0.138–0.144 (`output/E020_polymarket_all7.txt`).
+Four-coin out-of-fit Brier, 479,231 rows on 145 days:
 
 | period | Kalshi mid | Polymarket | blend | frozen S1-D | S1-D + Polymarket |
 |---|---|---|---|---|---|
