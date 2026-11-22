@@ -1,0 +1,13 @@
+[    22.4s] miami: {'points': 64689, 'first': '2026-10-08T10:50:00Z'}
+[    43.1s] nyc: {'points': 64282, 'first': '2026-10-08T10:51:00Z'}
+[    63.6s] chicago: {'points': 64715, 'first': '2026-10-08T10:51:00Z'}
+[    84.2s] la-coastal: {'points': 64705, 'first': '2026-10-08T10:51:00Z'}
+[   104.7s] dfw: {'points': 64528, 'first': '2026-10-08T10:52:00Z'}
+[   125.8s] houston: {'points': 64727, 'first': '2026-10-08T10:52:00Z'}
+[   146.6s] phl-delaware-valley: {'points': 64283, 'first': '2026-10-08T10:52:00Z'}
+[   167.3s] puget-sound: {'points': 64448, 'first': '2026-10-08T10:53:00Z'}
+[   188.0s] sf-bay: {'points': 64517, 'first': '2026-10-08T10:53:00Z'}
+[   208.5s] greater-boston: {'points': 59208, 'first': '2026-10-08T10:54:00Z'}
+[   229.0s] southeast-michigan: {'points': 64717, 'first': '2026-10-08T10:54:00Z'}
+[   249.7s] kansas-city: {'points': 64448, 'first': '2026-10-08T10:54:00Z'}
+[   270.2s] minneapolis-st-paul: {'points': 64724, 'first': '2026-10-08T10:54:00Z'}

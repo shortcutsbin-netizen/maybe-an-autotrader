@@ -1,0 +1,112 @@
+{
+ "request": {
+  "name": "windex-001",
+  "script": "kalshi_windex_pull.py",
+  "cities": [
+   "miami",
+   "nyc",
+   "chicago",
+   "la-coastal",
+   "dfw",
+   "houston",
+   "phl-delaware-valley",
+   "puget-sound",
+   "sf-bay",
+   "greater-boston",
+   "southeast-michigan",
+   "kansas-city",
+   "minneapolis-st-paul"
+  ],
+  "start": "2026-09-01T00:00:00Z",
+  "end": "2026-11-22T11:00:00Z",
+  "pause": 0.2
+ },
+ "started_utc": "2026-11-22T10:49:40Z",
+ "cities": {
+  "miami": {
+   "points": 64689,
+   "first": "2026-10-08T10:50:00Z"
+  },
+  "nyc": {
+   "points": 64282,
+   "first": "2026-10-08T10:51:00Z"
+  },
+  "chicago": {
+   "points": 64715,
+   "first": "2026-10-08T10:51:00Z"
+  },
+  "la-coastal": {
+   "points": 64705,
+   "first": "2026-10-08T10:51:00Z"
+  },
+  "dfw": {
+   "points": 64528,
+   "first": "2026-10-08T10:52:00Z"
+  },
+  "houston": {
+   "points": 64727,
+   "first": "2026-10-08T10:52:00Z"
+  },
+  "phl-delaware-valley": {
+   "points": 64283,
+   "first": "2026-10-08T10:52:00Z"
+  },
+  "puget-sound": {
+   "points": 64448,
+   "first": "2026-10-08T10:53:00Z"
+  },
+  "sf-bay": {
+   "points": 64517,
+   "first": "2026-10-08T10:53:00Z"
+  },
+  "greater-boston": {
+   "points": 59208,
+   "first": "2026-10-08T10:54:00Z"
+  },
+  "southeast-michigan": {
+   "points": 64717,
+   "first": "2026-10-08T10:54:00Z"
+  },
+  "kansas-city": {
+   "points": 64448,
+   "first": "2026-10-08T10:54:00Z"
+  },
+  "minneapolis-st-paul": {
+   "points": 64724,
+   "first": "2026-10-08T10:54:00Z"
+  }
+ },
+ "finished_utc": "2026-11-22T10:54:10Z",
+ "http_requests": 1079,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/windex_southeast-michigan.json": "325095ad6fb1fc8721e18967fe2700c76c74b2a397f480bea39116186c9b7fb3",
+  "samples/windex_la-coastal.json": "3649c7b7c717e7b689b6beaf59950d6663ce2fee8b82413a02c7039067b7f804",
+  "samples/windex_miami.json": "66b0f961827cb21594f7538c651aded2649d3f5804ea3e76be89a55f342df80e",
+  "samples/windex_chicago.json": "61186dfb8fa25ed3822e6b57707d7514e0bf99818dee588b1886bd8b3985bc44",
+  "samples/windex_puget-sound.json": "c9399fb4200a44f934d1bb265c9ae0fa3cf673d009a333f252c4a1670aa3f32a",
+  "samples/windex_nyc.json": "f9563ac816ae12280146bc1363b4ec83a347cd5a565d8b588fd2bdc80e5ce5be",
+  "samples/windex_houston.json": "c550b61262a5a92723ebdcb4eb520a0be72998a49aacbd50f6501972a391b167",
+  "samples/windex_phl-delaware-valley.json": "f43006c3766f92c5c62573d8107dc23e4085f1870e829cdd52aebcc7645b74c1",
+  "samples/windex_minneapolis-st-paul.json": "404f9a75aabb5fbbc67eeb8a45d3c05e7abe9f60d8f1aef72cba84f04ac83ba2",
+  "samples/windex_greater-boston.json": "1b1d39adc311afbb4cbc3c796193448a39d41a7205f6d960fc9aaea434951687",
+  "samples/windex_sf-bay.json": "b65a9824a6461fcc040f7190b36d9a7684a79a4c32255443c726255acd73f99e",
+  "samples/windex_dfw.json": "fe7f25f66e399e2aee8b1e17bfe3f1b7ddf0d802982266135ea02d14c408b0e3",
+  "samples/windex_kansas-city.json": "d2cbf9f85439229726bc5fc36e5053368afb92abf80750b53f0792d0bdd7198e",
+  "windex/miami.csv.gz": "08f2f511b8f1c33ebcbaad999f3414fa15abfc66f1f6b0f172c8b3991b89ffad",
+  "windex/chicago.csv.gz": "19116e796cac7bfb49dfc139fad58c3e4061e625bbfedc08cbdb94d7a2303297",
+  "windex/phl-delaware-valley.csv.gz": "74a42c023cd0edfb6c392c37b11de8a6513c9fe627b3e89a5d444dd8b306ce07",
+  "windex/sf-bay.csv.gz": "d990ef9b7cc04e5f119721d2078efb7be8823f776cbdfd8578684e34dd847e98",
+  "windex/la-coastal.csv.gz": "ef71cf20d67aceff4594cef23461216384a65ee202c90cb01da9e73adafeff34",
+  "windex/houston.csv.gz": "48c490bce6b9da0dbbf58b706bfa09df8ac396799de7b342f3b2c03b17c2ed18",
+  "windex/southeast-michigan.csv.gz": "8706d7fc2eb93d302e9a85fc5a493da2141d5aa9ba14d59a3137c87fd0016f43",
+  "windex/minneapolis-st-paul.csv.gz": "ea7b6d8c8b26373f126f3dd06bed981375ed2d369eb68a8e0c59fd5ace6aa1ea",
+  "windex/dfw.csv.gz": "bcefe8118f505420121883b37593d585f670c9302ccaeb88d94e7472dd12ec60",
+  "windex/nyc.csv.gz": "208b2d23d10c8ba42fc800149d3f5985a422d88875ac4e6bfd6079e7b48ccbf4",
+  "windex/puget-sound.csv.gz": "408076a6b69027da1d585b9d524e9cb6dc37f2876c034650fddebca11a5f919e",
+  "windex/kansas-city.csv.gz": "1b8c66382e869e35ba00702ead749174e66ea45b3de38555485a04dff74f1595",
+  "windex/greater-boston.csv.gz": "de7760ca4ebd1eb95433db485601bd4ce4ef146854242ac0babcf33d0db4f7af"
+ }
+}
