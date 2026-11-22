@@ -1,0 +1,17 @@
+{
+ "request": {
+  "name": "trades-thr04-2",
+  "script": "kalshi_trades_pull.py",
+  "tickers_file": "research/collect/requests/lists_thr04_2.txt",
+  "historical": true,
+  "pause": 0.1,
+  "max_pages": 80,
+  "max_minutes": 320
+ },
+ "tickers": 2981,
+ "tickers_done": 2981,
+ "trades": 7032474,
+ "http_requests": 11596,
+ "error_count": 0,
+ "errors_first_50": []
+}
