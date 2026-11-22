@@ -192,18 +192,49 @@ def main():
                 pass
         man["ref_15m_closes"] = len(ref)
     band = float(req.get("band", 0.015))
+    nearest = int(req.get("nearest", 2))
+
+    def strike_of(m):
+        # ladders ("custom" strike type) carry the threshold in custom_strike.floor_strike, e.g. 0.2349999 = "$0.235 or above"
+        cs = m.get("custom_strike") or {}
+        for v in (cs.get("floor_strike"), cs.get("cap_strike"), m.get("floor_strike"), m.get("cap_strike")):
+            try:
+                if v not in (None, ""):
+                    return float(v)
+            except Exception:
+                pass
+        t = m.get("ticker", "")
+        if "-T" in t:
+            try:
+                return float(t.rsplit("-T", 1)[1])
+            except Exception:
+                pass
+        return None
+
     for s in req["series"]:
         ms = pull_markets(s, t_min, t_max, out, pause, bool(req.get("historical", False)))
         if ref:
-            keep = []
+            # keep, per close time, every strike within `band` of the 15-min strike plus the `nearest` strikes on each side
+            by_close = {}
             for m in ms:
-                k = ref.get(iso_to_ts(m["close_time"]))
-                try:
-                    st = float(m.get("floor_strike") or m.get("cap_strike"))
-                except Exception:
+                st = strike_of(m)
+                if st is None:
                     continue
-                if k and abs(st / k - 1) <= band:
-                    keep.append(m)
+                m["floor_strike"] = st
+                by_close.setdefault(iso_to_ts(m["close_time"]), []).append((st, m))
+            keep = []
+            for ct, lst in by_close.items():
+                k = ref.get(ct)
+                if not k:
+                    continue
+                lst.sort(key=lambda x: x[0])
+                above = [x for x in lst if x[0] >= k][:nearest]
+                below = [x for x in lst if x[0] < k][-nearest:]
+                chosen = {id(x[1]): x[1] for x in above + below}
+                for st, m in lst:
+                    if abs(st / k - 1) <= band:
+                        chosen[id(m)] = m
+                keep.extend(chosen.values())
             log(f"{s}: kept {len(keep)} of {len(ms)} markets within {band:.1%} of the 15-min strike")
             ms = keep
             with gzip.open(os.path.join(out, "markets", f"{s}_kept.csv.gz"), "wt", newline="") as f:
