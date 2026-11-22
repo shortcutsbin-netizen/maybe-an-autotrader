@@ -1,0 +1,49 @@
+{
+ "request": {
+  "name": "ladder-xrp-001",
+  "script": "kalshi_events_pull.py",
+  "series": [
+   "KXXRPD"
+  ],
+  "ref_15m_series": "KXXRP15M",
+  "band": 0.015,
+  "start": "2026-09-22T00:00:00Z",
+  "end": "2026-11-22T10:00:00Z",
+  "historical": true,
+  "lookback_hours": 0.25,
+  "resample_min": 1,
+  "pause": 0.15
+ },
+ "started_utc": "2026-11-22T10:14:17Z",
+ "source": "https://api.elections.kalshi.com/trade-api/v2",
+ "series": {
+  "KXXRPD": {
+   "markets": 2764,
+   "candle_rows": 39425,
+   "markets_without_candles": 1
+  }
+ },
+ "historical_cutoff": {
+  "market_positions_last_updated_ts": "2026-09-22T00:00:00Z",
+  "market_settled_ts": "2026-09-22T00:00:00Z",
+  "orders_updated_ts": "2026-11-07T00:00:00Z",
+  "trades_created_ts": "2026-09-22T00:00:00Z"
+ },
+ "ref_15m_closes": 5825,
+ "finished_utc": "2026-11-22T10:21:10Z",
+ "http_requests": 1555,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/markets_hist_KXXRPD.json": "0912db0da082960481c6c8afcd7d70455e6176a4ae68a5ad1a74ad62cfecb50c",
+  "samples/markets_live_KXXRPD.json": "3e29c8b42bd59c124751649fc4b7609c93a4626ad4f6c24c5eb083fbd1c42dff",
+  "samples/markets_hist_KXXRP15M.json": "ac982b663cbd5df21c3f6a9c82388a5d198ebc5d95c5c153a5eb695bea0c06ed",
+  "samples/candles_batch_KXXRPD.json": "0498050054660420d6caf522f816c33215dd6e140e001891e1cbfacdf87ecc90",
+  "samples/markets_live_KXXRP15M.json": "3315ad6990b3ad942f14c89aaff1c7bb6b3b967ceec552a597bc745206cb2675",
+  "candles/KXXRPD.csv.gz": "9c2115522235cdd9188b639764611f472ef00cf405d84b328710fc53b996f450",
+  "markets/KXXRPD.csv.gz": "7bf5b96e04bdf318a69e03c34163abfc794510359ebf6c6b21d0d47dcd5caa27",
+  "markets/KXXRPD_kept.csv.gz": "7a95f6135c5bc8274a3d07d826b1dd7f9fd25cc403ead19932463322469a5196",
+  "markets/KXXRP15M.csv.gz": "6188ef2a0e9b28f6fe72ed7bee4b84703b8542288e4d92e0c787176341d45136"
+ }
+}

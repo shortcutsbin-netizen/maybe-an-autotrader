@@ -1,0 +1,20 @@
+[     3.6s] KXXRP15M: 5825 markets (0 hist)
+[    49.7s] KXXRPD: 105970 markets (0 hist)
+[    49.8s] KXXRPD: kept 2764 of 105970 markets within 1.5% of the 15-min strike
+[    50.3s] KXXRPD candles: event 1/1439 rows=16 errors=0
+[    75.4s] KXXRPD candles: event 101/1439 rows=2812 errors=0
+[   100.2s] KXXRPD candles: event 201/1439 rows=5279 errors=0
+[   125.7s] KXXRPD candles: event 301/1439 rows=7748 errors=0
+[   151.3s] KXXRPD candles: event 401/1439 rows=10089 errors=0
+[   176.8s] KXXRPD candles: event 501/1439 rows=12333 errors=0
+[   202.2s] KXXRPD candles: event 601/1439 rows=15044 errors=0
+[   227.1s] KXXRPD candles: event 701/1439 rows=18010 errors=0
+[   252.6s] KXXRPD candles: event 801/1439 rows=20752 errors=0
+[   277.7s] KXXRPD candles: event 901/1439 rows=23542 errors=0
+[   302.8s] KXXRPD candles: event 1001/1439 rows=26462 errors=0
+[   327.8s] KXXRPD candles: event 1101/1439 rows=29193 errors=0
+[   352.6s] KXXRPD candles: event 1201/1439 rows=32110 errors=0
+[   378.4s] KXXRPD candles: event 1301/1439 rows=35258 errors=0
+[   403.6s] KXXRPD candles: event 1401/1439 rows=38273 errors=0
+[   413.4s] KXXRPD: done {'markets': 2764, 'candle_rows': 39425, 'markets_without_candles': 1}
+[   413.4s] done requests=1555 errors=0
