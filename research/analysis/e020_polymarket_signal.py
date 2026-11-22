@@ -34,8 +34,8 @@ def load_poly(runs):
             coin = f.rsplit("/", 1)[-1].split("_")[0]
             p = pd.read_csv(f).dropna()
             if len(p):
-                out[coin] = p.sort_values("t")
-    return out
+                out.setdefault(coin, []).append(p)
+    return {k: pd.concat(v).drop_duplicates(["window_start", "t"]).sort_values("t") for k, v in out.items()}
 
 
 def attach(d, poly):

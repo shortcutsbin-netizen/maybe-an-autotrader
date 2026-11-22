@@ -1,0 +1,50 @@
+polymarket coins: {'btc': 346370, 'doge': 346391, 'hype': 346338, 'bnb': 78, 'xrp': 346280, 'zec': 215433}
+/home/claude/data/merged/histP 885340 with poly price 0.391
+/home/claude/data/wt/runs/full-001 548035 with poly price 0.37
+/home/claude/data/wt/runs/full-004 71810 with poly price 0.375
+augmented-model coefficient on lpoly (standardised): 0.321 | blend coefficients [kalshi, poly]: [2.424 0.099]
+
+out-of-fit rows with a Polymarket price: 479231 (145 days)
+  Oct12-Nov12: n=105777  Brier kalshi mid 0.14415  poly 0.15871  blend 0.14430  frozen S1-D 0.14372  augmented 0.14381;  |poly - mid| mean 8.27c
+  P (Jun-Sep12): n=346524  Brier kalshi mid 0.13998  poly 0.15792  blend 0.13989  frozen S1-D 0.13944  augmented 0.13952;  |poly - mid| mean 9.40c
+  Q (Nov13-21): n=26930  Brier kalshi mid 0.14748  poly 0.16104  blend 0.14776  frozen S1-D 0.14725  augmented 0.14747;  |poly - mid| mean 8.19c
+  by coin (all out-of-fit):
+    KXBTC15M: n=119261 mid 0.14434 poly 0.16068 frozen 0.14429 aug 0.14430
+    KXDOGE15M: n=120174 mid 0.13952 poly 0.15632 frozen 0.13852 aug 0.13863
+    KXHYPE15M: n=119651 mid 0.14246 poly 0.16022 frozen 0.14153 aug 0.14169
+    KXXRP15M: n=120145 mid 0.13900 poly 0.15588 frozen 0.13897 aug 0.13906
+
+  >8c signals: frozen 1611, augmented 4999; agree 1531, frozen-only 80, augmented-only 3468
+  --- agree (1531 signals) F1 evaluation on markets with prints:
+signals=1531 in 1305 markets over 145 days (11/day); signals whose market has trade data: 100.0%
+  F1 primary (VWAP 1-6 s, limit quote+2c): fills=1157 (76%) P&L +9.96c 95% CI [+6.98,+13.15] win 52.2% avg price 40.8c (quote 43.7c) days positive 99/144
+  F2 last-in-line (worst price, >=20 printed): fills=938 (61%) P&L +4.49c 95% CI [+1.03,+8.06] win 48.6% avg price 42.7c (quote 43.1c) days positive 76/141
+  F3 slow (first print after 3 s, no limit): fills=1517 (99%) P&L +7.62c 95% CI [+4.74,+10.35] win 55.7% avg price 46.7c (quote 44.2c) days positive 98/145
+  F1 by month: {'2026-06': (113, np.float64(8.52)), '2026-07': (233, np.float64(11.25)), '2026-08': (337, np.float64(9.29)), '2026-09': (114, np.float64(11.18)), '2026-10': (191, np.float64(13.95)), '2026-11': (169, np.float64(5.16))}
+  F1 by series: {'BTC': (43, np.float64(-3.7)), 'DOGE': (435, np.float64(15.4)), 'HYPE': (478, np.float64(8.7)), 'XRP': (201, np.float64(4.1))}
+  F1 by minutes left: {1: (492, np.float64(3.8)), 2: (213, np.float64(10.9)), 3: (115, np.float64(12.6)), 4: (56, np.float64(7.2)), 5: (76, np.float64(14.8)), 6: (53, np.float64(11.8)), 7: (51, np.float64(25.7)), 8: (35, np.float64(30.1)), 9: (26, np.float64(15.6)), 10: (25, np.float64(24.1)), 11: (15, np.float64(23.4))}
+  F1 one trade per market: n=1004 P&L +10.51c [+7.73,+13.17]
+  F1 median volume printed in window: 110; 25th pct 33
+  illustration, 10 contracts per F1 fill: mean $8.00/day, median $4.34, worst $-31.84, best $62.96, max drawdown $33.56, capital per trade ~$4.08
+  --- frozen-only (80 signals) F1 evaluation on markets with prints:
+signals=80 in 76 markets over 54 days (1/day); signals whose market has trade data: 100.0%
+  F1 primary (VWAP 1-6 s, limit quote+2c): fills=66 (82%) P&L +7.12c 95% CI [-5.07,+20.14] win 50.0% avg price 41.3c (quote 44.6c) days positive 26/46
+  F2 last-in-line (worst price, >=20 printed): fills=49 (61%) P&L +5.83c 95% CI [-10.66,+21.73] win 51.0% avg price 43.6c (quote 45.2c) days positive 21/37
+  F3 slow (first print after 3 s, no limit): fills=80 (100%) P&L -0.28c 95% CI [-10.27,+10.93] win 47.5% avg price 46.2c (quote 45.9c) days positive 28/54
+  F1 by month: {'2026-06': (2, np.float64(28.56)), '2026-07': (7, np.float64(30.13)), '2026-08': (25, np.float64(3.96)), '2026-09': (6, np.float64(-23.13)), '2026-10': (19, np.float64(8.66)), '2026-11': (7, np.float64(11.0))}
+  F1 by series: {'BTC': (3, np.float64(-28.1)), 'DOGE': (27, np.float64(1.2)), 'HYPE': (30, np.float64(23.3)), 'XRP': (6, np.float64(-29.5))}
+  F1 by minutes left: {1: (12, np.float64(9.6)), 2: (7, np.float64(-2.6)), 3: (11, np.float64(-7.2)), 4: (6, np.float64(21.7)), 5: (7, np.float64(8.9)), 6: (3, np.float64(-10.9)), 7: (4, np.float64(12.3)), 8: (4, np.float64(27.0)), 9: (5, np.float64(12.4)), 10: (4, np.float64(0.5)), 11: (3, np.float64(23.6))}
+  F1 one trade per market: n=62 P&L +10.21c [-2.71,+22.34]
+  F1 median volume printed in window: 66; 25th pct 20
+  illustration, 10 contracts per F1 fill: mean $1.02/day, median $2.61, worst $-11.76, best $14.47, max drawdown $29.02, capital per trade ~$4.13
+  --- augmented-only (3468 signals) F1 evaluation on markets with prints:
+signals=3468 in 2613 markets over 145 days (24/day); signals whose market has trade data: 70.4%
+  F1 primary (VWAP 1-6 s, limit quote+2c): fills=1806 (52%) P&L +6.33c 95% CI [+3.53,+9.25] win 52.4% avg price 44.7c (quote 46.4c) days positive 86/145
+  F2 last-in-line (worst price, >=20 printed): fills=1304 (38%) P&L +3.65c 95% CI [+0.80,+6.44] win 50.5% avg price 45.4c (quote 45.7c) days positive 79/143
+  F3 slow (first print after 3 s, no limit): fills=2390 (69%) P&L +4.37c 95% CI [+1.85,+6.86] win 53.6% avg price 47.8c (quote 46.8c) days positive 84/145
+  F1 by month: {'2026-06': (267, np.float64(5.16)), '2026-07': (537, np.float64(4.32)), '2026-08': (601, np.float64(8.01)), '2026-09': (160, np.float64(12.56)), '2026-10': (112, np.float64(12.23)), '2026-11': (129, np.float64(-3.6))}
+  F1 by series: {'BTC': (114, np.float64(-13.9)), 'DOGE': (579, np.float64(10.9)), 'HYPE': (753, np.float64(5.9)), 'XRP': (360, np.float64(6.4))}
+  F1 by minutes left: {1: (263, np.float64(6.0)), 2: (259, np.float64(2.8)), 3: (226, np.float64(2.9)), 4: (176, np.float64(5.9)), 5: (238, np.float64(8.0)), 6: (183, np.float64(5.8)), 7: (136, np.float64(8.0)), 8: (106, np.float64(12.4)), 9: (90, np.float64(5.4)), 10: (64, np.float64(10.4)), 11: (65, np.float64(14.0))}
+  F1 one trade per market: n=1381 P&L +6.46c [+3.56,+9.42]
+  F1 median volume printed in window: 62; 25th pct 17
+  illustration, 10 contracts per F1 fill: mean $7.88/day, median $4.57, worst $-37.01, best $71.58, max drawdown $77.15, capital per trade ~$4.47

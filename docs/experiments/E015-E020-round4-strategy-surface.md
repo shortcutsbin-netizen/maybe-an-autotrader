@@ -18,7 +18,7 @@ Status: DRAFT — sections marked *pending* are filled as data lands.
 | E017 | Model-informed deep resting orders (all minutes, zero fee) | Validation −2…−3c per fill at every distance (4–16c from fair); model barely better than quoting around the mid | **Rejected** (train *pending*) |
 | E018 | 15-min commodities / FX / yields / S&P | Calibrated; taker EV < 0 everywhere; no settlement feed (Pyth now paid, ≥$500/month); book-only and cross-market models produce no edge | **Rejected / blocked** |
 | E019 | Hourly temperature vs the public Kalshi Weather Index (the exact settlement series) | Index matches every settlement; nowcast+market stack beats the mid in-sample only; validation trades −2…−9c; ~10 contracts/min | **Rejected** (one hypothesis kept) |
-| E020 | Polymarket 15-min price as an S1-D feature | *pending* | — |
+| E020 | Polymarket 15-min price as an S1-D feature (BTC, DOGE, HYPE, XRP) | Polymarket forecasts worse than Kalshi (Brier 0.158 vs 0.140); adding it to the stack does not improve out-of-fit Brier (0.13952 vs 0.13944); the extra signals it creates earn what the 4–8c band already earns | **Rejected** (no incremental information) |
 | — | Bucket-sum arbitrage (daily weather brackets; hourly crypto ranges) | Weather: 256 of 19,205 10-min snapshots, median edge 0.3–0.9c; crypto ranges *pending* | Monitor only |
 | — | Kalshi Liquidity Incentive Program | Public API lists ~7,200 programs; none on 15-min crypto, hourly/daily weather or other short markets | Out of scope (long-dated) |
 
@@ -148,11 +148,27 @@ volume in a signal minute ~10 contracts. **Kept as a hypothesis:** in the last 5
 stack beat the mid on validation (0.0962 vs 0.1013) — chosen after seeing validation, so it needs fresh data.
 Output: `output/E019_lag{1,2,5}.txt`.
 
-## E020 — Polymarket as a signal *(pending)*
+## E020 — Polymarket as a signal
 
 Polymarket lists 15-minute up/down markets for BTC, ETH, SOL, XRP, DOGE, BNB, HYPE (slug
-`<coin>-updown-15m-<window start>`), resolving on Chainlink's 60-second TWAP stream — not CF Benchmarks, so they
-cannot be an arbitrage leg (S9 stays rejected). BTC ~$32k volume per window. Price paths pulled Jun 1–Nov 21.
+`<coin>-updown-15m-<window start>`; none for NEAR or ZEC), resolving on Chainlink's 60-second TWAP stream — not
+CF Benchmarks, so they cannot be an arbitrage leg (S9 stays rejected). Volume per window: BTC ~$32k, XRP ~$1.1k.
+Price paths pulled for Jun 1–Nov 21 (`poly-<coin>-001`, ~21 points per window); aligned as-of each Kalshi minute
+end using only points at least 5 s old; a Polymarket price exists for ~38% of Kalshi minute rows.
+
+Run on the four coins that had landed (BTC, DOGE, HYPE, XRP; ETH/SOL/BNB landed later and were not needed for the
+conclusion). Out-of-fit Brier, 479,231 rows on 145 days:
+
+| period | Kalshi mid | Polymarket | blend | frozen S1-D | S1-D + Polymarket |
+|---|---|---|---|---|---|
+| Jun 1–Sep 12 | 0.13998 | 0.15792 | 0.13989 | 0.13944 | 0.13952 |
+| Oct 12–Nov 12 | 0.14415 | 0.15871 | 0.14430 | 0.14372 | 0.14381 |
+| Nov 13–21 | 0.14748 | 0.16104 | 0.14776 | 0.14725 | 0.14747 |
+
+The augmented model raises the >8c signal count from 1,611 to 4,999; signals both models agree on earn +9.96c
+(F1), the augmented-only ones +6.33c — the same as the frozen model's own 4–8c band (E016c), i.e. the extra
+input mostly moves signals across the threshold rather than adding information. Output:
+`output/E020_polymarket_btc_doge_hype_xrp.txt`.
 
 ## Other checks
 
