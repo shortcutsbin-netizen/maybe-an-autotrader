@@ -1,0 +1,12 @@
+metals: 19717 markets, 266018 two-sided minute rows, days 2026-09-22..2026-11-20 train 2026-09-22..2026-10-27 val 2026-10-28..2026-11-08 (last 20% closed)
+coefficients (standardised): {'lmid': np.float64(2.064), 'd1': np.float64(-0.031), 'd3': np.float64(-0.019), 'd5': np.float64(0.019), 'spread': np.float64(-0.041), 'minutes_left': np.float64(-0.029), 'cross': np.float64(0.045), 'cross3': np.float64(0.01)}
+  train: Brier mid 0.16011  model 0.15978
+    no signals
+  val: Brier mid 0.15552  model 0.15545
+    no signals
+energy: 10917 markets, 148762 two-sided minute rows, days 2026-09-22..2026-11-21 train 2026-09-22..2026-10-27 val 2026-10-28..2026-11-08 (last 20% closed)
+coefficients (standardised): {'lmid': np.float64(1.991), 'd1': np.float64(-0.012), 'd3': np.float64(-0.014), 'd5': np.float64(0.01), 'spread': np.float64(0.027), 'minutes_left': np.float64(-0.003), 'cross': np.float64(0.017), 'cross3': np.float64(0.037)}
+  train: Brier mid 0.16226  model 0.16206
+    no signals
+  val: Brier mid 0.16221  model 0.16213
+    no signals

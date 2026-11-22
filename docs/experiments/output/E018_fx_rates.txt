@@ -1,0 +1,20 @@
+fx: 17854 markets, 233563 two-sided minute rows, days 2026-09-23..2026-11-20 train 2026-09-23..2026-10-27 val 2026-10-28..2026-11-08 (last 20% closed)
+coefficients (standardised): {'lmid': np.float64(1.96), 'd1': np.float64(-0.033), 'd3': np.float64(-0.043), 'd5': np.float64(-0.026), 'spread': np.float64(-0.022), 'minutes_left': np.float64(-0.024), 'cross': np.float64(0.021), 'cross3': np.float64(0.016)}
+  train: Brier mid 0.16320  model 0.16302
+    pnl_now: n=3 (1/day, 3 markets) +25.73c [+nan,+nan]
+    pnl_next: n=1 (1/day, 1 markets) -28.38c [+nan,+nan]
+    by series (next-minute fill): {'KXUSDCAD15M': {'count': 1, 'mean': -0.2838}}
+  val: Brier mid 0.16278  model 0.16295
+    pnl_now: n=3 (1/day, 3 markets) +2.90c [+nan,+nan]
+    pnl_next: n=1 (1/day, 1 markets) +0.93c [+nan,+nan]
+    by series (next-minute fill): {'KXAUDUSD15M': {'count': 1, 'mean': 0.0093}}
+rates: 5040 markets, 61241 two-sided minute rows, days 2026-10-19..2026-11-20 train 2026-10-19..2026-11-05 val 2026-11-06..2026-11-13 (last 20% closed)
+coefficients (standardised): {'lmid': np.float64(1.435), 'd1': np.float64(-0.127), 'd3': np.float64(-0.126), 'd5': np.float64(0.047), 'spread': np.float64(-0.012), 'minutes_left': np.float64(0.013), 'cross': np.float64(0.076), 'cross3': np.float64(0.082)}
+  train: Brier mid 0.19064  model 0.19023
+    pnl_now: n=36 (3/day, 34 markets) +0.63c [-13.88,+21.41]
+    pnl_next: n=22 (3/day, 22 markets) +1.42c [-11.94,+19.95]
+    by series (next-minute fill): {'KX10YRRATE15M': {'count': 1, 'mean': 0.2562}, 'KX2YRRATE15M': {'count': 10, 'mean': -0.0484}, 'KX30YRRATE15M': {'count': 6, 'mean': -0.0205}, 'KX5YRRATE15M': {'count': 5, 'mean': 0.1327}}
+  val: Brier mid 0.16900  model 0.16863
+    pnl_now: n=24 (5/day, 24 markets) -11.21c [-28.19,+7.02]
+    pnl_next: n=12 (2/day, 12 markets) -11.26c [-33.71,+2.11]
+    by series (next-minute fill): {'KX10YRRATE15M': {'count': 1, 'mean': -0.3761}, 'KX2YRRATE15M': {'count': 10, 'mean': -0.1202}, 'KX30YRRATE15M': {'count': 1, 'mean': 0.2272}}

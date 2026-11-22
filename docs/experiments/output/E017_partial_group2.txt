@@ -1,0 +1,48 @@
+prints 3778330 markets with prints 1536 of 6528
+rows by split {'train': 45173, 'val': 24225} share of rows with any print in the next 60 s 0.231
+
+=== model-informed (q = frozen S1-D probability)
+  through delta 0.02 | train: n=0 | val: 1283.0 fills/4h -2.14c [-2.62,-1.72]
+  through delta 0.04 | train: n=0 | val: 1095.8 fills/4h -2.34c [-3.00,-1.82]
+  through delta 0.06 | train: n=0 | val: 886.8 fills/4h -2.91c [-3.84,-2.10]
+  through delta 0.08 | train: n=0 | val: 721.8 fills/4h -2.84c [-4.06,-1.80]
+  through delta 0.12 | train: n=0 | val: 474.3 fills/4h -3.22c [-4.85,-2.01]
+  through delta 0.16 | train: n=0 | val: 320.6 fills/4h -1.72c [-3.58,-0.07]
+  touch   delta 0.02 | train: n=0 | val: 1375.3 fills/4h -1.25c [-1.68,-0.83]
+  touch   delta 0.04 | train: n=0 | val: 1175.6 fills/4h -1.58c [-2.22,-1.08]
+  touch   delta 0.06 | train: n=0 | val: 958.8 fills/4h -1.89c [-2.74,-1.15]
+  touch   delta 0.08 | train: n=0 | val: 778.2 fills/4h -2.12c [-3.32,-1.03]
+  touch   delta 0.12 | train: n=0 | val: 515.4 fills/4h -2.20c [-3.52,-1.19]
+  touch   delta 0.16 | train: n=0 | val: 347.8 fills/4h -0.95c [-2.75,+0.53]
+
+=== model-informed, deep orders only (resting behind the touch)
+  through delta 0.02 | train: n=0 | val: 1051.8 fills/4h -2.35c [-3.30,-1.50]
+  through delta 0.04 | train: n=0 | val: 1015.3 fills/4h -2.41c [-3.03,-1.80]
+  through delta 0.06 | train: n=0 | val: 858.6 fills/4h -3.03c [-3.96,-2.23]
+  through delta 0.08 | train: n=0 | val: 709.0 fills/4h -2.90c [-4.05,-1.91]
+  through delta 0.12 | train: n=0 | val: 470.5 fills/4h -3.28c [-4.84,-2.10]
+  through delta 0.16 | train: n=0 | val: 319.3 fills/4h -1.83c [-3.67,-0.20]
+  touch   delta 0.02 | train: n=0 | val: 1122.4 fills/4h -1.52c [-2.51,-0.62]
+  touch   delta 0.04 | train: n=0 | val: 1088.4 fills/4h -1.62c [-2.21,-1.08]
+  touch   delta 0.06 | train: n=0 | val: 927.9 fills/4h -2.02c [-2.86,-1.29]
+  touch   delta 0.08 | train: n=0 | val: 764.6 fills/4h -2.19c [-3.32,-1.20]
+  touch   delta 0.12 | train: n=0 | val: 511.5 fills/4h -2.27c [-3.54,-1.26]
+  touch   delta 0.16 | train: n=0 | val: 346.3 fills/4h -1.09c [-2.87,+0.36]
+
+=== control: same rule around the Kalshi mid (E009 analogue)
+  through delta 0.02 | train: n=0 | val: 1493.7 fills/4h -2.34c [-2.68,-1.98]
+  through delta 0.04 | train: n=0 | val: 1153.0 fills/4h -2.63c [-3.20,-2.17]
+  through delta 0.06 | train: n=0 | val: 919.8 fills/4h -2.95c [-3.62,-2.39]
+  through delta 0.08 | train: n=0 | val: 741.6 fills/4h -3.14c [-4.07,-2.40]
+  through delta 0.12 | train: n=0 | val: 482.2 fills/4h -3.08c [-4.35,-2.13]
+  through delta 0.16 | train: n=0 | val: 320.7 fills/4h -2.45c [-4.13,-1.02]
+  touch   delta 0.02 | train: n=0 | val: 1594.4 fills/4h -1.48c [-1.82,-1.13]
+  touch   delta 0.04 | train: n=0 | val: 1238.5 fills/4h -1.92c [-2.41,-1.48]
+  touch   delta 0.06 | train: n=0 | val: 990.6 fills/4h -2.00c [-2.66,-1.47]
+  touch   delta 0.08 | train: n=0 | val: 796.6 fills/4h -2.19c [-3.13,-1.47]
+  touch   delta 0.12 | train: n=0 | val: 522.5 fills/4h -2.29c [-3.67,-1.25]
+  touch   delta 0.16 | train: n=0 | val: 347.7 fills/4h -1.79c [-3.40,-0.48]
+
+val through delta .08 by series: {'KXBNB15M': {'count': 1032, 'mean': -0.0269}, 'KXDOGE15M': {'count': 1057, 'mean': -0.0379}, 'KXETH15M': {'count': 1189, 'mean': -0.0132}, 'KXHYPE15M': {'count': 1069, 'mean': -0.0237}, 'KXNEAR15M': {'count': 1042, 'mean': -0.0306}, 'KXSOL15M': {'count': 1103, 'mean': -0.0167}, 'KXXRP15M': {'count': 1127, 'mean': -0.0471}, 'KXZEC15M': {'count': 1043, 'mean': -0.0327}}
+val through delta .08 by minutes left: {Interval(0, 2, closed='right'): {'count': 1040, 'mean': -0.0313}, Interval(2, 5, closed='right'): {'count': 2430, 'mean': -0.027}, Interval(5, 10, closed='right'): {'count': 4300, 'mean': -0.0265}, Interval(10, 15, closed='right'): {'count': 892, 'mean': -0.0385}}
+val through delta .08 by side: {'buy': {'count': 4263, 'mean': -0.0188}, 'sell': {'count': 4399, 'mean': -0.0377}}

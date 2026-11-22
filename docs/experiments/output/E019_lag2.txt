@@ -1,0 +1,29 @@
+KXTEMPMIAH/miami: 14543 markets, 1451 hours; index points 64689; index@close == expiration value for 100.0% of 1064 hours (within 0.1F 100.0%)
+KXTEMPNYCHS/nyc: 14320 markets, 1423 hours; index points 64282; index@close == expiration value for 100.0% of 1040 hours (within 0.1F 100.0%)
+KXTEMPCHIHS/chicago: 14640 markets, 1452 hours; index points 64715; index@close == expiration value for 100.0% of 1064 hours (within 0.1F 100.0%)
+KXTEMPLAXHS/la-coastal: 14620 markets, 1451 hours; index points 64705; index@close == expiration value for 100.0% of 1064 hours (within 0.1F 100.0%)
+
+rows 541504; days 2026-10-08..2026-11-22; lag 2 min; train 2026-10-08..2026-11-03, val 2026-11-04..2026-11-12
+  stack coefficients: {'lmid': np.float64(2.919), 'lq': np.float64(0.519), 'zk': np.float64(-0.341), 'slope': np.float64(0.077), 'lead': np.float64(0.07), 'dmid1': np.float64(-0.03)}
+  train: n=340618  Brier market mid 0.0887  stack 0.0874
+  val: n=104961  Brier market mid 0.0887  stack 0.0889
+  train: n=340618  Brier market mid 0.0887  nowcast 0.1660  stack 0.0874
+     lead (0, 5]     n= 10484  mid 0.0926  nowcast 0.0955  stack 0.0893
+     lead (10, 20]   n= 47234  mid 0.0947  nowcast 0.1444  stack 0.0932
+     lead (20, 30]   n= 55344  mid 0.0900  nowcast 0.1635  stack 0.0886
+     lead (30, 45]   n= 96104  mid 0.0862  nowcast 0.1779  stack 0.0854
+     lead (45, 70]   n=111107  mid 0.0860  nowcast 0.1814  stack 0.0847
+     lead (5, 10]    n= 20345  mid 0.0961  nowcast 0.1195  stack 0.0945
+  val: n=104961  Brier market mid 0.0887  nowcast 0.1734  stack 0.0889
+     lead (0, 5]     n=  3475  mid 0.1007  nowcast 0.1125  stack 0.0993
+     lead (10, 20]   n= 16070  mid 0.0982  nowcast 0.1681  stack 0.0995
+     lead (20, 30]   n= 19139  mid 0.0889  nowcast 0.1807  stack 0.0903
+     lead (30, 45]   n= 31846  mid 0.0833  nowcast 0.1883  stack 0.0843
+     lead (45, 70]   n= 27539  mid 0.0846  nowcast 0.1714  stack 0.0820
+     lead (5, 10]    n=  6892  mid 0.1020  nowcast 0.1351  stack 0.1032
+  trading (taker, one trade per market, first qualifying minute):
+    theta 0.03: train n=3456 (128/day) now +3.42c [+2.1,+4.7] next +0.17c [-1.2,+1.4] | val n=898 (100/day) now -1.12c [-4.0,+1.6] next -4.45c [-6.9,-2.1]
+    theta 0.05: train n=1891 (70/day) now +6.21c [+4.4,+8.1] next +1.84c [+0.1,+3.6] | val n=477 (53/day) now -4.51c [-7.7,-0.6] next -8.82c [-12.0,-5.1]
+    theta 0.08: train n=576 (21/day) now +10.44c [+6.0,+14.4] next +3.85c [-0.8,+8.0] | val n=126 (14/day) now -9.29c [-17.1,-0.8] next -15.99c [-24.2,-7.1]
+    theta 0.12: train n=40 (2/day) now +6.75c [-8.7,+21.5] next -2.93c [-19.5,+13.3] | val n=8 (2/day) 
+  val theta .05 by series: {'KXTEMPCHIHS': 118, 'KXTEMPLAXHS': 134, 'KXTEMPMIAH': 91, 'KXTEMPNYCHS': 134}  median volume in signal minute 13.95

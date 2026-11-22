@@ -1,0 +1,200 @@
+######## xrp
+KXXRPD vs KXXRP15M: 1409 common hours, 5636 ladder markets kept
+settlement value agreement: max rel diff 0.00e+00, share > 1e-6: 0.000%
+minute x strike rows: 68212; with two-sided 15m quote: 97.0%; two-sided ladder quote: 17.3%
+
+Box A (YES15 + NO ladder, K>=K15): 5989 minute-strike quotes
+  H1: cost<1 before fees 0.39%; after fees 1 quotes in 1 hours; median edge 0.03c; mean 15m vol in minute 3548, ladder vol 167
+  H2: cost<1 before fees 0.04%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+  best per hour: n=1, edge mean 0.03c, p90 0.03c; |K-K15|/K15 median 0.0133%; sec_left median 600
+  edge by seconds left: {Interval(300, 600, closed='right'): {'count': 1, 'mean': 0.0003}}
+
+Box B (NO15 + YES ladder, K<K15): 5848 minute-strike quotes
+  H1: cost<1 before fees 0.12%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+  H2: cost<1 before fees 0.16%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+
+Within-ladder monotonicity: 1036 minute snapshots with >=2 two-sided strikes; 0 snapshots with an after-fee violation; median edge nanc
+
+Relative value: 948 minutes (236 hours) with bracketing two-sided strikes; median bracket width 1.327%
+  H1: n=763  Brier 15m mid 0.2200  ladder-implied 0.2406  blend 0.2247;  |gap| mean 11.58c, p90 24.38c
+  H2: n=185  Brier 15m mid 0.2081  ladder-implied 0.2211  blend 0.2105;  |gap| mean 10.03c, p90 20.51c
+  rule 'trade 15m toward ladder', one trade per hour:
+    theta 0.00: H1 n=161 -4.01c [-11.1,+1.2]; H2 n=65 -5.95c [-15.6,+5.4]
+    theta 0.02: H1 n=155 -3.43c [-12.6,+2.2]; H2 n=58 -0.88c [-10.8,+11.2]
+    theta 0.04: H1 n=148 -5.28c [-14.1,+1.1]; H2 n=54 -1.16c [-13.0,+14.1]
+    theta 0.06: H1 n=137 -4.77c [-14.6,+1.3]; H2 n=49 -2.73c [-15.1,+11.1]
+    theta 0.08: H1 n=123 -2.15c [-11.4,+6.5]; H2 n=43 -5.67c [-17.9,+8.9]
+Reverse rule (ladder strike nearest K15, rel dist <= cap): 10277 two-sided minutes, 1137 hours; median rel dist 0.2408%; median ladder spread 3.0c; mean ladder volume per minute 63
+  cap 0.05% theta 0.02: H1 n=36 +6.05c [-8.6,+16.7] vol/min 43; H2 n=31 -9.08c [-27.0,+7.9] vol/min 144
+  cap 0.05% theta 0.05: H1 n=25 -1.93c [-14.3,+10.2] vol/min 86; H2 n=27 -3.99c [-20.9,+16.7] vol/min 143
+  cap 0.05% theta 0.08: H1 n=20 -7.97c [-24.6,+7.9] vol/min 86; H2 n=19 -2.71c [-20.6,+18.3] vol/min 140
+  cap 0.20% theta 0.02: H1 n=183 -4.87c [-11.8,+0.9] vol/min 38; H2 n=155 -4.19c [-10.2,+1.9] vol/min 115
+  cap 0.20% theta 0.05: H1 n=169 -7.05c [-13.2,-1.5] vol/min 43; H2 n=149 -3.11c [-9.4,+2.4] vol/min 117
+  cap 0.20% theta 0.08: H1 n=160 -7.82c [-13.9,-2.2] vol/min 43; H2 n=132 -1.72c [-7.7,+4.1] vol/min 101
+######## doge
+KXDOGED vs KXDOGE15M: 1409 common hours, 5636 ladder markets kept
+settlement value agreement: max rel diff 0.00e+00, share > 1e-6: 0.000%
+minute x strike rows: 71253; with two-sided 15m quote: 97.2%; two-sided ladder quote: 6.0%
+
+Box A (YES15 + NO ladder, K>=K15): 2408 minute-strike quotes
+  H1: cost<1 before fees 0.72%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+  H2: cost<1 before fees 0.53%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+
+Box B (NO15 + YES ladder, K<K15): 1844 minute-strike quotes
+  H1: cost<1 before fees 0.00%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+  H2: cost<1 before fees 0.14%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+
+Within-ladder monotonicity: 74 minute snapshots with >=2 two-sided strikes; 0 snapshots with an after-fee violation; median edge nanc
+
+Relative value: 66 minutes (26 hours) with bracketing two-sided strikes; median bracket width 5.327%
+  H1: n=66  Brier 15m mid 0.1937  ladder-implied 0.2627  blend 0.2076;  |gap| mean 23.57c, p90 46.68c
+  H2: n=0  Brier 15m mid nan  ladder-implied nan  blend nan;  |gap| mean nanc, p90 nanc
+  rule 'trade 15m toward ladder', one trade per hour:
+    theta 0.00: H1 n=22 -0.58c [-16.5,+16.4]; H2 n=0
+    theta 0.02: H1 n=21 -2.43c [-24.1,+15.6]; H2 n=0
+    theta 0.04: H1 n=21 -1.69c [-24.1,+16.3]; H2 n=0
+    theta 0.06: H1 n=21 -1.69c [-24.1,+16.3]; H2 n=0
+    theta 0.08: H1 n=21 -1.50c [-23.8,+16.4]; H2 n=0
+Reverse rule (ladder strike nearest K15, rel dist <= cap): 4075 two-sided minutes, 499 hours; median rel dist 0.3686%; median ladder spread 4.0c; mean ladder volume per minute 68
+  cap 0.05% theta 0.02: H1 n=10 +13.05c [-26.8,+46.1] vol/min 99; H2 n=9 -18.76c [-43.1,+0.6] vol/min 19
+  cap 0.05% theta 0.05: H1 n=8 +23.69c [-12.6,+57.9] vol/min 147; H2 n=7 -18.90c [-53.6,+7.2] vol/min 23
+  cap 0.05% theta 0.08: H1 n=4; H2 n=5 -18.72c [-43.8,+9.2] vol/min 37
+  cap 0.20% theta 0.02: H1 n=50 -3.40c [-18.5,+11.6] vol/min 26; H2 n=54 -14.75c [-24.2,-7.4] vol/min 32
+  cap 0.20% theta 0.05: H1 n=47 -4.16c [-18.6,+12.4] vol/min 28; H2 n=50 -13.68c [-24.7,-5.2] vol/min 38
+  cap 0.20% theta 0.08: H1 n=42 -7.64c [-22.6,+9.4] vol/min 14; H2 n=46 -12.94c [-24.7,-4.9] vol/min 43
+######## eth
+KXETHD vs KXETH15M: 1409 common hours, 10613 ladder markets kept
+settlement value agreement: max rel diff 0.00e+00, share > 1e-6: 0.000%
+minute x strike rows: 129037; with two-sided 15m quote: 96.7%; two-sided ladder quote: 44.7%
+
+Box A (YES15 + NO ladder, K>=K15): 28868 minute-strike quotes
+  H1: cost<1 before fees 0.20%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+  H2: cost<1 before fees 0.23%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+
+Box B (NO15 + YES ladder, K<K15): 28937 minute-strike quotes
+  H1: cost<1 before fees 0.26%; after fees 3 quotes in 2 hours; median edge 2.92c; mean 15m vol in minute 9757, ladder vol 5120
+  H2: cost<1 before fees 0.19%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+  best per hour: n=2, edge mean 4.75c, p90 6.22c; |K-K15|/K15 median 0.0026%; sec_left median 480
+  edge by seconds left: {Interval(120, 300, closed='right'): {'count': 1, 'mean': 0.0659}, Interval(600, 900, closed='right'): {'count': 2, 'mean': 0.0273}}
+
+Within-ladder monotonicity: 15185 minute snapshots with >=2 two-sided strikes; 0 snapshots with an after-fee violation; median edge nanc
+
+Relative value: 12865 minutes (1346 hours) with bracketing two-sided strikes; median bracket width 0.208%
+  H1: n=6473  Brier 15m mid 0.1796  ladder-implied 0.1868  blend 0.1818;  |gap| mean 4.99c, p90 12.22c
+  H2: n=6392  Brier 15m mid 0.1901  ladder-implied 0.1933  blend 0.1906;  |gap| mean 4.60c, p90 10.79c
+  rule 'trade 15m toward ladder', one trade per hour:
+    theta 0.00: H1 n=667 -0.91c [-5.4,+2.8]; H2 n=665 +1.70c [-2.0,+4.7]
+    theta 0.02: H1 n=576 +0.16c [-3.3,+3.3]; H2 n=578 +0.77c [-3.2,+4.8]
+    theta 0.04: H1 n=470 -0.58c [-4.0,+2.3]; H2 n=482 +0.60c [-3.3,+3.8]
+    theta 0.06: H1 n=394 -2.06c [-5.3,+1.2]; H2 n=393 -0.57c [-4.5,+3.2]
+    theta 0.08: H1 n=325 -1.05c [-4.5,+2.2]; H2 n=309 -2.46c [-6.8,+1.8]
+Reverse rule (ladder strike nearest K15, rel dist <= cap): 16619 two-sided minutes, 1394 hours; median rel dist 0.0523%; median ladder spread 2.0c; mean ladder volume per minute 564
+  cap 0.05% theta 0.02: H1 n=311 +0.06c [-6.3,+7.0] vol/min 560; H2 n=225 +1.24c [-5.5,+7.8] vol/min 533
+  cap 0.05% theta 0.05: H1 n=257 +0.91c [-5.3,+7.4] vol/min 606; H2 n=171 +1.66c [-5.2,+8.4] vol/min 621
+  cap 0.05% theta 0.08: H1 n=194 +2.95c [-3.2,+9.5] vol/min 671; H2 n=134 +1.63c [-6.0,+8.5] vol/min 808
+  cap 0.20% theta 0.02: H1 n=642 -2.91c [-6.9,+1.0] vol/min 527; H2 n=614 -1.32c [-5.6,+3.1] vol/min 450
+  cap 0.20% theta 0.05: H1 n=587 -2.69c [-6.7,+1.0] vol/min 540; H2 n=556 -1.77c [-5.9,+2.9] vol/min 470
+  cap 0.20% theta 0.08: H1 n=516 -2.14c [-5.6,+1.2] vol/min 557; H2 n=505 -2.11c [-5.8,+2.1] vol/min 497
+######## sol
+KXSOLD vs KXSOL15M: 1409 common hours, 11166 ladder markets kept
+settlement value agreement: max rel diff 0.00e+00, share > 1e-6: 0.000%
+minute x strike rows: 129889; with two-sided 15m quote: 96.7%; two-sided ladder quote: 45.8%
+
+Box A (YES15 + NO ladder, K>=K15): 30037 minute-strike quotes
+  H1: cost<1 before fees 0.15%; after fees 2 quotes in 2 hours; median edge 7.44c; mean 15m vol in minute 14066, ladder vol 287
+  H2: cost<1 before fees 0.12%; after fees 1 quotes in 1 hours; median edge 0.05c; mean 15m vol in minute 10830, ladder vol 40
+  best per hour: n=3, edge mean 4.98c, p90 11.75c; |K-K15|/K15 median 0.0084%; sec_left median 480
+  edge by seconds left: {Interval(120, 300, closed='right'): {'count': 1, 'mean': 0.0005}, Interval(300, 600, closed='right'): {'count': 1, 'mean': 0.1461}, Interval(600, 900, closed='right'): {'count': 1, 'mean': 0.0028}}
+
+Box B (NO15 + YES ladder, K<K15): 29486 minute-strike quotes
+  H1: cost<1 before fees 0.12%; after fees 3 quotes in 2 hours; median edge 0.34c; mean 15m vol in minute 2563, ladder vol 18
+  H2: cost<1 before fees 0.07%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+  best per hour: n=2, edge mean 0.42c, p90 0.49c; |K-K15|/K15 median 0.0418%; sec_left median 300
+  edge by seconds left: {Interval(0, 120, closed='right'): {'count': 1, 'mean': 0.005}, Interval(300, 600, closed='right'): {'count': 2, 'mean': 0.0025}}
+
+Within-ladder monotonicity: 15772 minute snapshots with >=2 two-sided strikes; 0 snapshots with an after-fee violation; median edge nanc
+
+Relative value: 13226 minutes (1360 hours) with bracketing two-sided strikes; median bracket width 0.240%
+  H1: n=6932  Brier 15m mid 0.1801  ladder-implied 0.1854  blend 0.1815;  |gap| mean 4.92c, p90 11.42c
+  H2: n=6294  Brier 15m mid 0.1857  ladder-implied 0.1897  blend 0.1864;  |gap| mean 5.04c, p90 11.89c
+  rule 'trade 15m toward ladder', one trade per hour:
+    theta 0.00: H1 n=680 -0.84c [-4.6,+2.5]; H2 n=668 +1.93c [-1.7,+5.5]
+    theta 0.02: H1 n=615 -2.45c [-6.4,+1.5]; H2 n=592 +0.52c [-2.5,+3.9]
+    theta 0.04: H1 n=499 -1.81c [-5.5,+1.9]; H2 n=491 -1.27c [-5.3,+2.6]
+    theta 0.06: H1 n=424 -3.94c [-8.2,-0.5]; H2 n=408 -0.73c [-5.4,+3.8]
+    theta 0.08: H1 n=344 -2.74c [-6.4,+0.5]; H2 n=327 -0.31c [-5.5,+4.5]
+Reverse rule (ladder strike nearest K15, rel dist <= cap): 16753 two-sided minutes, 1404 hours; median rel dist 0.0641%; median ladder spread 5.0c; mean ladder volume per minute 106
+  cap 0.05% theta 0.02: H1 n=227 +2.38c [-2.9,+8.2] vol/min 71; H2 n=172 -1.74c [-9.2,+5.6] vol/min 164
+  cap 0.05% theta 0.05: H1 n=169 +3.07c [-3.5,+9.2] vol/min 87; H2 n=112 -1.53c [-10.0,+7.4] vol/min 197
+  cap 0.05% theta 0.08: H1 n=113 +1.72c [-5.8,+8.0] vol/min 103; H2 n=81 -2.46c [-12.6,+7.8] vol/min 255
+  cap 0.20% theta 0.02: H1 n=616 -2.69c [-6.1,+0.8] vol/min 54; H2 n=629 -3.11c [-5.6,-0.8] vol/min 112
+  cap 0.20% theta 0.05: H1 n=548 -3.10c [-6.7,+0.2] vol/min 55; H2 n=556 -3.23c [-6.0,-0.3] vol/min 120
+  cap 0.20% theta 0.08: H1 n=465 -4.44c [-8.1,-0.8] vol/min 56; H2 n=497 -3.76c [-6.8,-0.6] vol/min 122
+######## hype
+KXHYPED vs KXHYPE15M: 1409 common hours, 9084 ladder markets kept
+settlement value agreement: max rel diff 0.00e+00, share > 1e-6: 0.000%
+minute x strike rows: 105478; with two-sided 15m quote: 96.0%; two-sided ladder quote: 52.9%
+
+Box A (YES15 + NO ladder, K>=K15): 28132 minute-strike quotes
+  H1: cost<1 before fees 0.16%; after fees 1 quotes in 1 hours; median edge 0.26c; mean 15m vol in minute 1187, ladder vol 9
+  H2: cost<1 before fees 0.07%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+  best per hour: n=1, edge mean 0.26c, p90 0.26c; |K-K15|/K15 median 0.1495%; sec_left median 300
+  edge by seconds left: {Interval(120, 300, closed='right'): {'count': 1, 'mean': 0.0026}}
+
+Box B (NO15 + YES ladder, K<K15): 27938 minute-strike quotes
+  H1: cost<1 before fees 0.12%; after fees 2 quotes in 2 hours; median edge 0.20c; mean 15m vol in minute 4559, ladder vol 6
+  H2: cost<1 before fees 0.04%; after fees 1 quotes in 1 hours; median edge 0.32c; mean 15m vol in minute 1436, ladder vol 28
+  best per hour: n=3, edge mean 0.24c, p90 0.30c; |K-K15|/K15 median 0.0423%; sec_left median 540
+  edge by seconds left: {Interval(0, 120, closed='right'): {'count': 1, 'mean': 0.0018}, Interval(300, 600, closed='right'): {'count': 1, 'mean': 0.0022}, Interval(600, 900, closed='right'): {'count': 1, 'mean': 0.0032}}
+
+Within-ladder monotonicity: 15583 minute snapshots with >=2 two-sided strikes; 0 snapshots with an after-fee violation; median edge nanc
+
+Relative value: 12700 minutes (1356 hours) with bracketing two-sided strikes; median bracket width 0.306%
+  H1: n=6453  Brier 15m mid 0.1875  ladder-implied 0.1951  blend 0.1897;  |gap| mean 5.89c, p90 13.10c
+  H2: n=6247  Brier 15m mid 0.1862  ladder-implied 0.1902  blend 0.1869;  |gap| mean 4.95c, p90 11.22c
+  rule 'trade 15m toward ladder', one trade per hour:
+    theta 0.00: H1 n=672 -3.44c [-5.7,-1.0]; H2 n=663 -0.44c [-4.1,+3.6]
+    theta 0.02: H1 n=623 -2.70c [-6.1,+0.7]; H2 n=596 -0.71c [-4.1,+2.7]
+    theta 0.04: H1 n=550 -2.51c [-6.4,+1.1]; H2 n=492 -1.71c [-4.6,+1.5]
+    theta 0.06: H1 n=461 -1.96c [-5.7,+2.0]; H2 n=378 -1.26c [-5.0,+2.5]
+    theta 0.08: H1 n=381 -0.37c [-4.5,+4.1]; H2 n=300 +0.42c [-3.2,+5.0]
+Reverse rule (ladder strike nearest K15, rel dist <= cap): 16192 two-sided minutes, 1396 hours; median rel dist 0.0770%; median ladder spread 6.0c; mean ladder volume per minute 18
+  cap 0.05% theta 0.02: H1 n=176 +3.91c [-3.4,+9.9] vol/min 21; H2 n=116 -3.63c [-9.4,+2.0] vol/min 25
+  cap 0.05% theta 0.05: H1 n=126 +8.18c [+0.8,+15.4] vol/min 17; H2 n=65 -1.75c [-10.5,+8.2] vol/min 39
+  cap 0.05% theta 0.08: H1 n=91 +7.51c [-1.7,+16.7] vol/min 20; H2 n=39 +1.98c [-11.0,+14.4] vol/min 60
+  cap 0.20% theta 0.02: H1 n=613 -0.48c [-4.8,+4.3] vol/min 15; H2 n=559 -2.92c [-5.4,-0.4] vol/min 18
+  cap 0.20% theta 0.05: H1 n=538 +0.59c [-3.7,+5.5] vol/min 14; H2 n=486 -2.20c [-5.2,+0.6] vol/min 18
+  cap 0.20% theta 0.08: H1 n=477 +0.63c [-3.8,+5.7] vol/min 14; H2 n=421 -1.29c [-5.0,+2.5] vol/min 18
+######## bnb
+KXBNBD vs KXBNB15M: 1409 common hours, 5636 ladder markets kept
+settlement value agreement: max rel diff 0.00e+00, share > 1e-6: 0.000%
+minute x strike rows: 69409; with two-sided 15m quote: 95.4%; two-sided ladder quote: 25.0%
+
+Box A (YES15 + NO ladder, K>=K15): 8461 minute-strike quotes
+  H1: cost<1 before fees 0.11%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+  H2: cost<1 before fees 0.02%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+
+Box B (NO15 + YES ladder, K<K15): 8831 minute-strike quotes
+  H1: cost<1 before fees 0.06%; after fees 1 quotes in 1 hours; median edge 0.26c; mean 15m vol in minute 169, ladder vol 2
+  H2: cost<1 before fees 0.05%; after fees 0 quotes in 0 hours; median edge nanc; mean 15m vol in minute nan, ladder vol nan
+  best per hour: n=1, edge mean 0.26c, p90 0.26c; |K-K15|/K15 median 0.3478%; sec_left median 360
+  edge by seconds left: {Interval(300, 600, closed='right'): {'count': 1, 'mean': 0.0026}}
+
+Within-ladder monotonicity: 3194 minute snapshots with >=2 two-sided strikes; 0 snapshots with an after-fee violation; median edge nanc
+
+Relative value: 2690 minutes (530 hours) with bracketing two-sided strikes; median bracket width 0.669%
+  H1: n=1719  Brier 15m mid 0.1859  ladder-implied 0.2400  blend 0.2022;  |gap| mean 16.40c, p90 34.30c
+  H2: n=971  Brier 15m mid 0.2159  ladder-implied 0.2254  blend 0.2167;  |gap| mean 9.77c, p90 20.08c
+  rule 'trade 15m toward ladder', one trade per hour:
+    theta 0.00: H1 n=289 -5.93c [-10.7,-1.0]; H2 n=225 -2.94c [-8.8,+3.6]
+    theta 0.02: H1 n=279 -4.41c [-9.1,-0.2]; H2 n=211 -1.12c [-6.2,+4.3]
+    theta 0.04: H1 n=265 -5.10c [-8.8,-1.1]; H2 n=193 +1.39c [-4.9,+7.6]
+    theta 0.06: H1 n=247 -3.79c [-7.8,+0.4]; H2 n=176 +0.28c [-6.6,+7.2]
+    theta 0.08: H1 n=244 -4.46c [-8.6,-0.3]; H2 n=153 +2.75c [-4.4,+11.3]
+Reverse rule (ladder strike nearest K15, rel dist <= cap): 12771 two-sided minutes, 1319 hours; median rel dist 0.1343%; median ladder spread 5.0c; mean ladder volume per minute 11
+  cap 0.05% theta 0.02: H1 n=85 -2.61c [-14.0,+9.6] vol/min 7; H2 n=62 -5.26c [-16.0,+3.6] vol/min 13
+  cap 0.05% theta 0.05: H1 n=71 -0.16c [-13.2,+12.0] vol/min 5; H2 n=47 -4.38c [-13.9,+6.8] vol/min 11
+  cap 0.05% theta 0.08: H1 n=61 +0.82c [-12.2,+14.6] vol/min 6; H2 n=36 -0.38c [-13.1,+14.1] vol/min 10
+  cap 0.20% theta 0.02: H1 n=419 -5.74c [-8.3,-3.2] vol/min 3; H2 n=370 -4.22c [-7.6,-0.8] vol/min 10
+  cap 0.20% theta 0.05: H1 n=405 -5.37c [-7.6,-3.0] vol/min 3; H2 n=355 -3.85c [-7.3,-0.4] vol/min 9
+  cap 0.20% theta 0.08: H1 n=392 -5.20c [-7.8,-2.6] vol/min 3; H2 n=344 -3.28c [-7.0,+0.3] vol/min 9

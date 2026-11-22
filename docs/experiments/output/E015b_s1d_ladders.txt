@@ -1,0 +1,35 @@
+E015b frozen S1-D on ladders (eth, sol from the interactive run; others from background log)
+KXETH15M ladder strikes: rows 39611, markets 5797, days 2026-09-22..2026-11-21; Brier ladder mid 0.0974 model 0.0974 closed-form 0.1024; median spread 1.0c, median volume/min 131
+  signals 188 (3.5/day): fill now: -0.48c [-6.68,+5.88]  median volume in signal minute 1257
+  signals 120 (2.5/day): fill next: -1.29c [-7.19,+4.98]  median volume in signal minute 1238
+  by half (next): {'H1': {'count': 64, 'mean': 0.0255}, 'H2': {'count': 56, 'mean': -0.0568}}
+  by |K/spot-1| (next): {Interval(0.0, 0.001, closed='right'): {'count': 117, 'mean': -0.015}, Interval(0.001, 0.003, closed='right'): {'count': 2, 'mean': 0.0375}, Interval(0.01, 1.0, closed='right'): {'count': 1, 'mean': 0.1316}}
+KXSOL15M ladder strikes: rows 40871, markets 5949, days 2026-09-22..2026-11-21; Brier ladder mid 0.1020 model 0.1007 closed-form 0.1041; median spread 4.0c, median volume/min 10
+  signals 142 (2.6/day): fill now: -1.22c [-8.45,+6.39]  median volume in signal minute 240
+  signals 53 (1.6/day): fill next: -3.90c [-14.18,+8.09]  median volume in signal minute 87
+  by half (next): {'H1': {'count': 31, 'mean': -0.0578}, 'H2': {'count': 22, 'mean': -0.0126}}
+  by |K/spot-1| (next): {Interval(0.0, 0.001, closed='right'): {'count': 46, 'mean': -0.0442}, Interval(0.001, 0.003, closed='right'): {'count': 5, 'mean': -0.0067}, Interval(0.01, 1.0, closed='right'): {'count': 2, 'mean': 0.0}}
+## xrp
+KXXRP15M ladder strikes: rows 7981, markets 1215, days 2026-09-22..2026-11-21; Brier ladder mid 0.0907 model 0.0896 closed-form 0.0943; median spread 3.0c, median volume/min 10
+  signals 25 (1.2/day): fill now: -6.44c [-21.14,+10.45]  median volume in signal minute 147
+  signals 11 (1.0/day): fill next: -4.50c [-25.98,+13.63]  median volume in signal minute 208
+  by half (next): {'H1': {'count': 5, 'mean': 0.0459}, 'H2': {'count': 6, 'mean': -0.1208}}
+  by |K/spot-1| (next): {Interval(0.0, 0.001, closed='right'): {'count': 8, 'mean': -0.0968}, Interval(0.001, 0.003, closed='right'): {'count': 3, 'mean': 0.0932}}
+## hype
+KXHYPE15M ladder strikes: rows 38402, markets 5598, days 2026-09-22..2026-11-21; Brier ladder mid 0.1136 model 0.1117 closed-form 0.1136; median spread 5.0c, median volume/min 0
+  signals 189 (3.5/day): fill now: +1.12c [-5.69,+7.37]  median volume in signal minute 23
+  signals 104 (2.3/day): fill next: -3.35c [-11.93,+4.58]  median volume in signal minute 13
+  by half (next): {'H1': {'count': 63, 'mean': -0.0356}, 'H2': {'count': 41, 'mean': -0.0302}}
+  by |K/spot-1| (next): {Interval(0.0, 0.001, closed='right'): {'count': 78, 'mean': -0.035}, Interval(0.001, 0.003, closed='right'): {'count': 21, 'mean': -0.0428}, Interval(0.003, 0.01, closed='right'): {'count': 4, 'mean': 0.0257}, Interval(0.01, 1.0, closed='right'): {'count': 1, 'mean': 0.0467}}
+## bnb
+KXBNB15M ladder strikes: rows 11827, markets 1782, days 2026-09-22..2026-11-21; Brier ladder mid 0.0812 model 0.0793 closed-form 0.0864; median spread 4.0c, median volume/min 0
+  signals 70 (1.8/day): fill now: +17.54c [+8.58,+27.42]  median volume in signal minute 17
+  signals 52 (1.5/day): fill next: +12.18c [+2.65,+21.61]  median volume in signal minute 12
+  by half (next): {'H1': {'count': 24, 'mean': 0.1094}, 'H2': {'count': 28, 'mean': 0.1325}}
+  by |K/spot-1| (next): {Interval(0.0, 0.001, closed='right'): {'count': 42, 'mean': 0.1325}, Interval(0.001, 0.003, closed='right'): {'count': 10, 'mean': 0.0768}}
+## doge
+KXDOGE15M ladder strikes: rows 2841, markets 437, days 2026-09-22..2026-11-19; Brier ladder mid 0.0769 model 0.0716 closed-form 0.0751; median spread 4.0c, median volume/min 0
+  signals 20 (1.5/day): fill now: +13.12c [-6.79,+27.75]  median volume in signal minute 86
+  signals 16 (1.5/day): fill next: +13.00c [-6.99,+28.37]  median volume in signal minute 244
+  by half (next): {'H1': {'count': 6, 'mean': 0.2262}, 'H2': {'count': 10, 'mean': 0.0723}}
+  by |K/spot-1| (next): {Interval(0.0, 0.001, closed='right'): {'count': 3, 'mean': -0.0766}, Interval(0.001, 0.003, closed='right'): {'count': 11, 'mean': 0.158}, Interval(0.003, 0.01, closed='right'): {'count': 2, 'mean': 0.2857}}
