@@ -1,0 +1,33 @@
+{
+ "request": {
+  "name": "poly-btc-001",
+  "script": "poly_pull.py",
+  "coins": [
+   "btc"
+  ],
+  "start": "2026-06-01T00:00:00Z",
+  "end": "2026-11-21T05:00:00Z",
+  "pause": 0.1,
+  "max_minutes": 335
+ },
+ "started_utc": "2026-11-22T10:33:39Z",
+ "coins": {
+  "btc": {
+   "windows": 16618,
+   "missing": 10,
+   "no_history": 0,
+   "price_points": 346292
+  }
+ },
+ "finished_utc": "2026-11-22T12:46:59Z",
+ "http_requests": 33246,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/hist_btc.json": "b22b85a42ad1800f5fc16b093a1227977fd723ca543f4395db0c425a2c3d1419",
+  "samples/gamma_btc.json": "47e63ada36d67a6d50e5bd0fa9ca8dc7b759b158aab163a6c78d5a0bc27d35b3",
+  "poly/btc_prices.csv.gz": "43745f22822907ebde607f5df367c250a5758b70470cda0daa8c0ebd7b70ed62",
+  "poly/btc_windows.csv.gz": "40547dbb4cecdefcb78a34801805c93de01329867eb4b433d6d18aaebe862f25"
+ }
+}
