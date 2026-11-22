@@ -604,3 +604,22 @@ Distinctions the brief asks for:
 | Occasionally profitable | Yes — meaningless on its own |
 | Statistically credible, repeatable edge | **Yes in history, on modelled fills** (E010, E012) |
 | Meaningful returns after costs and risk | Unproven. Backtest illustration at 10 contracts per trade: roughly $20–45 a day before any real-fill haircut |
+
+## 23. Feasibility assessment (v5, 2026-11-22, after round 4)
+
+- **Outlook:** Promising — one narrow strategy family (S1-D on 15-minute alt-coin markets). Round 4 found no
+  independent second strategy across ladders, other 15-minute markets, hourly weather, Polymarket, structural
+  arbitrage or making; it did find two ways to scale S1-D (a 4–8c secondary band, ~3× the signals at ~+6c per
+  fill, and a zero-fee maker entry at ~+6c per signal).
+- **Probability of sustainable net profit (informal):** 40–50% (up from 35–45%: more signals per day and an
+  execution path that is less latency-sensitive), still resting on Phase 4 confirming fills on the real book.
+- **Confidence:** medium. The 8c rule is pre-registered and passed; the band and maker results are post-hoc on
+  the same periods and modelled from public prints.
+- **Evidence for:** E012 pass (+9.6c on 3,729 fills); E016c monotone edge-to-P&L relation; E016b maker entry
+  positive in all six signal sets; placebo negative.
+- **Evidence against:** every other idea rejected; edge is small-capacity (tens of contracts, ~$10–40/day at 10
+  contracts); fills are modelled, not experienced; BTC shows no edge; competition can close a stale-quote gap
+  at any time.
+- **Biggest risk:** the paper run shows that displayed size at the signal price is far smaller than the prints
+  suggest, or that others reach the stale quotes first from a home connection.
+- **Decision:** Continue, narrowed — authorize Phase 3 for S1-D with the variants above; short background Phase 4.
