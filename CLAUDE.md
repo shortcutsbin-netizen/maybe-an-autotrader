@@ -207,7 +207,23 @@ Preferences (defaults apply if unanswered):
 8. **Q8 — Fallback.** If 15-minute crypto fails Phase 2, allow one research round on a non-latency category (e.g., weather) before terminating [default: yes]?
 9. **Q9 — Gates.** Accept the success criteria (PLANNING §1) and the kill criteria and six-week time box (§17)?
 
-## 7a. ~~In-flight work~~ (thread 1, turn 3) — COMPLETED 2026-11-13 ~23:45Z; kept for the record
+## 7b. In-flight work (thread 1, turn 5 — round 4, started 2026-11-22 10:10Z) — READ THIS ON RESUME
+
+**User instruction (2026-11-22, 04:10 local = UTC−6):** before building, expand and find **all valid strategies**; research extensively and take actions to maximize the strategy surface. Phase 4 test time: **a few days is ideal; longer is fine if the bot runs reliably in the background while the user uses the PC day to day** (→ design requirement: low CPU/RAM, no interference, unattended). **Auto-resume this turn:** first resume at 08:45 local = **14:45Z** (trigger `trig_011oFmtvqGy1NB68BPG4WXnh`); each later resume 5h15m after the previous one's fire time (20:00Z, 01:15Z, ...); cancel the pending one when the work is complete. §7 questions 1–4 remain open (Phase 3 not yet authorized; repo still public on 2026-11-22; no key).
+
+**Round 4 plan (strategy surface):**
+
+| Code | Idea | Data | Status |
+|---|---|---|---|
+| E015 | Cross-market: 15-min crypto vs hourly above/below ladders (KXBTCD, KXETHD, KXSOLD, KXXRPD, KXDOGED, KXHYPED, KXBNBD) that settle on the **same** 60-s CF average at the hour → (a) riskless two-leg box arbitrage, (b) relative-value mispricing, (c) within-ladder monotonicity arbitrage | `ladder-<coin>-001` pulls | pending |
+| E016 | Dislocation entry with early exit (sell the rebound instead of holding) | existing prints | pending |
+| E017 | Model-informed deep resting orders on 15-min crypto (zero maker fee) — catch dislocations as a maker | `trades-sample-*` (all markets on sample days) | pending |
+| E018 | 15-min commodities / FX / index / yields (Pyth-settled) — calibration + dislocation analogue with Pyth 1-min history | `fin15-001` + Pyth history | pending |
+| E019 | Hourly weather temperature markets with 1-min ASOS nowcast | TBD | pending |
+| E020 | Polymarket price as an extra signal | probe | pending |
+| — | Literature / public-evidence sweep for further ideas | web | pending |
+
+ — COMPLETED 2026-11-13 ~23:45Z; kept for the record
 
 **Nothing is in flight.** Jobs `trades-001`, `trades-002`, `wx-trades-001` and `ext-news-001` never published (first three: output file over GitHub's 100 MB limit; news: source rate-limited) and may still have been burning Actions minutes until their 350-minute timeouts (~01:20Z on 2026-11-14 at the latest). Their request files stay in the repo as a record. Do not wait for them.
 
