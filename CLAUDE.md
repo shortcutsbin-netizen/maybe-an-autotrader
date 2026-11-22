@@ -223,7 +223,7 @@ Preferences (defaults apply if unanswered):
 | E020 | Polymarket price as an extra signal | probe | pending |
 | — | Literature / public-evidence sweep for further ideas | web | pending |
 
- — COMPLETED 2026-11-13 ~23:45Z; kept for the record
+## 7a. ~~In-flight work~~ (thread 1, turn 3) — COMPLETED 2026-11-13 ~23:45Z; kept for the record
 
 **Nothing is in flight.** Jobs `trades-001`, `trades-002`, `wx-trades-001` and `ext-news-001` never published (first three: output file over GitHub's 100 MB limit; news: source rate-limited) and may still have been burning Actions minutes until their 350-minute timeouts (~01:20Z on 2026-11-14 at the latest). Their request files stay in the repo as a record. Do not wait for them.
 
