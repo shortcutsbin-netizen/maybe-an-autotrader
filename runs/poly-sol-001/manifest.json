@@ -1,0 +1,33 @@
+{
+ "request": {
+  "name": "poly-sol-001",
+  "script": "poly_pull.py",
+  "coins": [
+   "sol"
+  ],
+  "start": "2026-06-01T00:00:00Z",
+  "end": "2026-11-21T05:00:00Z",
+  "pause": 0.1,
+  "max_minutes": 335
+ },
+ "started_utc": "2026-11-22T10:33:51Z",
+ "coins": {
+  "sol": {
+   "windows": 16618,
+   "missing": 10,
+   "no_history": 0,
+   "price_points": 346275
+  }
+ },
+ "finished_utc": "2026-11-22T13:20:01Z",
+ "http_requests": 33246,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/gamma_sol.json": "ab80f9bc0aad3487891a2e687058506612fd34ae4ef34a8a55d04fd8fd23efce",
+  "samples/hist_sol.json": "4a106f1617fde2c1398222368f2fe01f53bdf71ebe9bfd6c772b0bc9b3f0e85d",
+  "poly/sol_prices.csv.gz": "582055a6f301a9623b3362c999146c0822a8d4e0d70625009fc3a07d79f5db6a",
+  "poly/sol_windows.csv.gz": "53432509ac2977b812bcae4b651f4e1d88f1bcfe732225ad1ae99069b5bcead0"
+ }
+}
