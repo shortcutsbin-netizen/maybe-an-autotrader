@@ -1,0 +1,79 @@
+[     5.0s] KXTEMPMIAH: 14543 markets (0 hist)
+[     5.3s] KXTEMPMIAH candles: event 1/1451 rows=286 errors=0
+[    31.1s] KXTEMPMIAH candles: event 101/1451 rows=36515 errors=0
+[    56.5s] KXTEMPMIAH candles: event 201/1451 rows=73463 errors=0
+[    83.3s] KXTEMPMIAH candles: event 301/1451 rows=111025 errors=0
+[   108.1s] KXTEMPMIAH candles: event 401/1451 rows=148275 errors=0
+[   132.1s] KXTEMPMIAH candles: event 501/1451 rows=183757 errors=0
+[   157.8s] KXTEMPMIAH candles: event 601/1451 rows=219941 errors=0
+[   184.1s] KXTEMPMIAH candles: event 701/1451 rows=258828 errors=0
+[   210.0s] KXTEMPMIAH candles: event 801/1451 rows=300354 errors=0
+[   237.2s] KXTEMPMIAH candles: event 901/1451 rows=345659 errors=0
+[   263.2s] KXTEMPMIAH candles: event 1001/1451 rows=391850 errors=0
+[   291.7s] KXTEMPMIAH candles: event 1101/1451 rows=434372 errors=0
+[   317.7s] KXTEMPMIAH candles: event 1201/1451 rows=468693 errors=0
+[   343.8s] KXTEMPMIAH candles: event 1301/1451 rows=502458 errors=0
+[   370.4s] KXTEMPMIAH candles: event 1401/1451 rows=536752 errors=0
+[   383.6s] KXTEMPMIAH: done {'markets': 14543, 'candle_rows': 553790, 'markets_without_candles': 0}
+[   384.1s] KXTEMPNYCH: 0 markets (0 hist)
+[   384.1s] KXTEMPNYCH: done {'markets': 0, 'candle_rows': 0, 'markets_without_candles': 0}
+[   384.6s] KXTEMPLAXH: 0 markets (0 hist)
+[   384.6s] KXTEMPLAXH: done {'markets': 0, 'candle_rows': 0, 'markets_without_candles': 0}
+[   385.1s] KXTEMPCHIH: 0 markets (0 hist)
+[   385.1s] KXTEMPCHIH: done {'markets': 0, 'candle_rows': 0, 'markets_without_candles': 0}
+[   385.6s] KXTEMPAUSH: 0 markets (0 hist)
+[   385.6s] KXTEMPAUSH: done {'markets': 0, 'candle_rows': 0, 'markets_without_candles': 0}
+[   386.1s] KXTEMPDCH: 0 markets (0 hist)
+[   386.1s] KXTEMPDCH: done {'markets': 0, 'candle_rows': 0, 'markets_without_candles': 0}
+[   390.6s] KXTEMPNYCHS: 14320 markets (0 hist)
+[   390.9s] KXTEMPNYCHS candles: event 1/1423 rows=363 errors=0
+[   417.5s] KXTEMPNYCHS candles: event 101/1423 rows=35649 errors=0
+[   443.1s] KXTEMPNYCHS candles: event 201/1423 rows=70229 errors=0
+[   468.1s] KXTEMPNYCHS candles: event 301/1423 rows=104874 errors=0
+[   493.7s] KXTEMPNYCHS candles: event 401/1423 rows=146681 errors=0
+[   518.4s] KXTEMPNYCHS candles: event 501/1423 rows=190915 errors=0
+[   548.7s] KXTEMPNYCHS candles: event 601/1423 rows=226943 errors=0
+[   574.1s] KXTEMPNYCHS candles: event 701/1423 rows=264808 errors=0
+[   599.2s] KXTEMPNYCHS candles: event 801/1423 rows=304148 errors=0
+[   624.7s] KXTEMPNYCHS candles: event 901/1423 rows=347613 errors=0
+[   652.3s] KXTEMPNYCHS candles: event 1001/1423 rows=389612 errors=0
+[   678.2s] KXTEMPNYCHS candles: event 1101/1423 rows=432070 errors=0
+[   703.4s] KXTEMPNYCHS candles: event 1201/1423 rows=465503 errors=0
+[   730.5s] KXTEMPNYCHS candles: event 1301/1423 rows=492642 errors=0
+[   757.1s] KXTEMPNYCHS candles: event 1401/1423 rows=521381 errors=0
+[   762.8s] KXTEMPNYCHS: done {'markets': 14320, 'candle_rows': 528007, 'markets_without_candles': 0}
+[   767.6s] KXTEMPCHIHS: 14640 markets (0 hist)
+[   767.9s] KXTEMPCHIHS candles: event 1/1452 rows=310 errors=0
+[   794.6s] KXTEMPCHIHS candles: event 101/1452 rows=34541 errors=0
+[   820.4s] KXTEMPCHIHS candles: event 201/1452 rows=72247 errors=0
+[   845.6s] KXTEMPCHIHS candles: event 301/1452 rows=110096 errors=0
+[   870.5s] KXTEMPCHIHS candles: event 401/1452 rows=148094 errors=0
+[   894.5s] KXTEMPCHIHS candles: event 501/1452 rows=186708 errors=0
+[   920.7s] KXTEMPCHIHS candles: event 601/1452 rows=218553 errors=0
+[   946.7s] KXTEMPCHIHS candles: event 701/1452 rows=253104 errors=0
+[   972.3s] KXTEMPCHIHS candles: event 801/1452 rows=289832 errors=0
+[   997.4s] KXTEMPCHIHS candles: event 901/1452 rows=325483 errors=0
+[  1022.9s] KXTEMPCHIHS candles: event 1001/1452 rows=362583 errors=0
+[  1048.3s] KXTEMPCHIHS candles: event 1101/1452 rows=401271 errors=0
+[  1074.6s] KXTEMPCHIHS candles: event 1201/1452 rows=437387 errors=0
+[  1101.3s] KXTEMPCHIHS candles: event 1301/1452 rows=465439 errors=0
+[  1127.2s] KXTEMPCHIHS candles: event 1401/1452 rows=495121 errors=0
+[  1140.2s] KXTEMPCHIHS: done {'markets': 14640, 'candle_rows': 509396, 'markets_without_candles': 0}
+[  1145.0s] KXTEMPLAXHS: 14620 markets (0 hist)
+[  1145.3s] KXTEMPLAXHS candles: event 1/1451 rows=317 errors=0
+[  1174.4s] KXTEMPLAXHS candles: event 101/1451 rows=33446 errors=0
+[  1199.7s] KXTEMPLAXHS candles: event 201/1451 rows=70316 errors=0
+[  1225.2s] KXTEMPLAXHS candles: event 301/1451 rows=106952 errors=0
+[  1251.1s] KXTEMPLAXHS candles: event 401/1451 rows=142731 errors=0
+[  1275.5s] KXTEMPLAXHS candles: event 501/1451 rows=178385 errors=0
+[  1303.9s] KXTEMPLAXHS candles: event 601/1451 rows=214212 errors=0
+[  1330.4s] KXTEMPLAXHS candles: event 701/1451 rows=252148 errors=0
+[  1356.1s] KXTEMPLAXHS candles: event 801/1451 rows=292530 errors=0
+[  1381.9s] KXTEMPLAXHS candles: event 901/1451 rows=336661 errors=0
+[  1408.9s] KXTEMPLAXHS candles: event 1001/1451 rows=378637 errors=0
+[  1436.1s] KXTEMPLAXHS candles: event 1101/1451 rows=421260 errors=0
+[  1464.0s] KXTEMPLAXHS candles: event 1201/1451 rows=454493 errors=0
+[  1489.4s] KXTEMPLAXHS candles: event 1301/1451 rows=481000 errors=0
+[  1515.1s] KXTEMPLAXHS candles: event 1401/1451 rows=508066 errors=0
+[  1530.1s] KXTEMPLAXHS: done {'markets': 14620, 'candle_rows': 521238, 'markets_without_candles': 2}
+[  1530.1s] done requests=5852 errors=0
