@@ -1,0 +1,20 @@
+[     2.8s] KXSOL15M: 5825 markets (0 hist)
+[   146.2s] KXSOLD: 417750 markets (0 hist)
+[   148.3s] KXSOLD: kept 11335 of 417750 markets within 1.0% of the 15-min strike
+[   148.8s] KXSOLD candles: event 1/1439 rows=88 errors=0
+[   173.6s] KXSOLD candles: event 101/1439 rows=10285 errors=0
+[   198.1s] KXSOLD candles: event 201/1439 rows=20408 errors=0
+[   222.1s] KXSOLD candles: event 301/1439 rows=30129 errors=0
+[   246.9s] KXSOLD candles: event 401/1439 rows=38928 errors=0
+[   271.5s] KXSOLD candles: event 501/1439 rows=47758 errors=0
+[   296.4s] KXSOLD candles: event 601/1439 rows=57834 errors=0
+[   321.8s] KXSOLD candles: event 701/1439 rows=68960 errors=0
+[   346.8s] KXSOLD candles: event 801/1439 rows=79741 errors=0
+[   371.7s] KXSOLD candles: event 901/1439 rows=91063 errors=0
+[   396.6s] KXSOLD candles: event 1001/1439 rows=102262 errors=0
+[   421.6s] KXSOLD candles: event 1101/1439 rows=113241 errors=0
+[   446.7s] KXSOLD candles: event 1201/1439 rows=123956 errors=0
+[   473.5s] KXSOLD candles: event 1301/1439 rows=135048 errors=0
+[   499.6s] KXSOLD candles: event 1401/1439 rows=146463 errors=0
+[   509.4s] KXSOLD: done {'markets': 11335, 'candle_rows': 150902, 'markets_without_candles': 3}
+[   509.4s] done requests=1875 errors=0
