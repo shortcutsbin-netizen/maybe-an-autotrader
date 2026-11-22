@@ -1,0 +1,65 @@
+{
+ "request": {
+  "name": "poly-smoke-001",
+  "script": "poly_pull.py",
+  "coins": [
+   "btc",
+   "doge",
+   "bnb",
+   "hype"
+  ],
+  "start": "2026-11-21T15:00:00Z",
+  "end": "2026-11-21T16:00:00Z",
+  "pause": 0.12
+ },
+ "started_utc": "2026-11-22T10:31:11Z",
+ "coins": {
+  "btc": {
+   "windows": 4,
+   "missing": 0,
+   "no_history": 0,
+   "price_points": 78
+  },
+  "doge": {
+   "windows": 4,
+   "missing": 0,
+   "no_history": 0,
+   "price_points": 78
+  },
+  "bnb": {
+   "windows": 4,
+   "missing": 0,
+   "no_history": 0,
+   "price_points": 78
+  },
+  "hype": {
+   "windows": 4,
+   "missing": 0,
+   "no_history": 0,
+   "price_points": 78
+  }
+ },
+ "finished_utc": "2026-11-22T10:31:19Z",
+ "http_requests": 32,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/gamma_doge.json": "c57a7ab260bd0115e01e98fc147d7182d8b48293b515eadbf43edf41f10c079b",
+  "samples/gamma_hype.json": "fad6e1cfeae8aeda2f664e21e4d48c58e410fe924d068027cf94a60d4b67f22f",
+  "samples/hist_btc.json": "4e22ac2748642706680dabea803bea9cec6b018f3390384f4015fa643a9b4b8f",
+  "samples/hist_hype.json": "a809bd09832447230229c02d4abe8afe5fbbc719647a3ba06e2d9e6c862e7c1e",
+  "samples/gamma_bnb.json": "1bd9a482183b7f308689f842e517b9d5e2ce38cc50eac4275996a25e42b2d0f1",
+  "samples/hist_bnb.json": "be298027f7da69eb3e33b714f5ef15c48d313d7ed2c8ce3802f43b881955535f",
+  "samples/hist_doge.json": "32c7203c3d6667f62387c451718248b169b61d7bb87e4fae21fe1aef6daa058a",
+  "samples/gamma_btc.json": "73483f9a6f813839b825219b45dd6422cbfbb41cc04f24867ef311b71ff432ef",
+  "poly/bnb_prices.csv.gz": "cbf125e1159c6cee43d3b6d5515337d0423ee916f612a0411d63eee3b66d2dc1",
+  "poly/btc_prices.csv.gz": "0510837d93ec5cee7e479a5b13e40ec284871e75484541013d28dbd47d2b1008",
+  "poly/hype_windows.csv.gz": "a91fa0cfeddb1e7ee02c54025691c58cadbe0c6037061f2e423c8b0e94fdf449",
+  "poly/doge_prices.csv.gz": "95107954f8324fbac826fccf6240de1f92f8186eeef6d98ee71a3ee731edec33",
+  "poly/hype_prices.csv.gz": "e23708efe0d2115a308890e12227c472a787a1ba8d69daf295676e82a9a98b91",
+  "poly/btc_windows.csv.gz": "b6412849b6101dd8beab4873f59349d1e2f8f05a075aa8e7daceb02d11919489",
+  "poly/bnb_windows.csv.gz": "10eebb29a81ac1b82b410bb4f98456b7730c81a3fbc8629dfcdbe07675cae193",
+  "poly/doge_windows.csv.gz": "13b708fdc4fed1ff91e775587e9d5d6e31467293e626a0853af0c0f798eb1902"
+ }
+}

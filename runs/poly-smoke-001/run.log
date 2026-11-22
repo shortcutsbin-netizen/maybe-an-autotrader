@@ -1,0 +1,4 @@
+[     2.1s] btc: {'windows': 4, 'missing': 0, 'no_history': 0, 'price_points': 78}
+[     4.1s] doge: {'windows': 4, 'missing': 0, 'no_history': 0, 'price_points': 78}
+[     6.2s] bnb: {'windows': 4, 'missing': 0, 'no_history': 0, 'price_points': 78}
+[     8.3s] hype: {'windows': 4, 'missing': 0, 'no_history': 0, 'price_points': 78}
