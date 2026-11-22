@@ -1,0 +1,32 @@
+[     0.3s] cutoff: {'market_positions_last_updated_ts': '2026-09-22T00:00:00Z', 'market_settled_ts': '2026-09-22T00:00:00Z', 'orders_updated_ts': '2026-11-07T00:00:00Z', 'trades_created_ts': '2026-09-22T00:00:00Z'}
+[     1.6s] KXEURUSD15M: 3947 markets
+[     2.9s] KXGBPUSD15M: 3947 markets
+[     4.2s] KXUSDJPY15M: 3947 markets
+[     6.6s] KXUSDCAD15M: 3008 markets
+[     9.0s] KXAUDUSD15M: 3008 markets
+[     9.4s] KXINX15M: 286 markets
+[    10.5s] KX10YRRATE15M: 1261 markets
+[    11.2s] KX30YRRATE15M: 1261 markets
+[    13.2s] KX2YRRATE15M: 1261 markets
+[    15.0s] KX5YRRATE15M: 1261 markets
+[    15.2s] candles: window 1/3947 rows=0 errors=0
+[   110.2s] candles: window 201/3947 rows=8640 errors=0
+[   162.3s] candles: window 401/3947 rows=17549 errors=0
+[   213.5s] candles: window 601/3947 rows=26496 errors=0
+[   265.6s] candles: window 801/3947 rows=35463 errors=0
+[   316.7s] candles: window 1001/3947 rows=46178 errors=0
+[   367.5s] candles: window 1201/3947 rows=60973 errors=0
+[   420.1s] candles: window 1401/3947 rows=75948 errors=0
+[   472.6s] candles: window 1601/3947 rows=90906 errors=0
+[   523.3s] candles: window 1801/3947 rows=108363 errors=0
+[   574.3s] candles: window 2001/3947 rows=127417 errors=0
+[   624.3s] candles: window 2201/3947 rows=147859 errors=0
+[   677.1s] candles: window 2401/3947 rows=170021 errors=0
+[   726.6s] candles: window 2601/3947 rows=192285 errors=0
+[   778.3s] candles: window 2801/3947 rows=214507 errors=0
+[   829.7s] candles: window 3001/3947 rows=237307 errors=0
+[   881.1s] candles: window 3201/3947 rows=260084 errors=0
+[   931.9s] candles: window 3401/3947 rows=278754 errors=0
+[   983.8s] candles: window 3601/3947 rows=301309 errors=0
+[  1034.6s] candles: window 3801/3947 rows=323865 errors=0
+[  1110.8s] done: requests=4237 errors=0
