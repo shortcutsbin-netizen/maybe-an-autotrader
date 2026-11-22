@@ -1,0 +1,1 @@
+{"name": "poly-near-001", "script": "poly_pull.py", "coins": ["near"], "start": "2026-06-01T00:00:00Z", "end": "2026-11-21T05:00:00Z", "pause": 0.1, "max_minutes": 335}
