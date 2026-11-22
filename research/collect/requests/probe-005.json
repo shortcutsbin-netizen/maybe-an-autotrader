@@ -1,0 +1,23 @@
+{"name": "probe-005", "script": "probe.py", "max_bytes": 60000,
+ "urls": {
+  "hermes_upd_ts": "https://hermes.pyth.network/v2/updates/price/1795273200?ids[]=7fd2c87083dd8fd5af2486a43f40b8e444acd77fda4e96263a53421cd079c387&parsed=true",
+  "hermes_latest": "https://hermes.pyth.network/v2/updates/price/latest?ids[]=7fd2c87083dd8fd5af2486a43f40b8e444acd77fda4e96263a53421cd079c387&parsed=true",
+  "bench_upd_ts": "https://benchmarks.pyth.network/v1/updates/price/1795273200?ids=7fd2c87083dd8fd5af2486a43f40b8e444acd77fda4e96263a53421cd079c387&parsed=true",
+  "bench_upd_ts2": "https://benchmarks.pyth.network/v1/updates/price/1795273200?ids[]=7fd2c87083dd8fd5af2486a43f40b8e444acd77fda4e96263a53421cd079c387",
+  "pythpro_hist": "https://pyth.dourolabs.app/v1/real_time/history?symbol=Metal.Index.1OZGOLD/USD&resolution=1&from=1795273200&to=1795276800",
+  "poly_ev_btc15": "https://gamma-api.polymarket.com/events?slug=btc-updown-15m-1795273200",
+  "poly_ev_btc15b": "https://gamma-api.polymarket.com/events?slug=btc-updown-15m-1795272300",
+  "poly_ev_eth15": "https://gamma-api.polymarket.com/events?slug=eth-updown-15m-1795273200",
+  "poly_ev_sol15": "https://gamma-api.polymarket.com/events?slug=sol-updown-15m-1795273200",
+  "poly_ev_xrp15": "https://gamma-api.polymarket.com/events?slug=xrp-updown-15m-1795273200",
+  "poly_ev_btc5": "https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1795273200",
+  "poly_ev_btc1h": "https://gamma-api.polymarket.com/events?tag_slug=up-or-down&limit=5&closed=true&order=endDate&ascending=false",
+  "poly_ev_old": "https://gamma-api.polymarket.com/events?slug=btc-updown-15m-1789000200",
+  "coinbase_paxg": "https://api.exchange.coinbase.com/products/PAXG-USD/candles?granularity=60&start=2026-11-21T15:00:00Z&end=2026-11-21T16:00:00Z",
+  "coinbase_products": "https://api.exchange.coinbase.com/products",
+  "kraken_paxg": "https://api.kraken.com/0/public/OHLC?pair=PAXGUSD&interval=1",
+  "kraken_eurusd": "https://api.kraken.com/0/public/OHLC?pair=EURUSD&interval=1",
+  "kalshi_goldh": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXGOLDH&limit=5",
+  "kalshi_temp_rules": "https://api.elections.kalshi.com/trade-api/v2/series/KXTEMPNYCH",
+  "synoptic": "https://api.synopticdata.com/v2/stations/timeseries?stid=KMIA&recent=120"
+ }}
