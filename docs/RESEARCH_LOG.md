@@ -198,3 +198,44 @@ Workers Free: 100,000 requests/day, 10 ms CPU per invocation, 50 external subreq
 
 - Weather maker (S4-M) — rejected.
 - Sports in-game vs public win-probability model — rejected; sports closed.
+
+## Session 4 — 2026-11-22 (thread 1, turn 5, Phase 2 round 4 — strategy-surface sweep, Opus 5.5)
+
+Sources consulted (primary unless marked):
+- Kalshi public API, via GitHub runners: `/incentive_programs?status=active|upcoming|all`, `/incentive_schedules`
+  (probe-006) — ~7,200 liquidity programs, nearly all on long-dated/niche markets; none on 15-min crypto or
+  hourly/daily weather. Reward units in the API are not documented on the page read (`period_reward` 950000 etc.).
+- Kalshi docs `api-reference/live-data/get-weather-index.md`: `GET /live_data/weather/{city}` (from/to in ms,
+  last_sec, detailed). Probe-007: 13 cities (miami, dfw, houston, phl-delaware-valley, puget-sound, sf-bay,
+  greater-boston, southeast-michigan, kansas-city, minneapolis-st-paul, nyc, chicago, la-coastal); canonical
+  points from 2026-10-08; Miami index uses 5 stations (e.g. KFLL1M, source `hf_asos`). Verified: index at the close
+  minute equals the hourly-temperature market's expiration value in 100% of hours (E019).
+- Kalshi series metadata (probe-004/005): gold 15-min settles on the Pyth 1-minute candle close at window end vs
+  start; WTI/silver/natgas/copper/EURUSD/yields on Pyth; S&P 15-min on S&P DJI; KXGOLDH hourly ladder exists.
+- Pyth docs and forum (secondary for pricing): Benchmarks, Hermes and the TradingView shim require an API key
+  since 2026-08-26; Pyth blog: plans start at $500/month (free trial only). All four Pyth routes returned
+  `unauthorized` from a runner (probe-005).
+- Polymarket gamma/CLOB (probe-005, poly_pull): 15-min up/down markets for btc/eth/sol/xrp/doge/bnb/hype exist
+  with slug `<coin>-updown-15m-<start ts>`; resolution = Chainlink 60-s TWAP stream; none for near/zec.
+- Coinbase PAXG-USD and Kraken PAXGUSD / EURUSD 1-min OHLC are public (Kraken returns only the last 720 bars).
+- Synoptic API requires a token (probe-005).
+- Literature (secondary): Bürgi, Deng, Whelan "Makers and Takers" (makers earn, takers lose; favourite–longshot);
+  Subramanian (IJFMD 2026, Kalshi efficiency); Le (arXiv 2602.19520, calibration decomposition); Mohanty &
+  Krishnamachari (arXiv 2604.01431); Portnaya (arXiv 2606.19517, Polymarket vs options). None reports an edge
+  in Kalshi 15-minute crypto. Vendor/blog posts on hourly books report no repeatable entry.
+
+Observations (verified unless marked):
+- Ladder markets (`KX{COIN}D`) carry the strike in `custom_strike.floor_strike`; `floor_strike` is null and
+  `strike_type` is `custom` (`greater` inside custom_strike). Ladder `expiration_value` equals the 15-minute one.
+- Hourly temperature: the single-station `KXTEMP…H` series (NYC, LAX, CHI, AUS, DC) listed no markets after
+  2026-09-22; the index-settled ones are `KXTEMPMIAH`, `KXTEMPNYCHS`, `KXTEMPCHIHS`, `KXTEMPLAXHS`.
+- Kalshi 15-min FX/yield/commodity markets: 61 days pulled; spreads 0.85c (gold) to 4c (yields, median);
+  FX 2.6–5.2k contracts per market, yields 330–590.
+- Hourly crypto range events have 49–300 buckets, most without offers.
+- Polymarket 15-min XRP volume ~$1.1k per window; BTC ~$32k.
+- Experiments E015–E020 and E016b/E016c: see `docs/experiments/E015-E020-round4-strategy-surface.md`.
+
+Mistakes / lessons:
+- `ladder-*-001` kept 0 markets (strike field) — fixed in the puller, resubmitted as `-002`.
+- A 13k-market print load OOM-killed the analysis (7 GB workspace); evaluate in chunks of ~1,500 markets.
+- Mixing a smoke run into a glob overwrote full data in a dict; concatenate per key instead.
