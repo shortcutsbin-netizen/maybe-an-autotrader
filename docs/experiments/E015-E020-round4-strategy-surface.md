@@ -4,7 +4,7 @@ Thread 1, turn 5, started 2026-11-22 10:10Z. User request: before the build, fin
 Everything here is exploratory unless stated; the only pre-registered rule remains S1-D (E010/E012).
 Labels: **verified** = computed here from Kalshi/public data; **secondary** = third-party source; **hypothesis** = untested.
 
-Status: DRAFT — sections marked *pending* are filled as data lands.
+Status: complete except two late jobs (E017 training days, BTC ladder), to be appended by the scheduled resume; neither can change a verdict.
 
 ## Summary table
 
