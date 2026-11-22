@@ -1,0 +1,17 @@
+{
+ "request": {
+  "name": "trades-sample-2",
+  "script": "kalshi_trades_pull.py",
+  "tickers_file": "research/collect/requests/lists_sample_days_2.txt",
+  "historical": true,
+  "pause": 0.1,
+  "max_pages": 40,
+  "max_minutes": 320
+ },
+ "tickers": 2304,
+ "tickers_done": 2304,
+ "trades": 5589187,
+ "http_requests": 9252,
+ "error_count": 0,
+ "errors_first_50": []
+}
