@@ -1,0 +1,33 @@
+{
+ "request": {
+  "name": "poly-xrp-001",
+  "script": "poly_pull.py",
+  "coins": [
+   "xrp"
+  ],
+  "start": "2026-06-01T00:00:00Z",
+  "end": "2026-11-21T05:00:00Z",
+  "pause": 0.1,
+  "max_minutes": 335
+ },
+ "started_utc": "2026-11-22T10:33:57Z",
+ "coins": {
+  "xrp": {
+   "windows": 16618,
+   "missing": 10,
+   "no_history": 0,
+   "price_points": 346280
+  }
+ },
+ "finished_utc": "2026-11-22T12:41:08Z",
+ "http_requests": 33246,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "poly/xrp_prices.csv.gz": "75d091add5daba611ef0ebeb07acc7ad88451dd938c422ab9c1f4b7f3131bdf0",
+  "poly/xrp_windows.csv.gz": "8f44304c5f7fcba4315e54dbd122bd1e5e24666d950753df2bce9bc89da61acd",
+  "samples/gamma_xrp.json": "230353e76bd0a544aef9203c3a61f762c1d4411d5d39ea344c592a75cf167ffa",
+  "samples/hist_xrp.json": "763dd0a8253b058554bc8ba9e4d7395430571fcb3e3c51be8db2e82aa0f3376b"
+ }
+}
