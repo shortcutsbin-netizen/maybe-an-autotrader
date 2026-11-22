@@ -1,0 +1,20 @@
+[     3.0s] KXBNB15M: 5825 markets (0 hist)
+[    48.1s] KXBNBD: 106040 markets (0 hist)
+[    48.5s] KXBNBD: kept 5756 of 106040 markets within 1.0% of the 15-min strike
+[    48.9s] KXBNBD candles: event 1/1439 rows=41 errors=0
+[    75.6s] KXBNBD candles: event 101/1439 rows=5837 errors=0
+[   102.2s] KXBNBD candles: event 201/1439 rows=11312 errors=0
+[   129.4s] KXBNBD candles: event 301/1439 rows=17328 errors=0
+[   156.3s] KXBNBD candles: event 401/1439 rows=23062 errors=0
+[   183.1s] KXBNBD candles: event 501/1439 rows=28844 errors=0
+[   210.9s] KXBNBD candles: event 601/1439 rows=34369 errors=0
+[   238.7s] KXBNBD candles: event 701/1439 rows=40146 errors=0
+[   265.6s] KXBNBD candles: event 801/1439 rows=45552 errors=0
+[   292.6s] KXBNBD candles: event 901/1439 rows=50927 errors=0
+[   319.3s] KXBNBD candles: event 1001/1439 rows=56804 errors=0
+[   345.5s] KXBNBD candles: event 1101/1439 rows=62554 errors=0
+[   372.2s] KXBNBD candles: event 1201/1439 rows=68558 errors=0
+[   398.6s] KXBNBD candles: event 1301/1439 rows=74059 errors=0
+[   425.5s] KXBNBD candles: event 1401/1439 rows=78989 errors=0
+[   435.5s] KXBNBD: done {'markets': 5756, 'candle_rows': 81137, 'markets_without_candles': 1}
+[   435.5s] done requests=1556 errors=0
