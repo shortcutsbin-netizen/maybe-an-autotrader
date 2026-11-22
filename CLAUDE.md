@@ -242,6 +242,14 @@ Preferences (defaults apply if unanswered):
 | E020 | Polymarket price as an extra signal | `poly-<coin>-001` (Jun 1–Nov 21, 9 jobs) | pending (puller works; ~2–3 h) |
 | — | Literature / public-evidence sweep for further ideas | web | Done: Liquidity Incentive Program (public `/incentive_programs`) — 7k programs, none on 15-min crypto/hourly weather (long-dated markets only); Bürgi et al.; Pyth paywall. Also: bucket-sum arbitrage on daily weather brackets is rare (≤1c median); `ranges-001` pending |
 
+## 7c. Continue/stop assessment (thread 1, turn 6, 2026-11-22 17:45Z →)
+
+User asked whether the project is worth continuing (needs "meaningful returns"), and if not, for an exhaustive passive-income alternatives search. User's bar: **10–15% profit after tax and costs** (read as net return on capital, per year; ≈14–21% pre-tax); paper first, then ~$100 live, more only on success; fully hands-off after build. The alternatives research and the personal report live outside this public repo (a private Claude doc).
+
+**Verdict recorded here: CONTINUE.** E021 (`research/analysis/e021_capacity.py`, output `docs/experiments/output/E021_capacity.txt`, post-hoc on the E016c chunks, BTC excluded, modelled F1 fills): primary rule 32.7 fills/day, +9.81c on 41.5c of capital (23.6% per trade, ≤15 min). At 10 contracts per signal ≈ $29/day if we win all printed size, $24/day at a quarter, peak capital ~$15. With the 4–8c band ≈ $65–83/day at 10 contracts, peak capital ~$40. No decay Jun→Nov. Even a tenth of modelled clears the bar; the open risk is real fills (only the $100 live stage can test). No alternative found (prediction-market interest/rebates/cross-venue arb, crypto yield, betting promos, bank bonuses) is both hands-off and above the bar; two automated ideas were added as paper-only candidates: (1) stale-price taker on ProphetX/Novig sports priced off Kalshi/Polymarket US (both have trading APIs), (2) Kalshi↔Polymarket US cross-venue arbitrage scanner. Both need user approval before any work (rule 8).
+
+Resume trigger for this turn: `trig_016mHLxJd56MXn5pcFh9ciWj` (19:45Z) — cancelled at completion.
+
 ## 7a. ~~In-flight work~~ (thread 1, turn 3) — COMPLETED 2026-11-13 ~23:45Z; kept for the record
 
 **Nothing is in flight.** Jobs `trades-001`, `trades-002`, `wx-trades-001` and `ext-news-001` never published (first three: output file over GitHub's 100 MB limit; news: source rate-limited) and may still have been burning Actions minutes until their 350-minute timeouts (~01:20Z on 2026-11-14 at the latest). Their request files stay in the repo as a record. Do not wait for them.
@@ -415,6 +423,7 @@ Every experiment and every strategy variant tried is listed here, successful or 
 | E018 | 15-min commodities/FX/yields/S&P: calibration + book-only/cross-market model; PAXG gold proxy. `e018_fin15.py` | `fin15-001`, `fin15-002` | Done | **Negative / blocked** (Pyth feed paid ≥ $500/mo). Calibrated; taker EV < 0 everywhere |
 | E019 | Hourly temperature vs Kalshi Weather Index nowcast + stack, lags 1/2/5 min. `e019_hourly_temp.py` | `wxh-001`, `windex-001` | Done | **Negative** on validation (−0.3…−9c); index = settlement in 100% of hours |
 | E020 | Polymarket 15-min price added to the S1-D stack. `poly_pull.py`, `e020_polymarket_signal.py` | `poly-<coin>-001` | Done (4 coins) | **Negative.** Poly Brier 0.158 vs Kalshi 0.140; augmented model no better out of fit |
+| E021 | S1-D capacity and return on capital by contracts per signal and share of printed size (post-hoc). `e021_capacity.py` | E016c chunks | Done 2026-11-22 | Primary: 23.6%/trade; $24–29/day at 10 contracts, peak capital ~$15; with 4–8c band $65–83/day, ~$40 capital (modelled) |
 | — | Bucket-sum arbitrage: hourly crypto ranges, daily weather brackets | `ranges-001`, `wx-002/003` | Done | None in ranges; weather 256/19,205 snapshots, median < 1c |
 
 **Not run / failed:** `trades-001`, `trades-002`, `wx-trades-001` (never published — file-size limit), `ext-news-001` (GDELT rate limit). The crypto variant of E008 was therefore not run; E009 answers the same question with better data.
