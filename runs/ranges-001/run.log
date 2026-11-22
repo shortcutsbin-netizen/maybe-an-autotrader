@@ -1,0 +1,41 @@
+[    36.8s] KXBTC: 92206 markets (0 hist)
+[    37.6s] KXBTC candles: event 1/503 rows=1805 errors=0
+[   111.0s] KXBTC candles: event 101/503 rows=185914 errors=0
+[   180.2s] KXBTC candles: event 201/503 rows=360251 errors=0
+[   253.1s] KXBTC candles: event 301/503 rows=572900 errors=0
+[   331.2s] KXBTC candles: event 401/503 rows=797957 errors=0
+[   401.8s] KXBTC candles: event 501/503 rows=1028569 errors=0
+[   403.0s] KXBTC: done {'markets': 92206, 'candle_rows': 1031692, 'markets_without_candles': 0}
+[   460.4s] KXETH: 145470 markets (0 hist)
+[   461.6s] KXETH candles: event 1/503 rows=1690 errors=0
+[   559.5s] KXETH candles: event 101/503 rows=205389 errors=0
+[   651.6s] KXETH candles: event 201/503 rows=371314 errors=0
+[   746.5s] KXETH candles: event 301/503 rows=563325 errors=0
+[   836.9s] KXETH candles: event 401/503 rows=735175 errors=0
+[   926.3s] KXETH candles: event 501/503 rows=911981 errors=0
+[   928.3s] KXETH: done {'markets': 145470, 'candle_rows': 915253, 'markets_without_candles': 0}
+[   988.8s] KXSOLE: 146100 markets (0 hist)
+[   989.9s] KXSOLE candles: event 1/503 rows=851 errors=0
+[  1085.3s] KXSOLE candles: event 101/503 rows=171080 errors=0
+[  1174.9s] KXSOLE candles: event 201/503 rows=315689 errors=0
+[  1268.4s] KXSOLE candles: event 301/503 rows=480673 errors=0
+[  1359.6s] KXSOLE candles: event 401/503 rows=660123 errors=0
+[  1447.1s] KXSOLE candles: event 501/503 rows=806988 errors=0
+[  1448.9s] KXSOLE: done {'markets': 146100, 'candle_rows': 810234, 'markets_without_candles': 0}
+[  1465.1s] KXXRP: 37020 markets (0 hist)
+[  1465.6s] KXXRP candles: event 1/503 rows=476 errors=0
+[  1497.0s] KXXRP candles: event 101/503 rows=43973 errors=0
+[  1527.2s] KXXRP candles: event 201/503 rows=81748 errors=0
+[  1556.9s] KXXRP candles: event 301/503 rows=121917 errors=0
+[  1586.7s] KXXRP candles: event 401/503 rows=162477 errors=0
+[  1614.5s] KXXRP candles: event 501/503 rows=200206 errors=0
+[  1615.0s] KXXRP: done {'markets': 37020, 'candle_rows': 200983, 'markets_without_candles': 0}
+[  1624.7s] KXDOGE: 24434 markets (0 hist)
+[  1625.0s] KXDOGE candles: event 1/503 rows=213 errors=0
+[  1652.2s] KXDOGE candles: event 101/503 rows=26308 errors=0
+[  1679.2s] KXDOGE candles: event 201/503 rows=45558 errors=0
+[  1705.6s] KXDOGE candles: event 301/503 rows=66899 errors=0
+[  1731.9s] KXDOGE candles: event 401/503 rows=86287 errors=0
+[  1757.5s] KXDOGE candles: event 501/503 rows=105815 errors=0
+[  1758.0s] KXDOGE: done {'markets': 24434, 'candle_rows': 106276, 'markets_without_candles': 0}
+[  1758.1s] done requests=5380 errors=0

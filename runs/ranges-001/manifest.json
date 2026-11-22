@@ -1,0 +1,86 @@
+{
+ "request": {
+  "name": "ranges-001",
+  "script": "kalshi_events_pull.py",
+  "series": [
+   "KXBTC",
+   "KXETH",
+   "KXSOLE",
+   "KXXRP",
+   "KXDOGE"
+  ],
+  "start": "2026-11-01T00:00:00Z",
+  "end": "2026-11-22T10:00:00Z",
+  "historical": true,
+  "lookback_hours": 1.0,
+  "resample_min": 1,
+  "pause": 0.12
+ },
+ "started_utc": "2026-11-22T10:43:23Z",
+ "source": "https://api.elections.kalshi.com/trade-api/v2",
+ "series": {
+  "KXBTC": {
+   "markets": 92206,
+   "candle_rows": 1031692,
+   "markets_without_candles": 0
+  },
+  "KXETH": {
+   "markets": 145470,
+   "candle_rows": 915253,
+   "markets_without_candles": 0
+  },
+  "KXSOLE": {
+   "markets": 146100,
+   "candle_rows": 810234,
+   "markets_without_candles": 0
+  },
+  "KXXRP": {
+   "markets": 37020,
+   "candle_rows": 200983,
+   "markets_without_candles": 0
+  },
+  "KXDOGE": {
+   "markets": 24434,
+   "candle_rows": 106276,
+   "markets_without_candles": 0
+  }
+ },
+ "historical_cutoff": {
+  "market_positions_last_updated_ts": "2026-09-22T00:00:00Z",
+  "market_settled_ts": "2026-09-22T00:00:00Z",
+  "orders_updated_ts": "2026-11-07T00:00:00Z",
+  "trades_created_ts": "2026-09-22T00:00:00Z"
+ },
+ "finished_utc": "2026-11-22T11:12:41Z",
+ "http_requests": 5380,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/markets_live_KXXRP.json": "8c0d6d305510f4107d6319e699d7abdfe5715e1bd6f9ef80981469b2255fc2d8",
+  "samples/candles_batch_KXETH.json": "2a80cefaa8ae5856fb422ee6006b45e2f0e1e704cc12881f7bfcdff8f270d83c",
+  "samples/markets_hist_KXBTC.json": "2fef6b9ba589b6ab6ae53f4092e655889d829b971d65b75d96dcb46b4db6aa4e",
+  "samples/markets_live_KXDOGE.json": "0f2610abf050ef0458b22f9f615540aa245fbb5e84755ed0fd79d9f3c269f823",
+  "samples/candles_batch_KXBTC.json": "572fff264a6b176b5a97c3e471dd9e62277201563a2cd058bb6341cee2557609",
+  "samples/candles_batch_KXXRP.json": "c48adcf1625acb21f9303e4a49c3fbef35a0c0cededfa263d5d19d2061ca0388",
+  "samples/markets_live_KXBTC.json": "eabf66c2b9e355d1118ef0a81c461da00dd1c19d5ead436d72e398367b84ad50",
+  "samples/candles_batch_KXSOLE.json": "71f569330e650a4a2fb99ed929a2d63979d3799dac47fec7d9006d59577bc03f",
+  "samples/markets_live_KXETH.json": "e22da08a5c5febee1450d88aaf001dfebc4e556d487a95c4c92e193355725081",
+  "samples/markets_live_KXSOLE.json": "3efdafde7c2d54c9ef967c677163e003d7bf99ca41eec288d236f575dbd72f64",
+  "samples/markets_hist_KXDOGE.json": "9be46105415ef572778964d86b860fd9b4f048930eb5cc70cd768cde2ba77fae",
+  "samples/markets_hist_KXXRP.json": "6c95924eb598ca37381deafe284728e12b1aa7384b6054d735a1b2bf57a9872b",
+  "samples/markets_hist_KXETH.json": "f0bb09faf536004797c913208df4761747f8211546e7eb991f43adc6189e3c93",
+  "samples/markets_hist_KXSOLE.json": "3c488fdee4d9eb96d738a368c372aae4b69cc6fea1b8fc274a81858d46fd1d86",
+  "samples/candles_batch_KXDOGE.json": "beae8b94ed241b2287df44be7340337813db48ac02b634fc495496e4f7fffa62",
+  "candles/KXETH.csv.gz": "092cb55389353151adcb64a9368e770bcbaa9d0286438011f9f83fbb5f3ce579",
+  "candles/KXSOLE.csv.gz": "0b4798556940b5c85ced862c95c1c15843875eb626d5f8687cbc5d1ee34688cc",
+  "candles/KXDOGE.csv.gz": "15f41866b51e8ba75569c82b5d4463a1bb036ac7593071806bb7657e30e5b673",
+  "candles/KXBTC.csv.gz": "3cb013a2e05453ce8b3ed881008c8a940866d7d75ee257a5929de2f0deff01f6",
+  "candles/KXXRP.csv.gz": "a3efda61ec5625e833576862a3f65b2e983f80bf1af8d34e3d531cffc66a7047",
+  "markets/KXETH.csv.gz": "1b2814e532231fbec1a6c36acad7a811da25815770c799c9c6a974340e55f03e",
+  "markets/KXSOLE.csv.gz": "3b7a9d0206911e9f0e4773bc86a47f8bc1c3ffe8b960cbcdedf1b77e674b2494",
+  "markets/KXDOGE.csv.gz": "885db087efc66103740e15865a2759af344174e3f5b690238559644f0147d99f",
+  "markets/KXBTC.csv.gz": "8722350be7cdc3f1e7f63e0d3eb25bc8ece9c2964af12900da8799ec12b6d66e",
+  "markets/KXXRP.csv.gz": "0e5c6c966203e293bfc2413aa3fa790d1356bf24ffa3938400610c48c0200fed"
+ }
+}
