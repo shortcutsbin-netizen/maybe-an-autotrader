@@ -1,0 +1,125 @@
+{
+ "request": {
+  "name": "ext-wxh-001",
+  "script": "ext_pull.py",
+  "start": "2026-09-20",
+  "end": "2026-11-22",
+  "weather": {
+   "stations": {
+    "MIA": {
+     "iem": "MIA",
+     "lat": 25.788,
+     "lon": -80.317
+    },
+    "NY": {
+     "iem": "NYC",
+     "lat": 40.779,
+     "lon": -73.969
+    },
+    "LAX": {
+     "iem": "LAX",
+     "lat": 33.938,
+     "lon": -118.389
+    },
+    "CHI": {
+     "iem": "MDW",
+     "lat": 41.786,
+     "lon": -87.752
+    },
+    "ORD": {
+     "iem": "ORD",
+     "lat": 41.96,
+     "lon": -87.932
+    },
+    "AUS": {
+     "iem": "AUS",
+     "lat": 30.183,
+     "lon": -97.68
+    },
+    "DC": {
+     "iem": "DCA",
+     "lat": 38.851,
+     "lon": -77.04
+    }
+   },
+   "models": [
+    "gfs_seamless",
+    "ncep_nbm_conus",
+    "ecmwf_ifs025"
+   ],
+   "one_minute": true,
+   "metar_report_types": [
+    1,
+    3,
+    4
+   ]
+  }
+ },
+ "started_utc": "2026-11-22T10:24:11.329109+00:00",
+ "weather": {
+  "MIA": {
+   "metar_rows": 19861,
+   "asos1min_rows": 71418,
+   "fcst_rows": 1560
+  },
+  "NY": {
+   "metar_rows": 1861,
+   "asos1min_rows": 73209,
+   "fcst_rows": 1560
+  },
+  "LAX": {
+   "metar_rows": 19869,
+   "asos1min_rows": 70916,
+   "fcst_rows": 1560
+  },
+  "CHI": {
+   "metar_rows": 19764,
+   "asos1min_rows": 74792,
+   "fcst_rows": 1560
+  },
+  "ORD": {
+   "metar_rows": 19951,
+   "asos1min_rows": 72161,
+   "fcst_rows": 1560
+  },
+  "AUS": {
+   "metar_rows": 19926,
+   "asos1min_rows": 63885,
+   "fcst_rows": 1560
+  },
+  "DC": {
+   "metar_rows": 19864,
+   "asos1min_rows": 72040,
+   "fcst_rows": 1560
+  }
+ },
+ "sports": {},
+ "news": {},
+ "finished_utc": "2026-11-22T10:27:08.975626+00:00",
+ "http_requests": 101,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "weather/fcst_MIA.csv.gz": "bdf1c72def8bffb66633ae09406c13f0746cd7d635c91bce2597d9743b59217b",
+  "weather/asos1min_LAX.csv.gz": "7a3913151e85ee2b371f763e47e98b22e9c8596f683f5c39b9172e99ef0f3b99",
+  "weather/fcst_NY.csv.gz": "164005f6fde32db950b3ebd2b5fc8c9eb421d1202337ee27506762f7653ca73a",
+  "weather/metar_AUS.csv.gz": "31c22efb2b20e98e7ba57aa4591794bb9fe2cd27d23fdc944d42c88591ddc654",
+  "weather/fcst_LAX.csv.gz": "ccd36eb00e133e6240fbbba774fa2e4b7f78227b1296d753219d5affde89d916",
+  "weather/asos1min_NY.csv.gz": "53429b1dd7e55aeedf8550cfd55e717d764f595848759dd974a70eecd955ec9f",
+  "weather/fcst_DC.csv.gz": "405f47771d0a50b0050f52ca4106403f3c50d598eb15a175040d4ea1eedef580",
+  "weather/metar_NY.csv.gz": "497ed3bc2fae84ada093301c7afbaccf54e8bde5ef2dd4519cddaa945ec7b1a5",
+  "weather/metar_LAX.csv.gz": "672b5445f6c0fcf212d4fae8a646f74d6b3261079094540848d6107714eaa097",
+  "weather/asos1min_CHI.csv.gz": "548a1b727a909d583a27fc3603d7cfd4d5c7ac2a1a225a6f6c217725f3e042ba",
+  "weather/asos1min_ORD.csv.gz": "3f937063061eb26ca0e5cbf4ff83ee30c421a02600d06e9f163ce6a82cac405f",
+  "weather/asos1min_MIA.csv.gz": "23cfb6909c687f694cc44b9617472cde319b788b874bce3586ec4496375ba9a4",
+  "weather/asos1min_DC.csv.gz": "70bc24e9a22bf9f181f0d48fedb26ee3ee43f7785922b2fef01e13f33e28775e",
+  "weather/metar_CHI.csv.gz": "7e45871bff268d549a2ca5b1c4956e5d1e5f414db5d77933131defd9405a9f45",
+  "weather/metar_DC.csv.gz": "622e3fb53b7c0196322eeeaaf1b746f3d424ad5e74255468e76077cb4b1cd00a",
+  "weather/metar_ORD.csv.gz": "705724091e049bcb201215c9e8bbe3e931a9a83460f33691955341ac1c998b03",
+  "weather/metar_MIA.csv.gz": "72a7d7421c844789f1b83395edc0e8644edbb4112ed3c6c407f9b8b9ea8999cd",
+  "weather/fcst_CHI.csv.gz": "5aafc10ecd6d8ebcfed1c86111d1ca57129233201d45c0ac414cea11df71fea9",
+  "weather/fcst_AUS.csv.gz": "de3919424f6663f0b4c5aab0cc1153a0c1cfe2d2bee0d6caa15c55895bb574da",
+  "weather/fcst_ORD.csv.gz": "d0c79f608927179e208fedf8d6d764c5d1d49f4abcf0366508178212dcf549ab",
+  "weather/asos1min_AUS.csv.gz": "cfe32281c04d7ebfa52c4da0ead80052f80e7f9d43e93f212bdc87ea783da839"
+ }
+}

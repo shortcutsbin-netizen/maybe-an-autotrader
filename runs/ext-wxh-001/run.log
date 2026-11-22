@@ -1,0 +1,8 @@
+[    24.5s] weather MIA: {'metar_rows': 19861, 'asos1min_rows': 71418, 'fcst_rows': 1560}
+[    51.3s] weather NY: {'metar_rows': 1861, 'asos1min_rows': 73209, 'fcst_rows': 1560}
+[    75.5s] weather LAX: {'metar_rows': 19869, 'asos1min_rows': 70916, 'fcst_rows': 1560}
+[   102.5s] weather CHI: {'metar_rows': 19764, 'asos1min_rows': 74792, 'fcst_rows': 1560}
+[   129.7s] weather ORD: {'metar_rows': 19951, 'asos1min_rows': 72161, 'fcst_rows': 1560}
+[   153.4s] weather AUS: {'metar_rows': 19926, 'asos1min_rows': 63885, 'fcst_rows': 1560}
+[   177.6s] weather DC: {'metar_rows': 19864, 'asos1min_rows': 72040, 'fcst_rows': 1560}
+[   177.6s] done requests=101 errors=0
