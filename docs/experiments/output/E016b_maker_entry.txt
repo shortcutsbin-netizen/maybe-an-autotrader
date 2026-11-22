@@ -1,0 +1,39 @@
+/home/claude/e012_sig_P8.csv: 4864 signals
+/home/claude/e012_sig_P_sol.csv: 312 signals
+/home/claude/e010_sig_thr.csv: 413 signals
+/home/claude/e010_sig_val.csv: 679 signals
+/home/claude/e010_sig_test.csv: 638 signals
+/home/claude/e012_sig_Q.csv: 328 signals
+
+all sets: 7234 signals, 145 days
+variant                 fill%  per fill               CI  per signal
+touch_k1_w5              74.4    +9.45c [ +7.72,+11.09]      +7.03c
+through_k1_w5            66.8    +7.93c [ +6.17, +9.63]      +5.30c
+touch_k1_w15             82.3    +9.30c [ +7.68,+10.87]      +7.66c
+through_k1_w15           76.5    +7.93c [ +6.32, +9.52]      +6.07c
+touch_k1_w30             85.2    +9.24c [ +7.60,+10.80]      +7.87c
+through_k1_w30           80.4    +7.93c [ +6.33, +9.47]      +6.38c
+touch_k1_w60             87.3    +8.99c [ +7.39,+10.54]      +7.85c
+through_k1_w60           82.9    +7.69c [ +6.05, +9.29]      +6.38c
+touch_k2_w5              72.6    +9.92c [ +8.18,+11.53]      +7.20c
+through_k2_w5            62.5    +7.75c [ +6.07, +9.45]      +4.84c
+touch_k2_w15             80.8    +9.70c [ +8.08,+11.23]      +7.84c
+through_k2_w15           73.1    +7.75c [ +6.09, +9.46]      +5.67c
+touch_k2_w30             83.8    +9.69c [ +8.03,+11.25]      +8.12c
+through_k2_w30           77.6    +7.80c [ +6.14, +9.40]      +6.05c
+touch_k2_w60             86.0    +9.40c [ +7.75,+10.98]      +8.09c
+through_k2_w60           80.5    +7.51c [ +5.88, +9.14]      +6.04c
+touch_k3_w5              71.2   +10.18c [ +8.47,+11.77]      +7.25c
+through_k3_w5            59.3    +7.75c [ +5.93, +9.54]      +4.60c
+touch_k3_w15             79.7    +9.87c [ +8.30,+11.42]      +7.87c
+through_k3_w15           70.7    +7.69c [ +6.03, +9.39]      +5.44c
+touch_k3_w30             82.8    +9.92c [ +8.31,+11.47]      +8.22c
+through_k3_w30           75.6    +7.68c [ +6.03, +9.34]      +5.81c
+touch_k3_w60             85.2    +9.60c [ +8.00,+11.11]      +8.17c
+through_k3_w60           78.8    +7.43c [ +5.76, +9.09]      +5.86c
+  e010_sig_test.csv: through_k1_w15 fill 77.0%, per fill +9.43c, per signal +7.26c
+  e010_sig_thr.csv: through_k1_w15 fill 76.8%, per fill +6.13c, per signal +4.70c
+  e010_sig_val.csv: through_k1_w15 fill 75.7%, per fill +10.29c, per signal +7.79c
+  e012_sig_P8.csv: through_k1_w15 fill 75.3%, per fill +8.09c, per signal +6.10c
+  e012_sig_P_sol.csv: through_k1_w15 fill 88.5%, per fill +2.63c, per signal +2.32c
+  e012_sig_Q.csv: through_k1_w15 fill 82.3%, per fill +6.07c, per signal +4.99c

@@ -1,0 +1,1 @@
+{"name": "trades-thr04-0", "script": "kalshi_trades_pull.py", "tickers_file": "research/collect/requests/lists_thr04_0.txt", "historical": true, "pause": 0.1, "max_pages": 80, "max_minutes": 320}
