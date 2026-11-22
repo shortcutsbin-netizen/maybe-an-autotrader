@@ -1,0 +1,1 @@
+{"name": "ranges-001", "script": "kalshi_events_pull.py", "series": ["KXBTC","KXETH","KXSOLE","KXXRP","KXDOGE"], "start": "2026-11-01T00:00:00Z", "end": "2026-11-22T10:00:00Z", "historical": true, "lookback_hours": 1.0, "resample_min": 1, "pause": 0.12}
