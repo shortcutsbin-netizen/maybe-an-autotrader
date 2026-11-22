@@ -85,7 +85,7 @@ def pull_weather(cfg, d0, d1, out, man):
             u = ("https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?" +
                  f"station={st['iem']}&data=tmpf&data=dwpf&data=sknt&data=skyc1&year1={a.year}&month1={a.month}&day1={a.day}"
                  f"&year2={b2.year}&month2={b2.month}&day2={b2.day}&tz=Etc/UTC&format=onlycomma&latlon=no&missing=M&trace=T"
-                 "&direct=no&report_type=3&report_type=4")
+                 "&direct=no" + "".join(f"&report_type={r}" for r in cfg.get("metar_report_types", [3, 4])))
             txt, err = get(u, pause=1.0, raw=True)
             if err:
                 STATE["errors"].append(f"metar {key} {a}: {err}")
