@@ -533,6 +533,8 @@ See the numbered list in the chat message accompanying this version, mirrored in
 | E12 | S1-D-M: maker entry (rest 1 tick inside the ask, 15 s) | No taker fee; far less latency-sensitive | E016b, all six sets positive | small | Lower fill rate; adverse selection | **Yes, in parallel in paper mode** |
 | E13 | S1-D-L: hourly ladder strikes for BNB/DOGE | Extra signals | E015b (n=52, candle fills) | small | Thin books; weak evidence | Observe-only |
 | E14 | Pyth Pro subscription to test the dislocation idea on 15-min gold/WTI | Same mechanism may exist | none (feed unavailable) | ≥ $500/month | Paid dependency, unproven | **No** |
+| E15 | Paper-only stale-price taker on ProphetX / Novig sports, fair price from Kalshi and Polymarket US books | Same mechanism as S1-D on newer, thinner books; both exchanges allow API trading | none yet (2026-11-22 desk research) | small (read-only module) | Unknown edge; state availability; account needed only for live | **Proposed, awaiting approval** |
+| E16 | Paper-only Kalshi ↔ Polymarket US cross-venue arbitrage scanner | Riskless when present | third-party reports only; mostly gone after fees | small | Resolution-wording risk; long-dated capital lock | **Proposed, awaiting approval** |
 | E10 | Kalshi read-only API key during Phase 4 (WebSocket order books, CF Benchmarks settlement index) | Faster data, exact settlement input | E006: edge decays over 10–20 s, so speed matters | Small | Contradicts "no account until live" unless the user agrees | Optional — user's call |
 
 ---
