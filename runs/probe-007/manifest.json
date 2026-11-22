@@ -1,0 +1,87 @@
+{
+ "wi_miami": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/miami?last_sec=1800",
+  "status": 200,
+  "bytes": 1667
+ },
+ "wi_nyc": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/nyc?last_sec=1800",
+  "status": 200,
+  "bytes": 1709
+ },
+ "wi_new_york": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/new_york?last_sec=1800",
+  "status": 400,
+  "bytes": 508
+ },
+ "wi_newyork": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/newyork?last_sec=1800",
+  "status": 400,
+  "bytes": 506
+ },
+ "wi_chicago": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/chicago?last_sec=1800",
+  "status": 200,
+  "bytes": 1741
+ },
+ "wi_chicago_metro": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/chicago-metro?last_sec=1800",
+  "status": 400,
+  "bytes": 518
+ },
+ "wi_los_angeles": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/los_angeles?last_sec=1800",
+  "status": 400,
+  "bytes": 514
+ },
+ "wi_la": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/la?last_sec=1800",
+  "status": 400,
+  "bytes": 496
+ },
+ "wi_austin": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/austin?last_sec=1800",
+  "status": 400,
+  "bytes": 504
+ },
+ "wi_dc": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/dc?last_sec=1800",
+  "status": 400,
+  "bytes": 496
+ },
+ "wi_washington_dc": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/washington-dc?last_sec=1800",
+  "status": 400,
+  "bytes": 518
+ },
+ "wi_coastal_la": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/coastal-la?last_sec=1800",
+  "status": 400,
+  "bytes": 512
+ },
+ "wi_nyc_metro": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/nyc-metro?last_sec=1800",
+  "status": 400,
+  "bytes": 510
+ },
+ "wi_miami_hist": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/miami?from=1792022400000&to=1792108800000",
+  "status": 200,
+  "bytes": 93385
+ },
+ "wi_miami_old": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/miami?from=1788566400000&to=1788652800000",
+  "status": 200,
+  "bytes": 53
+ },
+ "wi_miami_detailed": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/miami?last_sec=600&detailed=true",
+  "status": 200,
+  "bytes": 4737
+ },
+ "wi_miami_7d": {
+  "url": "https://api.elections.kalshi.com/trade-api/v2/live_data/weather/miami?from=1792022400000&to=1792627200000",
+  "status": 200,
+  "bytes": 400000
+ }
+}
