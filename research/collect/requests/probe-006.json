@@ -1,0 +1,9 @@
+{"name": "probe-006", "script": "probe.py", "max_bytes": 3000000,
+ "urls": {
+  "inc_active": "https://api.elections.kalshi.com/trade-api/v2/incentive_programs?status=active&limit=10000",
+  "inc_all": "https://api.elections.kalshi.com/trade-api/v2/incentive_programs?status=all&limit=10000",
+  "inc_closed_liq": "https://api.elections.kalshi.com/trade-api/v2/incentive_programs?status=closed&type=liquidity&limit=10000",
+  "inc_upcoming": "https://api.elections.kalshi.com/trade-api/v2/incentive_programs?status=upcoming&limit=10000",
+  "inc_sched": "https://api.elections.kalshi.com/trade-api/v2/incentive_schedules?limit=1000",
+  "ext_inc_active": "https://external-api.kalshi.com/trade-api/v2/incentive_programs?status=active&limit=10000"
+ }}
