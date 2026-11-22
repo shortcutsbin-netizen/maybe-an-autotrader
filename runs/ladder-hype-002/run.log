@@ -1,0 +1,20 @@
+[     3.7s] KXHYPE15M: 5825 markets (0 hist)
+[   183.4s] KXHYPED: 416070 markets (0 hist)
+[   185.5s] KXHYPED: kept 9228 of 416070 markets within 1.0% of the 15-min strike
+[   186.0s] KXHYPED candles: event 1/1439 rows=62 errors=0
+[   214.0s] KXHYPED candles: event 101/1439 rows=9744 errors=0
+[   241.2s] KXHYPED candles: event 201/1439 rows=18359 errors=0
+[   268.9s] KXHYPED candles: event 301/1439 rows=26529 errors=0
+[   296.3s] KXHYPED candles: event 401/1439 rows=34365 errors=0
+[   327.9s] KXHYPED candles: event 501/1439 rows=42022 errors=0
+[   355.5s] KXHYPED candles: event 601/1439 rows=49209 errors=0
+[   383.7s] KXHYPED candles: event 701/1439 rows=58977 errors=0
+[   410.8s] KXHYPED candles: event 801/1439 rows=67934 errors=0
+[   437.9s] KXHYPED candles: event 901/1439 rows=76901 errors=0
+[   465.6s] KXHYPED candles: event 1001/1439 rows=85945 errors=0
+[   493.5s] KXHYPED candles: event 1101/1439 rows=94163 errors=0
+[   522.1s] KXHYPED candles: event 1201/1439 rows=103667 errors=0
+[   550.0s] KXHYPED candles: event 1301/1439 rows=112730 errors=0
+[   577.7s] KXHYPED candles: event 1401/1439 rows=119354 errors=0
+[   588.3s] KXHYPED: done {'markets': 9228, 'candle_rows': 122342, 'markets_without_candles': 33}
+[   588.3s] done requests=1871 errors=0
