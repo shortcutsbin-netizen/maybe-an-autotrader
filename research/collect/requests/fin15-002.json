@@ -1,0 +1,1 @@
+{"name": "fin15-002", "series": ["KXEURUSD15M","KXGBPUSD15M","KXUSDJPY15M","KXUSDCAD15M","KXAUDUSD15M","KXINX15M","KX10YRRATE15M","KX30YRRATE15M","KX2YRRATE15M","KX5YRRATE15M"], "days": 61.4, "end": "2026-11-22T10:00:00Z", "candles": true, "spot": false, "historical": true, "discover": false, "pause": 0.15}
