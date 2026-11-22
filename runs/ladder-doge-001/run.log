@@ -1,0 +1,5 @@
+[     2.2s] KXDOGE15M: 5825 markets (0 hist)
+[    23.4s] KXDOGED: 73678 markets (0 hist)
+[    23.5s] KXDOGED: kept 0 of 73678 markets within 1.5% of the 15-min strike
+[    23.6s] KXDOGED: done {'markets': 0, 'candle_rows': 0, 'markets_without_candles': 0}
+[    23.6s] done requests=84 errors=0
