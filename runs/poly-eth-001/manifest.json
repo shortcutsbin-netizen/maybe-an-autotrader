@@ -1,0 +1,33 @@
+{
+ "request": {
+  "name": "poly-eth-001",
+  "script": "poly_pull.py",
+  "coins": [
+   "eth"
+  ],
+  "start": "2026-06-01T00:00:00Z",
+  "end": "2026-11-21T05:00:00Z",
+  "pause": 0.1,
+  "max_minutes": 335
+ },
+ "started_utc": "2026-11-22T10:33:45Z",
+ "coins": {
+  "eth": {
+   "windows": 16617,
+   "missing": 11,
+   "no_history": 0,
+   "price_points": 346278
+  }
+ },
+ "finished_utc": "2026-11-22T13:31:42Z",
+ "http_requests": 33245,
+ "retries": 0,
+ "error_count": 0,
+ "errors_first_50": [],
+ "sha256": {
+  "samples/hist_eth.json": "118348d3af3ea7dadf14677a777bca95e6e3c066e7f3807a110329ae0fbfa523",
+  "samples/gamma_eth.json": "d4f9d8a92cccf0cbdf1115e862044a5dd498153f878026c0429eccb0c6c807f7",
+  "poly/eth_windows.csv.gz": "3875a4ad32d1412faadce96462ec43c9fb3491229dfd652486160da564c78eb9",
+  "poly/eth_prices.csv.gz": "5b69531dd59d23722adc85dacbfac895f842642629e2bbf86364327fc595e1fb"
+ }
+}
