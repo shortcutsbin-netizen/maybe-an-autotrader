@@ -1,0 +1,1 @@
+{"name": "poly-smoke-001", "script": "poly_pull.py", "coins": ["btc", "doge", "bnb", "hype"], "start": "2026-11-21T15:00:00Z", "end": "2026-11-21T16:00:00Z", "pause": 0.12}
