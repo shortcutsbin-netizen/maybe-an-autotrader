@@ -1,0 +1,20 @@
+[     3.4s] KXDOGE15M: 5825 markets (0 hist)
+[    34.5s] KXDOGED: 73678 markets (0 hist)
+[    34.8s] KXDOGED: kept 5756 of 73678 markets within 1.0% of the 15-min strike
+[    35.2s] KXDOGED candles: event 1/1439 rows=43 errors=0
+[    61.7s] KXDOGED candles: event 101/1439 rows=6127 errors=0
+[    88.1s] KXDOGED candles: event 201/1439 rows=12065 errors=0
+[   114.8s] KXDOGED candles: event 301/1439 rows=18323 errors=0
+[   141.1s] KXDOGED candles: event 401/1439 rows=23863 errors=0
+[   167.0s] KXDOGED candles: event 501/1439 rows=30057 errors=0
+[   193.7s] KXDOGED candles: event 601/1439 rows=35775 errors=0
+[   220.3s] KXDOGED candles: event 701/1439 rows=41607 errors=0
+[   247.0s] KXDOGED candles: event 801/1439 rows=47087 errors=0
+[   273.2s] KXDOGED candles: event 901/1439 rows=52685 errors=0
+[   299.9s] KXDOGED candles: event 1001/1439 rows=58788 errors=0
+[   326.6s] KXDOGED candles: event 1101/1439 rows=64769 errors=0
+[   352.6s] KXDOGED candles: event 1201/1439 rows=70915 errors=0
+[   379.3s] KXDOGED candles: event 1301/1439 rows=76162 errors=0
+[   406.2s] KXDOGED candles: event 1401/1439 rows=81247 errors=0
+[   416.4s] KXDOGED: done {'markets': 5756, 'candle_rows': 83128, 'markets_without_candles': 1}
+[   416.4s] done requests=1523 errors=0
